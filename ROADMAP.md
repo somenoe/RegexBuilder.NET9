@@ -62,8 +62,9 @@
 - [x] **Substitution Pattern Audit** (Verify `SubstitutionBuilder` completeness)
   - Verify support: `$number`, `${name}`, `$$`, `$&`, `` $` ``, `$'`, `$+`, `$_`
   - ✅ COMPLETED: All 8 substitution patterns fully supported with comprehensive tests (47 tests passing)
-- [ ] **Balancing Groups** `(?<name1-name2>expr)`
+- [x] **Balancing Groups** `(?<name1-name2>expr)`
   - For nested/balanced pattern matching (parentheses, XML tags, code blocks)
+  - ✅ COMPLETED: Full support for both two-name `(?<name1-name2>expr)` and single-name `(?<name>-expr)` balancing groups with quantifier support
 
 ### 🟡 LOW PRIORITY
 

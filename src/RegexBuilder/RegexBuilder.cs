@@ -506,6 +506,62 @@ namespace RegexBuilder
         }
 
         /// <summary>
+        /// Generates a balancing group that pushes to one named stack and pops from another.
+        /// Used for matching nested/balanced constructs like parentheses, XML tags, or code blocks.
+        /// Syntax: (?&lt;name1-name2&gt;expr)
+        /// </summary>
+        /// <param name="pushGroupName">Name of group to push matched text onto.</param>
+        /// <param name="popGroupName">Name of group to pop from stack.</param>
+        /// <param name="innerExpression">The inner expression to match.</param>
+        /// <returns>An instance of RegexNode containing the balancing group.</returns>
+        public static RegexNodeBalancingGroup BalancingGroup(string pushGroupName, string popGroupName, RegexNode innerExpression)
+        {
+            return new RegexNodeBalancingGroup(pushGroupName, popGroupName, innerExpression);
+        }
+
+        /// <summary>
+        /// Generates a balancing group that pushes to one named stack and pops from another, with a quantifier.
+        /// Used for matching nested/balanced constructs like parentheses, XML tags, or code blocks.
+        /// Syntax: (?&lt;name1-name2&gt;expr)
+        /// </summary>
+        /// <param name="pushGroupName">Name of group to push matched text onto.</param>
+        /// <param name="popGroupName">Name of group to pop from stack.</param>
+        /// <param name="innerExpression">The inner expression to match.</param>
+        /// <param name="quantifier">Node quantifier.</param>
+        /// <returns>An instance of RegexNode containing the balancing group.</returns>
+        public static RegexNodeBalancingGroup BalancingGroup(string pushGroupName, string popGroupName, RegexNode innerExpression, RegexQuantifier quantifier)
+        {
+            return new RegexNodeBalancingGroup(pushGroupName, popGroupName, innerExpression) { Quantifier = quantifier };
+        }
+
+        /// <summary>
+        /// Generates a simple balancing group that only uses one stack.
+        /// Used for matching nested/balanced constructs like parentheses, XML tags, or code blocks.
+        /// Syntax: (?&lt;name&gt;-expr)
+        /// </summary>
+        /// <param name="groupName">Name of group to push onto the stack.</param>
+        /// <param name="innerExpression">The inner expression to match.</param>
+        /// <returns>An instance of RegexNode containing the simple balancing group.</returns>
+        public static RegexNodeBalancingGroup SimpleBalancingGroup(string groupName, RegexNode innerExpression)
+        {
+            return new RegexNodeBalancingGroup(groupName, innerExpression);
+        }
+
+        /// <summary>
+        /// Generates a simple balancing group that only uses one stack, with a quantifier.
+        /// Used for matching nested/balanced constructs like parentheses, XML tags, or code blocks.
+        /// Syntax: (?&lt;name&gt;-expr)
+        /// </summary>
+        /// <param name="groupName">Name of group to push onto the stack.</param>
+        /// <param name="innerExpression">The inner expression to match.</param>
+        /// <param name="quantifier">Node quantifier.</param>
+        /// <returns>An instance of RegexNode containing the simple balancing group.</returns>
+        public static RegexNodeBalancingGroup SimpleBalancingGroup(string groupName, RegexNode innerExpression, RegexQuantifier quantifier)
+        {
+            return new RegexNodeBalancingGroup(groupName, innerExpression) { Quantifier = quantifier };
+        }
+
+        /// <summary>
         /// Generates an alternation expression with two options ("a|b").
         /// </summary>
         /// <param name="expression1">First option.</param>

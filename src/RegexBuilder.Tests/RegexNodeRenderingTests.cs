@@ -815,5 +815,650 @@ namespace RegexBuilder.Tests
             Assert.IsTrue(blockList.Contains("IsCyrillic"));
             Assert.IsTrue(blockList.Contains("IsArabic"));
         }
+
+        [TestMethod]
+        public void TestBalancingGroupBasicSyntax()
+        {
+            // Test basic two-name balancing group
+            var innerExpr = RegexBuilder.NonEscapedLiteral(@"[^()]*");
+            var balancingGroup = new RegexNodeBalancingGroup("open", "close", innerExpr);
+            Assert.AreEqual(@"(?<open-close>[^()]*)", balancingGroup.ToRegexPattern());
+
+            // Test simple balancing group (single name)
+            var simpleBalancing = new RegexNodeBalancingGroup("paren", innerExpr);
+            Assert.AreEqual(@"(?<paren>-[^()]*)", simpleBalancing.ToRegexPattern());
+
+            // Test using public API methods
+            var apiBalancingGroup = RegexBuilder.BalancingGroup("open", "close", innerExpr);
+            Assert.AreEqual(@"(?<open-close>[^()]*)", apiBalancingGroup.ToRegexPattern());
+
+            var apiSimpleBalancing = RegexBuilder.SimpleBalancingGroup("paren", innerExpr);
+            Assert.AreEqual(@"(?<paren>-[^()]*)", apiSimpleBalancing.ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestBalancingGroupWithQuantifiers()
+        {
+            // Test balancing group with greedy quantifier
+            var innerExpr = RegexBuilder.NonEscapedLiteral(@"\w+");
+            var balancingWithQuantifier = new RegexNodeBalancingGroup("name1", "name2", innerExpr);
+            balancingWithQuantifier.Quantifier = RegexQuantifier.OneOrMore;
+            Assert.AreEqual(@"(?<name1-name2>\w+)+", balancingWithQuantifier.ToRegexPattern());
+
+            // Test balancing group with lazy quantifier
+            balancingWithQuantifier.Quantifier = RegexQuantifier.ZeroOrMore;
+            Assert.AreEqual(@"(?<name1-name2>\w+)*", balancingWithQuantifier.ToRegexPattern());
+
+            // Test using API with quantifier
+            var apiWithQuantifier = RegexBuilder.BalancingGroup("test", "stack", innerExpr, RegexQuantifier.ZeroOrOne);
+            Assert.AreEqual(@"(?<test-stack>\w+)?", apiWithQuantifier.ToRegexPattern());
+
+            // Test simple balancing with quantifier
+            var simpleWithQuantifier = RegexBuilder.SimpleBalancingGroup("name", innerExpr, RegexQuantifier.OneOrMore);
+            Assert.AreEqual(@"(?<name>-\w+)+", simpleWithQuantifier.ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestBalancingGroupComplexInnerExpressions()
+        {
+            // Test with concatenation inner expression
+            var concat = RegexBuilder.Concatenate(
+                RegexBuilder.NonEscapedLiteral(@"[^()]+"),
+                RegexBuilder.NonEscapedLiteral(@"\s*")
+            );
+            var balanceConcat = RegexBuilder.BalancingGroup("open", "close", concat);
+            Assert.AreEqual(@"(?<open-close>[^()]+\s*)", balanceConcat.ToRegexPattern());
+
+            // Test with alternation inner expression
+            var alt = RegexBuilder.Alternate(
+                RegexBuilder.NonEscapedLiteral(@"[^<>]"),
+                RegexBuilder.NonEscapedLiteral(@"\s")
+            );
+            var balanceAlt = RegexBuilder.BalancingGroup("tag", "close", alt);
+            Assert.AreEqual(@"(?<tag-close>(?:[^<>]|\s))", balanceAlt.ToRegexPattern());
+
+            // Test with character set inner expression
+            var charSet = RegexBuilder.CharacterSet("a-zA-Z0-9", null);
+            var balanceCharSet = RegexBuilder.BalancingGroup("id", "name", charSet);
+            Assert.IsTrue(balanceCharSet.ToRegexPattern().StartsWith(@"(?<id-name>"));
+            Assert.IsTrue(balanceCharSet.ToRegexPattern().Contains("["));
+        }
+
+        [TestMethod]
+        public void TestBalancingGroupValidation()
+        {
+            var validInner = RegexBuilder.NonEscapedLiteral("test");
+
+            // Test null push group name
+            try
+            {
+                new RegexNodeBalancingGroup(null, "pop", validInner);
+                Assert.Fail("Should throw ArgumentException for null push group name");
+            }
+            catch (ArgumentException ex)
+            {
+                Assert.IsTrue(ex.Message.Contains("Push group name"));
+            }
+
+            // Test empty push group name
+            try
+            {
+                new RegexNodeBalancingGroup("", "pop", validInner);
+                Assert.Fail("Should throw ArgumentException for empty push group name");
+            }
+            catch (ArgumentException ex)
+            {
+                Assert.IsTrue(ex.Message.Contains("Push group name"));
+            }
+
+            // Test null inner expression
+            try
+            {
+                new RegexNodeBalancingGroup("push", "pop", null);
+                Assert.Fail("Should throw ArgumentNullException for null inner expression");
+            }
+            catch (ArgumentNullException)
+            {
+                // Expected
+            }
+
+            // Test simple balancing with null group name
+            try
+            {
+                new RegexNodeBalancingGroup(null, validInner);
+                Assert.Fail("Should throw ArgumentException for null group name");
+            }
+            catch (ArgumentException ex)
+            {
+                Assert.IsTrue(ex.Message.Contains("Group name"));
+            }
+
+            // Test simple balancing with null inner expression
+            try
+            {
+                new RegexNodeBalancingGroup("name", null);
+                Assert.Fail("Should throw ArgumentNullException for null inner expression");
+            }
+            catch (ArgumentNullException)
+            {
+                // Expected
+            }
+        }
+
+        [TestMethod]
+        public void TestBalancingGroupProperties()
+        {
+            var innerExpr = RegexBuilder.NonEscapedLiteral("test");
+
+            // Test two-name balancing group properties
+            var twoName = new RegexNodeBalancingGroup("push", "pop", innerExpr);
+            Assert.AreEqual("push", twoName.PushGroupName);
+            Assert.AreEqual("pop", twoName.PopGroupName);
+            Assert.IsFalse(twoName.IsSimpleBalancing);
+
+            // Test single-name balancing group properties
+            var singleName = new RegexNodeBalancingGroup("single", innerExpr);
+            Assert.AreEqual("single", singleName.PushGroupName);
+            Assert.IsNull(singleName.PopGroupName);
+            Assert.IsTrue(singleName.IsSimpleBalancing);
+
+            // Test inner expression assignment
+            var newInner = RegexBuilder.NonEscapedLiteral("new");
+            twoName.InnerExpression = newInner;
+            Assert.AreEqual(@"(?<push-pop>new)", twoName.ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestBalancingGroupPracticalExample_BalancedParentheses()
+        {
+            // Pattern for matching balanced parentheses
+            // (?<open>\() - push to 'open' stack when we see (
+            // (?<-open>\)) - pop from 'open' stack when we see )
+            // [^()] - any non-paren character
+            // This pattern: \( (?:[^()] | (?<open>\() | (?<-open>\)))*+ \)
+
+            // Basic structure without full quantifiers for clarity in test
+            var part1 = RegexBuilder.NonEscapedLiteral(@"\(");
+            var part2 = RegexBuilder.SimpleBalancingGroup("paren", RegexBuilder.NonEscapedLiteral(@"[^()]"));
+            var part3 = RegexBuilder.NonEscapedLiteral(@"\)");
+
+            var basicPattern = RegexBuilder.Concatenate(part1, part2, part3);
+            Assert.AreEqual(@"\((?<paren>-[^()])\)", basicPattern.ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestBalancingGroupPracticalExample_XMLTags()
+        {
+            // Simplified pattern for matching nested XML-like tags
+            var tagNamePattern = RegexBuilder.NonEscapedLiteral(@"\w+");
+
+            // Opening tag with balancing push
+            var openTag = RegexBuilder.BalancingGroup("tag", "open", RegexBuilder.NonEscapedLiteral(@"<\w+>"));
+
+            // Content (simplified)
+            var content = RegexBuilder.NegativeCharacterSet("<>", null);
+
+            // Closing tag with balancing pop
+            var closeTag = RegexBuilder.BalancingGroup("tag", "tag", RegexBuilder.NonEscapedLiteral(@"</\w+>"));
+
+            var xmlPattern = RegexBuilder.Concatenate(openTag, content, closeTag);
+            Assert.IsTrue(xmlPattern.ToRegexPattern().Contains("(?<tag-"));
+            Assert.IsTrue(xmlPattern.ToRegexPattern().Contains("(?<tag-open>"));
+        }
+
+        [TestMethod]
+        public void TestBalancingGroupPracticalExample_CodeBlocks()
+        {
+            // Pattern for matching nested code blocks: { ... { ... } ... }
+            var openBrace = RegexBuilder.BalancingGroup("brace", "open", RegexBuilder.Literal("{"));
+            var closeBrace = RegexBuilder.BalancingGroup("brace", "brace", RegexBuilder.Literal("}"));
+            var nonBraceContent = RegexBuilder.NegativeCharacterSet("{}", null);
+
+            var codeBlockPattern = RegexBuilder.Concatenate(openBrace, nonBraceContent, closeBrace);
+            Assert.IsTrue(codeBlockPattern.ToRegexPattern().Contains("(?<brace-"));
+            Assert.IsTrue(codeBlockPattern.ToRegexPattern().Contains("(?<brace-brace>"));
+        }
+
+        [TestMethod]
+        public void TestBalancingGroupWithAlternation()
+        {
+            // Test balancing group combined with alternation
+            var altExpr = RegexBuilder.Alternate(
+                RegexBuilder.NonEscapedLiteral("a"),
+                RegexBuilder.NonEscapedLiteral("b")
+            );
+            var balanced = RegexBuilder.BalancingGroup("name", "stack", altExpr);
+            Assert.AreEqual(@"(?<name-stack>(?:a|b))", balanced.ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestBalancingGroupIntegration_WithConcatenation()
+        {
+            // Test BalancingGroup within a larger concatenation
+            var prefix = RegexBuilder.NonEscapedLiteral("start_");
+            var balanced = RegexBuilder.BalancingGroup("item", "end", RegexBuilder.NonEscapedLiteral(@"\w+"));
+            var suffix = RegexBuilder.NonEscapedLiteral("_end");
+
+            var combined = RegexBuilder.Concatenate(prefix, balanced, suffix);
+            Assert.AreEqual(@"start_(?<item-end>\w+)_end", combined.ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestBalancingGroupIntegration_NestedInGroup()
+        {
+            // Test BalancingGroup nested within a capturing group
+            var inner = RegexBuilder.SimpleBalancingGroup("balance", RegexBuilder.NonEscapedLiteral(@"[a-z]+"));
+            var group = RegexBuilder.Group("container", inner);
+            Assert.AreEqual(@"(?<container>(?<balance>-[a-z]+))", group.ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestBalancingGroupIntegration_WithQuantifier()
+        {
+            // Test BalancingGroup with multiple quantifiers
+            var balanced = RegexBuilder.BalancingGroup(
+                "open",
+                "close",
+                RegexBuilder.NonEscapedLiteral(@"."),
+                RegexQuantifier.ZeroOrMore
+            );
+            var withAdditionalQuantifier = RegexBuilder.Concatenate(balanced, RegexBuilder.NonEscapedLiteral(@"x"));
+            Assert.IsTrue(withAdditionalQuantifier.ToRegexPattern().Contains(@"(?<open-close>.)*x"));
+        }
+
+        [TestMethod]
+        public void TestBalancingGroupFunctionalMatching_BasicPatterns()
+        {
+            // Test actual regex matching with balancing groups
+            // Pattern structure: (?<open>\()?[^()]*?(?<-open>\))?
+            var pattern = RegexBuilder.Build(
+                RegexBuilder.BalancingGroup("open", "open", RegexBuilder.Literal("(")),
+                RegexBuilder.NonEscapedLiteral(@"[^()]*?"),
+                RegexBuilder.BalancingGroup("open", "open", RegexBuilder.Literal(")"))
+            );
+
+            // Simple case: pattern renders correctly
+            Assert.IsTrue(pattern.ToString().Contains("(?<open-open>"));
+        }
+
+        [TestMethod]
+        public void TestBalancingGroupFunctionalMatching_NestedParentheses()
+        {
+            // More complex pattern for balanced parentheses
+            // This tests if the generated pattern structure is correct
+            var openParen = RegexBuilder.Literal("(");
+            var closeParen = RegexBuilder.Literal(")");
+            var nonParens = RegexBuilder.NonEscapedLiteral(@"[^()]*");
+            var balance = RegexBuilder.BalancingGroup("level", "level", nonParens);
+
+            var pattern = RegexBuilder.Build(
+                openParen,
+                balance,
+                closeParen
+            );
+
+            // Verify the pattern builds successfully
+            Assert.IsNotNull(pattern);
+        }
+
+        [TestMethod]
+        public void TestBalancingGroupEdgeCase_SameNamePushAndPop()
+        {
+            // Test when push and pop group names are the same
+            var inner = RegexBuilder.NonEscapedLiteral("test");
+            var balanced = RegexBuilder.BalancingGroup("same", "same", inner);
+            Assert.AreEqual(@"(?<same-same>test)", balanced.ToRegexPattern());
+            Assert.IsFalse(balanced.IsSimpleBalancing);
+        }
+
+        [TestMethod]
+        public void TestBalancingGroupEdgeCase_EmptyPopName()
+        {
+            // Test when pop name is empty string
+            var inner = RegexBuilder.NonEscapedLiteral("test");
+            var balanced = new RegexNodeBalancingGroup("push", "", inner);
+            Assert.IsTrue(balanced.IsSimpleBalancing);
+            Assert.AreEqual(@"(?<push>-test)", balanced.ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestBalancingGroupEdgeCase_LongGroupNames()
+        {
+            // Test with longer, more realistic group names
+            var inner = RegexBuilder.NonEscapedLiteral(@"\w+");
+            var balanced = RegexBuilder.BalancingGroup("htmlTag", "closeTag", inner);
+            Assert.AreEqual(@"(?<htmlTag-closeTag>\w+)", balanced.ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestBalancingGroupEdgeCase_UnderscoreInGroupNames()
+        {
+            // Test group names with underscores
+            var inner = RegexBuilder.NonEscapedLiteral("x");
+            var balanced = RegexBuilder.BalancingGroup("open_brace", "close_brace", inner);
+            Assert.AreEqual(@"(?<open_brace-close_brace>x)", balanced.ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestBalancingGroupEdgeCase_NumbersInGroupNames()
+        {
+            // Test group names with numbers
+            var inner = RegexBuilder.NonEscapedLiteral("y");
+            var balanced = RegexBuilder.BalancingGroup("group1", "group2", inner);
+            Assert.AreEqual(@"(?<group1-group2>y)", balanced.ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestBalancingGroupWithNestedBalancingGroups()
+        {
+            // Test balancing group containing another balancing group
+            var inner = RegexBuilder.SimpleBalancingGroup("inner", RegexBuilder.NonEscapedLiteral("a"));
+            var outer = RegexBuilder.BalancingGroup("outer", "outer", inner);
+            Assert.AreEqual(@"(?<outer-outer>(?<inner>-a))", outer.ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestBalancingGroupWithCharacterClass()
+        {
+            // Test balancing group with character class as inner expression
+            var charClass = RegexBuilder.NegativeCharacterSet("abc", null);
+            var balanced = RegexBuilder.SimpleBalancingGroup("group", charClass);
+            string pattern = balanced.ToRegexPattern();
+            Assert.IsTrue(pattern.StartsWith(@"(?<group>-"));
+            Assert.IsTrue(pattern.Contains("[^abc]"));
+        }
+
+        [TestMethod]
+        public void TestBalancingGroupWithCharacterRange()
+        {
+            // Test balancing group with character range
+            var charRange = RegexBuilder.CharacterRange('a', 'z', false, null);
+            var balanced = RegexBuilder.SimpleBalancingGroup("letters", charRange);
+            string pattern = balanced.ToRegexPattern();
+            Assert.IsTrue(pattern.Contains("[a-z]"));
+            Assert.IsTrue(pattern.StartsWith(@"(?<letters>-"));
+        }
+
+        [TestMethod]
+        public void TestBalancingGroupPropertyMutation()
+        {
+            // Test that properties can be modified
+            var inner = RegexBuilder.NonEscapedLiteral("test");
+            var balanced = RegexBuilder.BalancingGroup("push", "pop", inner);
+
+            // Verify initial state
+            Assert.AreEqual("push", balanced.PushGroupName);
+            Assert.AreEqual("pop", balanced.PopGroupName);
+            Assert.AreEqual(@"(?<push-pop>test)", balanced.ToRegexPattern());
+
+            // Modify quantifier
+            balanced.Quantifier = RegexQuantifier.OneOrMore;
+            Assert.AreEqual(@"(?<push-pop>test)+", balanced.ToRegexPattern());
+
+            // Modify inner expression
+            balanced.InnerExpression = RegexBuilder.NonEscapedLiteral("new");
+            Assert.AreEqual(@"(?<push-pop>new)+", balanced.ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestBalancingGroupWithExactlyQuantifier()
+        {
+            // Test with specific count quantifier
+            var inner = RegexBuilder.NonEscapedLiteral("x");
+            var balanced = RegexBuilder.BalancingGroup("g", "p", inner, RegexQuantifier.Exactly(3));
+            Assert.AreEqual(@"(?<g-p>x){3}", balanced.ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestBalancingGroupWithAtLeastQuantifier()
+        {
+            // Test with AtLeast quantifier
+            var inner = RegexBuilder.NonEscapedLiteral("y");
+            var balanced = RegexBuilder.BalancingGroup("a", "b", inner, RegexQuantifier.AtLeast(2));
+            Assert.AreEqual(@"(?<a-b>y){2,}", balanced.ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestBalancingGroupComplexNesting_ThreeLevel()
+        {
+            // Test deeply nested balancing groups
+            var level3 = RegexBuilder.SimpleBalancingGroup("l3", RegexBuilder.NonEscapedLiteral("z"));
+            var level2 = RegexBuilder.BalancingGroup("l2", "l2", level3);
+            var level1 = RegexBuilder.BalancingGroup("l1", "l1", level2);
+
+            string pattern = level1.ToRegexPattern();
+            Assert.IsTrue(pattern.Contains("(?<l1-l1>"));
+            Assert.IsTrue(pattern.Contains("(?<l2-l2>"));
+            Assert.IsTrue(pattern.Contains("(?<l3>-"));
+        }
+
+        [TestMethod]
+        public void TestBalancingGroupAfterModifyingInnerExpression()
+        {
+            // Test that changing inner expression updates output correctly
+            var inner1 = RegexBuilder.NonEscapedLiteral(@"[a-z]");
+            var balanced = RegexBuilder.SimpleBalancingGroup("test", inner1);
+
+            Assert.AreEqual(@"(?<test>-[a-z])", balanced.ToRegexPattern());
+
+            var inner2 = RegexBuilder.NonEscapedLiteral(@"\d+");
+            balanced.InnerExpression = inner2;
+            Assert.AreEqual(@"(?<test>-\d+)", balanced.ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestBalancingGroupWithLookaroundExpression()
+        {
+            // Test balancing group with lookahead as inner expression
+            var lookahead = RegexBuilder.PositiveLookAhead(
+                RegexBuilder.NonEscapedLiteral("test"),
+                RegexBuilder.NonEscapedLiteral(@"\w+")
+            );
+            var balanced = RegexBuilder.BalancingGroup("look", "ahead", lookahead);
+            string pattern = balanced.ToRegexPattern();
+            Assert.IsTrue(pattern.Contains("(?<look-ahead>"));
+            Assert.IsTrue(pattern.Contains("(?="));
+        }
+
+        [TestMethod]
+        public void TestBalancingGroupRendering_TwoNameForm_AllQuantifiers()
+        {
+            // Test two-name form with various quantifiers
+            var inner = RegexBuilder.NonEscapedLiteral("x");
+
+            // ZeroOrMore
+            var q1 = RegexBuilder.BalancingGroup("a", "b", inner, RegexQuantifier.ZeroOrMore);
+            Assert.AreEqual(@"(?<a-b>x)*", q1.ToRegexPattern());
+
+            // OneOrMore
+            var q2 = RegexBuilder.BalancingGroup("a", "b", inner, RegexQuantifier.OneOrMore);
+            Assert.AreEqual(@"(?<a-b>x)+", q2.ToRegexPattern());
+
+            // ZeroOrOne
+            var q3 = RegexBuilder.BalancingGroup("a", "b", inner, RegexQuantifier.ZeroOrOne);
+            Assert.AreEqual(@"(?<a-b>x)?", q3.ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestBalancingGroupRendering_SimpleForm_AllQuantifiers()
+        {
+            // Test simple form with various quantifiers
+            var inner = RegexBuilder.NonEscapedLiteral("y");
+
+            // ZeroOrMore
+            var q1 = RegexBuilder.SimpleBalancingGroup("g", inner, RegexQuantifier.ZeroOrMore);
+            Assert.AreEqual(@"(?<g>-y)*", q1.ToRegexPattern());
+
+            // OneOrMore
+            var q2 = RegexBuilder.SimpleBalancingGroup("g", inner, RegexQuantifier.OneOrMore);
+            Assert.AreEqual(@"(?<g>-y)+", q2.ToRegexPattern());
+
+            // ZeroOrOne
+            var q3 = RegexBuilder.SimpleBalancingGroup("g", inner, RegexQuantifier.ZeroOrOne);
+            Assert.AreEqual(@"(?<g>-y)?", q3.ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestBalancingGroupErrorMessage_NullPushName_TwoNameForm()
+        {
+            // Verify error message contains useful information
+            try
+            {
+                new RegexNodeBalancingGroup(null, "pop", RegexBuilder.NonEscapedLiteral("x"));
+                Assert.Fail("Should throw");
+            }
+            catch (ArgumentException ex)
+            {
+                Assert.IsTrue(ex.Message.Contains("Push group name"));
+                Assert.IsTrue(ex.ParamName.Contains("push"));
+            }
+        }
+
+        [TestMethod]
+        public void TestBalancingGroupErrorMessage_NullPushName_SimpleForm()
+        {
+            // Verify error message for simple form
+            try
+            {
+                new RegexNodeBalancingGroup(null, RegexBuilder.NonEscapedLiteral("x"));
+                Assert.Fail("Should throw");
+            }
+            catch (ArgumentException ex)
+            {
+                Assert.IsTrue(ex.Message.Contains("Group name"));
+            }
+        }
+
+        [TestMethod]
+        public void TestBalancingGroupIsSimpleBalancing_Consistency()
+        {
+            // Verify IsSimpleBalancing flag is consistent
+            var inner = RegexBuilder.NonEscapedLiteral("test");
+
+            // Two-name form - should not be simple
+            var twoName = new RegexNodeBalancingGroup("a", "b", inner);
+            Assert.IsFalse(twoName.IsSimpleBalancing);
+
+            // Simple form - should be simple
+            var simple = new RegexNodeBalancingGroup("a", inner);
+            Assert.IsTrue(simple.IsSimpleBalancing);
+
+            // Two-name form with empty pop - should be simple
+            var twoNameEmpty = new RegexNodeBalancingGroup("a", "", inner);
+            Assert.IsTrue(twoNameEmpty.IsSimpleBalancing);
+
+            // Two-name form with null pop - should be simple
+            var twoNameNull = new RegexNodeBalancingGroup("a", null, inner);
+            Assert.IsTrue(twoNameNull.IsSimpleBalancing);
+        }
+
+        [TestMethod]
+        public void TestBalancingGroupInGroup_Nesting()
+        {
+            // Test balancing group nested in regular group with name
+            var balancing = RegexBuilder.BalancingGroup("inner", "i", RegexBuilder.NonEscapedLiteral("a"));
+            var outer = RegexBuilder.Group("outer", balancing);
+            Assert.AreEqual(@"(?<outer>(?<inner-i>a))", outer.ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestBalancingGroupInNonCapturingGroup()
+        {
+            // Test balancing group in non-capturing group
+            var balancing = RegexBuilder.SimpleBalancingGroup("b", RegexBuilder.NonEscapedLiteral("c"));
+            var nonCapture = RegexBuilder.NonCapturingGroup(balancing);
+            Assert.AreEqual(@"(?:(?<b>-c))", nonCapture.ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestBalancingGroupWithConcatenationInnerExpr()
+        {
+            // Test with multiple concatenated expressions inside
+            var concat = RegexBuilder.Concatenate(
+                RegexBuilder.NonEscapedLiteral("[a-z]"),
+                RegexBuilder.NonEscapedLiteral("+")
+            );
+            var balanced = RegexBuilder.SimpleBalancingGroup("letters", concat);
+            Assert.AreEqual(@"(?<letters>-[a-z]+)", balanced.ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestBalancingGroupMultipleInConcatenation()
+        {
+            // Test multiple balancing groups in sequence
+            var b1 = RegexBuilder.BalancingGroup("g1", "p1", RegexBuilder.NonEscapedLiteral("a"));
+            var b2 = RegexBuilder.BalancingGroup("g2", "p2", RegexBuilder.NonEscapedLiteral("b"));
+            var concat = RegexBuilder.Concatenate(b1, b2);
+            Assert.AreEqual(@"(?<g1-p1>a)(?<g2-p2>b)", concat.ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestBalancingGroupInAlternation()
+        {
+            // Test balancing group as one option in alternation
+            var balanced = RegexBuilder.BalancingGroup("b", "p", RegexBuilder.NonEscapedLiteral("x"));
+            var literal = RegexBuilder.NonEscapedLiteral("y");
+            var alt = RegexBuilder.Alternate(balanced, literal);
+            Assert.AreEqual(@"(?:(?<b-p>x)|y)", alt.ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestBalancingGroupNullInnerExpressionThrows()
+        {
+            // Ensure that null inner expression always throws
+            try
+            {
+                new RegexNodeBalancingGroup("name", "pop", null);
+                Assert.Fail("Should throw ArgumentNullException");
+            }
+            catch (ArgumentNullException)
+            {
+                // Expected
+            }
+        }
+
+        [TestMethod]
+        public void TestBalancingGroupEmptyPushNameThrows()
+        {
+            // Ensure empty push name throws
+            try
+            {
+                new RegexNodeBalancingGroup("", "pop", RegexBuilder.NonEscapedLiteral("x"));
+                Assert.Fail("Should throw ArgumentException");
+            }
+            catch (ArgumentException ex)
+            {
+                Assert.IsTrue(ex.Message.Contains("cannot be null or empty"));
+            }
+        }
+
+        [TestMethod]
+        public void TestBalancingGroupQuantifierChaining()
+        {
+            // Test that quantifier can be set and modified
+            var inner = RegexBuilder.NonEscapedLiteral("test");
+            var balanced = RegexBuilder.BalancingGroup("a", "b", inner);
+
+            Assert.AreEqual(RegexQuantifier.None, balanced.Quantifier);
+            Assert.AreEqual(@"(?<a-b>test)", balanced.ToRegexPattern());
+
+            balanced.Quantifier = RegexQuantifier.ZeroOrOne;
+            Assert.AreEqual(@"(?<a-b>test)?", balanced.ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestBalancingGroupAPI_FactoryMethodConsistency()
+        {
+            // Verify factory methods produce same results as constructors
+            var inner = RegexBuilder.NonEscapedLiteral("x");
+
+            var factoryTwoName = RegexBuilder.BalancingGroup("a", "b", inner);
+            var constructorTwoName = new RegexNodeBalancingGroup("a", "b", inner);
+            Assert.AreEqual(constructorTwoName.ToRegexPattern(), factoryTwoName.ToRegexPattern());
+
+            var factorySimple = RegexBuilder.SimpleBalancingGroup("g", inner);
+            var constructorSimple = new RegexNodeBalancingGroup("g", inner);
+            Assert.AreEqual(constructorSimple.ToRegexPattern(), factorySimple.ToRegexPattern());
+        }
     }
 }

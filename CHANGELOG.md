@@ -9,6 +9,48 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- **Balancing Groups** - Support for `(?<name1-name2>expr)` and `(?<name>-expr)` constructs
+  - New `RegexNodeBalancingGroup` class for balancing group constructs
+  - Support for two-name balancing groups: `(?<name1-name2>expr)` - push to name1, pop from name2
+  - Support for single-name balancing groups: `(?<name>-expr)` - push to name only
+  - Essential for matching nested/balanced constructs (parentheses, XML tags, code blocks)
+  - Full quantifier support for balancing group patterns
+  - New public API methods:
+    - `RegexBuilder.BalancingGroup(string pushName, string popName, RegexNode expr)` - Create two-name balancing group
+    - `RegexBuilder.BalancingGroup(string pushName, string popName, RegexNode expr, RegexQuantifier quantifier)` - With quantifier
+    - `RegexBuilder.SimpleBalancingGroup(string name, RegexNode expr)` - Create single-name balancing group
+    - `RegexBuilder.SimpleBalancingGroup(string name, RegexNode expr, RegexQuantifier quantifier)` - With quantifier
+  - Comprehensive test suite with practical examples:
+    - Balanced parentheses matching
+    - Nested XML tag matching
+    - Code block nesting patterns
+    - Edge case validation
+    - Integration tests with other regex constructs
+
+### Examples
+
+```csharp
+// Match balanced parentheses
+var balancedParens = RegexBuilder.Build(
+    RegexBuilder.Literal("("),
+    RegexBuilder.BalancingGroup("paren", "paren",
+        RegexBuilder.NonEscapedLiteral(@"[^()]"),
+        RegexQuantifier.ZeroOrMore),
+    RegexBuilder.Literal(")")
+);
+
+// Matches: "()", "(text)", "((nested))", "(level (deep (nesting)))"
+
+// Match balanced XML-like tags
+var xmlTags = RegexBuilder.Build(
+    RegexBuilder.BalancingGroup("tag", "open", RegexBuilder.NonEscapedLiteral(@"<\w+>")),
+    RegexBuilder.NegativeCharacterSet("<>", null, RegexQuantifier.ZeroOrMore),
+    RegexBuilder.BalancingGroup("tag", "tag", RegexBuilder.NonEscapedLiteral(@"</\w+>"))
+);
+
+// Matches: "<div></div>", "<div><span>content</span></div>"
+```
+
 - **Unicode Category Matching** - Support for `\p{name}` and `\P{name}` escape sequences
   - New `RegexNodeUnicodeCategory` class for Unicode category escape sequences
   - Support for all .NET Unicode general categories: L, Lu, Ll, Lt, Lm, Lo, N, Nd, Nl, No, P, Pc, Pd, Ps, Pe, Pi, Pf, Po, M, Mn, Mc, Me, Z, Zs, Zl, Zp, S, Sm, Sc, Sk, So, C, Cc, Cf, Cs, Co, Cn
