@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text.RegularExpressions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -486,6 +488,332 @@ namespace RegexBuilder.Tests
 
             RegexNodeInlineOption option4 = new RegexNodeInlineOption(RegexOptions.ExplicitCapture | RegexOptions.IgnorePatternWhitespace, literal);
             Assert.AreEqual(@"(?nx:ab\wc{0})", option4.ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestUnicodeCategoryNodeRendering()
+        {
+            // Test basic Unicode category without quantifier
+            RegexNodeUnicodeCategory category1 = new RegexNodeUnicodeCategory("L");
+            Assert.AreEqual(@"\p{L}", category1.ToRegexPattern());
+
+            // Test category with quantifier
+            RegexNodeUnicodeCategory category2 = new RegexNodeUnicodeCategory("L");
+            category2.Quantifier = RegexQuantifier.OneOrMore;
+            Assert.AreEqual(@"\p{L}+", category2.ToRegexPattern());
+
+            // Test different basic categories
+            RegexNodeUnicodeCategory category3 = new RegexNodeUnicodeCategory("N");
+            Assert.AreEqual(@"\p{N}", category3.ToRegexPattern());
+
+            RegexNodeUnicodeCategory category4 = new RegexNodeUnicodeCategory("P");
+            Assert.AreEqual(@"\p{P}", category4.ToRegexPattern());
+
+            // Test specific subcategories
+            RegexNodeUnicodeCategory category5 = new RegexNodeUnicodeCategory("Lu");
+            Assert.AreEqual(@"\p{Lu}", category5.ToRegexPattern());
+
+            RegexNodeUnicodeCategory category6 = new RegexNodeUnicodeCategory("Nd");
+            category6.Quantifier = RegexQuantifier.Exactly(3);
+            Assert.AreEqual(@"\p{Nd}{3}", category6.ToRegexPattern());
+
+            // Test named blocks
+            RegexNodeUnicodeCategory category7 = new RegexNodeUnicodeCategory("IsCyrillic");
+            Assert.AreEqual(@"\p{IsCyrillic}", category7.ToRegexPattern());
+
+            RegexNodeUnicodeCategory category8 = new RegexNodeUnicodeCategory("IsArabic");
+            category8.Quantifier = RegexQuantifier.ZeroOrMore;
+            Assert.AreEqual(@"\p{IsArabic}*", category8.ToRegexPattern());
+
+            // Test negated categories
+            RegexNodeUnicodeCategory category9 = new RegexNodeUnicodeCategory("L", true);
+            Assert.AreEqual(@"\P{L}", category9.ToRegexPattern());
+
+            RegexNodeUnicodeCategory category10 = new RegexNodeUnicodeCategory("N", true);
+            category10.Quantifier = RegexQuantifier.OneOrMore;
+            Assert.AreEqual(@"\P{N}+", category10.ToRegexPattern());
+
+            RegexNodeUnicodeCategory category11 = new RegexNodeUnicodeCategory("IsCyrillic", true);
+            Assert.AreEqual(@"\P{IsCyrillic}", category11.ToRegexPattern());
+
+            // Test via RegexBuilder factory methods
+            RegexNodeUnicodeCategory category12 = RegexBuilder.UnicodeCategory("L");
+            Assert.AreEqual(@"\p{L}", category12.ToRegexPattern());
+
+            RegexNodeUnicodeCategory category13 = RegexBuilder.UnicodeCategory("N", RegexQuantifier.AtLeast(2));
+            Assert.AreEqual(@"\p{N}{2,}", category13.ToRegexPattern());
+
+            RegexNodeUnicodeCategory category14 = RegexBuilder.NegativeUnicodeCategory("P");
+            Assert.AreEqual(@"\P{P}", category14.ToRegexPattern());
+
+            RegexNodeUnicodeCategory category15 = RegexBuilder.NegativeUnicodeCategory("Lu", RegexQuantifier.Custom(1, 5, false));
+            Assert.AreEqual(@"\P{Lu}{1,5}", category15.ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestUnicodeCategoryValidation()
+        {
+            // Test valid general categories
+            Assert.IsTrue(RegexMetaChars.IsValidUnicodeCategory("L"));
+            Assert.IsTrue(RegexMetaChars.IsValidUnicodeCategory("N"));
+            Assert.IsTrue(RegexMetaChars.IsValidUnicodeCategory("P"));
+            Assert.IsTrue(RegexMetaChars.IsValidUnicodeCategory("Lu"));
+            Assert.IsTrue(RegexMetaChars.IsValidUnicodeCategory("Ll"));
+            Assert.IsTrue(RegexMetaChars.IsValidUnicodeCategory("Nd"));
+
+            // Test valid named blocks
+            Assert.IsTrue(RegexMetaChars.IsValidUnicodeCategory("IsCyrillic"));
+            Assert.IsTrue(RegexMetaChars.IsValidUnicodeCategory("IsArabic"));
+            Assert.IsTrue(RegexMetaChars.IsValidUnicodeCategory("IsLatin1Supplement"));
+
+            // Test invalid categories
+            Assert.IsFalse(RegexMetaChars.IsValidUnicodeCategory("X"));
+            Assert.IsFalse(RegexMetaChars.IsValidUnicodeCategory("InvalidCategory"));
+            Assert.IsFalse(RegexMetaChars.IsValidUnicodeCategory(""));
+            Assert.IsFalse(RegexMetaChars.IsValidUnicodeCategory(null));
+        }
+
+        [TestMethod]
+        public void TestUnicodeCategoryIntegration()
+        {
+            // Test concatenation with Unicode categories
+            var letterNode = RegexBuilder.UnicodeCategory("L", RegexQuantifier.OneOrMore);
+            var digitNode = RegexBuilder.UnicodeCategory("Nd", RegexQuantifier.OneOrMore);
+            var concatenation = RegexBuilder.Concatenate(letterNode, digitNode);
+            Assert.AreEqual(@"\p{L}+\p{Nd}+", concatenation.ToRegexPattern());
+
+            // Test alternation with Unicode categories
+            var cyrillic = RegexBuilder.UnicodeCategory("IsCyrillic");
+            var arabic = RegexBuilder.UnicodeCategory("IsArabic");
+            var alternation = RegexBuilder.Alternate(cyrillic, arabic);
+            Assert.AreEqual(@"(?:\p{IsCyrillic}|\p{IsArabic})", alternation.ToRegexPattern());
+
+            // Test group with Unicode categories
+            var group = RegexBuilder.Group(RegexBuilder.UnicodeCategory("L", RegexQuantifier.OneOrMore));
+            Assert.AreEqual(@"(\p{L}+)", group.ToRegexPattern());
+
+            // Test real regex with international text matching
+            var regex = RegexBuilder.Build(
+                RegexBuilder.UnicodeCategory("L", RegexQuantifier.OneOrMore),
+                RegexBuilder.Literal(" "),
+                RegexBuilder.UnicodeCategory("Nd", RegexQuantifier.Exactly(3))
+            );
+            Assert.IsNotNull(regex);
+            
+            // Verify it matches international text
+            Assert.IsTrue(regex.IsMatch("Ы 123"));
+            Assert.IsTrue(regex.IsMatch("Б 456"));
+            Assert.IsTrue(regex.IsMatch("A 789"));
+        }
+
+        [TestMethod]
+        public void TestUnicodeCategoryLazyQuantifiers()
+        {
+            // Test lazy quantifiers with Unicode categories
+            RegexNodeUnicodeCategory category1 = new RegexNodeUnicodeCategory("L");
+            category1.Quantifier = RegexQuantifier.ZeroOrMoreLazy;
+            Assert.AreEqual(@"\p{L}*?", category1.ToRegexPattern());
+
+            RegexNodeUnicodeCategory category2 = new RegexNodeUnicodeCategory("N");
+            category2.Quantifier = RegexQuantifier.OneOrMoreLazy;
+            Assert.AreEqual(@"\p{N}+?", category2.ToRegexPattern());
+
+            RegexNodeUnicodeCategory category3 = new RegexNodeUnicodeCategory("P");
+            category3.Quantifier = RegexQuantifier.ZeroOrOneLazy;
+            Assert.AreEqual(@"\p{P}??", category3.ToRegexPattern());
+
+            // Test lazy quantifiers with negated categories
+            RegexNodeUnicodeCategory category4 = new RegexNodeUnicodeCategory("L", true);
+            category4.Quantifier = RegexQuantifier.AtLeast(2, true);
+            Assert.AreEqual(@"\P{L}{2,}?", category4.ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestUnicodeCategoryErrorHandling()
+        {
+            // Test null category name throws exception
+            try
+            {
+                var category = new RegexNodeUnicodeCategory(null);
+                Assert.Fail("Should have thrown ArgumentException");
+            }
+            catch (ArgumentException ex)
+            {
+                Assert.IsTrue(ex.Message.Contains("Category name cannot be null or empty"));
+            }
+
+            // Test empty category name throws exception
+            try
+            {
+                var category = new RegexNodeUnicodeCategory("");
+                Assert.Fail("Should have thrown ArgumentException");
+            }
+            catch (ArgumentException ex)
+            {
+                Assert.IsTrue(ex.Message.Contains("Category name cannot be null or empty"));
+            }
+        }
+
+        [TestMethod]
+        public void TestUnicodeCategoryAllSubcategories()
+        {
+            // Test all letter subcategories
+            Assert.AreEqual(@"\p{Lu}", new RegexNodeUnicodeCategory("Lu").ToRegexPattern());
+            Assert.AreEqual(@"\p{Ll}", new RegexNodeUnicodeCategory("Ll").ToRegexPattern());
+            Assert.AreEqual(@"\p{Lt}", new RegexNodeUnicodeCategory("Lt").ToRegexPattern());
+            Assert.AreEqual(@"\p{Lm}", new RegexNodeUnicodeCategory("Lm").ToRegexPattern());
+            Assert.AreEqual(@"\p{Lo}", new RegexNodeUnicodeCategory("Lo").ToRegexPattern());
+
+            // Test all number subcategories
+            Assert.AreEqual(@"\p{Nd}", new RegexNodeUnicodeCategory("Nd").ToRegexPattern());
+            Assert.AreEqual(@"\p{Nl}", new RegexNodeUnicodeCategory("Nl").ToRegexPattern());
+            Assert.AreEqual(@"\p{No}", new RegexNodeUnicodeCategory("No").ToRegexPattern());
+
+            // Test all punctuation subcategories
+            Assert.AreEqual(@"\p{Pc}", new RegexNodeUnicodeCategory("Pc").ToRegexPattern());
+            Assert.AreEqual(@"\p{Pd}", new RegexNodeUnicodeCategory("Pd").ToRegexPattern());
+            Assert.AreEqual(@"\p{Ps}", new RegexNodeUnicodeCategory("Ps").ToRegexPattern());
+            Assert.AreEqual(@"\p{Pe}", new RegexNodeUnicodeCategory("Pe").ToRegexPattern());
+            Assert.AreEqual(@"\p{Pi}", new RegexNodeUnicodeCategory("Pi").ToRegexPattern());
+            Assert.AreEqual(@"\p{Pf}", new RegexNodeUnicodeCategory("Pf").ToRegexPattern());
+            Assert.AreEqual(@"\p{Po}", new RegexNodeUnicodeCategory("Po").ToRegexPattern());
+
+            // Test mark subcategories
+            Assert.AreEqual(@"\p{Mn}", new RegexNodeUnicodeCategory("Mn").ToRegexPattern());
+            Assert.AreEqual(@"\p{Mc}", new RegexNodeUnicodeCategory("Mc").ToRegexPattern());
+            Assert.AreEqual(@"\p{Me}", new RegexNodeUnicodeCategory("Me").ToRegexPattern());
+
+            // Test separator subcategories
+            Assert.AreEqual(@"\p{Zs}", new RegexNodeUnicodeCategory("Zs").ToRegexPattern());
+            Assert.AreEqual(@"\p{Zl}", new RegexNodeUnicodeCategory("Zl").ToRegexPattern());
+            Assert.AreEqual(@"\p{Zp}", new RegexNodeUnicodeCategory("Zp").ToRegexPattern());
+
+            // Test symbol subcategories
+            Assert.AreEqual(@"\p{Sm}", new RegexNodeUnicodeCategory("Sm").ToRegexPattern());
+            Assert.AreEqual(@"\p{Sc}", new RegexNodeUnicodeCategory("Sc").ToRegexPattern());
+            Assert.AreEqual(@"\p{Sk}", new RegexNodeUnicodeCategory("Sk").ToRegexPattern());
+            Assert.AreEqual(@"\p{So}", new RegexNodeUnicodeCategory("So").ToRegexPattern());
+
+            // Test control/other subcategories
+            Assert.AreEqual(@"\p{Cc}", new RegexNodeUnicodeCategory("Cc").ToRegexPattern());
+            Assert.AreEqual(@"\p{Cf}", new RegexNodeUnicodeCategory("Cf").ToRegexPattern());
+            Assert.AreEqual(@"\p{Cs}", new RegexNodeUnicodeCategory("Cs").ToRegexPattern());
+            Assert.AreEqual(@"\p{Co}", new RegexNodeUnicodeCategory("Co").ToRegexPattern());
+            Assert.AreEqual(@"\p{Cn}", new RegexNodeUnicodeCategory("Cn").ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestUnicodeCategoryRealWorldPatterns()
+        {
+            // Email username pattern (letters, digits, dots, dashes)
+            var emailPattern = RegexBuilder.Build(
+                RegexBuilder.UnicodeCategory("L", RegexQuantifier.OneOrMore),
+                RegexBuilder.NonEscapedLiteral(@"[.\-]", RegexQuantifier.ZeroOrMore),
+                RegexBuilder.UnicodeCategory("L", RegexQuantifier.OneOrMore)
+            );
+            Assert.IsTrue(emailPattern.IsMatch("user"));
+            Assert.IsTrue(emailPattern.IsMatch("user.name"));
+            
+            // International name pattern (letters with optional spaces)
+            var namePattern = RegexBuilder.Build(
+                RegexBuilder.UnicodeCategory("Lu", RegexQuantifier.Exactly(1)),
+                RegexBuilder.UnicodeCategory("Ll", RegexQuantifier.OneOrMore),
+                RegexBuilder.NonEscapedLiteral(@"\s", RegexQuantifier.ZeroOrOne),
+                RegexBuilder.UnicodeCategory("Lu", RegexQuantifier.ZeroOrOne),
+                RegexBuilder.UnicodeCategory("Ll", RegexQuantifier.ZeroOrMore)
+            );
+            Assert.IsTrue(namePattern.IsMatch("John"));
+            Assert.IsTrue(namePattern.IsMatch("José"));
+            Assert.IsTrue(namePattern.IsMatch("Владимир"));
+            
+            // Currency amount pattern (currency symbol + digits)
+            var currencyPattern = RegexBuilder.Build(
+                RegexBuilder.UnicodeCategory("Sc"),
+                RegexBuilder.UnicodeCategory("Nd", RegexQuantifier.OneOrMore),
+                RegexBuilder.NonEscapedLiteral(@"\.", RegexQuantifier.ZeroOrOne),
+                RegexBuilder.UnicodeCategory("Nd", RegexQuantifier.Custom(0, 2, false))
+            );
+            Assert.IsTrue(currencyPattern.IsMatch("$100"));
+            Assert.IsTrue(currencyPattern.IsMatch("€99.99"));
+            
+            // Mixed scripts detection (negated Latin)
+            var nonLatinPattern = RegexBuilder.Build(
+                RegexBuilder.NegativeUnicodeCategory("IsBasicLatin", RegexQuantifier.OneOrMore)
+            );
+            Assert.IsTrue(nonLatinPattern.IsMatch("مرحبا"));
+            Assert.IsTrue(nonLatinPattern.IsMatch("Привет"));
+            Assert.IsFalse(nonLatinPattern.IsMatch("Hello"));
+        }
+
+        [TestMethod]
+        public void TestUnicodeCategoryWithLookaheadAndLookbehind()
+        {
+            // Test Unicode category with positive lookahead
+            var letterBeforeDigit = RegexBuilder.PositiveLookAhead(
+                RegexBuilder.UnicodeCategory("Nd"),
+                RegexBuilder.UnicodeCategory("L")
+            );
+            Assert.AreEqual(@"(?:\p{L}(?=\p{Nd}))", letterBeforeDigit.ToRegexPattern());
+            
+            // Test Unicode category with negative lookahead
+            var letterNotBeforeDigit = RegexBuilder.NegativeLookAhead(
+                RegexBuilder.UnicodeCategory("Nd"),
+                RegexBuilder.UnicodeCategory("L")
+            );
+            Assert.AreEqual(@"(?:\p{L}(?!\p{Nd}))", letterNotBeforeDigit.ToRegexPattern());
+            
+            // Test Unicode category with positive lookbehind
+            var digitAfterLetter = RegexBuilder.PositiveLookBehind(
+                RegexBuilder.UnicodeCategory("L"),
+                RegexBuilder.UnicodeCategory("Nd")
+            );
+            Assert.AreEqual(@"(?:(?<=\p{L})\p{Nd})", digitAfterLetter.ToRegexPattern());
+            
+            // Test Unicode category with negative lookbehind
+            var digitNotAfterLetter = RegexBuilder.NegativeLookBehind(
+                RegexBuilder.UnicodeCategory("L"),
+                RegexBuilder.UnicodeCategory("Nd")
+            );
+            Assert.AreEqual(@"(?:(?<!\p{L})\p{Nd})", digitNotAfterLetter.ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestUnicodeCategoryMultipleNamedBlocks()
+        {
+            // Test various Unicode blocks
+            Assert.IsTrue(RegexMetaChars.IsValidUnicodeCategory("IsGreekandCoptic"));
+            Assert.IsTrue(RegexMetaChars.IsValidUnicodeCategory("IsHebrew"));
+            Assert.IsTrue(RegexMetaChars.IsValidUnicodeCategory("IsHiragana"));
+            Assert.IsTrue(RegexMetaChars.IsValidUnicodeCategory("IsKatakana"));
+            Assert.IsTrue(RegexMetaChars.IsValidUnicodeCategory("IsHangul"));
+            Assert.IsTrue(RegexMetaChars.IsValidUnicodeCategory("IsThai"));
+            Assert.IsTrue(RegexMetaChars.IsValidUnicodeCategory("IsDevanagari"));
+            
+            // Test rendering of various blocks
+            Assert.AreEqual(@"\p{IsGreekandCoptic}", new RegexNodeUnicodeCategory("IsGreekandCoptic").ToRegexPattern());
+            Assert.AreEqual(@"\P{IsHebrew}", new RegexNodeUnicodeCategory("IsHebrew", true).ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestUnicodeCategoryGettersAndEnumerators()
+        {
+            // Test GetGeneralCategories
+            var generalCategories = RegexMetaChars.GetGeneralCategories();
+            Assert.IsNotNull(generalCategories);
+            var categoryList = new System.Collections.Generic.List<string>(generalCategories);
+            Assert.IsTrue(categoryList.Count > 0);
+            Assert.IsTrue(categoryList.Contains("L"));
+            Assert.IsTrue(categoryList.Contains("N"));
+            Assert.IsTrue(categoryList.Contains("P"));
+            
+            // Test GetNamedBlocks
+            var namedBlocks = RegexMetaChars.GetNamedBlocks();
+            Assert.IsNotNull(namedBlocks);
+            var blockList = new System.Collections.Generic.List<string>(namedBlocks);
+            Assert.IsTrue(blockList.Count > 0);
+            Assert.IsTrue(blockList.All(b => b.StartsWith("Is")));
+            Assert.IsTrue(blockList.Contains("IsCyrillic"));
+            Assert.IsTrue(blockList.Contains("IsArabic"));
         }
     }
 }

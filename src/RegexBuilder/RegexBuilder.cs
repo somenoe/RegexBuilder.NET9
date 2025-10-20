@@ -286,6 +286,48 @@ namespace RegexBuilder
         }
 
         /// <summary>
+        /// Generates a Unicode category escape sequence ("\p{name}") for matching Unicode character categories.
+        /// </summary>
+        /// <param name="categoryName">The Unicode category name (e.g., "L", "N", "IsCyrillic").</param>
+        /// <returns>An instance of RegexNode containing the Unicode category escape.</returns>
+        public static RegexNodeUnicodeCategory UnicodeCategory(string categoryName)
+        {
+            return new RegexNodeUnicodeCategory(categoryName);
+        }
+
+        /// <summary>
+        /// Generates a Unicode category escape sequence ("\p{name}") for matching Unicode character categories with a quantifier.
+        /// </summary>
+        /// <param name="categoryName">The Unicode category name (e.g., "L", "N", "IsCyrillic").</param>
+        /// <param name="quantifier">Node quantifier.</param>
+        /// <returns>An instance of RegexNode containing the Unicode category escape.</returns>
+        public static RegexNodeUnicodeCategory UnicodeCategory(string categoryName, RegexQuantifier quantifier)
+        {
+            return new RegexNodeUnicodeCategory(categoryName) { Quantifier = quantifier };
+        }
+
+        /// <summary>
+        /// Generates a negated Unicode category escape sequence ("\P{name}") for matching characters NOT in a Unicode category.
+        /// </summary>
+        /// <param name="categoryName">The Unicode category name (e.g., "L", "N", "IsCyrillic").</param>
+        /// <returns>An instance of RegexNode containing the negated Unicode category escape.</returns>
+        public static RegexNodeUnicodeCategory NegativeUnicodeCategory(string categoryName)
+        {
+            return new RegexNodeUnicodeCategory(categoryName, true);
+        }
+
+        /// <summary>
+        /// Generates a negated Unicode category escape sequence ("\P{name}") for matching characters NOT in a Unicode category with a quantifier.
+        /// </summary>
+        /// <param name="categoryName">The Unicode category name (e.g., "L", "N", "IsCyrillic").</param>
+        /// <param name="quantifier">Node quantifier.</param>
+        /// <returns>An instance of RegexNode containing the negated Unicode category escape.</returns>
+        public static RegexNodeUnicodeCategory NegativeUnicodeCategory(string categoryName, RegexQuantifier quantifier)
+        {
+            return new RegexNodeUnicodeCategory(categoryName, true) { Quantifier = quantifier };
+        }
+
+        /// <summary>
         /// Generates a zero-width positive lookahead assertion ("match(?=lookahead)").
         /// </summary>
         /// <param name="lookupExpression">Lookahead expression.</param>

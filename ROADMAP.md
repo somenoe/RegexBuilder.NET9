@@ -52,9 +52,10 @@
 
 ### 🔴 HIGH PRIORITY
 
-- [ ] **Unicode Category Matching** `\p{name}`, `\P{name}`
+- [x] **Unicode Category Matching** `\p{name}`, `\P{name}`
   - Enables `\p{L}` (letters), `\p{N}` (numbers), `\p{IsCyrillic}` (blocks)
   - Essential for international text processing
+  - ✅ COMPLETED: Full support for Unicode categories, blocks, and negated patterns
 
 ### 🟠 MEDIUM PRIORITY
 

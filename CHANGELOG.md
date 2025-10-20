@@ -5,6 +5,45 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+
+- **Unicode Category Matching** - Support for `\p{name}` and `\P{name}` escape sequences
+  - New `RegexNodeUnicodeCategory` class for Unicode category escape sequences
+  - Support for all .NET Unicode general categories: L, Lu, Ll, Lt, Lm, Lo, N, Nd, Nl, No, P, Pc, Pd, Ps, Pe, Pi, Pf, Po, M, Mn, Mc, Me, Z, Zs, Zl, Zp, S, Sm, Sc, Sk, So, C, Cc, Cf, Cs, Co, Cn
+  - Support for Unicode named blocks: IsCyrillic, IsArabic, IsLatin1Supplement, IsGreekandCoptic, IsHebrew, and many others
+  - Negated Unicode categories via `\P{name}` syntax
+  - Full quantifier support for Unicode category patterns
+  - New public API methods:
+    - `RegexBuilder.UnicodeCategory(string categoryName)` - Create positive Unicode category match
+    - `RegexBuilder.UnicodeCategory(string categoryName, RegexQuantifier quantifier)` - With quantifier
+    - `RegexBuilder.NegativeUnicodeCategory(string categoryName)` - Create negated Unicode category match
+    - `RegexBuilder.NegativeUnicodeCategory(string categoryName, RegexQuantifier quantifier)` - With quantifier
+  - Unicode category validation helper: `RegexMetaChars.IsValidUnicodeCategory(string)`
+  - Comprehensive test suite with integration tests for international text matching
+
+### Examples
+
+```csharp
+// Match Unicode letters followed by digits
+var pattern = RegexBuilder.Build(
+    RegexBuilder.UnicodeCategory("L", RegexQuantifier.OneOrMore),
+    RegexBuilder.Literal(" "),
+    RegexBuilder.UnicodeCategory("Nd", RegexQuantifier.Exactly(3))
+);
+
+// Matches: "Hello 123", "Привет 456", "שלום 789"
+var regex = RegexBuilder.Build(pattern);
+Assert.IsTrue(regex.IsMatch("Привет 123")); // Cyrillic letters
+Assert.IsTrue(regex.IsMatch("مرحبا 456")); // Arabic letters
+
+// Match non-Latin characters
+var nonLatin = RegexBuilder.NegativeUnicodeCategory("IsLatin1Supplement");
+var cyrillic = RegexBuilder.UnicodeCategory("IsCyrillic", RegexQuantifier.OneOrMore);
+var pattern2 = RegexBuilder.Alternate(cyrillic, nonLatin);
+```
+
 ## [1.0.5] - 2025-10-21
 
 ### Added
