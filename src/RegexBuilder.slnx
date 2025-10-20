@@ -5,11 +5,6 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Folder Name="/Solution Items/">
-    <File Path="Local.testsettings" />
-    <File Path="TraceAndTestImpact.testsettings" />
-    <File Path="YuriyGuts.RegexBuilder.vsmdi" />
-  </Folder>
   <Project Path="RegexBuilder.Examples/RegexBuilder.Examples.csproj" />
   <Project Path="RegexBuilder.Tests/RegexBuilder.Tests.csproj">
     <Build Solution="*|x86" Project="false" />
@@ -17,7 +12,4 @@
   <Project Path="RegexBuilder/RegexBuilder.csproj">
     <Build Solution="*|x86" Project="false" />
   </Project>
-  <Properties Name="TestCaseManagementSettings" Scope="PostLoad">
-    <Property Name="CategoryFile" Value="YuriyGuts.RegexBuilder.vsmdi" />
-  </Properties>
 </Solution>
