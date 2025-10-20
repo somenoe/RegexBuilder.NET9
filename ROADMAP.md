@@ -74,8 +74,9 @@
   - Escapes: `BellCharacter()`, `FormFeed()`, `VerticalTab()`, `EscapeCharacter()`, `OctalCharacter()`
   - ✅ COMPLETED: All 20 shortcut methods implemented with comprehensive tests (28 tests passing)
 
-- [ ] **Inline Option Grouping** `(?imnsx-imnsx:expr)`
+- [x] **Inline Option Grouping** `(?imnsx-imnsx:expr)`
   - Dedicated node for scoped option application
+  - ✅ COMPLETED: Full support for enabling and disabling regex options with 30 comprehensive tests
 
 - [ ] **Named Group Apostrophe Syntax** `(?'name'expr)`
   - For compatibility with VBScript and legacy patterns

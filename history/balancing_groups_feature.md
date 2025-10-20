@@ -175,7 +175,6 @@ public static RegexNodeBalancingGroup SimpleBalancingGroup(
    ```
 
 2. **ROADMAP.md**
-
    - Mark "Balancing Groups" as completed [x]
 
 3. **README.md** (if needed)

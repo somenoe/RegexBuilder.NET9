@@ -9,6 +9,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- **Inline Option Grouping** - Support for `(?imnsx-imnsx:expr)` for scoped regex option application
+  - New `RegexNodeInlineOptionGrouping` class for inline option grouping constructs
+  - Enable/disable regex options for specific expression scopes: `(?i:expr)` for case-insensitive, `(?m:expr)` for multiline, etc.
+  - Support for option negation (disabling options): `(?i-m:expr)` - enable IgnoreCase, disable Multiline
+  - Supports all inline-compatible options: IgnoreCase (i), Multiline (m), Singleline (s), ExplicitCapture (n), IgnorePatternWhitespace (x)
+  - Proper validation to prevent invalid options (Compiled, RightToLeft, ECMAScript, CultureInvariant)
+  - New public API methods:
+    - `RegexBuilder.InlineOptionGrouping(RegexOptions enabledOptions, RegexNode expression)` - Enable specific options
+    - `RegexBuilder.InlineOptionGrouping(RegexOptions enabledOptions, RegexOptions disabledOptions, RegexNode expression)` - Enable and disable options
+  - Comprehensive test suite with 30 test cases covering:
+    - Single option enabling: `(?i:expr)`, `(?m:expr)`, `(?s:expr)`, `(?n:expr)`, `(?x:expr)`
+    - Multiple options: `(?im:expr)`, `(?imsnx:expr)`
+    - Option negation: `(?i-m:expr)`, `(?is-mn:expr)`
+    - Complex nested expressions
+    - Invalid option validation
+    - Real-world matching scenarios (case-insensitive, multiline, singleline)
+
 - **Convenience Shortcut Methods** - Intuitive methods for common regex patterns
   - Character class shortcuts: `Digit()`, `NonDigit()`, `Whitespace()`, `NonWhitespace()`, `WordCharacter()`, `NonWordCharacter()`
   - Anchor shortcuts: `LineStart()`, `LineEnd()`, `StringStart()`, `StringEnd()`, `StringEndAbsolute()`, `WordBoundary()`, `NonWordBoundary()`, `MatchPointAnchor()`

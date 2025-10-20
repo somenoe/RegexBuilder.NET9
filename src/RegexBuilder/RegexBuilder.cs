@@ -182,6 +182,29 @@ namespace RegexBuilder
         }
 
         /// <summary>
+        /// Generates an inline option grouping with enabled options ("(?i:expr)", "(?im:expr)", etc.).
+        /// </summary>
+        /// <param name="enabledOptions">Options to enable for the expression.</param>
+        /// <param name="expression">Inner expression.</param>
+        /// <returns>An instance of RegexNode containing the inline option grouping.</returns>
+        public static RegexNodeInlineOptionGrouping InlineOptionGrouping(RegexOptions enabledOptions, RegexNode expression)
+        {
+            return new RegexNodeInlineOptionGrouping(enabledOptions, expression);
+        }
+
+        /// <summary>
+        /// Generates an inline option grouping with enabled and disabled options ("(?i-m:expr)", etc.).
+        /// </summary>
+        /// <param name="enabledOptions">Options to enable for the expression.</param>
+        /// <param name="disabledOptions">Options to disable for the expression.</param>
+        /// <param name="expression">Inner expression.</param>
+        /// <returns>An instance of RegexNode containing the inline option grouping.</returns>
+        public static RegexNodeInlineOptionGrouping InlineOptionGrouping(RegexOptions enabledOptions, RegexOptions disabledOptions, RegexNode expression)
+        {
+            return new RegexNodeInlineOptionGrouping(enabledOptions, disabledOptions, expression);
+        }
+
+        /// <summary>
         /// Generates a backreference to the group with the specified index ("\N").
         /// </summary>
         /// <param name="groupIndex">Group ordinal number.</param>
