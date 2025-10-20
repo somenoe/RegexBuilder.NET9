@@ -10,9 +10,9 @@
     <!-- Package Metadata -->
     <Version>1.0.1</Version>
     <PackageId>RegexBuilder</PackageId>
-    <Authors>Yuriy Guts</Authors>
-    <Description>.NET library for human-readable declaration of regular expressions without having to remember the regex syntax.</Description>
-    <Copyright>Copyright © Yuriy Guts, 2011-2025</Copyright>
+    <Authors>Pridsadang Pansiri</Authors>
+    <Description>.NET library for human-readable declaration of regular expressions without having to remember the regex syntax. Forked from YuriyGuts/regex-builder and updated for .NET 9.</Description>
+    <Copyright>Copyright © Yuriy Guts, 2011; Pridsadang Pansiri, 2025</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/somenoe/regex-builder</PackageProjectUrl>
     <RepositoryUrl>https://github.com/somenoe/regex-builder</RepositoryUrl>

@@ -66,8 +66,3 @@ jobs:
         prerelease: false
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    
-    - name: Publish to NuGet.org
-      if: startsWith(github.ref, 'refs/tags/') && secrets.NUGET_API_KEY != ''
-      run: dotnet nuget push ./artifacts/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
-      continue-on-error: true

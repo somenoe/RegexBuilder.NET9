@@ -1,5 +1,7 @@
 # RegexBuilder
 
+> **Note:** This is a fork of the original [regex-builder](https://github.com/YuriyGuts/regex-builder) by Yuriy Guts, updated to support .NET 9.
+
 Just another day at the office, you write a .NET Regex like a boss,
 and suddenly realize that you need to declare, say, a non-capturing group.
 It's `(?:pattern)`, right? Wait, or was it `(?=pattern)`? No no, `(?=pattern)`

@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.0.1] - 2025-10-21
 
+### Added
+
+- Forked from [YuriyGuts/regex-builder](https://github.com/YuriyGuts/regex-builder)
+- Added GitHub Actions workflows for CI/CD
+- Added CHANGELOG.md following Keep a Changelog format
+
 ### Changed
 
 - Upgraded all projects from .NET Framework 4.0 to .NET 9.0
