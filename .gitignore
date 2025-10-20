@@ -109,3 +109,6 @@ Backup*/
 UpgradeLog*.XML
 
 *.dotCover
+
+# Temporary files
+temp_*
