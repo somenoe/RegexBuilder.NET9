@@ -5,6 +5,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.2] - 2025-10-21
+
+### Changed
+
+- **BREAKING**: Renamed all namespaces from `YuriyGuts.RegexBuilder` to `RegexBuilder`
+- **BREAKING**: Renamed assembly from `YuriyGuts.RegexBuilder.dll` to `RegexBuilder.dll`
+- Renamed all project files and directories to remove `YuriyGuts` prefix
+- Updated NuGet package ID to `RegexBuilder.NET9`
+- Updated repository URL to `https://github.com/somenoe/RegexBuilder.NET9`
+- Simplified project structure with cleaner naming conventions
+
+### Migration Guide
+
+If upgrading from version 1.0.1:
+
+1. Update your NuGet package reference from `RegexBuilder` to `RegexBuilder.NET9`
+2. Update all `using YuriyGuts.RegexBuilder;` statements to `using RegexBuilder;`
+3. Rebuild your project
+
 ## [1.0.1] - 2025-10-21
 
 ### Added

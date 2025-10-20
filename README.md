@@ -67,7 +67,7 @@ Regex hrefRegex = RegexBuilder.Build
 );
 ```
 
-See [CustomRegexTests.cs](/src/YuriyGuts.RegexBuilder.Tests/CustomRegexTests.cs) for more examples.
+See [CustomRegexTests.cs](/src/RegexBuilder.Tests/CustomRegexTests.cs) for more examples.
 
 ## Feature Support
 
@@ -86,10 +86,10 @@ The following elements are supported:
 
 ## How to Integrate RegexBuilder
 
-Add a reference to YuriyGuts.RegexBuilder.dll in your project manually, or use NuGet Package Manager:
+Add a reference to RegexBuilder.dll in your project manually, or use NuGet Package Manager:
 
-```
-PM> Install-Package RegexBuilder 
+```bash
+PM> Install-Package RegexBuilder.NET9
 ```
 
 ## Usage Guide
@@ -105,9 +105,9 @@ by calling the corresponding methods of `RegexBuilder`.
 
 ## Testing
 
-RegexBuilder uses MSTest for unit testing. To run or add unit tests in Visual Studio, please see the `YuriyGuts.RegexBuilder.Tests` project.
+RegexBuilder uses MSTest for unit testing. To run or add unit tests in Visual Studio, please see the `RegexBuilder.Tests` project.
 
-The `YuriyGuts.RegexBuilder.TestApp` project is a console application that can be used as a temporary testing workbench.
+The `RegexBuilder.TestApp` project is a console application that can be used as a temporary testing workbench.
 
 ## License
 

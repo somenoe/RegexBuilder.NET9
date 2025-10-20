@@ -39,16 +39,16 @@ jobs:
         echo "Building version: $VERSION"
     
     - name: Restore dependencies
-      run: dotnet restore src/YuriyGuts.RegexBuilder.sln
+      run: dotnet restore src/RegexBuilder.sln
     
     - name: Build
-      run: dotnet build src/YuriyGuts.RegexBuilder.sln --configuration Release --no-restore
+      run: dotnet build src/RegexBuilder.sln --configuration Release --no-restore
     
     - name: Test
-      run: dotnet test src/YuriyGuts.RegexBuilder.sln --configuration Release --no-build --verbosity normal
+      run: dotnet test src/RegexBuilder.sln --configuration Release --no-build --verbosity normal
     
     - name: Pack NuGet package
-      run: dotnet pack src/YuriyGuts.RegexBuilder/YuriyGuts.RegexBuilder.csproj --configuration Release --no-build --output ./artifacts
+      run: dotnet pack src/RegexBuilder/RegexBuilder.csproj --configuration Release --no-build --output ./artifacts
     
     - name: Upload NuGet package artifact
       uses: actions/upload-artifact@v4

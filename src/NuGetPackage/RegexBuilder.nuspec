@@ -1,16 +1,21 @@
 <?xml version="1.0"?>
 <package>
   <metadata>
-    <id>RegexBuilder</id>
-    <version>1.0.0</version>
-    <authors>Yuriy Guts</authors>
-    <owners>Yuriy Guts</owners>
-    <licenseUrl>http://opensource.org/licenses/MIT/</licenseUrl>
-    <projectUrl>https://github.com/YuriyGuts/regex-builder</projectUrl>
+    <id>RegexBuilder.NET9</id>
+    <version>1.0.2</version>
+    <authors>Pridsadang Pansiri</authors>
+    <owners>Pridsadang Pansiri</owners>
+    <license type="expression">MIT</license>
+    <projectUrl>https://github.com/somenoe/RegexBuilder.NET9</projectUrl>
+    <repository type="git" url="https://github.com/somenoe/RegexBuilder.NET9" />
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>.NET library for human-readable declaration of regular expressions without having to remember the regex syntax. Looks similar to Expression Trees in .NET.</description>
-    <releaseNotes>First public release.</releaseNotes>
-    <copyright>Copyright (c) 2011-2013 Yuriy Guts</copyright>
-    <tags>Regex fluent declarative</tags>
+    <description>.NET library for human-readable declaration of regular expressions without having to remember the regex syntax. Forked from YuriyGuts/regex-builder and updated for .NET 9.</description>
+    <releaseNotes>Version 1.0.2: Breaking changes - renamed namespaces from YuriyGuts.RegexBuilder to RegexBuilder, updated assembly names, and prepared for NuGet publication. See CHANGELOG.md for migration guide.</releaseNotes>
+    <copyright>Copyright © Yuriy Guts, 2011; Pridsadang Pansiri, 2025</copyright>
+    <tags>regex regular-expressions builder fluent net9 dotnet9 declarative</tags>
+    <readme>README.md</readme>
   </metadata>
+  <files>
+    <file src="..\..\README.md" target="" />
+  </files>
 </package>
