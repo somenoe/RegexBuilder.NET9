@@ -26,3 +26,19 @@ This file provides guidance when working with code in this repository.
 - **#create_directory**: Create directory structures in the workspace
 - **#fetch_webpage**: Fetch content from web pages for documentation reference
 - **#vscode-websearchforcopilot_webSearch**: Search the web for relevant up-to-date information
+
+## Git Commit Message Requirements
+
+- Header: `<type>(<scope>): <short description>`
+  - Types: feat, fix, docs, style, refactor, perf, test, chore
+- Blank line after header
+- Body: Bullet-point list of key changes (use "- " for each item)
+
+Example Commit Message:
+
+```txt
+feat(api): add shrimp data endpoint
+
+- implemented GET /shrimp route
+- validated input and added tests
+```
