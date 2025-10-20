@@ -86,10 +86,18 @@ The following elements are supported:
 
 ## How to Integrate RegexBuilder
 
-Add a reference to RegexBuilder.dll in your project manually, or use NuGet Package Manager:
+Install RegexBuilder.NET9 from NuGet using one of the following methods:
+
+**Via .NET CLI:**:
 
 ```bash
-PM> Install-Package RegexBuilder.NET9
+dotnet add package RegexBuilder.NET9 --version 1.0.3
+```
+
+**Via PackageReference**:
+
+```xml
+<PackageReference Include="RegexBuilder.NET9" Version="1.0.3" />
 ```
 
 ## Usage Guide
