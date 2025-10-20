@@ -9,15 +9,15 @@
     
     <!-- Package Metadata -->
     <Version>1.0.1</Version>
-    <PackageId>RegexBuilder</PackageId>
+    <PackageId>RegexBuilder.NET9</PackageId>
     <Authors>Pridsadang Pansiri</Authors>
     <Description>.NET library for human-readable declaration of regular expressions without having to remember the regex syntax. Forked from YuriyGuts/regex-builder and updated for .NET 9.</Description>
     <Copyright>Copyright © Yuriy Guts, 2011; Pridsadang Pansiri, 2025</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageProjectUrl>https://github.com/somenoe/regex-builder</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/somenoe/regex-builder</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/somenoe/RegexBuilder.NET9</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/somenoe/RegexBuilder.NET9</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageTags>regex;regular-expressions;builder;fluent</PackageTags>
+    <PackageTags>regex;regular-expressions;builder;fluent;net9;dotnet9</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
   

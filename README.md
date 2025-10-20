@@ -1,4 +1,4 @@
-# RegexBuilder
+# RegexBuilder.NET9
 
 > **Note:** This is a fork of the original [regex-builder](https://github.com/YuriyGuts/regex-builder) by Yuriy Guts, updated to support .NET 9.
 
