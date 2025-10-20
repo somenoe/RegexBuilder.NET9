@@ -413,5 +413,190 @@ namespace RegexBuilder.Tests
         #endregion Integration Tests
 
         #endregion Convenience Shortcut Methods Tests
+
+        #region Inline Option Grouping Tests
+
+        [TestMethod]
+        public void TestInlineOptionGroupingSingleOptionIgnoreCase()
+        {
+            RegexNode node = RegexBuilder.InlineOptionGrouping(RegexOptions.IgnoreCase, RegexBuilder.Literal("hello"));
+            Assert.AreEqual("(?i:hello)", node.ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestInlineOptionGroupingSingleOptionMultiline()
+        {
+            RegexNode node = RegexBuilder.InlineOptionGrouping(RegexOptions.Multiline, RegexBuilder.Literal("test"));
+            Assert.AreEqual("(?m:test)", node.ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestInlineOptionGroupingSingleOptionSingleline()
+        {
+            RegexNode node = RegexBuilder.InlineOptionGrouping(RegexOptions.Singleline, RegexBuilder.Literal("expr"));
+            Assert.AreEqual("(?s:expr)", node.ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestInlineOptionGroupingSingleOptionExplicitCapture()
+        {
+            RegexNode node = RegexBuilder.InlineOptionGrouping(RegexOptions.ExplicitCapture, RegexBuilder.Literal("pattern"));
+            Assert.AreEqual("(?n:pattern)", node.ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestInlineOptionGroupingSingleOptionIgnorePatternWhitespace()
+        {
+            RegexNode node = RegexBuilder.InlineOptionGrouping(RegexOptions.IgnorePatternWhitespace, RegexBuilder.Literal("spaced"));
+            Assert.AreEqual("(?x:spaced)", node.ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestInlineOptionGroupingMultipleOptionsIgnoreCaseMultiline()
+        {
+            RegexNode node = RegexBuilder.InlineOptionGrouping(
+                RegexOptions.IgnoreCase | RegexOptions.Multiline,
+                RegexBuilder.Literal("text")
+            );
+            Assert.AreEqual("(?im:text)", node.ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestInlineOptionGroupingMultipleOptionsAll()
+        {
+            RegexNode node = RegexBuilder.InlineOptionGrouping(
+                RegexOptions.IgnoreCase | RegexOptions.Multiline | RegexOptions.Singleline | RegexOptions.ExplicitCapture | RegexOptions.IgnorePatternWhitespace,
+                RegexBuilder.Literal("all")
+            );
+            Assert.AreEqual("(?imsnx:all)", node.ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestInlineOptionGroupingWithDisabledOptions()
+        {
+            RegexNode node = RegexBuilder.InlineOptionGrouping(
+                RegexOptions.IgnoreCase,
+                RegexOptions.Multiline,
+                RegexBuilder.Literal("expr")
+            );
+            Assert.AreEqual("(?i-m:expr)", node.ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestInlineOptionGroupingMultipleEnabledMultipleDisabled()
+        {
+            RegexNode node = RegexBuilder.InlineOptionGrouping(
+                RegexOptions.IgnoreCase | RegexOptions.Singleline,
+                RegexOptions.Multiline | RegexOptions.ExplicitCapture,
+                RegexBuilder.Literal("complex")
+            );
+            Assert.AreEqual("(?is-mn:complex)", node.ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestInlineOptionGroupingNoneEnabledWithDisabled()
+        {
+            RegexNode node = RegexBuilder.InlineOptionGrouping(
+                RegexOptions.None,
+                RegexOptions.IgnoreCase,
+                RegexBuilder.Literal("disable")
+            );
+            Assert.AreEqual("(?-i:disable)", node.ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestInlineOptionGroupingWithComplexExpression()
+        {
+            RegexNode complexExpr = new RegexNodeConcatenation(
+                RegexBuilder.Literal("hello"),
+                RegexBuilder.MetaCharacter(RegexMetaChars.Digit, RegexQuantifier.OneOrMore)
+            );
+            RegexNode node = RegexBuilder.InlineOptionGrouping(RegexOptions.IgnoreCase, complexExpr);
+            Assert.AreEqual("(?i:hello\\d+)", node.ToRegexPattern());
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void TestInlineOptionGroupingInvalidOptionCompiled()
+        {
+            RegexBuilder.InlineOptionGrouping(RegexOptions.Compiled, RegexBuilder.Literal("test"));
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void TestInlineOptionGroupingInvalidOptionRightToLeft()
+        {
+            RegexBuilder.InlineOptionGrouping(RegexOptions.RightToLeft, RegexBuilder.Literal("test"));
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void TestInlineOptionGroupingInvalidOptionECMAScript()
+        {
+            RegexBuilder.InlineOptionGrouping(RegexOptions.ECMAScript, RegexBuilder.Literal("test"));
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void TestInlineOptionGroupingInvalidOptionCultureInvariant()
+        {
+            RegexBuilder.InlineOptionGrouping(RegexOptions.CultureInvariant, RegexBuilder.Literal("test"));
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void TestInlineOptionGroupingNullExpression()
+        {
+            RegexBuilder.InlineOptionGrouping(RegexOptions.IgnoreCase, null);
+        }
+
+        [TestMethod]
+        public void TestInlineOptionGroupingCaseInsensitiveMatching()
+        {
+            Regex regex = RegexBuilder.Build(
+                RegexBuilder.InlineOptionGrouping(
+                    RegexOptions.IgnoreCase,
+                    RegexBuilder.Literal("hello")
+                )
+            );
+            Assert.IsTrue(regex.IsMatch("hello"));
+            Assert.IsTrue(regex.IsMatch("HELLO"));
+            Assert.IsTrue(regex.IsMatch("HeLLo"));
+        }
+
+        [TestMethod]
+        public void TestInlineOptionGroupingMultilineMatching()
+        {
+            string input = "line1\nline2";
+            Regex regex = RegexBuilder.Build(
+                RegexBuilder.InlineOptionGrouping(
+                    RegexOptions.Multiline,
+                    new RegexNodeConcatenation(
+                        RegexBuilder.MetaCharacter(RegexMetaChars.LineStart),
+                        RegexBuilder.Literal("line")
+                    )
+                )
+            );
+            Assert.IsTrue(regex.IsMatch(input));
+        }
+
+        [TestMethod]
+        public void TestInlineOptionGroupingSinglelineMatching()
+        {
+            string input = "start\nmiddle\nend";
+            Regex regex = RegexBuilder.Build(
+                RegexBuilder.InlineOptionGrouping(
+                    RegexOptions.Singleline,
+                    new RegexNodeConcatenation(
+                        RegexBuilder.Literal("start"),
+                        RegexBuilder.MetaCharacter(RegexMetaChars.AnyCharacter, RegexQuantifier.ZeroOrMore),
+                        RegexBuilder.Literal("end")
+                    )
+                )
+            );
+            Assert.IsTrue(regex.IsMatch(input));
+        }
+
+        #endregion Inline Option Grouping Tests
     }
 }
