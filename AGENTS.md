@@ -13,6 +13,7 @@ This file provides guidance when working with code in this repository.
    - `CHANGELOG.md` with the new feature details.
    - (optional) `README.md` if necessary.
    - (optional) `AGENTS.md` if the feature affects agent behavior.
+6. Format the codebase with `make format` or manually run `npx prettier --write .` and `dotnet format src`.
 
 ## Recommended Tools
 
