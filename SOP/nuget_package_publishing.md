@@ -37,13 +37,13 @@ cd d:\pj\regex-builder
 Restore dependencies:
 
 ```bash
-dotnet restore src/RegexBuilder.sln
+dotnet restore src/RegexBuilder.slnx
 ```
 
 Build in Release configuration:
 
 ```bash
-dotnet build src/RegexBuilder.sln --configuration Release --no-restore
+dotnet build src/RegexBuilder.slnx --configuration Release --no-restore
 ```
 
 ### Step 3: Run Tests
@@ -51,7 +51,7 @@ dotnet build src/RegexBuilder.sln --configuration Release --no-restore
 Ensure all tests pass before publishing:
 
 ```bash
-dotnet test src/RegexBuilder.sln --configuration Release --no-build --verbosity normal
+dotnet test src/RegexBuilder.slnx --configuration Release --no-build --verbosity normal
 ```
 
 ### Step 4: Pack the NuGet Package

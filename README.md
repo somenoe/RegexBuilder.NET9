@@ -142,12 +142,10 @@ More examples can be found in [CustomRegexTests.cs](/src/RegexBuilder.Tests/Cust
 RegexBuilder has 3 main classes you'll work with:
 
 1. **`RegexBuilder`** - Factory class for building regex patterns
-
    - Static methods that produce and combine different parts of a regular expression
    - Entry point: `RegexBuilder.Build(...)`
 
 2. **`RegexQuantifier`** - Produces quantifiers for regex parts
-
    - Properties like `ZeroOrMore`, `OneOrMore`, `Optional`, `ExactCount(n)`, `Range(min, max)`, etc.
 
 3. **`RegexMetaChars`** - Named constants for character classes
@@ -247,7 +245,7 @@ RegexBuilder uses MSTest for unit testing. The `RegexBuilder.Tests` project cont
 **Run tests from command line:**
 
 ```bash
-dotnet test src/RegexBuilder.sln
+dotnet test src/RegexBuilder.slnx
 ```
 
 **Test project structure:**
@@ -269,7 +267,7 @@ dotnet format src
 **Build the project:**
 
 ```bash
-dotnet build src/RegexBuilder.sln
+dotnet build src/RegexBuilder.slnx
 ```
 
 **Pack as NuGet package:**

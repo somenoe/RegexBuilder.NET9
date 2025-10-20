@@ -39,13 +39,13 @@ jobs:
           echo "Building version: $VERSION"
 
       - name: Restore dependencies
-        run: dotnet restore src/RegexBuilder.sln
+        run: dotnet restore src/RegexBuilder.slnx
 
       - name: Build
-        run: dotnet build src/RegexBuilder.sln --configuration Release --no-restore
+        run: dotnet build src/RegexBuilder.slnx --configuration Release --no-restore
 
       - name: Test
-        run: dotnet test src/RegexBuilder.sln --configuration Release --no-build --verbosity normal
+        run: dotnet test src/RegexBuilder.slnx --configuration Release --no-build --verbosity normal
 
       - name: Pack NuGet package
         run: dotnet pack src/RegexBuilder/RegexBuilder.csproj --configuration Release --no-build --output ./artifacts

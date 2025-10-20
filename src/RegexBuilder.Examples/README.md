@@ -14,7 +14,7 @@ This example project serves to:
 
 ### Via Visual Studio
 
-1. Open `src/RegexBuilder.sln`
+1. Open `src/RegexBuilder.slnx`
 2. Set `RegexBuilder.Examples` as startup project (right-click → Set as Startup Project)
 3. Press F5 or click "Run"
 

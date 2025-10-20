@@ -20,13 +20,13 @@ jobs:
           dotnet-version: "9.0.x"
 
       - name: Restore dependencies
-        run: dotnet restore src/RegexBuilder.sln
+        run: dotnet restore src/RegexBuilder.slnx
 
       - name: Build
-        run: dotnet build src/RegexBuilder.sln --configuration Release --no-restore
+        run: dotnet build src/RegexBuilder.slnx --configuration Release --no-restore
 
       - name: Test
-        run: dotnet test src/RegexBuilder.sln --configuration Release --no-build --verbosity normal --logger "trx;LogFileName=test-results.trx"
+        run: dotnet test src/RegexBuilder.slnx --configuration Release --no-build --verbosity normal --logger "trx;LogFileName=test-results.trx"
 
       - name: Upload test results
         uses: actions/upload-artifact@v4
