@@ -122,7 +122,7 @@ namespace RegexBuilder.Tests
         {
             var emailNode = CommonPatterns.Email();
             string pattern = emailNode.ToRegexPattern();
-            
+
             // Verify it's a valid regex pattern
             var regex = new Regex(pattern);
             Assert.IsTrue(regex.IsMatch("test@example.com"));
@@ -135,7 +135,7 @@ namespace RegexBuilder.Tests
                 RegexBuilder.Literal("Email: "),
                 CommonPatterns.Email()
             );
-            
+
             Assert.IsTrue(regex.IsMatch("Email: user@example.com"));
             Assert.IsFalse(regex.IsMatch("user@example.com"));
         }
@@ -261,7 +261,7 @@ namespace RegexBuilder.Tests
         {
             var urlNode = CommonPatterns.Url();
             string pattern = urlNode.ToRegexPattern();
-            
+
             // Verify it's a valid regex pattern
             var regex = new Regex(pattern);
             Assert.IsTrue(regex.IsMatch("https://example.com"));
@@ -274,7 +274,7 @@ namespace RegexBuilder.Tests
                 RegexBuilder.Literal("Visit: "),
                 CommonPatterns.Url()
             );
-            
+
             Assert.IsTrue(regex.IsMatch("Visit: https://example.com"));
             Assert.IsFalse(regex.IsMatch("https://example.com"));
         }
@@ -292,7 +292,7 @@ namespace RegexBuilder.Tests
                 RegexBuilder.Literal(", Website: "),
                 CommonPatterns.Url()
             );
-            
+
             Assert.IsTrue(regex.IsMatch("Email: user@example.com, Website: https://example.com"));
         }
 
@@ -305,7 +305,7 @@ namespace RegexBuilder.Tests
                     CommonPatterns.Url()
                 )
             );
-            
+
             Assert.IsTrue(regex.IsMatch("user@example.com"));
             Assert.IsTrue(regex.IsMatch("https://example.com"));
         }
@@ -315,12 +315,12 @@ namespace RegexBuilder.Tests
         {
             var emailNode = CommonPatterns.Email();
             emailNode.Quantifier = RegexQuantifier.ZeroOrOne;
-            
+
             var regex = RegexBuilder.Build(
                 RegexBuilder.Literal("Contact: "),
                 emailNode
             );
-            
+
             Assert.IsTrue(regex.IsMatch("Contact: user@example.com"));
             Assert.IsTrue(regex.IsMatch("Contact: "));
         }
@@ -330,12 +330,12 @@ namespace RegexBuilder.Tests
         {
             var urlNode = CommonPatterns.Url();
             urlNode.Quantifier = RegexQuantifier.ZeroOrOne;
-            
+
             var regex = RegexBuilder.Build(
                 RegexBuilder.Literal("Website: "),
                 urlNode
             );
-            
+
             Assert.IsTrue(regex.IsMatch("Website: https://example.com"));
             Assert.IsTrue(regex.IsMatch("Website: "));
         }

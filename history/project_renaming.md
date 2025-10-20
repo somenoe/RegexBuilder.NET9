@@ -20,6 +20,7 @@ The project was originally created by Yuriy Guts and used the `YuriyGuts.RegexBu
 ### 1. Directory Structure
 
 Renamed all project directories:
+
 - `src/YuriyGuts.RegexBuilder/` → `src/RegexBuilder/`
 - `src/YuriyGuts.RegexBuilder.Tests/` → `src/RegexBuilder.Tests/`
 - `src/YuriyGuts.RegexBuilder.TestApp/` → `src/RegexBuilder.TestApp/`
@@ -27,6 +28,7 @@ Renamed all project directories:
 ### 2. Project Files
 
 Renamed all project files:
+
 - `YuriyGuts.RegexBuilder.csproj` → `RegexBuilder.csproj`
 - `YuriyGuts.RegexBuilder.Tests.csproj` → `RegexBuilder.Tests.csproj`
 - `YuriyGuts.RegexBuilder.TestApp.csproj` → `RegexBuilder.TestApp.csproj`
@@ -37,6 +39,7 @@ Renamed all project files:
 Updated all `.csproj` files:
 
 **Main Library (`RegexBuilder.csproj`):**
+
 ```xml
 <AssemblyName>RegexBuilder</AssemblyName>
 <RootNamespace>RegexBuilder</RootNamespace>
@@ -47,11 +50,13 @@ Updated all `.csproj` files:
 ```
 
 **Test Project (`RegexBuilder.Tests.csproj`):**
+
 ```xml
 <RootNamespace>RegexBuilder.Tests</RootNamespace>
 ```
 
 **Test App Project (`RegexBuilder.TestApp.csproj`):**
+
 ```xml
 <RootNamespace>RegexBuilder.TestApp</RootNamespace>
 ```
@@ -65,21 +70,25 @@ Updated `RegexBuilder.sln` to reference all renamed project files and paths.
 Updated all C# source files across the entire solution:
 
 **Namespace Declarations:**
+
 - `namespace YuriyGuts.RegexBuilder` → `namespace RegexBuilder`
 - `namespace YuriyGuts.RegexBuilder.Tests` → `namespace RegexBuilder.Tests`
 
 **Using Statements:**
+
 - `using YuriyGuts.RegexBuilder;` → `using RegexBuilder;`
 
 ### 6. Documentation Updates
 
 **README.md:**
+
 - Updated installation instructions to use `RegexBuilder.NET9` package
 - Changed assembly reference from `YuriyGuts.RegexBuilder.dll` to `RegexBuilder.dll`
 - Updated file path references in documentation
 - Updated project name references
 
 **CHANGELOG.md:**
+
 - Added new version 1.0.2 entry
 - Documented breaking changes
 - Provided migration guide for users upgrading from 1.0.1
@@ -97,21 +106,23 @@ This release contains breaking changes for existing users:
 For projects currently using version 1.0.1:
 
 1. **Update NuGet Package:**
+
    ```bash
    # Remove old package (if exists)
    dotnet remove package RegexBuilder
-   
+
    # Add new package
    dotnet add package RegexBuilder.NET9
    ```
 
 2. **Update Using Statements:**
-   
+
    Find and replace in your codebase:
+
    ```csharp
    // Old
    using YuriyGuts.RegexBuilder;
-   
+
    // New
    using RegexBuilder;
    ```
@@ -125,6 +136,7 @@ For projects currently using version 1.0.1:
 ## Version Bump Rationale
 
 Changed version from `1.0.1` to `1.0.2` because:
+
 - According to Semantic Versioning, this should be a MAJOR version change (2.0.0) due to breaking changes
 - However, since this is essentially a rebranding and the project is still in early adoption phase
 - We're using MINOR version bump with clear breaking change documentation
@@ -135,6 +147,7 @@ Changed version from `1.0.1` to `1.0.2` because:
 The project now follows NuGet best practices:
 
 ✅ **Required Metadata:**
+
 - Unique PackageId: `RegexBuilder.NET9`
 - SemVer versioning: `1.0.2`
 - Author information
@@ -145,12 +158,14 @@ The project now follows NuGet best practices:
 - README file included
 
 ✅ **Project Structure:**
+
 - SDK-style project format
 - .NET 9.0 target framework
 - Proper project references
 - Clean namespace hierarchy
 
 ✅ **Documentation:**
+
 - Comprehensive README
 - Changelog following Keep a Changelog format
 - History documentation
@@ -158,6 +173,7 @@ The project now follows NuGet best practices:
 ## Testing
 
 After all changes:
+
 1. Solution builds successfully
 2. All 89 unit tests pass
 3. Test app runs correctly
@@ -166,21 +182,25 @@ After all changes:
 ## Files Modified
 
 ### Project Files
+
 - `src/RegexBuilder/RegexBuilder.csproj`
 - `src/RegexBuilder.Tests/RegexBuilder.Tests.csproj`
 - `src/RegexBuilder.TestApp/RegexBuilder.TestApp.csproj`
 - `src/RegexBuilder.sln`
 
 ### Source Files (All .cs files in)
+
 - `src/RegexBuilder/`
 - `src/RegexBuilder.Tests/`
 - `src/RegexBuilder.TestApp/`
 
 ### Documentation
+
 - `README.md`
 - `CHANGELOG.md`
 
 ### History Documentation
+
 - `history/nuget_publication_preparation.md` (planning document)
 - `history/project_renaming.md` (this document)
 
@@ -217,6 +237,7 @@ dotnet nuget push bin\Release\RegexBuilder.NET9.1.0.2.nupkg `
 ## Attribution
 
 This project respects the original work by Yuriy Guts:
+
 - Original repository: https://github.com/YuriyGuts/regex-builder
 - Copyright notice maintains attribution to both original and current maintainers
 - MIT license preserved from original project

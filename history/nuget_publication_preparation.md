@@ -3,9 +3,11 @@
 ## Date: October 21, 2025
 
 ## Overview
+
 Prepare the RegexBuilder.NET9 project for NuGet publication with proper naming conventions and metadata following NuGet best practices.
 
 ## Goals
+
 1. Update project metadata for NuGet publication
 2. Remove old author name (YuriyGuts) from all project names and namespaces
 3. Update documentation and changelog
@@ -14,6 +16,7 @@ Prepare the RegexBuilder.NET9 project for NuGet publication with proper naming c
 ## NuGet Best Practices (from Microsoft Documentation)
 
 ### Package Metadata Requirements
+
 - ✅ **PackageId**: Use unique, descriptive name (already set to `RegexBuilder.NET9`)
 - ✅ **Version**: Follow SemVer (currently `1.0.1`)
 - ✅ **Authors**: Current maintainer name
@@ -27,6 +30,7 @@ Prepare the RegexBuilder.NET9 project for NuGet publication with proper naming c
 - ✅ **PackageLicenseExpression**: MIT (already set)
 
 ### Additional Recommendations
+
 - Consider adding a package icon (128x128 PNG with transparent background)
 - Include release notes with each update
 - Set up Source Link for debugging support
@@ -34,21 +38,26 @@ Prepare the RegexBuilder.NET9 project for NuGet publication with proper naming c
 ## Changes Required
 
 ### 1. Update Repository URL
+
 **Status**: ❌ Not done
 **Files to update**:
+
 - `src/YuriyGuts.RegexBuilder/YuriyGuts.RegexBuilder.csproj`
   - Update `<PackageProjectUrl>` to `https://github.com/somenoe/RegexBuilder.NET9`
   - Update `<RepositoryUrl>` to `https://github.com/somenoe/RegexBuilder.NET9`
 
 ### 2. Rename Projects and Files
+
 **Status**: ❌ Not done
 
 #### Directory Renames:
+
 - `src/YuriyGuts.RegexBuilder/` → `src/RegexBuilder/`
 - `src/YuriyGuts.RegexBuilder.Tests/` → `src/RegexBuilder.Tests/`
 - `src/YuriyGuts.RegexBuilder.TestApp/` → `src/RegexBuilder.TestApp/`
 
 #### File Renames:
+
 - `src/YuriyGuts.RegexBuilder.sln` → `src/RegexBuilder.sln`
 - `src/YuriyGuts.RegexBuilder/YuriyGuts.RegexBuilder.csproj` → `src/RegexBuilder/RegexBuilder.csproj`
 - `src/YuriyGuts.RegexBuilder.Tests/YuriyGuts.RegexBuilder.Tests.csproj` → `src/RegexBuilder.Tests/RegexBuilder.Tests.csproj`
@@ -56,9 +65,11 @@ Prepare the RegexBuilder.NET9 project for NuGet publication with proper naming c
 - `src/YuriyGuts.RegexBuilder.vsmdi` → (consider removing as legacy VS test file)
 
 ### 3. Update Project Properties
+
 **Status**: ❌ Not done
 
 #### Main Library Project (RegexBuilder.csproj):
+
 ```xml
 <AssemblyName>RegexBuilder</AssemblyName>
 <RootNamespace>RegexBuilder</RootNamespace>
@@ -66,50 +77,61 @@ Prepare the RegexBuilder.NET9 project for NuGet publication with proper naming c
 ```
 
 #### Test Project (RegexBuilder.Tests.csproj):
+
 ```xml
 <AssemblyName>RegexBuilder.Tests</AssemblyName>
 <RootNamespace>RegexBuilder.Tests</RootNamespace>
 ```
 
 #### Test App Project (RegexBuilder.TestApp.csproj):
+
 ```xml
 <AssemblyName>RegexBuilder.TestApp</AssemblyName>
 <RootNamespace>RegexBuilder.TestApp</RootNamespace>
 ```
 
 ### 4. Update Namespace Declarations in Code Files
+
 **Status**: ❌ Not done
 **Action**: Change all `namespace YuriyGuts.RegexBuilder` to `namespace RegexBuilder` in:
+
 - All `.cs` files in `src/RegexBuilder/`
 - All `.cs` files in `src/RegexBuilder.Tests/`
 - All `.cs` files in `src/RegexBuilder.TestApp/`
 
 ### 5. Update Using Statements
+
 **Status**: ❌ Not done
 **Action**: Change all `using YuriyGuts.RegexBuilder;` to `using RegexBuilder;` in:
+
 - Test files
 - TestApp files
 - Any other files with references
 
 ### 6. Update Documentation Files
+
 **Status**: ❌ Not done
 
 #### README.md:
+
 - Update installation command from old NuGet package to new one
 - Update references to file paths (remove YuriyGuts prefix)
 - Update project reference examples
 - Update assembly DLL name references
 
 #### CHANGELOG.md:
+
 - Add new entry for version 1.0.2 (or keep 1.0.1 if publishing now)
 - Document the renaming changes
 - Document NuGet publication preparation
 
 ### 7. Update Project References
+
 **Status**: ❌ Not done
 **Action**: Update all `<ProjectReference>` paths in .csproj files to point to new locations
 
 ### 8. Update Solution File
+
 **Status**: ❌ Not done
 **Action**: Update all project paths and names in the .sln file
 

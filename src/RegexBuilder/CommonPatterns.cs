@@ -60,13 +60,13 @@ namespace RegexBuilder
             // Protocol: (https?|ftp)://
             var httpS = RegexBuilder.Literal("s");
             httpS.Quantifier = RegexQuantifier.ZeroOrOne;
-            
+
             var httpProtocol = new RegexNodeConcatenation(
                 RegexBuilder.Literal("http"),
                 httpS,
                 RegexBuilder.Literal("://")
             );
-            
+
             var ftpProtocol = RegexBuilder.Literal("ftp://");
             var protocol = new RegexNodeAlternation(httpProtocol, ftpProtocol);
             protocol.Quantifier = RegexQuantifier.ZeroOrOne;

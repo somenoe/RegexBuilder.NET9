@@ -19,9 +19,9 @@ expressions, using a language friendly to the .NET world instead of two lines of
 
 When it might be useful:
 
-* When the expressions are complex and might be frequently changed.
-* When you can tolerate 20 lines of understandable code instead of 1 hardly understandable.
-* If you can spare a bit of CPU time and memory for constructing the Regex object for the sake of readability.
+- When the expressions are complex and might be frequently changed.
+- When you can tolerate 20 lines of understandable code instead of 1 hardly understandable.
+- If you can spare a bit of CPU time and memory for constructing the Regex object for the sake of readability.
 
 ## Example
 
@@ -75,14 +75,14 @@ RegexBuilder currently supports all regular expression language elements except 
 
 The following elements are supported:
 
-* [Quantifiers](http://msdn.microsoft.com/en-us/library/az24scfc.aspx#quantifiers)
-* [Character escapes](http://msdn.microsoft.com/en-us/library/az24scfc.aspx#character_escapes)
-* [Character classes](http://msdn.microsoft.com/en-us/library/az24scfc.aspx#character_classes)
-* [Anchors (atomic zero-width assertions)](http://msdn.microsoft.com/en-us/library/az24scfc.aspx#atomic_zerowidth_assertions)
-* [Grouping constructs](http://msdn.microsoft.com/en-us/library/az24scfc.aspx#grouping_constructs)
-* [Backreference constructs](http://msdn.microsoft.com/en-us/library/az24scfc.aspx#backreference_constructs)
-* [Alternation constructs](http://msdn.microsoft.com/en-us/library/az24scfc.aspx#alternation_constructs)
-* [Inline options and comments](http://msdn.microsoft.com/en-us/library/az24scfc.aspx#miscellaneous_constructs)
+- [Quantifiers](http://msdn.microsoft.com/en-us/library/az24scfc.aspx#quantifiers)
+- [Character escapes](http://msdn.microsoft.com/en-us/library/az24scfc.aspx#character_escapes)
+- [Character classes](http://msdn.microsoft.com/en-us/library/az24scfc.aspx#character_classes)
+- [Anchors (atomic zero-width assertions)](http://msdn.microsoft.com/en-us/library/az24scfc.aspx#atomic_zerowidth_assertions)
+- [Grouping constructs](http://msdn.microsoft.com/en-us/library/az24scfc.aspx#grouping_constructs)
+- [Backreference constructs](http://msdn.microsoft.com/en-us/library/az24scfc.aspx#backreference_constructs)
+- [Alternation constructs](http://msdn.microsoft.com/en-us/library/az24scfc.aspx#alternation_constructs)
+- [Inline options and comments](http://msdn.microsoft.com/en-us/library/az24scfc.aspx#miscellaneous_constructs)
 
 ## How to Integrate RegexBuilder
 

@@ -24,7 +24,6 @@ Create a new static class `RegexBuilder.CommonPatterns` that provides factory me
 - `Email()` - Returns a RegexNode for basic email validation
   - Pattern: Local part + @ + domain
   - Supports standard email format (simplified but practical)
-  
 - `Url()` - Returns a RegexNode for URL validation
   - Pattern: Protocol + domain + optional path/query/fragment
   - Supports http, https, ftp protocols
@@ -32,11 +31,13 @@ Create a new static class `RegexBuilder.CommonPatterns` that provides factory me
 ### 2. Pattern Details
 
 #### Email Pattern
+
 - Local part: alphanumeric, dots, hyphens, underscores
 - Domain: alphanumeric with dots, ending with 2-6 letter TLD
 - Example: `user.name@example.com`
 
 #### URL Pattern
+
 - Protocol: http://, https://, ftp:// (optional)
 - Domain: standard domain format
 - Path: optional path, query string, and fragment
@@ -45,6 +46,7 @@ Create a new static class `RegexBuilder.CommonPatterns` that provides factory me
 ### 3. Testing Strategy
 
 Create comprehensive tests for:
+
 - Valid email addresses (various formats)
 - Invalid email addresses (missing @, invalid characters, etc.)
 - Valid URLs (with/without protocol, with paths, with query strings)
