@@ -59,19 +59,22 @@
 
 ### 🟠 MEDIUM PRIORITY
 
-- [ ] **Substitution Pattern Audit** (Verify `SubstitutionBuilder` completeness)
+- [x] **Substitution Pattern Audit** (Verify `SubstitutionBuilder` completeness)
   - Verify support: `$number`, `${name}`, `$$`, `$&`, `` $` ``, `$'`, `$+`, `$_`
+  - ✅ COMPLETED: All 8 substitution patterns fully supported with comprehensive tests (47 tests passing)
 - [ ] **Balancing Groups** `(?<name1-name2>expr)`
   - For nested/balanced pattern matching (parentheses, XML tags, code blocks)
 
 ### 🟡 LOW PRIORITY
 
 - [ ] **Convenience Shortcut Methods**
+
   - Character classes: `Digit()`, `NonDigit()`, `Whitespace()`, `NonWhitespace()`, `WordCharacter()`, `NonWordCharacter()`
   - Anchors: `LineStart()`, `LineEnd()`, `StringStart()`, `StringEnd()`, `StringEndAbsolute()`, `WordBoundary()`, `NonWordBoundary()`, `MatchPointAnchor()`
   - Escapes: `BellCharacter()`, `FormFeed()`, `VerticalTab()`, `EscapeCharacter()`, `OctalCharacter()`
 
 - [ ] **Inline Option Grouping** `(?imnsx-imnsx:expr)`
+
   - Dedicated node for scoped option application
 
 - [ ] **Named Group Apostrophe Syntax** `(?'name'expr)`
