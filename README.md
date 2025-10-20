@@ -1,75 +1,40 @@
 # RegexBuilder.NET9
 
+C# library for building .NET regular expressions with human-readable code.
+
 > **Note:** This is a fork of the original [regex-builder](https://github.com/YuriyGuts/regex-builder) by Yuriy Guts, updated to support .NET 9.
 
-Just another day at the office, you write a .NET Regex like a boss,
-and suddenly realize that you need to declare, say, a non-capturing group.
-It's `(?:pattern)`, right? Wait, or was it `(?=pattern)`? No no, `(?=pattern)`
-must be a positive lookahead or something. But if `(?<=pattern)` is a positive lookbehind,
-then maybe positive lookahead would be `(?>=pattern)`?
+## Table of Contents
 
-_"Aaargh! Now where's that Regex cheat sheet?.."_ And make sure to share it with your five colleagues who might be maintaining this code later.
-Also, remember to use comments inside the Regex pattern, and maybe a few third-party tools to be sure what the expression does.
+- [Installation](#installation)
+- [Quick Start](#quick-start)
+- [Real-World Example](#real-world-example)
+- [When to Use RegexBuilder](#when-to-use-regexbuilder)
+- [Supported Features](#supported-features)
+- [API Guide](#api-guide)
+- [Advanced Usage](#advanced-usage)
+- [Testing](#testing)
+- [Development](#development)
+- [Contributing](#contributing)
+- [License](#license)
 
-_"How did it come to this?"_
+## Overview
 
-Inspired by the [Expression Trees](http://msdn.microsoft.com/en-us/library/bb397951.aspx) feature
-in .NET, the RegexBuilder library provides a more verbose but more human-readable way of declaring regular
-expressions, using a language friendly to the .NET world instead of two lines of cryptic mess.
+Just another day at the office—you write a .NET Regex like a boss, and suddenly realize that you need to declare a non-capturing group.
+Is it `(?:pattern)`? Or `(?=pattern)` (positive lookahead)? Or `(?<=pattern)` (positive lookbehind)?
 
-When it might be useful:
+> "Aaargh! Where's that Regex cheat sheet?!"
 
-- When the expressions are complex and might be frequently changed.
-- When you can tolerate 20 lines of understandable code instead of 1 hardly understandable.
-- If you can spare a bit of CPU time and memory for constructing the Regex object for the sake of readability.
+**The Solution:** Inspired by [Expression Trees](http://msdn.microsoft.com/en-us/library/bb397951.aspx) in .NET, RegexBuilder provides a more verbose but **infinitely more human-readable** way of declaring regular expressions using fluent, chainable C# code instead of cryptic regex patterns.
 
-## Example
+## When to Use RegexBuilder
 
-Let's say you want to [make a simple HTML parser](http://stackoverflow.com/questions/1732348/regex-match-open-tags-except-xhtml-self-contained-tags)
-and capture the value of every `href` attribute from hyperlinks, like shown in the [MSDN example](http://msdn.microsoft.com/en-us/library/t9e807fx.aspx).
+- **Complex expressions** that might be frequently changed
+- **Team environments** where regex readability matters for maintainability
+- **Building patterns programmatically** with conditional logic
+- When **clarity is worth the modest performance cost** of constructing the Regex object
 
-The usual way:
-
-```csharp
-Regex hrefRegex = new Regex("href\\s*=\\s*(?:[\"'](?<Target>[^\"']*)[\"']|(?<Target>\\S+))", RegexOptions.IgnoreCase);
-```
-
-With RegexBuilder:
-
-```csharp
-const string quotationMark = "\"";
-Regex hrefRegex = RegexBuilder.Build
-(
-    RegexOptions.IgnoreCase,
-    // Regex structure declaration
-    RegexBuilder.Literal("href"),
-    RegexBuilder.MetaCharacter(RegexMetaChars.WhiteSpace, RegexQuantifier.ZeroOrMore),
-    RegexBuilder.Literal("="),
-    RegexBuilder.MetaCharacter(RegexMetaChars.WhiteSpace, RegexQuantifier.ZeroOrMore),
-    RegexBuilder.Alternate
-    (
-        RegexBuilder.Concatenate
-        (
-            RegexBuilder.NonEscapedLiteral(quotationMark),
-            RegexBuilder.Group
-            (
-                "Target",
-                RegexBuilder.NegativeCharacterSet(quotationMark, RegexQuantifier.ZeroOrMore)
-            ),
-            RegexBuilder.NonEscapedLiteral(quotationMark)
-        ),
-        RegexBuilder.Group
-        (
-            "Target",
-            RegexBuilder.MetaCharacter(RegexMetaChars.NonwhiteSpace, RegexQuantifier.OneOrMore)
-        )
-    )
-);
-```
-
-See [CustomRegexTests.cs](/src/RegexBuilder.Tests/CustomRegexTests.cs) for more examples.
-
-## Feature Support
+## Supported Features
 
 The following elements are supported:
 
@@ -83,36 +48,159 @@ The following elements are supported:
 - [Inline options and comments](http://msdn.microsoft.com/en-us/library/az24scfc.aspx#miscellaneous_constructs)
 - [Substitution patterns](http://msdn.microsoft.com/en-us/library/az24scfc.aspx#substitutions) - for use with `Regex.Replace()`
 
-## How to Integrate RegexBuilder
+## Installation
 
 Install RegexBuilder.NET9 from NuGet using one of the following methods:
 
-**Via .NET CLI:**:
+**Via .NET CLI:**
 
 ```bash
-dotnet add package RegexBuilder.NET9 --version 1.0.5
+dotnet add package RegexBuilder.NET9 --version 1.1.0
 ```
 
-**Via PackageReference**:
+**Via PackageReference in .csproj:**
 
 ```xml
-<PackageReference Include="RegexBuilder.NET9" Version="1.0.5" />
+<PackageReference Include="RegexBuilder.NET9" Version="1.1.0" />
 ```
 
-## Usage Guide
+## Quick Start
 
-There are 3 classes you'll need. They all expose their functionality via static members and work statelessly.
+Here's a simple example to get you started. Let's build a regex to match email addresses:
 
-1. `RegexBuilder`: a factory class that produces and glues together different parts of a regular expression.
-2. `RegexQuantifier`: produces quantifiers (`?`, `+` `{4,}`, etc.) for regex parts that support them.
-3. `RegexMetaChars`: named constants for character classes (word boundary, whitespace, tab, etc.).
+```csharp
+var emailRegex = RegexBuilder.Build(
+    RegexBuilder.Group(
+        "localPart",
+        RegexBuilder.CharacterSet(RegexMetaChars.WordCharacter, RegexQuantifier.OneOrMore)
+    ),
+    RegexBuilder.Literal("@"),
+    RegexBuilder.Group(
+        "domain",
+        RegexBuilder.Concatenate(
+            RegexBuilder.CharacterSet(RegexMetaChars.WordCharacter, RegexQuantifier.OneOrMore),
+            RegexBuilder.Literal("."),
+            RegexBuilder.CharacterSet(RegexMetaChars.WordCharacter, RegexQuantifier.OneOrMore)
+        )
+    )
+);
 
-Start with `var regex = RegexBuilder.Build(...);` and replace `...` with the parts of your regular expression
-by calling the corresponding methods of `RegexBuilder`.
+var match = emailRegex.Match("user@example.com");
+if (match.Success)
+{
+    Console.WriteLine(match.Groups["localPart"].Value); // user
+    Console.WriteLine(match.Groups["domain"].Value);    // example.com
+}
+```
+
+## Real-World Example
+
+Let's build a regex to capture `href` attributes from HTML hyperlinks. Compare the traditional approach:
+
+**Traditional regex (hard to read):**
+
+```csharp
+Regex hrefRegex = new Regex(
+    "href\\s*=\\s*(?:[\"'](?<Target>[^\"']*)[\"']|(?<Target>\\S+))",
+    RegexOptions.IgnoreCase
+);
+```
+
+**With RegexBuilder (self-documenting):**
+
+```csharp
+const string quotationMark = "\"";
+Regex hrefRegex = RegexBuilder.Build(
+    RegexOptions.IgnoreCase,
+    RegexBuilder.Literal("href"),
+    RegexBuilder.MetaCharacter(RegexMetaChars.WhiteSpace, RegexQuantifier.ZeroOrMore),
+    RegexBuilder.Literal("="),
+    RegexBuilder.MetaCharacter(RegexMetaChars.WhiteSpace, RegexQuantifier.ZeroOrMore),
+    RegexBuilder.Alternate(
+        RegexBuilder.Concatenate(
+            RegexBuilder.NonEscapedLiteral(quotationMark),
+            RegexBuilder.Group(
+                "Target",
+                RegexBuilder.NegativeCharacterSet(quotationMark, RegexQuantifier.ZeroOrMore)
+            ),
+            RegexBuilder.NonEscapedLiteral(quotationMark)
+        ),
+        RegexBuilder.Group(
+            "Target",
+            RegexBuilder.MetaCharacter(RegexMetaChars.NonwhiteSpace, RegexQuantifier.OneOrMore)
+        )
+    )
+);
+```
+
+More examples can be found in [CustomRegexTests.cs](/src/RegexBuilder.Tests/CustomRegexTests.cs).
+
+## API Guide
+
+### Core Classes
+
+RegexBuilder has 3 main classes you'll work with:
+
+1. **`RegexBuilder`** - Factory class for building regex patterns
+
+   - Static methods that produce and combine different parts of a regular expression
+   - Entry point: `RegexBuilder.Build(...)`
+
+2. **`RegexQuantifier`** - Produces quantifiers for regex parts
+
+   - Properties like `ZeroOrMore`, `OneOrMore`, `Optional`, `ExactCount(n)`, `Range(min, max)`, etc.
+
+3. **`RegexMetaChars`** - Named constants for character classes
+   - `WordCharacter`, `NonwordCharacter`, `WhiteSpace`, `NonwhiteSpace`, etc.
+   - More readable than memorizing `\w`, `\W`, `\s`, `\S`
+
+### Basic Pattern Building
+
+Start by calling `RegexBuilder.Build()` and pass the components you want to combine:
+
+```csharp
+// Simple pattern
+var pattern = RegexBuilder.Build(
+    RegexBuilder.Literal("prefix-"),
+    RegexBuilder.MetaCharacter(RegexMetaChars.Digit, RegexQuantifier.OneOrMore)
+);
+// Matches: "prefix-123", "prefix-42", etc.
+
+// With options
+var pattern = RegexBuilder.Build(
+    RegexOptions.IgnoreCase,
+    RegexBuilder.Literal("hello"),
+    RegexBuilder.Literal(" "),
+    RegexBuilder.Literal("world")
+);
+```
+
+### Grouping and Capturing
+
+```csharp
+// Capturing group
+var pattern = RegexBuilder.Build(
+    RegexBuilder.Group("name",
+        RegexBuilder.MetaCharacter(RegexMetaChars.WordCharacter, RegexQuantifier.OneOrMore)
+    )
+);
+
+// Non-capturing group
+var pattern = RegexBuilder.Build(
+    RegexBuilder.NonCapturingGroup(
+        RegexBuilder.Alternate(
+            RegexBuilder.Literal("cat"),
+            RegexBuilder.Literal("dog")
+        )
+    )
+);
+```
+
+## Advanced Usage
 
 ### Substitution Patterns
 
-RegexBuilder also supports building replacement patterns for use with `Regex.Replace()`. Use the `SubstitutionBuilder` class:
+Use `SubstitutionBuilder` to create replacement patterns for `Regex.Replace()`:
 
 ```csharp
 // Swap two words
@@ -132,24 +220,72 @@ string result = pattern.Replace("hello world", replacement);
 // result = "world hello"
 ```
 
-The `SubstitutionBuilder` class provides methods for all .NET substitution constructs:
+### Substitution Methods
 
-- `SubstitutionBuilder.Group(int)` or `Group(string)` - Reference captured groups by number or name
-- `SubstitutionBuilder.WholeMatch()` - Insert the entire matched text
-- `SubstitutionBuilder.BeforeMatch()` - Insert text before the match
-- `SubstitutionBuilder.AfterMatch()` - Insert text after the match
-- `SubstitutionBuilder.LastCapturedGroup()` - Insert the last captured group
-- `SubstitutionBuilder.EntireInput()` - Insert the entire input string
-- `SubstitutionBuilder.LiteralDollar()` - Insert a literal dollar sign
-- `SubstitutionBuilder.Literal(string)` - Insert literal text (automatically escapes `$`)
+The `SubstitutionBuilder` class supports all .NET substitution constructs:
+
+- `SubstitutionBuilder.Group(int)` or `Group(string)` - Reference captured groups
+- `SubstitutionBuilder.WholeMatch()` - Insert entire matched text ($&)
+- `SubstitutionBuilder.BeforeMatch()` - Insert text before match ($`)
+- `SubstitutionBuilder.AfterMatch()` - Insert text after match ($')
+- `SubstitutionBuilder.LastCapturedGroup()` - Insert last captured group ($+)
+- `SubstitutionBuilder.EntireInput()` - Insert entire input string ($\_)
+- `SubstitutionBuilder.LiteralDollar()` - Insert literal $ ($$)
+- `SubstitutionBuilder.Literal(string)` - Insert literal text (auto-escapes $)
 
 See [SubstitutionBuilderTests.cs](/src/RegexBuilder.Tests/SubstitutionBuilderTests.cs) for more examples.
 
 ## Testing
 
-RegexBuilder uses MSTest for unit testing. To run or add unit tests in Visual Studio, please see the `RegexBuilder.Tests` project.
+RegexBuilder uses MSTest for unit testing. The `RegexBuilder.Tests` project contains all unit tests.
 
-The `RegexBuilder.TestApp` project is a console application that can be used as a temporary testing workbench.
+**Run tests from Visual Studio:**
+
+- Open the Test Explorer (Test > Test Explorer)
+- Click "Run All Tests" or run specific test classes
+
+**Run tests from command line:**
+
+```bash
+dotnet test src/RegexBuilder.sln
+```
+
+**Test project structure:**
+
+- `RegexBuilder.Tests/` - All unit test files
+- `RegexBuilder.Examples/` - Executable examples demonstrating all README code samples
+
+## Development
+
+**Format code** (requires Prettier and dotnet format):
+
+```bash
+make format
+# or manually:
+npx prettier --write .
+dotnet format src
+```
+
+**Build the project:**
+
+```bash
+dotnet build src/RegexBuilder.sln
+```
+
+**Pack as NuGet package:**
+
+```bash
+dotnet pack src/RegexBuilder/RegexBuilder.csproj
+```
+
+## Contributing
+
+Contributions are welcome! Please:
+
+1. Create a feature branch from `master`
+2. Add tests for any new functionality
+3. Run `make format` to format code
+4. Submit a pull request with a clear description
 
 ## License
 
