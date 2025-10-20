@@ -5,6 +5,41 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.4] - 2025-10-21
+
+### Added
+
+- New `CommonPatterns` static class providing factory methods for commonly used regex patterns
+  - `CommonPatterns.Email()` - Returns a RegexNode for validating email addresses
+    - Supports standard email format with local part, domain, and TLD (2-6 characters)
+    - Allows alphanumeric characters, dots, hyphens, underscores, percent, and plus signs in local part
+  - `CommonPatterns.Url()` - Returns a RegexNode for validating URLs
+    - Supports http://, https://, and ftp:// protocols (optional)
+    - Supports domains with optional ports and subdomains
+    - Supports paths, query strings, and fragments
+- Comprehensive test suite with 39 new tests for CommonPatterns functionality
+- Planning documentation in `history/common_patterns_feature.md`
+
+### Examples
+
+```csharp
+// Simple email validation
+var emailRegex = RegexBuilder.Build(CommonPatterns.Email());
+bool isValid = emailRegex.IsMatch("user@example.com"); // true
+
+// URL validation
+var urlRegex = RegexBuilder.Build(CommonPatterns.Url());
+bool isValid = urlRegex.IsMatch("https://example.com/path"); // true
+
+// Combining patterns
+var contactRegex = RegexBuilder.Build(
+    RegexBuilder.Literal("Email: "),
+    CommonPatterns.Email(),
+    RegexBuilder.Literal(", Website: "),
+    CommonPatterns.Url()
+);
+```
+
 ## [1.0.3] - 2025-10-21
 
 ### Added
