@@ -1,0 +1,43 @@
+# AGENTS.md
+
+This file provides guidance when working with code in this repository.
+
+## Development Workflow
+
+1. Analyze feature and create a detailed implementation plan on `history` folder e.g. `history/feature-name.md`.
+2. Implement the feature and commit changes: follow instructions on `./SOP/git-commit.md`
+3. Review and test the feature thoroughly. Update `history/feature-name.md` if planned steps change.
+4. After successful testing, update
+   - `ROADMAP.md` to reflect the new feature status.
+   - `CHANGELOG.md` with the new feature details.
+   - (optional) `README.md` if necessary.
+   - (optional) `AGENTS.md` if the feature affects agent behavior.
+5. Format the codebase with `make format` or manually run `npx prettier --write .` and `dotnet format src`.
+
+## Recommended Tools
+
+- **#test_failure**: Includes test failure information in the prompt for debugging
+- **#runTests**: Run unit tests in files or collect coverage reports
+- **#file_search**: Search for files by glob pattern matching
+- **#get_changed_files**: Get git diffs of current file changes in a git repository
+- **#create_file**: Create new files in the workspace
+- **#edit_files**: Edit existing files in the workspace
+- **#create_directory**: Create directory structures in the workspace
+- **#fetch_webpage**: Fetch content from web pages for documentation reference
+- **#vscode-websearchforcopilot_webSearch**: Search the web for relevant up-to-date information
+
+## Git Commit Message Requirements
+
+- Header: `<type>(<scope>): <short description>`
+  - Types: feat, fix, docs, style, refactor, perf, test, chore
+- Blank line after header
+- Body: Bullet-point list of key changes (use "- " for each item)
+
+Example Commit Message:
+
+```txt
+feat(api): add shrimp data endpoint
+
+- implemented GET /shrimp route
+- validated input and added tests
+```

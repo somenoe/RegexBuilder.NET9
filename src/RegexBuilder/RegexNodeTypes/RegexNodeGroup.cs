@@ -14,6 +14,7 @@ namespace RegexBuilder
 
         public bool IsCapturing { get; set; }
         public string Name { get; set; }
+        public bool UseApostropheSyntax { get; set; }
 
         public RegexNode InnerExpression
         {
@@ -62,7 +63,14 @@ namespace RegexBuilder
                 }
                 else
                 {
-                    result = string.Format(CultureInfo.InvariantCulture, "(?<{0}>{1})", Name, InnerExpression.ToRegexPattern());
+                    if (UseApostropheSyntax)
+                    {
+                        result = string.Format(CultureInfo.InvariantCulture, "(?'{0}'{1})", Name, InnerExpression.ToRegexPattern());
+                    }
+                    else
+                    {
+                        result = string.Format(CultureInfo.InvariantCulture, "(?<{0}>{1})", Name, InnerExpression.ToRegexPattern());
+                    }
                 }
             }
 

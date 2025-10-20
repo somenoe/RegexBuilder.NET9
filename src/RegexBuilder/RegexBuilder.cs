@@ -182,6 +182,29 @@ namespace RegexBuilder
         }
 
         /// <summary>
+        /// Generates an inline option grouping with enabled options ("(?i:expr)", "(?im:expr)", etc.).
+        /// </summary>
+        /// <param name="enabledOptions">Options to enable for the expression.</param>
+        /// <param name="expression">Inner expression.</param>
+        /// <returns>An instance of RegexNode containing the inline option grouping.</returns>
+        public static RegexNodeInlineOptionGrouping InlineOptionGrouping(RegexOptions enabledOptions, RegexNode expression)
+        {
+            return new RegexNodeInlineOptionGrouping(enabledOptions, expression);
+        }
+
+        /// <summary>
+        /// Generates an inline option grouping with enabled and disabled options ("(?i-m:expr)", etc.).
+        /// </summary>
+        /// <param name="enabledOptions">Options to enable for the expression.</param>
+        /// <param name="disabledOptions">Options to disable for the expression.</param>
+        /// <param name="expression">Inner expression.</param>
+        /// <returns>An instance of RegexNode containing the inline option grouping.</returns>
+        public static RegexNodeInlineOptionGrouping InlineOptionGrouping(RegexOptions enabledOptions, RegexOptions disabledOptions, RegexNode expression)
+        {
+            return new RegexNodeInlineOptionGrouping(enabledOptions, disabledOptions, expression);
+        }
+
+        /// <summary>
         /// Generates a backreference to the group with the specified index ("\N").
         /// </summary>
         /// <param name="groupIndex">Group ordinal number.</param>
@@ -283,6 +306,48 @@ namespace RegexBuilder
         public static RegexNodeCharacterRange NegativeCharacterRange(char rangeStart, char rangeEnd, bool useCharacterCodes, RegexQuantifier quantifier)
         {
             return new RegexNodeCharacterRange(rangeStart, rangeEnd, true) { Quantifier = quantifier, UseCharacterCodes = useCharacterCodes };
+        }
+
+        /// <summary>
+        /// Generates a Unicode category escape sequence ("\p{name}") for matching Unicode character categories.
+        /// </summary>
+        /// <param name="categoryName">The Unicode category name (e.g., "L", "N", "IsCyrillic").</param>
+        /// <returns>An instance of RegexNode containing the Unicode category escape.</returns>
+        public static RegexNodeUnicodeCategory UnicodeCategory(string categoryName)
+        {
+            return new RegexNodeUnicodeCategory(categoryName);
+        }
+
+        /// <summary>
+        /// Generates a Unicode category escape sequence ("\p{name}") for matching Unicode character categories with a quantifier.
+        /// </summary>
+        /// <param name="categoryName">The Unicode category name (e.g., "L", "N", "IsCyrillic").</param>
+        /// <param name="quantifier">Node quantifier.</param>
+        /// <returns>An instance of RegexNode containing the Unicode category escape.</returns>
+        public static RegexNodeUnicodeCategory UnicodeCategory(string categoryName, RegexQuantifier quantifier)
+        {
+            return new RegexNodeUnicodeCategory(categoryName) { Quantifier = quantifier };
+        }
+
+        /// <summary>
+        /// Generates a negated Unicode category escape sequence ("\P{name}") for matching characters NOT in a Unicode category.
+        /// </summary>
+        /// <param name="categoryName">The Unicode category name (e.g., "L", "N", "IsCyrillic").</param>
+        /// <returns>An instance of RegexNode containing the negated Unicode category escape.</returns>
+        public static RegexNodeUnicodeCategory NegativeUnicodeCategory(string categoryName)
+        {
+            return new RegexNodeUnicodeCategory(categoryName, true);
+        }
+
+        /// <summary>
+        /// Generates a negated Unicode category escape sequence ("\P{name}") for matching characters NOT in a Unicode category with a quantifier.
+        /// </summary>
+        /// <param name="categoryName">The Unicode category name (e.g., "L", "N", "IsCyrillic").</param>
+        /// <param name="quantifier">Node quantifier.</param>
+        /// <returns>An instance of RegexNode containing the negated Unicode category escape.</returns>
+        public static RegexNodeUnicodeCategory NegativeUnicodeCategory(string categoryName, RegexQuantifier quantifier)
+        {
+            return new RegexNodeUnicodeCategory(categoryName, true) { Quantifier = quantifier };
         }
 
         /// <summary>
@@ -443,6 +508,35 @@ namespace RegexBuilder
         }
 
         /// <summary>
+        /// Generates a named capturing group using apostrophe syntax for VBScript compatibility.
+        /// Syntax: (?'name'expr)
+        /// </summary>
+        /// <param name="groupName">Group name.</param>
+        /// <param name="matchExpression">Inner expression.</param>
+        /// <returns>An instance of RegexNode containing the named capturing group with apostrophe syntax.</returns>
+        public static RegexNodeGroup GroupApostrophe(string groupName, RegexNode matchExpression)
+        {
+            var group = new RegexNodeGroup(matchExpression, groupName);
+            group.UseApostropheSyntax = true;
+            return group;
+        }
+
+        /// <summary>
+        /// Generates a named capturing group using apostrophe syntax for VBScript compatibility.
+        /// Syntax: (?'name'expr)
+        /// </summary>
+        /// <param name="groupName">Group name.</param>
+        /// <param name="matchExpression">Inner expression.</param>
+        /// <param name="quantifier">Node quantifier.</param>
+        /// <returns>An instance of RegexNode containing the named capturing group with apostrophe syntax.</returns>
+        public static RegexNodeGroup GroupApostrophe(string groupName, RegexNode matchExpression, RegexQuantifier quantifier)
+        {
+            var group = new RegexNodeGroup(matchExpression, groupName) { Quantifier = quantifier };
+            group.UseApostropheSyntax = true;
+            return group;
+        }
+
+        /// <summary>
         /// Generates a subexpression with disabled backtracking ("(?&gt;expression)").
         /// </summary>
         /// <param name="innerExpression">Inner expression.</param>
@@ -461,6 +555,62 @@ namespace RegexBuilder
         public static RegexNodeBacktrackingSuppression BacktrackingSuppression(RegexNode innerExpression, RegexQuantifier quantifier)
         {
             return new RegexNodeBacktrackingSuppression(innerExpression) { Quantifier = quantifier };
+        }
+
+        /// <summary>
+        /// Generates a balancing group that pushes to one named stack and pops from another.
+        /// Used for matching nested/balanced constructs like parentheses, XML tags, or code blocks.
+        /// Syntax: (?&lt;name1-name2&gt;expr)
+        /// </summary>
+        /// <param name="pushGroupName">Name of group to push matched text onto.</param>
+        /// <param name="popGroupName">Name of group to pop from stack.</param>
+        /// <param name="innerExpression">The inner expression to match.</param>
+        /// <returns>An instance of RegexNode containing the balancing group.</returns>
+        public static RegexNodeBalancingGroup BalancingGroup(string pushGroupName, string popGroupName, RegexNode innerExpression)
+        {
+            return new RegexNodeBalancingGroup(pushGroupName, popGroupName, innerExpression);
+        }
+
+        /// <summary>
+        /// Generates a balancing group that pushes to one named stack and pops from another, with a quantifier.
+        /// Used for matching nested/balanced constructs like parentheses, XML tags, or code blocks.
+        /// Syntax: (?&lt;name1-name2&gt;expr)
+        /// </summary>
+        /// <param name="pushGroupName">Name of group to push matched text onto.</param>
+        /// <param name="popGroupName">Name of group to pop from stack.</param>
+        /// <param name="innerExpression">The inner expression to match.</param>
+        /// <param name="quantifier">Node quantifier.</param>
+        /// <returns>An instance of RegexNode containing the balancing group.</returns>
+        public static RegexNodeBalancingGroup BalancingGroup(string pushGroupName, string popGroupName, RegexNode innerExpression, RegexQuantifier quantifier)
+        {
+            return new RegexNodeBalancingGroup(pushGroupName, popGroupName, innerExpression) { Quantifier = quantifier };
+        }
+
+        /// <summary>
+        /// Generates a simple balancing group that only uses one stack.
+        /// Used for matching nested/balanced constructs like parentheses, XML tags, or code blocks.
+        /// Syntax: (?&lt;name&gt;-expr)
+        /// </summary>
+        /// <param name="groupName">Name of group to push onto the stack.</param>
+        /// <param name="innerExpression">The inner expression to match.</param>
+        /// <returns>An instance of RegexNode containing the simple balancing group.</returns>
+        public static RegexNodeBalancingGroup SimpleBalancingGroup(string groupName, RegexNode innerExpression)
+        {
+            return new RegexNodeBalancingGroup(groupName, innerExpression);
+        }
+
+        /// <summary>
+        /// Generates a simple balancing group that only uses one stack, with a quantifier.
+        /// Used for matching nested/balanced constructs like parentheses, XML tags, or code blocks.
+        /// Syntax: (?&lt;name&gt;-expr)
+        /// </summary>
+        /// <param name="groupName">Name of group to push onto the stack.</param>
+        /// <param name="innerExpression">The inner expression to match.</param>
+        /// <param name="quantifier">Node quantifier.</param>
+        /// <returns>An instance of RegexNode containing the simple balancing group.</returns>
+        public static RegexNodeBalancingGroup SimpleBalancingGroup(string groupName, RegexNode innerExpression, RegexQuantifier quantifier)
+        {
+            return new RegexNodeBalancingGroup(groupName, innerExpression) { Quantifier = quantifier };
         }
 
         /// <summary>
@@ -652,6 +802,309 @@ namespace RegexBuilder
         {
             return new RegexNodeConcatenation(expressions) { Quantifier = quantifier };
         }
+
+        #region Convenience Shortcut Methods
+
+        #region Character Class Shortcuts
+
+        /// <summary>
+        /// Generates a digit character class ("\d").
+        /// </summary>
+        /// <returns>An instance of RegexNode containing the digit character class.</returns>
+        public static RegexNodeLiteral Digit()
+        {
+            return MetaCharacter(@"\d");
+        }
+
+        /// <summary>
+        /// Generates a digit character class ("\d") with a quantifier.
+        /// </summary>
+        /// <param name="quantifier">Node quantifier.</param>
+        /// <returns>An instance of RegexNode containing the digit character class.</returns>
+        public static RegexNodeLiteral Digit(RegexQuantifier quantifier)
+        {
+            return MetaCharacter(@"\d", quantifier);
+        }
+
+        /// <summary>
+        /// Generates a non-digit character class ("\D").
+        /// </summary>
+        /// <returns>An instance of RegexNode containing the non-digit character class.</returns>
+        public static RegexNodeLiteral NonDigit()
+        {
+            return MetaCharacter(@"\D");
+        }
+
+        /// <summary>
+        /// Generates a non-digit character class ("\D") with a quantifier.
+        /// </summary>
+        /// <param name="quantifier">Node quantifier.</param>
+        /// <returns>An instance of RegexNode containing the non-digit character class.</returns>
+        public static RegexNodeLiteral NonDigit(RegexQuantifier quantifier)
+        {
+            return MetaCharacter(@"\D", quantifier);
+        }
+
+        /// <summary>
+        /// Generates a whitespace character class ("\s").
+        /// </summary>
+        /// <returns>An instance of RegexNode containing the whitespace character class.</returns>
+        public static RegexNodeLiteral Whitespace()
+        {
+            return MetaCharacter(@"\s");
+        }
+
+        /// <summary>
+        /// Generates a whitespace character class ("\s") with a quantifier.
+        /// </summary>
+        /// <param name="quantifier">Node quantifier.</param>
+        /// <returns>An instance of RegexNode containing the whitespace character class.</returns>
+        public static RegexNodeLiteral Whitespace(RegexQuantifier quantifier)
+        {
+            return MetaCharacter(@"\s", quantifier);
+        }
+
+        /// <summary>
+        /// Generates a non-whitespace character class ("\S").
+        /// </summary>
+        /// <returns>An instance of RegexNode containing the non-whitespace character class.</returns>
+        public static RegexNodeLiteral NonWhitespace()
+        {
+            return MetaCharacter(@"\S");
+        }
+
+        /// <summary>
+        /// Generates a non-whitespace character class ("\S") with a quantifier.
+        /// </summary>
+        /// <param name="quantifier">Node quantifier.</param>
+        /// <returns>An instance of RegexNode containing the non-whitespace character class.</returns>
+        public static RegexNodeLiteral NonWhitespace(RegexQuantifier quantifier)
+        {
+            return MetaCharacter(@"\S", quantifier);
+        }
+
+        /// <summary>
+        /// Generates a word character class ("\w").
+        /// </summary>
+        /// <returns>An instance of RegexNode containing the word character class.</returns>
+        public static RegexNodeLiteral WordCharacter()
+        {
+            return MetaCharacter(@"\w");
+        }
+
+        /// <summary>
+        /// Generates a word character class ("\w") with a quantifier.
+        /// </summary>
+        /// <param name="quantifier">Node quantifier.</param>
+        /// <returns>An instance of RegexNode containing the word character class.</returns>
+        public static RegexNodeLiteral WordCharacter(RegexQuantifier quantifier)
+        {
+            return MetaCharacter(@"\w", quantifier);
+        }
+
+        /// <summary>
+        /// Generates a non-word character class ("\W").
+        /// </summary>
+        /// <returns>An instance of RegexNode containing the non-word character class.</returns>
+        public static RegexNodeLiteral NonWordCharacter()
+        {
+            return MetaCharacter(@"\W");
+        }
+
+        /// <summary>
+        /// Generates a non-word character class ("\W") with a quantifier.
+        /// </summary>
+        /// <param name="quantifier">Node quantifier.</param>
+        /// <returns>An instance of RegexNode containing the non-word character class.</returns>
+        public static RegexNodeLiteral NonWordCharacter(RegexQuantifier quantifier)
+        {
+            return MetaCharacter(@"\W", quantifier);
+        }
+
+        #endregion Character Class Shortcuts
+
+        #region Anchor Shortcuts
+
+        /// <summary>
+        /// Generates a line start anchor ("^").
+        /// </summary>
+        /// <returns>An instance of RegexNode containing the line start anchor.</returns>
+        public static RegexNodeLiteral LineStart()
+        {
+            return MetaCharacter("^");
+        }
+
+        /// <summary>
+        /// Generates a line end anchor ("$").
+        /// </summary>
+        /// <returns>An instance of RegexNode containing the line end anchor.</returns>
+        public static RegexNodeLiteral LineEnd()
+        {
+            return MetaCharacter("$");
+        }
+
+        /// <summary>
+        /// Generates a string start anchor ("\A").
+        /// </summary>
+        /// <returns>An instance of RegexNode containing the string start anchor.</returns>
+        public static RegexNodeLiteral StringStart()
+        {
+            return MetaCharacter(@"\A");
+        }
+
+        /// <summary>
+        /// Generates a string end anchor ("\Z").
+        /// </summary>
+        /// <returns>An instance of RegexNode containing the string end anchor.</returns>
+        public static RegexNodeLiteral StringEnd()
+        {
+            return MetaCharacter(@"\Z");
+        }
+
+        /// <summary>
+        /// Generates an absolute string end anchor ("\z").
+        /// </summary>
+        /// <returns>An instance of RegexNode containing the absolute string end anchor.</returns>
+        public static RegexNodeLiteral StringEndAbsolute()
+        {
+            return MetaCharacter(@"\z");
+        }
+
+        /// <summary>
+        /// Generates a word boundary anchor ("\b").
+        /// </summary>
+        /// <returns>An instance of RegexNode containing the word boundary anchor.</returns>
+        public static RegexNodeLiteral WordBoundary()
+        {
+            return MetaCharacter(@"\b");
+        }
+
+        /// <summary>
+        /// Generates a non-word boundary anchor ("\B").
+        /// </summary>
+        /// <returns>An instance of RegexNode containing the non-word boundary anchor.</returns>
+        public static RegexNodeLiteral NonWordBoundary()
+        {
+            return MetaCharacter(@"\B");
+        }
+
+        /// <summary>
+        /// Generates a match point anchor ("\G"), which matches at the position of the previous match.
+        /// </summary>
+        /// <returns>An instance of RegexNode containing the match point anchor.</returns>
+        public static RegexNodeLiteral MatchPointAnchor()
+        {
+            return MetaCharacter(@"\G");
+        }
+
+        #endregion Anchor Shortcuts
+
+        #region Escape Character Shortcuts
+
+        /// <summary>
+        /// Generates a bell character (alert) escape sequence ("\a", ASCII 7).
+        /// </summary>
+        /// <returns>An instance of RegexNode containing the bell character escape.</returns>
+        public static RegexNodeLiteral BellCharacter()
+        {
+            return MetaCharacter(@"\a");
+        }
+
+        /// <summary>
+        /// Generates a bell character (alert) escape sequence ("\a", ASCII 7) with a quantifier.
+        /// </summary>
+        /// <param name="quantifier">Node quantifier.</param>
+        /// <returns>An instance of RegexNode containing the bell character escape.</returns>
+        public static RegexNodeLiteral BellCharacter(RegexQuantifier quantifier)
+        {
+            return MetaCharacter(@"\a", quantifier);
+        }
+
+        /// <summary>
+        /// Generates a form feed character escape sequence ("\f", ASCII 12).
+        /// </summary>
+        /// <returns>An instance of RegexNode containing the form feed character escape.</returns>
+        public static RegexNodeLiteral FormFeed()
+        {
+            return MetaCharacter(@"\f");
+        }
+
+        /// <summary>
+        /// Generates a form feed character escape sequence ("\f", ASCII 12) with a quantifier.
+        /// </summary>
+        /// <param name="quantifier">Node quantifier.</param>
+        /// <returns>An instance of RegexNode containing the form feed character escape.</returns>
+        public static RegexNodeLiteral FormFeed(RegexQuantifier quantifier)
+        {
+            return MetaCharacter(@"\f", quantifier);
+        }
+
+        /// <summary>
+        /// Generates a vertical tab character escape sequence ("\v", ASCII 11).
+        /// </summary>
+        /// <returns>An instance of RegexNode containing the vertical tab character escape.</returns>
+        public static RegexNodeLiteral VerticalTab()
+        {
+            return MetaCharacter(@"\v");
+        }
+
+        /// <summary>
+        /// Generates a vertical tab character escape sequence ("\v", ASCII 11) with a quantifier.
+        /// </summary>
+        /// <param name="quantifier">Node quantifier.</param>
+        /// <returns>An instance of RegexNode containing the vertical tab character escape.</returns>
+        public static RegexNodeLiteral VerticalTab(RegexQuantifier quantifier)
+        {
+            return MetaCharacter(@"\v", quantifier);
+        }
+
+        /// <summary>
+        /// Generates an escape character escape sequence ("\e", ASCII 27).
+        /// </summary>
+        /// <returns>An instance of RegexNode containing the escape character escape.</returns>
+        public static RegexNodeLiteral EscapeCharacter()
+        {
+            return MetaCharacter(@"\e");
+        }
+
+        /// <summary>
+        /// Generates an escape character escape sequence ("\e", ASCII 27) with a quantifier.
+        /// </summary>
+        /// <param name="quantifier">Node quantifier.</param>
+        /// <returns>An instance of RegexNode containing the escape character escape.</returns>
+        public static RegexNodeLiteral EscapeCharacter(RegexQuantifier quantifier)
+        {
+            return MetaCharacter(@"\e", quantifier);
+        }
+
+        /// <summary>
+        /// Generates an octal character escape sequence ("\NNN") with the specified octal value.
+        /// </summary>
+        /// <param name="octalValue">Octal value (0-377 for 0-255 decimal).</param>
+        /// <returns>An instance of RegexNode containing the octal character escape.</returns>
+        public static RegexNodeLiteral OctalCharacter(int octalValue)
+        {
+            int byte_val = octalValue & 0xFF;
+            string octalStr = Convert.ToString(byte_val, 8).PadLeft(3, '0');
+            return MetaCharacter(string.Format(CultureInfo.InvariantCulture, "\\{0}", octalStr));
+        }
+
+        /// <summary>
+        /// Generates an octal character escape sequence ("\NNN") with the specified octal value and quantifier.
+        /// </summary>
+        /// <param name="octalValue">Octal value (0-377 for 0-255 decimal).</param>
+        /// <param name="quantifier">Node quantifier.</param>
+        /// <returns>An instance of RegexNode containing the octal character escape.</returns>
+        public static RegexNodeLiteral OctalCharacter(int octalValue, RegexQuantifier quantifier)
+        {
+            int byte_val = octalValue & 0xFF;
+            string octalStr = Convert.ToString(byte_val, 8).PadLeft(3, '0');
+            return MetaCharacter(string.Format(CultureInfo.InvariantCulture, "\\{0}", octalStr), quantifier);
+        }
+
+        #endregion Escape Character Shortcuts
+
+        #endregion Convenience Shortcut Methods
 
         #endregion Static factory methods
     }

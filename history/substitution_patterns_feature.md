@@ -22,16 +22,16 @@ According to the [MSDN documentation](https://learn.microsoft.com/en-us/dotnet/s
 
 Based on MSDN documentation, the following substitution constructs need to be supported:
 
-| Construct | Description | Example |
-|-----------|-------------|---------|
-| `$number` | Substitutes the substring matched by group number | `$1`, `$2` |
+| Construct | Description                                          | Example                |
+| --------- | ---------------------------------------------------- | ---------------------- |
+| `$number` | Substitutes the substring matched by group number    | `$1`, `$2`             |
 | `${name}` | Substitutes the substring matched by the named group | `${word1}`, `${word2}` |
-| `$$` | Substitutes a literal "$" | `$$` |
-| `$&` | Substitutes a copy of the whole match | `$&` |
-| `$\`` | Substitutes all text before the match | ``$` `` |
-| `$'` | Substitutes all text after the match | `$'` |
-| `$+` | Substitutes the last group that was captured | `$+` |
-| `$_` | Substitutes the entire input string | `$_` |
+| `$$`      | Substitutes a literal "$"                            | `$$`                   |
+| `$&`      | Substitutes a copy of the whole match                | `$&`                   |
+| `$\``     | Substitutes all text before the match                | ``$` ``                |
+| `$'`      | Substitutes all text after the match                 | `$'`                   |
+| `$+`      | Substitutes the last group that was captured         | `$+`                   |
+| `$_`      | Substitutes the entire input string                  | `$_`                   |
 
 ## Implementation Plan
 
@@ -115,11 +115,11 @@ public static class SubstitutionBuilder
 {
     // Literal text
     public static SubstitutionLiteral Literal(string text);
-    
+
     // Group references
     public static SubstitutionGroupReference Group(int groupNumber);
     public static SubstitutionGroupReference Group(string groupName);
-    
+
     // Special references
     public static SubstitutionSpecialReference WholeMatch();
     public static SubstitutionSpecialReference BeforeMatch();
@@ -127,10 +127,10 @@ public static class SubstitutionBuilder
     public static SubstitutionSpecialReference LastCapturedGroup();
     public static SubstitutionSpecialReference EntireInput();
     public static SubstitutionSpecialReference LiteralDollar();
-    
+
     // Concatenation
     public static SubstitutionConcatenation Concatenate(params SubstitutionNode[] nodes);
-    
+
     // Build method
     public static string Build(params SubstitutionNode[] nodes);
 }
@@ -205,13 +205,13 @@ public void NumberedGroupSubstitution_SwapsTwoWords()
         RegexBuilder.Literal(" "),
         RegexBuilder.Group(RegexBuilder.Word())
     );
-    
+
     var replacement = SubstitutionBuilder.Build(
         SubstitutionBuilder.Group(2),
         SubstitutionBuilder.Literal(" "),
         SubstitutionBuilder.Group(1)
     );
-    
+
     string result = pattern.Replace("one two", replacement);
     Assert.AreEqual("two one", result);
 }
@@ -226,7 +226,7 @@ public void NamedGroupSubstitution_FormatsPhoneNumber()
         RegexBuilder.Literal("-"),
         RegexBuilder.Group("number", RegexBuilder.Digit(RegexQuantifier.Exactly(4)))
     );
-    
+
     var replacement = SubstitutionBuilder.Build(
         SubstitutionBuilder.Literal("("),
         SubstitutionBuilder.Group("area"),
@@ -235,7 +235,7 @@ public void NamedGroupSubstitution_FormatsPhoneNumber()
         SubstitutionBuilder.Literal("-"),
         SubstitutionBuilder.Group("number")
     );
-    
+
     string result = pattern.Replace("555-123-4567", replacement);
     Assert.AreEqual("(555) 123-4567", result);
 }
@@ -249,7 +249,7 @@ public void WholeMatch_DuplicatesMatch()
         SubstitutionBuilder.Literal("-"),
         SubstitutionBuilder.WholeMatch()
     );
-    
+
     string result = pattern.Replace("hello", replacement);
     Assert.AreEqual("hello-hello", result);
 }
@@ -260,12 +260,12 @@ public void LiteralDollar_InsertsMoneySymbol()
     var pattern = RegexBuilder.Build(
         RegexBuilder.Digit(RegexQuantifier.OneOrMore)
     );
-    
+
     var replacement = SubstitutionBuilder.Build(
         SubstitutionBuilder.LiteralDollar(),
         SubstitutionBuilder.WholeMatch()
     );
-    
+
     string result = pattern.Replace("The price is 100", replacement);
     Assert.AreEqual("The price is $100", result);
 }
