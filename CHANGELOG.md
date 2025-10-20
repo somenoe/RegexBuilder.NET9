@@ -5,6 +5,85 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.5] - 2025-10-21
+
+### Added
+
+- **Substitution/Replacement Patterns Support** - Complete implementation of .NET regex substitution patterns
+  - New `SubstitutionNode` base class for all substitution pattern nodes
+  - New `SubstitutionBuilder` factory class for creating replacement patterns
+  - Support for all .NET substitution constructs:
+    - `$number` - Numbered group references via `SubstitutionBuilder.Group(int)`
+    - `${name}` - Named group references via `SubstitutionBuilder.Group(string)`
+    - `$$` - Literal dollar sign via `SubstitutionBuilder.LiteralDollar()`
+    - `$&` - Whole match via `SubstitutionBuilder.WholeMatch()`
+    - `` $` `` - Text before match via `SubstitutionBuilder.BeforeMatch()`
+    - `$'` - Text after match via `SubstitutionBuilder.AfterMatch()`
+    - `$+` - Last captured group via `SubstitutionBuilder.LastCapturedGroup()`
+    - `$_` - Entire input string via `SubstitutionBuilder.EntireInput()`
+  - Automatic escaping of dollar signs in literal text
+  - Comprehensive test suite with 43 new tests covering all substitution types
+  - Planning documentation in `history/substitution_patterns_feature.md`
+
+### Changed
+
+- RegexBuilder now provides complete coverage of .NET regular expression capabilities
+- Feature support table updated: substitution/replacement patterns are now fully supported
+
+### Examples
+
+```csharp
+// Simple group swapping
+var pattern = RegexBuilder.Build(
+    RegexBuilder.Group("word1", RegexBuilder.MetaCharacter(RegexMetaChars.WordCharacter, RegexQuantifier.OneOrMore)),
+    RegexBuilder.Literal(" "),
+    RegexBuilder.Group("word2", RegexBuilder.MetaCharacter(RegexMetaChars.WordCharacter, RegexQuantifier.OneOrMore))
+);
+
+var replacement = SubstitutionBuilder.Build(
+    SubstitutionBuilder.Group("word2"),
+    SubstitutionBuilder.Literal(" "),
+    SubstitutionBuilder.Group("word1")
+);
+
+string result = pattern.Replace("hello world", replacement);
+// result = "world hello"
+
+// Phone number formatting
+var phonePattern = RegexBuilder.Build(
+    RegexBuilder.Group("area", RegexBuilder.MetaCharacter(RegexMetaChars.Digit, RegexQuantifier.Exactly(3))),
+    RegexBuilder.Literal("-"),
+    RegexBuilder.Group("prefix", RegexBuilder.MetaCharacter(RegexMetaChars.Digit, RegexQuantifier.Exactly(3))),
+    RegexBuilder.Literal("-"),
+    RegexBuilder.Group("number", RegexBuilder.MetaCharacter(RegexMetaChars.Digit, RegexQuantifier.Exactly(4)))
+);
+
+var phoneReplacement = SubstitutionBuilder.Build(
+    SubstitutionBuilder.Literal("("),
+    SubstitutionBuilder.Group("area"),
+    SubstitutionBuilder.Literal(") "),
+    SubstitutionBuilder.Group("prefix"),
+    SubstitutionBuilder.Literal("-"),
+    SubstitutionBuilder.Group("number")
+);
+
+string formatted = phonePattern.Replace("555-123-4567", phoneReplacement);
+// formatted = "(555) 123-4567"
+
+// Adding currency symbol
+var pricePattern = RegexBuilder.Build(
+    RegexBuilder.MetaCharacter(RegexMetaChars.Digit, RegexQuantifier.OneOrMore)
+);
+
+var priceReplacement = SubstitutionBuilder.Build(
+    SubstitutionBuilder.LiteralDollar(),
+    SubstitutionBuilder.WholeMatch()
+);
+
+string withCurrency = pricePattern.Replace("The price is 100", priceReplacement);
+// withCurrency = "The price is $100"
+```
+
 ## [1.0.4] - 2025-10-21
 
 ### Added

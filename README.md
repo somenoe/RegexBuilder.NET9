@@ -71,8 +71,6 @@ See [CustomRegexTests.cs](/src/RegexBuilder.Tests/CustomRegexTests.cs) for more 
 
 ## Feature Support
 
-RegexBuilder currently supports all regular expression language elements except [substitution/replacement patterns](http://msdn.microsoft.com/en-us/library/az24scfc.aspx#substitutions).
-
 The following elements are supported:
 
 - [Quantifiers](http://msdn.microsoft.com/en-us/library/az24scfc.aspx#quantifiers)
@@ -83,6 +81,7 @@ The following elements are supported:
 - [Backreference constructs](http://msdn.microsoft.com/en-us/library/az24scfc.aspx#backreference_constructs)
 - [Alternation constructs](http://msdn.microsoft.com/en-us/library/az24scfc.aspx#alternation_constructs)
 - [Inline options and comments](http://msdn.microsoft.com/en-us/library/az24scfc.aspx#miscellaneous_constructs)
+- [Substitution patterns](http://msdn.microsoft.com/en-us/library/az24scfc.aspx#substitutions) - for use with `Regex.Replace()`
 
 ## How to Integrate RegexBuilder
 
@@ -91,13 +90,13 @@ Install RegexBuilder.NET9 from NuGet using one of the following methods:
 **Via .NET CLI:**:
 
 ```bash
-dotnet add package RegexBuilder.NET9 --version 1.0.3
+dotnet add package RegexBuilder.NET9 --version 1.0.5
 ```
 
 **Via PackageReference**:
 
 ```xml
-<PackageReference Include="RegexBuilder.NET9" Version="1.0.3" />
+<PackageReference Include="RegexBuilder.NET9" Version="1.0.5" />
 ```
 
 ## Usage Guide
@@ -110,6 +109,41 @@ There are 3 classes you'll need. They all expose their functionality via static 
 
 Start with `var regex = RegexBuilder.Build(...);` and replace `...` with the parts of your regular expression
 by calling the corresponding methods of `RegexBuilder`.
+
+### Substitution Patterns
+
+RegexBuilder also supports building replacement patterns for use with `Regex.Replace()`. Use the `SubstitutionBuilder` class:
+
+```csharp
+// Swap two words
+var pattern = RegexBuilder.Build(
+    RegexBuilder.Group("word1", RegexBuilder.MetaCharacter(RegexMetaChars.WordCharacter, RegexQuantifier.OneOrMore)),
+    RegexBuilder.Literal(" "),
+    RegexBuilder.Group("word2", RegexBuilder.MetaCharacter(RegexMetaChars.WordCharacter, RegexQuantifier.OneOrMore))
+);
+
+var replacement = SubstitutionBuilder.Build(
+    SubstitutionBuilder.Group("word2"),
+    SubstitutionBuilder.Literal(" "),
+    SubstitutionBuilder.Group("word1")
+);
+
+string result = pattern.Replace("hello world", replacement);
+// result = "world hello"
+```
+
+The `SubstitutionBuilder` class provides methods for all .NET substitution constructs:
+
+- `SubstitutionBuilder.Group(int)` or `Group(string)` - Reference captured groups by number or name
+- `SubstitutionBuilder.WholeMatch()` - Insert the entire matched text
+- `SubstitutionBuilder.BeforeMatch()` - Insert text before the match
+- `SubstitutionBuilder.AfterMatch()` - Insert text after the match
+- `SubstitutionBuilder.LastCapturedGroup()` - Insert the last captured group
+- `SubstitutionBuilder.EntireInput()` - Insert the entire input string
+- `SubstitutionBuilder.LiteralDollar()` - Insert a literal dollar sign
+- `SubstitutionBuilder.Literal(string)` - Insert literal text (automatically escapes `$`)
+
+See [SubstitutionBuilderTests.cs](/src/RegexBuilder.Tests/SubstitutionBuilderTests.cs) for more examples.
 
 ## Testing
 
