@@ -6,7 +6,7 @@ This file provides guidance when working with code in this repository.
 
 1. Analyze feature and create a detailed implementation plan on `history` folder e.g. `history/feature-name.md`.
 2. Create a new branch for the feature: `git checkout -b feature/your-feature-name`
-3. Implement the feature and commit changes: `git commit -m "Implement feature"`
+3. Implement the feature and commit changes: follow instructions on `./SOP/git-commit.md`
 4. Review and test the feature thoroughly. Update `history/feature-name.md` if planned steps change.
 5. After successful testing, update
    - `ROADMAP.md` to reflect the new feature status.
