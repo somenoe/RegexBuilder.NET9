@@ -9,6 +9,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- **Convenience Shortcut Methods** - Intuitive methods for common regex patterns
+  - Character class shortcuts: `Digit()`, `NonDigit()`, `Whitespace()`, `NonWhitespace()`, `WordCharacter()`, `NonWordCharacter()`
+  - Anchor shortcuts: `LineStart()`, `LineEnd()`, `StringStart()`, `StringEnd()`, `StringEndAbsolute()`, `WordBoundary()`, `NonWordBoundary()`, `MatchPointAnchor()`
+  - Escape character shortcuts: `BellCharacter()`, `FormFeed()`, `VerticalTab()`, `EscapeCharacter()`, `OctalCharacter(int octalValue)`
+  - All methods support optional quantifiers for flexible pattern matching
+  - Comprehensive test suite with 28 new test cases covering:
+    - Individual shortcut method validation
+    - Quantifier application and rendering
+    - Integration with other regex constructs
+    - Real-world pattern matching scenarios
+
 - **Balancing Groups** - Support for `(?<name1-name2>expr)` and `(?<name>-expr)` constructs
   - New `RegexNodeBalancingGroup` class for balancing group constructs
   - Support for two-name balancing groups: `(?<name1-name2>expr)` - push to name1, pop from name2
@@ -27,7 +38,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - Edge case validation
     - Integration tests with other regex constructs
 
-### Examples
+### Convenience Shortcut Methods Examples
+
+- `RegexBuilder.Digit()` → `\d`
+- `RegexBuilder.Whitespace(RegexQuantifier.OneOrMore)` → `\s+`
+- `RegexBuilder.StringStart()` → `\A`
+- `RegexBuilder.OctalCharacter(32)` → `\040` (space character)
+
+### Balancing Groups Examples
 
 ```csharp
 // Match balanced parentheses

@@ -751,6 +751,309 @@ namespace RegexBuilder
             return new RegexNodeConcatenation(expressions) { Quantifier = quantifier };
         }
 
+        #region Convenience Shortcut Methods
+
+        #region Character Class Shortcuts
+
+        /// <summary>
+        /// Generates a digit character class ("\d").
+        /// </summary>
+        /// <returns>An instance of RegexNode containing the digit character class.</returns>
+        public static RegexNodeLiteral Digit()
+        {
+            return MetaCharacter(@"\d");
+        }
+
+        /// <summary>
+        /// Generates a digit character class ("\d") with a quantifier.
+        /// </summary>
+        /// <param name="quantifier">Node quantifier.</param>
+        /// <returns>An instance of RegexNode containing the digit character class.</returns>
+        public static RegexNodeLiteral Digit(RegexQuantifier quantifier)
+        {
+            return MetaCharacter(@"\d", quantifier);
+        }
+
+        /// <summary>
+        /// Generates a non-digit character class ("\D").
+        /// </summary>
+        /// <returns>An instance of RegexNode containing the non-digit character class.</returns>
+        public static RegexNodeLiteral NonDigit()
+        {
+            return MetaCharacter(@"\D");
+        }
+
+        /// <summary>
+        /// Generates a non-digit character class ("\D") with a quantifier.
+        /// </summary>
+        /// <param name="quantifier">Node quantifier.</param>
+        /// <returns>An instance of RegexNode containing the non-digit character class.</returns>
+        public static RegexNodeLiteral NonDigit(RegexQuantifier quantifier)
+        {
+            return MetaCharacter(@"\D", quantifier);
+        }
+
+        /// <summary>
+        /// Generates a whitespace character class ("\s").
+        /// </summary>
+        /// <returns>An instance of RegexNode containing the whitespace character class.</returns>
+        public static RegexNodeLiteral Whitespace()
+        {
+            return MetaCharacter(@"\s");
+        }
+
+        /// <summary>
+        /// Generates a whitespace character class ("\s") with a quantifier.
+        /// </summary>
+        /// <param name="quantifier">Node quantifier.</param>
+        /// <returns>An instance of RegexNode containing the whitespace character class.</returns>
+        public static RegexNodeLiteral Whitespace(RegexQuantifier quantifier)
+        {
+            return MetaCharacter(@"\s", quantifier);
+        }
+
+        /// <summary>
+        /// Generates a non-whitespace character class ("\S").
+        /// </summary>
+        /// <returns>An instance of RegexNode containing the non-whitespace character class.</returns>
+        public static RegexNodeLiteral NonWhitespace()
+        {
+            return MetaCharacter(@"\S");
+        }
+
+        /// <summary>
+        /// Generates a non-whitespace character class ("\S") with a quantifier.
+        /// </summary>
+        /// <param name="quantifier">Node quantifier.</param>
+        /// <returns>An instance of RegexNode containing the non-whitespace character class.</returns>
+        public static RegexNodeLiteral NonWhitespace(RegexQuantifier quantifier)
+        {
+            return MetaCharacter(@"\S", quantifier);
+        }
+
+        /// <summary>
+        /// Generates a word character class ("\w").
+        /// </summary>
+        /// <returns>An instance of RegexNode containing the word character class.</returns>
+        public static RegexNodeLiteral WordCharacter()
+        {
+            return MetaCharacter(@"\w");
+        }
+
+        /// <summary>
+        /// Generates a word character class ("\w") with a quantifier.
+        /// </summary>
+        /// <param name="quantifier">Node quantifier.</param>
+        /// <returns>An instance of RegexNode containing the word character class.</returns>
+        public static RegexNodeLiteral WordCharacter(RegexQuantifier quantifier)
+        {
+            return MetaCharacter(@"\w", quantifier);
+        }
+
+        /// <summary>
+        /// Generates a non-word character class ("\W").
+        /// </summary>
+        /// <returns>An instance of RegexNode containing the non-word character class.</returns>
+        public static RegexNodeLiteral NonWordCharacter()
+        {
+            return MetaCharacter(@"\W");
+        }
+
+        /// <summary>
+        /// Generates a non-word character class ("\W") with a quantifier.
+        /// </summary>
+        /// <param name="quantifier">Node quantifier.</param>
+        /// <returns>An instance of RegexNode containing the non-word character class.</returns>
+        public static RegexNodeLiteral NonWordCharacter(RegexQuantifier quantifier)
+        {
+            return MetaCharacter(@"\W", quantifier);
+        }
+
+        #endregion Character Class Shortcuts
+
+        #region Anchor Shortcuts
+
+        /// <summary>
+        /// Generates a line start anchor ("^").
+        /// </summary>
+        /// <returns>An instance of RegexNode containing the line start anchor.</returns>
+        public static RegexNodeLiteral LineStart()
+        {
+            return MetaCharacter("^");
+        }
+
+        /// <summary>
+        /// Generates a line end anchor ("$").
+        /// </summary>
+        /// <returns>An instance of RegexNode containing the line end anchor.</returns>
+        public static RegexNodeLiteral LineEnd()
+        {
+            return MetaCharacter("$");
+        }
+
+        /// <summary>
+        /// Generates a string start anchor ("\A").
+        /// </summary>
+        /// <returns>An instance of RegexNode containing the string start anchor.</returns>
+        public static RegexNodeLiteral StringStart()
+        {
+            return MetaCharacter(@"\A");
+        }
+
+        /// <summary>
+        /// Generates a string end anchor ("\Z").
+        /// </summary>
+        /// <returns>An instance of RegexNode containing the string end anchor.</returns>
+        public static RegexNodeLiteral StringEnd()
+        {
+            return MetaCharacter(@"\Z");
+        }
+
+        /// <summary>
+        /// Generates an absolute string end anchor ("\z").
+        /// </summary>
+        /// <returns>An instance of RegexNode containing the absolute string end anchor.</returns>
+        public static RegexNodeLiteral StringEndAbsolute()
+        {
+            return MetaCharacter(@"\z");
+        }
+
+        /// <summary>
+        /// Generates a word boundary anchor ("\b").
+        /// </summary>
+        /// <returns>An instance of RegexNode containing the word boundary anchor.</returns>
+        public static RegexNodeLiteral WordBoundary()
+        {
+            return MetaCharacter(@"\b");
+        }
+
+        /// <summary>
+        /// Generates a non-word boundary anchor ("\B").
+        /// </summary>
+        /// <returns>An instance of RegexNode containing the non-word boundary anchor.</returns>
+        public static RegexNodeLiteral NonWordBoundary()
+        {
+            return MetaCharacter(@"\B");
+        }
+
+        /// <summary>
+        /// Generates a match point anchor ("\G"), which matches at the position of the previous match.
+        /// </summary>
+        /// <returns>An instance of RegexNode containing the match point anchor.</returns>
+        public static RegexNodeLiteral MatchPointAnchor()
+        {
+            return MetaCharacter(@"\G");
+        }
+
+        #endregion Anchor Shortcuts
+
+        #region Escape Character Shortcuts
+
+        /// <summary>
+        /// Generates a bell character (alert) escape sequence ("\a", ASCII 7).
+        /// </summary>
+        /// <returns>An instance of RegexNode containing the bell character escape.</returns>
+        public static RegexNodeLiteral BellCharacter()
+        {
+            return MetaCharacter(@"\a");
+        }
+
+        /// <summary>
+        /// Generates a bell character (alert) escape sequence ("\a", ASCII 7) with a quantifier.
+        /// </summary>
+        /// <param name="quantifier">Node quantifier.</param>
+        /// <returns>An instance of RegexNode containing the bell character escape.</returns>
+        public static RegexNodeLiteral BellCharacter(RegexQuantifier quantifier)
+        {
+            return MetaCharacter(@"\a", quantifier);
+        }
+
+        /// <summary>
+        /// Generates a form feed character escape sequence ("\f", ASCII 12).
+        /// </summary>
+        /// <returns>An instance of RegexNode containing the form feed character escape.</returns>
+        public static RegexNodeLiteral FormFeed()
+        {
+            return MetaCharacter(@"\f");
+        }
+
+        /// <summary>
+        /// Generates a form feed character escape sequence ("\f", ASCII 12) with a quantifier.
+        /// </summary>
+        /// <param name="quantifier">Node quantifier.</param>
+        /// <returns>An instance of RegexNode containing the form feed character escape.</returns>
+        public static RegexNodeLiteral FormFeed(RegexQuantifier quantifier)
+        {
+            return MetaCharacter(@"\f", quantifier);
+        }
+
+        /// <summary>
+        /// Generates a vertical tab character escape sequence ("\v", ASCII 11).
+        /// </summary>
+        /// <returns>An instance of RegexNode containing the vertical tab character escape.</returns>
+        public static RegexNodeLiteral VerticalTab()
+        {
+            return MetaCharacter(@"\v");
+        }
+
+        /// <summary>
+        /// Generates a vertical tab character escape sequence ("\v", ASCII 11) with a quantifier.
+        /// </summary>
+        /// <param name="quantifier">Node quantifier.</param>
+        /// <returns>An instance of RegexNode containing the vertical tab character escape.</returns>
+        public static RegexNodeLiteral VerticalTab(RegexQuantifier quantifier)
+        {
+            return MetaCharacter(@"\v", quantifier);
+        }
+
+        /// <summary>
+        /// Generates an escape character escape sequence ("\e", ASCII 27).
+        /// </summary>
+        /// <returns>An instance of RegexNode containing the escape character escape.</returns>
+        public static RegexNodeLiteral EscapeCharacter()
+        {
+            return MetaCharacter(@"\e");
+        }
+
+        /// <summary>
+        /// Generates an escape character escape sequence ("\e", ASCII 27) with a quantifier.
+        /// </summary>
+        /// <param name="quantifier">Node quantifier.</param>
+        /// <returns>An instance of RegexNode containing the escape character escape.</returns>
+        public static RegexNodeLiteral EscapeCharacter(RegexQuantifier quantifier)
+        {
+            return MetaCharacter(@"\e", quantifier);
+        }
+
+        /// <summary>
+        /// Generates an octal character escape sequence ("\NNN") with the specified octal value.
+        /// </summary>
+        /// <param name="octalValue">Octal value (0-377 for 0-255 decimal).</param>
+        /// <returns>An instance of RegexNode containing the octal character escape.</returns>
+        public static RegexNodeLiteral OctalCharacter(int octalValue)
+        {
+            int byte_val = octalValue & 0xFF;
+            string octalStr = Convert.ToString(byte_val, 8).PadLeft(3, '0');
+            return MetaCharacter(string.Format(CultureInfo.InvariantCulture, "\\{0}", octalStr));
+        }
+
+        /// <summary>
+        /// Generates an octal character escape sequence ("\NNN") with the specified octal value and quantifier.
+        /// </summary>
+        /// <param name="octalValue">Octal value (0-377 for 0-255 decimal).</param>
+        /// <param name="quantifier">Node quantifier.</param>
+        /// <returns>An instance of RegexNode containing the octal character escape.</returns>
+        public static RegexNodeLiteral OctalCharacter(int octalValue, RegexQuantifier quantifier)
+        {
+            int byte_val = octalValue & 0xFF;
+            string octalStr = Convert.ToString(byte_val, 8).PadLeft(3, '0');
+            return MetaCharacter(string.Format(CultureInfo.InvariantCulture, "\\{0}", octalStr), quantifier);
+        }
+
+        #endregion Escape Character Shortcuts
+
+        #endregion Convenience Shortcut Methods
+
         #endregion Static factory methods
     }
 }

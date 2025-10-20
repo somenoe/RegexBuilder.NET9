@@ -115,5 +115,303 @@ namespace RegexBuilder.Tests
         {
             RegexBuilder.Build(RegexOptions.None, (RegexNode)null);
         }
+
+        #region Convenience Shortcut Methods Tests
+
+        #region Character Class Shortcuts Tests
+
+        [TestMethod]
+        public void TestDigitShortcut()
+        {
+            RegexNode node = RegexBuilder.Digit();
+            Assert.AreEqual(@"\d", node.ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestDigitShortcutWithQuantifier()
+        {
+            RegexNode node = RegexBuilder.Digit(RegexQuantifier.ZeroOrMore);
+            Assert.AreEqual(@"\d*", node.ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestNonDigitShortcut()
+        {
+            RegexNode node = RegexBuilder.NonDigit();
+            Assert.AreEqual(@"\D", node.ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestNonDigitShortcutWithQuantifier()
+        {
+            RegexNode node = RegexBuilder.NonDigit(RegexQuantifier.OneOrMore);
+            Assert.AreEqual(@"\D+", node.ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestWhitespaceShortcut()
+        {
+            RegexNode node = RegexBuilder.Whitespace();
+            Assert.AreEqual(@"\s", node.ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestWhitespaceShortcutWithQuantifier()
+        {
+            RegexNode node = RegexBuilder.Whitespace(RegexQuantifier.ZeroOrOne);
+            Assert.AreEqual(@"\s?", node.ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestNonWhitespaceShortcut()
+        {
+            RegexNode node = RegexBuilder.NonWhitespace();
+            Assert.AreEqual(@"\S", node.ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestNonWhitespaceShortcutWithQuantifier()
+        {
+            RegexNode node = RegexBuilder.NonWhitespace(RegexQuantifier.Exactly(3));
+            Assert.AreEqual(@"\S{3}", node.ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestWordCharacterShortcut()
+        {
+            RegexNode node = RegexBuilder.WordCharacter();
+            Assert.AreEqual(@"\w", node.ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestWordCharacterShortcutWithQuantifier()
+        {
+            RegexNode node = RegexBuilder.WordCharacter(RegexQuantifier.Custom(1, 5, false));
+            Assert.AreEqual(@"\w{1,5}", node.ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestNonWordCharacterShortcut()
+        {
+            RegexNode node = RegexBuilder.NonWordCharacter();
+            Assert.AreEqual(@"\W", node.ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestNonWordCharacterShortcutWithQuantifier()
+        {
+            RegexNode node = RegexBuilder.NonWordCharacter(RegexQuantifier.ZeroOrMore);
+            Assert.AreEqual(@"\W*", node.ToRegexPattern());
+        }
+
+        #endregion Character Class Shortcuts Tests
+
+        #region Anchor Shortcuts Tests
+
+        [TestMethod]
+        public void TestLineStartShortcut()
+        {
+            RegexNode node = RegexBuilder.LineStart();
+            Assert.AreEqual("^", node.ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestLineEndShortcut()
+        {
+            RegexNode node = RegexBuilder.LineEnd();
+            Assert.AreEqual("$", node.ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestStringStartShortcut()
+        {
+            RegexNode node = RegexBuilder.StringStart();
+            Assert.AreEqual(@"\A", node.ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestStringEndShortcut()
+        {
+            RegexNode node = RegexBuilder.StringEnd();
+            Assert.AreEqual(@"\Z", node.ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestStringEndAbsoluteShortcut()
+        {
+            RegexNode node = RegexBuilder.StringEndAbsolute();
+            Assert.AreEqual(@"\z", node.ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestWordBoundaryShortcut()
+        {
+            RegexNode node = RegexBuilder.WordBoundary();
+            Assert.AreEqual(@"\b", node.ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestNonWordBoundaryShortcut()
+        {
+            RegexNode node = RegexBuilder.NonWordBoundary();
+            Assert.AreEqual(@"\B", node.ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestMatchPointAnchorShortcut()
+        {
+            RegexNode node = RegexBuilder.MatchPointAnchor();
+            Assert.AreEqual(@"\G", node.ToRegexPattern());
+        }
+
+        #endregion Anchor Shortcuts Tests
+
+        #region Escape Character Shortcuts Tests
+
+        [TestMethod]
+        public void TestBellCharacterShortcut()
+        {
+            RegexNode node = RegexBuilder.BellCharacter();
+            Assert.AreEqual(@"\a", node.ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestBellCharacterShortcutWithQuantifier()
+        {
+            RegexNode node = RegexBuilder.BellCharacter(RegexQuantifier.ZeroOrOne);
+            Assert.AreEqual(@"\a?", node.ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestFormFeedShortcut()
+        {
+            RegexNode node = RegexBuilder.FormFeed();
+            Assert.AreEqual(@"\f", node.ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestFormFeedShortcutWithQuantifier()
+        {
+            RegexNode node = RegexBuilder.FormFeed(RegexQuantifier.Exactly(2));
+            Assert.AreEqual(@"\f{2}", node.ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestVerticalTabShortcut()
+        {
+            RegexNode node = RegexBuilder.VerticalTab();
+            Assert.AreEqual(@"\v", node.ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestVerticalTabShortcutWithQuantifier()
+        {
+            RegexNode node = RegexBuilder.VerticalTab(RegexQuantifier.ZeroOrMore);
+            Assert.AreEqual(@"\v*", node.ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestEscapeCharacterShortcut()
+        {
+            RegexNode node = RegexBuilder.EscapeCharacter();
+            Assert.AreEqual(@"\e", node.ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestEscapeCharacterShortcutWithQuantifier()
+        {
+            RegexNode node = RegexBuilder.EscapeCharacter(RegexQuantifier.OneOrMore);
+            Assert.AreEqual(@"\e+", node.ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestOctalCharacterShortcut()
+        {
+            RegexNode node = RegexBuilder.OctalCharacter(255);
+            Assert.AreEqual(@"\377", node.ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestOctalCharacterShortcutSmallValue()
+        {
+            RegexNode node = RegexBuilder.OctalCharacter(10);
+            Assert.AreEqual(@"\012", node.ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestOctalCharacterShortcutWithQuantifier()
+        {
+            RegexNode node = RegexBuilder.OctalCharacter(65, RegexQuantifier.Exactly(3));
+            Assert.AreEqual(@"(?:\101){3}", node.ToRegexPattern());
+        }
+
+        #endregion Escape Character Shortcuts Tests
+
+        #region Integration Tests
+
+        [TestMethod]
+        public void TestShortcutsInConcatenation()
+        {
+            RegexNode pattern = RegexBuilder.Concatenate(
+                new[]
+                {
+                    RegexBuilder.LineStart() as RegexNode,
+                    RegexBuilder.Digit(RegexQuantifier.OneOrMore) as RegexNode,
+                    RegexBuilder.Whitespace() as RegexNode,
+                    RegexBuilder.WordCharacter(RegexQuantifier.ZeroOrMore) as RegexNode,
+                    RegexBuilder.LineEnd() as RegexNode
+                }
+            );
+            Assert.AreEqual(@"^\d+\s\w*$", pattern.ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestShortcutsInGroup()
+        {
+            RegexNode pattern = RegexBuilder.Group(
+                "word",
+                RegexBuilder.Concatenate(
+                    RegexBuilder.WordCharacter(RegexQuantifier.OneOrMore),
+                    RegexBuilder.NonWhitespace()
+                )
+            );
+            Assert.AreEqual(@"(?<word>\w+\S)", pattern.ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestCharacterClassShortcutMatching()
+        {
+            Regex regex = RegexBuilder.Build(RegexBuilder.Digit(RegexQuantifier.OneOrMore));
+            Assert.IsTrue(regex.IsMatch("12345"));
+            Assert.IsFalse(regex.IsMatch("abcde"));
+        }
+
+        [TestMethod]
+        public void TestAnchorShortcutMatching()
+        {
+            Regex regex = RegexBuilder.Build(
+                RegexBuilder.StringStart(),
+                RegexBuilder.WordCharacter(RegexQuantifier.OneOrMore),
+                RegexBuilder.StringEnd()
+            );
+            Assert.IsTrue(regex.IsMatch("HelloWorld"));
+            Assert.IsFalse(regex.IsMatch("Hello World"));
+        }
+
+        [TestMethod]
+        public void TestEscapeShortcutMatching()
+        {
+            Regex regex = RegexBuilder.Build(
+                RegexBuilder.Digit(),
+                RegexBuilder.FormFeed(),
+                RegexBuilder.Digit()
+            );
+            Assert.IsTrue(regex.IsMatch("1\f2"));
+            Assert.IsFalse(regex.IsMatch("1 2"));
+        }
+
+        #endregion Integration Tests
+
+        #endregion Convenience Shortcut Methods Tests
     }
 }
