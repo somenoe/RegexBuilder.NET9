@@ -3,6 +3,7 @@
 This document outlines the steps to upgrade the solution to .NET 9 and validate all tests pass before and after the upgrade.
 
 ## Goals
+
 - Create a working branch for the upgrade work.
 - Run baseline build/tests on current code.
 - Migrate projects to SDK-style and target `net9.0`.
@@ -10,10 +11,12 @@ This document outlines the steps to upgrade the solution to .NET 9 and validate 
 - Fix any build/test issues until all tests are green.
 
 ## Current State (pre-upgrade)
+
 - Projects target .NET Framework 4.0 (old, non-SDK csproj format).
 - Tests use classic MSTest V1 (Visual Studio Test Framework 10.0) which does not run with `dotnet test`.
 
 ## Approach
+
 1) Baseline
    - Attempt to build and run tests with current setup.
    - If classic MSTest runner is unavailable on the machine, record that baseline tests cannot be executed with the current toolchain.
@@ -34,13 +37,16 @@ This document outlines the steps to upgrade the solution to .NET 9 and validate 
    - If needed, migrate packing to SDK (`dotnet pack`) and update nuspec/target folder to `lib/net9.0`.
 
 ## Risks & Mitigations
+
 - Old MSTest V1 tests won’t run in `dotnet test` — migrate to MSTest V2 keeping the same attributes/namespaces.
 - Behavior differences between .NET Framework 4.0 and .NET 9 in `System.Text.RegularExpressions` — validate with existing tests and adjust if needed.
 
 ## Success Criteria
+
 - `dotnet test` passes 100% on the upgraded solution targeting `net9.0`.
 
 ## Status & How to Run
+
 - Branch: `chore/upgrade-to-net9`
 - SDKs: Verified `dotnet --version` = 9.0.306
 - Build: dotnet build src\YuriyGuts.RegexBuilder.sln

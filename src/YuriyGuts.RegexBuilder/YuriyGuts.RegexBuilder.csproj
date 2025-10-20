@@ -6,5 +6,22 @@
     <RootNamespace>YuriyGuts.RegexBuilder</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    
+    <!-- Package Metadata -->
+    <Version>1.0.1</Version>
+    <PackageId>RegexBuilder</PackageId>
+    <Authors>Yuriy Guts</Authors>
+    <Description>.NET library for human-readable declaration of regular expressions without having to remember the regex syntax.</Description>
+    <Copyright>Copyright © Yuriy Guts, 2011-2025</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/somenoe/regex-builder</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/somenoe/regex-builder</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>regex;regular-expressions;builder;fluent</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
+  
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
 </Project>
