@@ -5,6 +5,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.3] - 2025-10-21
+
+### Added
+
+- Created comprehensive SOP documentation for publishing NuGet packages (`SOP/nuget_package_publishing.md`)
+  - CLI publishing instructions with environment variable usage for API keys
+  - GitHub workflow publishing instructions
+  - Troubleshooting guide and best practices
+  - Security notes for handling API keys
+- Updated release workflow to automatically publish to NuGet.org
+  - Added publish step using `NUGET_API_KEY` secret
+  - Added `--skip-duplicate` flag to prevent duplicate package errors
+- Added `artifacts/` directory and `*.nupkg` files to `.gitignore`
+
+### Changed
+
+- Release workflow now publishes packages to NuGet.org automatically on tag push or manual dispatch
+- Improved PowerShell command syntax for `dotnet nuget push` to properly handle wildcards
+
 ## [1.0.2] - 2025-10-21
 
 ### Changed
