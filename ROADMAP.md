@@ -67,13 +67,11 @@
 ### 🟡 LOW PRIORITY
 
 - [ ] **Convenience Shortcut Methods**
-
   - Character classes: `Digit()`, `NonDigit()`, `Whitespace()`, `NonWhitespace()`, `WordCharacter()`, `NonWordCharacter()`
   - Anchors: `LineStart()`, `LineEnd()`, `StringStart()`, `StringEnd()`, `StringEndAbsolute()`, `WordBoundary()`, `NonWordBoundary()`, `MatchPointAnchor()`
   - Escapes: `BellCharacter()`, `FormFeed()`, `VerticalTab()`, `EscapeCharacter()`, `OctalCharacter()`
 
 - [ ] **Inline Option Grouping** `(?imnsx-imnsx:expr)`
-
   - Dedicated node for scoped option application
 
 - [ ] **Named Group Apostrophe Syntax** `(?'name'expr)`

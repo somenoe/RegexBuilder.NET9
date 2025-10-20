@@ -599,7 +599,7 @@ namespace RegexBuilder.Tests
                 RegexBuilder.UnicodeCategory("Nd", RegexQuantifier.Exactly(3))
             );
             Assert.IsNotNull(regex);
-            
+
             // Verify it matches international text
             Assert.IsTrue(regex.IsMatch("Ы 123"));
             Assert.IsTrue(regex.IsMatch("Б 456"));
@@ -713,7 +713,7 @@ namespace RegexBuilder.Tests
             );
             Assert.IsTrue(emailPattern.IsMatch("user"));
             Assert.IsTrue(emailPattern.IsMatch("user.name"));
-            
+
             // International name pattern (letters with optional spaces)
             var namePattern = RegexBuilder.Build(
                 RegexBuilder.UnicodeCategory("Lu", RegexQuantifier.Exactly(1)),
@@ -725,7 +725,7 @@ namespace RegexBuilder.Tests
             Assert.IsTrue(namePattern.IsMatch("John"));
             Assert.IsTrue(namePattern.IsMatch("José"));
             Assert.IsTrue(namePattern.IsMatch("Владимир"));
-            
+
             // Currency amount pattern (currency symbol + digits)
             var currencyPattern = RegexBuilder.Build(
                 RegexBuilder.UnicodeCategory("Sc"),
@@ -735,7 +735,7 @@ namespace RegexBuilder.Tests
             );
             Assert.IsTrue(currencyPattern.IsMatch("$100"));
             Assert.IsTrue(currencyPattern.IsMatch("€99.99"));
-            
+
             // Mixed scripts detection (negated Latin)
             var nonLatinPattern = RegexBuilder.Build(
                 RegexBuilder.NegativeUnicodeCategory("IsBasicLatin", RegexQuantifier.OneOrMore)
@@ -754,21 +754,21 @@ namespace RegexBuilder.Tests
                 RegexBuilder.UnicodeCategory("L")
             );
             Assert.AreEqual(@"(?:\p{L}(?=\p{Nd}))", letterBeforeDigit.ToRegexPattern());
-            
+
             // Test Unicode category with negative lookahead
             var letterNotBeforeDigit = RegexBuilder.NegativeLookAhead(
                 RegexBuilder.UnicodeCategory("Nd"),
                 RegexBuilder.UnicodeCategory("L")
             );
             Assert.AreEqual(@"(?:\p{L}(?!\p{Nd}))", letterNotBeforeDigit.ToRegexPattern());
-            
+
             // Test Unicode category with positive lookbehind
             var digitAfterLetter = RegexBuilder.PositiveLookBehind(
                 RegexBuilder.UnicodeCategory("L"),
                 RegexBuilder.UnicodeCategory("Nd")
             );
             Assert.AreEqual(@"(?:(?<=\p{L})\p{Nd})", digitAfterLetter.ToRegexPattern());
-            
+
             // Test Unicode category with negative lookbehind
             var digitNotAfterLetter = RegexBuilder.NegativeLookBehind(
                 RegexBuilder.UnicodeCategory("L"),
@@ -788,7 +788,7 @@ namespace RegexBuilder.Tests
             Assert.IsTrue(RegexMetaChars.IsValidUnicodeCategory("IsHangul"));
             Assert.IsTrue(RegexMetaChars.IsValidUnicodeCategory("IsThai"));
             Assert.IsTrue(RegexMetaChars.IsValidUnicodeCategory("IsDevanagari"));
-            
+
             // Test rendering of various blocks
             Assert.AreEqual(@"\p{IsGreekandCoptic}", new RegexNodeUnicodeCategory("IsGreekandCoptic").ToRegexPattern());
             Assert.AreEqual(@"\P{IsHebrew}", new RegexNodeUnicodeCategory("IsHebrew", true).ToRegexPattern());
@@ -805,7 +805,7 @@ namespace RegexBuilder.Tests
             Assert.IsTrue(categoryList.Contains("L"));
             Assert.IsTrue(categoryList.Contains("N"));
             Assert.IsTrue(categoryList.Contains("P"));
-            
+
             // Test GetNamedBlocks
             var namedBlocks = RegexMetaChars.GetNamedBlocks();
             Assert.IsNotNull(namedBlocks);

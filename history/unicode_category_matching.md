@@ -22,6 +22,7 @@ Implement support for Unicode category matching using `\p{name}` and `\P{name}` 
 ## Implementation Steps
 
 ### 1. Create New RegexNode Type
+
 - **File:** `src/RegexBuilder/RegexNodeTypes/RegexNodeUnicodeCategory.cs`
 - **Responsibilities:**
   - Represent Unicode category escape sequences
@@ -31,6 +32,7 @@ Implement support for Unicode category matching using `\p{name}` and `\P{name}` 
   - Allow quantifiers (optional)
 
 ### 2. Add Public API Methods to RegexBuilder
+
 - **File:** `src/RegexBuilder/RegexBuilder.cs`
 - **Methods to add:**
   - `UniqueCategory(string categoryName)` - Creates a `\p{name}` node
@@ -39,6 +41,7 @@ Implement support for Unicode category matching using `\p{name}` and `\P{name}` 
   - `UnicodeCategory(string categoryName, bool negated, RegexQuantifier quantifier)` - Full version
 
 ### 3. Add Validation & Helper Methods
+
 - **File:** `src/RegexBuilder/HelperClasses/RegexMetaChars.cs` (or new file)
 - **Functions:**
   - Validate Unicode category names (whitelist approach)
@@ -46,6 +49,7 @@ Implement support for Unicode category matching using `\p{name}` and `\P{name}` 
   - Generate documentation of supported categories
 
 ### 4. Write Comprehensive Unit Tests
+
 - **File:** `src/RegexBuilder.Tests/RegexNodeRenderingTests.cs` or new test file
 - **Test cases:**
   - Basic categories: `\p{L}`, `\p{N}`, etc.
@@ -55,6 +59,7 @@ Implement support for Unicode category matching using `\p{name}` and `\P{name}` 
   - Integration tests: Matching international text
 
 ### 5. Update Documentation
+
 - **Files:**
   - `CHANGELOG.md` - Add feature entry
   - `ROADMAP.md` - Mark as completed
@@ -69,7 +74,7 @@ public class RegexNodeUnicodeCategory : RegexNode
 {
     public string CategoryName { get; set; }
     public bool IsNegated { get; set; }
-    
+
     public override string ToRegexPattern()
     {
         // Returns "\p{name}" or "\P{name}"
@@ -80,6 +85,7 @@ public class RegexNodeUnicodeCategory : RegexNode
 ### Supported Unicode Categories (Standard .NET)
 
 **General Categories:**
+
 - `L` - Letter
 - `Lu` - Uppercase Letter
 - `Ll` - Lowercase Letter
@@ -119,6 +125,7 @@ public class RegexNodeUnicodeCategory : RegexNode
 - `Cn` - Unassigned
 
 **Named Blocks (Examples):**
+
 - `IsBasicLatin`
 - `IsLatin1Supplement`
 - `IsLatinExtended-A`
