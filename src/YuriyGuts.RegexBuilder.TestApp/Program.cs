@@ -42,11 +42,11 @@ namespace YuriyGuts.RegexBuilder.Tests
                 Console.WriteLine(string.Empty.PadRight(50, '='));
                 Console.WriteLine("  Match {0}:", ++matchCounter);
                 Console.WriteLine("  Value: " + match.Value);
-                
+
                 Console.WriteLine(string.Empty.PadRight(50, '-'));
                 Console.WriteLine("    Groups:");
                 Console.WriteLine(string.Empty.PadRight(50, '-'));
-                
+
                 foreach (string name in regex.GetGroupNames())
                 {
                     Console.WriteLine("    \"{0}\": {1}", name, match.Groups[name].Value);

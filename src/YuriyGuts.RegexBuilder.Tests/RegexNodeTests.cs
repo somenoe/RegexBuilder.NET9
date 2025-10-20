@@ -142,7 +142,7 @@ namespace YuriyGuts.RegexBuilder.Tests
             RegexNodeLiteral literal2 = new RegexNodeLiteral("b");
             RegexNodeConcatenation concatenation = new RegexNodeConcatenation(literal1, literal2);
             Assert.AreEqual(2, concatenation.ChildNodes.Count);
-            
+
             // ReSharper disable RedundantAssignment
             // -- This line is expected to cause an exception.
             concatenation = new RegexNodeConcatenation(null);

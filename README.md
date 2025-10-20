@@ -87,6 +87,7 @@ The following elements are supported:
 ## How to Integrate RegexBuilder
 
 Add a reference to YuriyGuts.RegexBuilder.dll in your project manually, or use NuGet Package Manager:
+
 ```
 PM> Install-Package RegexBuilder 
 ```
@@ -99,7 +100,7 @@ There are 3 classes you'll need. They all expose their functionality via static 
 2. `RegexQuantifier`: produces quantifiers (`?`, `+` `{4,}`, etc.) for regex parts that support them.
 3. `RegexMetaChars`: named constants for character classes (word boundary, whitespace, tab, etc.).
 
-Start with `var regex = RegexBuilder.Build(...);` and replace `...` with the parts of your regular expression 
+Start with `var regex = RegexBuilder.Build(...);` and replace `...` with the parts of your regular expression
 by calling the corresponding methods of `RegexBuilder`.
 
 ## Testing

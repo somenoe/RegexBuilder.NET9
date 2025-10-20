@@ -40,7 +40,7 @@ namespace YuriyGuts.RegexBuilder
                 {
                     invalidOptionString = "CultureInvariant";
                 }
-                
+
                 if (invalidOptionString != null)
                 {
                     throw new ArgumentException(invalidOptionString + " option is not available in inline mode");

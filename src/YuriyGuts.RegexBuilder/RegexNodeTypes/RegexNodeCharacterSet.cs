@@ -17,7 +17,7 @@ namespace YuriyGuts.RegexBuilder
 
         public IEnumerable<char> Characters
         {
-            get { return characters; }            
+            get { return characters; }
         }
 
         public string CharacterListExpression
@@ -54,7 +54,7 @@ namespace YuriyGuts.RegexBuilder
             }
             characterListExpression = RegexStringEscaper.Escape(value, false);
             characters = characterListExpression.ToCharArray();
-        }        
+        }
 
         public override string ToRegexPattern()
         {
@@ -72,7 +72,7 @@ namespace YuriyGuts.RegexBuilder
             {
                 characterSetPattern = characterListExpression;
             }
-            
+
             string result = string.Format(CultureInfo.InvariantCulture, (IsNegative ? "[^{0}]" : "[{0}]"), characterSetPattern);
             if (HasQuantifier)
             {
