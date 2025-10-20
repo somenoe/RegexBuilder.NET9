@@ -9,6 +9,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- **Named Group Apostrophe Syntax** - Support for `(?'name'expr)` for VBScript and legacy pattern compatibility
+  - New `UseApostropheSyntax` property in `RegexNodeGroup` class to control output format
+  - Alternative syntax `(?'name'expr)` for named capturing groups (equivalent to `(?<name>expr)`)
+  - Enables compatibility with legacy regex patterns written for VBScript
+  - Full quantifier support: `(?'name'expr)*`, `(?'name'expr)+`, etc.
+  - New public API methods:
+    - `RegexBuilder.GroupApostrophe(string groupName, RegexNode matchExpression)` - Create apostrophe syntax named group
+    - `RegexBuilder.GroupApostrophe(string groupName, RegexNode matchExpression, RegexQuantifier quantifier)` - With quantifier
+  - Comprehensive test suite with 3 new test cases covering:
+    - Apostrophe syntax rendering with various quantifiers
+    - Functional equivalence with angle-bracket syntax for group capturing
+    - Backreference support with apostrophe syntax groups
+
 - **Inline Option Grouping** - Support for `(?imnsx-imnsx:expr)` for scoped regex option application
   - New `RegexNodeInlineOptionGrouping` class for inline option grouping constructs
   - Enable/disable regex options for specific expression scopes: `(?i:expr)` for case-insensitive, `(?m:expr)` for multiline, etc.

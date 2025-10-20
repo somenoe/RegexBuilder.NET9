@@ -408,6 +408,63 @@ namespace RegexBuilder.Tests
         }
 
         [TestMethod]
+        public void TestGroupApostropheSyntaxRendering()
+        {
+            RegexNodeLiteral literal = new RegexNodeLiteral("abc");
+
+            // Test apostrophe syntax without quantifier
+            RegexNodeGroup group1 = RegexBuilder.GroupApostrophe("name", literal);
+            Assert.AreEqual("(?'name'abc)", group1.ToRegexPattern());
+
+            // Test apostrophe syntax with quantifier
+            RegexNodeGroup group2 = RegexBuilder.GroupApostrophe("name", literal, RegexQuantifier.ZeroOrMore);
+            Assert.AreEqual("(?'name'abc)*", group2.ToRegexPattern());
+
+            // Test with different quantifiers
+            RegexNodeGroup group3 = RegexBuilder.GroupApostrophe("myGroup", literal, RegexQuantifier.OneOrMore);
+            Assert.AreEqual("(?'myGroup'abc)+", group3.ToRegexPattern());
+
+            RegexNodeGroup group4 = RegexBuilder.GroupApostrophe("test", literal, RegexQuantifier.Exactly(3));
+            Assert.AreEqual("(?'test'abc){3}", group4.ToRegexPattern());
+
+            RegexNodeGroup group5 = RegexBuilder.GroupApostrophe("pattern", literal, RegexQuantifier.Custom(2, 5, false));
+            Assert.AreEqual("(?'pattern'abc){2,5}", group5.ToRegexPattern());
+
+            RegexNodeGroup group6 = RegexBuilder.GroupApostrophe("lazy", literal, RegexQuantifier.Custom(2, 5, true));
+            Assert.AreEqual("(?'lazy'abc){2,5}?", group6.ToRegexPattern());
+        }
+
+        [TestMethod]
+        public void TestGroupApostropheSyntaxMatching()
+        {
+            // Test that apostrophe syntax works correctly in actual regex matching
+            Regex regex = RegexBuilder.Build(
+                RegexBuilder.GroupApostrophe("first", RegexBuilder.Literal("hello")),
+                RegexBuilder.Literal(" "),
+                RegexBuilder.GroupApostrophe("second", RegexBuilder.Literal("world"))
+            );
+
+            Match match = regex.Match("hello world");
+            Assert.IsTrue(match.Success);
+            Assert.AreEqual("hello", match.Groups["first"].Value);
+            Assert.AreEqual("world", match.Groups["second"].Value);
+        }
+
+        [TestMethod]
+        public void TestGroupApostropheSyntaxBackreference()
+        {
+            // Test that apostrophe syntax groups work with backreferences
+            Regex regex = RegexBuilder.Build(
+                RegexBuilder.GroupApostrophe("word", RegexBuilder.WordCharacter(RegexQuantifier.OneOrMore)),
+                RegexBuilder.Literal(" "),
+                RegexBuilder.GroupBackReference("word")
+            );
+
+            Assert.IsTrue(regex.IsMatch("hello hello"));
+            Assert.IsFalse(regex.IsMatch("hello world"));
+        }
+
+        [TestMethod]
         public void TestGroupReferenceNodeRendering()
         {
             RegexNodeGroupReference reference1 = new RegexNodeGroupReference(1);

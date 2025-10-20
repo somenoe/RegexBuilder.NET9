@@ -78,8 +78,9 @@
   - Dedicated node for scoped option application
   - ✅ COMPLETED: Full support for enabling and disabling regex options with 30 comprehensive tests
 
-- [ ] **Named Group Apostrophe Syntax** `(?'name'expr)`
+- [x] **Named Group Apostrophe Syntax** `(?'name'expr)`
   - For compatibility with VBScript and legacy patterns
+  - ✅ COMPLETED: Full support for apostrophe syntax with GroupApostrophe() methods and 3 comprehensive tests
 
 ---
 

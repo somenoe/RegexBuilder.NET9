@@ -508,6 +508,35 @@ namespace RegexBuilder
         }
 
         /// <summary>
+        /// Generates a named capturing group using apostrophe syntax for VBScript compatibility.
+        /// Syntax: (?'name'expr)
+        /// </summary>
+        /// <param name="groupName">Group name.</param>
+        /// <param name="matchExpression">Inner expression.</param>
+        /// <returns>An instance of RegexNode containing the named capturing group with apostrophe syntax.</returns>
+        public static RegexNodeGroup GroupApostrophe(string groupName, RegexNode matchExpression)
+        {
+            var group = new RegexNodeGroup(matchExpression, groupName);
+            group.UseApostropheSyntax = true;
+            return group;
+        }
+
+        /// <summary>
+        /// Generates a named capturing group using apostrophe syntax for VBScript compatibility.
+        /// Syntax: (?'name'expr)
+        /// </summary>
+        /// <param name="groupName">Group name.</param>
+        /// <param name="matchExpression">Inner expression.</param>
+        /// <param name="quantifier">Node quantifier.</param>
+        /// <returns>An instance of RegexNode containing the named capturing group with apostrophe syntax.</returns>
+        public static RegexNodeGroup GroupApostrophe(string groupName, RegexNode matchExpression, RegexQuantifier quantifier)
+        {
+            var group = new RegexNodeGroup(matchExpression, groupName) { Quantifier = quantifier };
+            group.UseApostropheSyntax = true;
+            return group;
+        }
+
+        /// <summary>
         /// Generates a subexpression with disabled backtracking ("(?&gt;expression)").
         /// </summary>
         /// <param name="innerExpression">Inner expression.</param>
