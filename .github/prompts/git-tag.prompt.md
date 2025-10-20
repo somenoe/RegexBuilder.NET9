@@ -9,9 +9,9 @@ Follow these steps to create and push a git tag for a new release based on the v
 
 ## Prerequisites
 
-- Ensure all changes are committed
-- Ensure you're on the correct branch (typically `main` or `master`)
+- Ensure all changes are committed on the `dev` branch
 - Ensure the CHANGELOG.md has been updated with the new version
+- Ensure all tests pass before merging to `master`
 
 ## Step-by-Step Instructions
 
@@ -21,17 +21,43 @@ Open `CHANGELOG.md` and locate the latest version number in the format `[X.Y.Z]`
 
 Example: If you see `## [1.0.5] - 2025-10-21`, the version is `1.0.5`.
 
-### 2. Verify Your Working Directory is Clean
+### 2. Verify Your Working Directory is Clean on `dev` Branch
 
 ```powershell
 git status
 ```
 
-Ensure there are no uncommitted changes. If there are, commit them first.
+Ensure there are no uncommitted changes on the `dev` branch. If there are, commit them first.
 
-### 3. Create an Annotated Tag
+### 3. Switch to `master` Branch
 
-Create an annotated tag with the version number prefixed with `v`:
+```powershell
+git checkout master
+```
+
+Switch from the `dev` branch to the `master` branch where tags and releases are created.
+
+### 4. Pull Latest Changes from Remote
+
+```powershell
+git pull origin master
+```
+
+Ensure you have the latest changes on the `master` branch.
+
+### 5. Merge `dev` into `master`
+
+```powershell
+git merge dev --no-ff -m "Merge dev into master for release v1.0.5"
+```
+
+Merge the release changes from `dev` branch into `master`. The `--no-ff` flag creates a merge commit, which is recommended for releases.
+
+Replace `1.0.5` with your actual version number in the commit message.
+
+### 6. Create an Annotated Tag
+
+Create an annotated tag with the version number prefixed with `v` on the `master` branch:
 
 ```powershell
 git tag -a v1.0.5 -m "Release version 1.0.5"
@@ -41,7 +67,7 @@ Replace `1.0.5` with the actual version from CHANGELOG.md.
 
 **Note:** Use annotated tags (`-a`) rather than lightweight tags for releases, as they include metadata like the tagger name, date, and message.
 
-### 4. Verify the Tag was Created
+### 7. Verify the Tag was Created
 
 ```powershell
 git tag -l
@@ -53,7 +79,15 @@ Or to see the specific tag with details:
 git show v1.0.5
 ```
 
-### 5. Push the Tag to Remote
+### 8. Push `master` Branch to Remote
+
+```powershell
+git push origin master
+```
+
+Push the merged `master` branch to remote before pushing tags.
+
+### 9. Push the Tag to Remote
 
 Push the tag to the remote repository:
 
@@ -67,7 +101,7 @@ Or push all tags at once:
 git push origin --tags
 ```
 
-### 6. Verify the Tag on Remote
+### 10. Verify the Tag on Remote
 
 Check that the tag appears on GitHub/remote repository:
 
@@ -118,18 +152,24 @@ git push origin v1.0.5
 
 1. **Always use annotated tags** (`-a` flag) for releases
 2. **Follow semantic versioning**: `vMAJOR.MINOR.PATCH`
-3. **Tag message format**: "Release version X.Y.Z" or include notable changes
-4. **Tag after merging to main/master**: Don't tag feature branches
-5. **Create tags on stable commits**: Ensure all tests pass before tagging
-6. **Document in CHANGELOG**: Always update CHANGELOG.md before creating the tag
+3. **Merge before tagging**: Always merge `dev` to `master` before creating release tags
+4. **Tag message format**: "Release version X.Y.Z" or include notable changes
+5. **Tag on master branch**: Only create tags on the `master` branch for releases
+6. **Create tags on stable commits**: Ensure all tests pass before tagging
+7. **Document in CHANGELOG**: Always update CHANGELOG.md before creating the tag
+8. **Push branch before tags**: Always push the `master` branch before pushing tags to remote
 
 ## Quick Reference
 
 ```powershell
 # Full workflow for version 1.0.5
-git status                                           # Verify clean working directory
-git tag -a v1.0.5 -m "Release version 1.0.5"        # Create annotated tag
-git tag -l                                           # Verify tag exists
-git push origin v1.0.5                               # Push tag to remote
-git ls-remote --tags origin                          # Verify on remote
+git status                                                        # Verify clean on dev
+git checkout master                                               # Switch to master
+git pull origin master                                            # Get latest master
+git merge dev --no-ff -m "Merge dev into master for release v1.0.5"  # Merge dev
+git tag -a v1.0.5 -m "Release version 1.0.5"                    # Create annotated tag
+git tag -l                                                        # Verify tag exists
+git push origin master                                            # Push master branch
+git push origin v1.0.5                                            # Push tag to remote
+git ls-remote --tags origin                                       # Verify on remote
 ```
