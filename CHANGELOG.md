@@ -52,7 +52,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - **Named Group Apostrophe Syntax** - Support for `(?'name'expr)` for VBScript and legacy pattern compatibility
-
   - New `UseApostropheSyntax` property in `RegexNodeGroup` class to control output format
   - Alternative syntax `(?'name'expr)` for named capturing groups (equivalent to `(?<name>expr)`)
   - Enables compatibility with legacy regex patterns written for VBScript
@@ -66,7 +65,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - Backreference support with apostrophe syntax groups
 
 - **Inline Option Grouping** - Support for `(?imnsx-imnsx:expr)` for scoped regex option application
-
   - New `RegexNodeInlineOptionGrouping` class for inline option grouping constructs
   - Enable/disable regex options for specific expression scopes: `(?i:expr)` for case-insensitive, `(?m:expr)` for multiline, etc.
   - Support for option negation (disabling options): `(?i-m:expr)` - enable IgnoreCase, disable Multiline
@@ -84,7 +82,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - Real-world matching scenarios (case-insensitive, multiline, singleline)
 
 - **Convenience Shortcut Methods** - Intuitive methods for common regex patterns
-
   - Character class shortcuts: `Digit()`, `NonDigit()`, `Whitespace()`, `NonWhitespace()`, `WordCharacter()`, `NonWordCharacter()`
   - Anchor shortcuts: `LineStart()`, `LineEnd()`, `StringStart()`, `StringEnd()`, `StringEndAbsolute()`, `WordBoundary()`, `NonWordBoundary()`, `MatchPointAnchor()`
   - Escape character shortcuts: `BellCharacter()`, `FormFeed()`, `VerticalTab()`, `EscapeCharacter()`, `OctalCharacter(int octalValue)`

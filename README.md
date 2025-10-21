@@ -217,17 +217,14 @@ Console.WriteLine(regex.IsMatch("5551234567"));       // True
 RegexBuilder has 4 main classes you'll work with:
 
 1. **`RegexBuilder`** - Factory class for building regex patterns
-
    - Static methods that produce and combine different parts of a regular expression
    - Entry points: `RegexBuilder.Build(...)` and `RegexBuilder.Pattern()`
 
 2. **`PatternBuilder`** - Fluent builder for composing patterns
-
    - Chainable methods for building complex patterns
    - Entry point: `RegexBuilder.Pattern()`
 
 3. **`RegexQuantifier`** - Produces quantifiers for regex parts
-
    - Properties like `ZeroOrMore`, `OneOrMore`, `Optional`, `ExactCount(n)`, `Range(min, max)`, etc.
 
 4. **`RegexMetaChars`** - Named constants for character classes
