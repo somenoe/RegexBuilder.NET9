@@ -157,6 +157,48 @@ To:
 
 **Note:** Some projects prefer to omit version numbers in README to always show "latest". This is a style choice.
 
+### Step 6a: Update CHANGELOG.md
+
+**File:** `CHANGELOG.md`
+
+**Change the `## [Unreleased]` header to the new version with today's date:**
+
+```markdown
+## [Unreleased]
+```
+
+**To:**
+
+```markdown
+## [1.0.5] - 2025-10-21
+```
+
+**Location:** At the top of the changelog where the latest changes are documented
+
+**Important:** Replace `1.0.5` with your actual new version number and `2025-10-21` with today's date in `YYYY-MM-DD` format.
+
+After making this change, consider adding a new `## [Unreleased]` section at the top for future development:
+
+```markdown
+## [Unreleased]
+
+### Added
+
+- (Future features go here)
+
+### Changed
+
+- (Future changes go here)
+
+### Fixed
+
+- (Future fixes go here)
+
+## [1.0.5] - 2025-10-21
+```
+
+This ensures the changelog is ready for the next version's development.
+
 ### Step 7: Verify the Changes
 
 Run the following commands to ensure everything builds correctly:
