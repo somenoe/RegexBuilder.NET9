@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>RegexBuilder.NET9</id>
-    <version>1.1.0</version>
+    <version>1.1.1</version>
     <authors>Pridsadang Pansiri</authors>
     <owners>Pridsadang Pansiri</owners>
     <license type="expression">MIT</license>
@@ -11,7 +11,7 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>.NET library for human-readable declaration of regular expressions without having
       to remember the regex syntax. Forked from YuriyGuts/regex-builder and updated for .NET 9.</description>
-    <releaseNotes>Version 1.1.0: Major feature release with named group apostrophe syntax, inline option grouping, convenience shortcut methods, and balancing groups support. See CHANGELOG.md for details.</releaseNotes>
+    <releaseNotes>Version 1.1.1: Added fluent pattern builder for complex regex patterns with method chaining, quantifier support, and alternation handling. See CHANGELOG.md for details.</releaseNotes>
     <copyright>Copyright © Yuriy Guts, 2011; Pridsadang Pansiri, 2025</copyright>
     <tags>regex regular-expressions builder fluent net9 dotnet9 declarative</tags>
     <readme>README.md</readme>
