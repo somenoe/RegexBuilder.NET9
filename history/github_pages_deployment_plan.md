@@ -128,13 +128,11 @@ git worktree remove temp-pages
 - [ ] Review current DocFX setup
 - [ ] Verify all C# code has proper XML documentation
 - [ ] Update `src/docfx.json` with project metadata:
-
   - [ ] Set `_appName` to "RegexBuilder"
   - [ ] Set `_appTitle` to "RegexBuilder.NET9 API Documentation"
   - [ ] Configure branding and styling
 
 - [ ] Create/Update documentation files:
-
   - [ ] `src/index.md` - project overview
   - [ ] `src/docs/introduction.md` - introduction
   - [ ] `src/docs/getting-started.md` - quick start guide
