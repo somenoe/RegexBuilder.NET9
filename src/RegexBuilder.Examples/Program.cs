@@ -19,6 +19,7 @@ class Program
         RunRealWorldExample();
         RunBasicPatternBuildingExamples();
         RunGroupingAndCapturingExamples();
+        RunFluentPatternBuilderExamples();
         RunSubstitutionPatternExample();
 
         Console.WriteLine("\n=== All Examples Completed Successfully ===");
@@ -186,6 +187,109 @@ class Program
         Console.WriteLine($"    'cat': {nonCapturingPattern.IsMatch("cat")}");
         Console.WriteLine($"    'dog': {nonCapturingPattern.IsMatch("dog")}");
         Console.WriteLine($"    'bird': {nonCapturingPattern.IsMatch("bird")}");
+
+        Console.WriteLine();
+    }
+
+    /// <summary>
+    /// Fluent Pattern Builder Examples
+    /// </summary>
+    static void RunFluentPatternBuilderExamples()
+    {
+        Console.WriteLine("=== Fluent Pattern Builder Examples ===\n");
+
+        // Example 1: Simple sequential pattern
+        Console.WriteLine("Example 1: Sequential Pattern (ID followed by digits)");
+        var idPattern = RB.Pattern()
+            .Literal("ID-")
+            .Digits(3, 5)
+            .Build();
+
+        var idRegex = RB.Build(idPattern);
+        Console.WriteLine($"  Pattern: {idPattern.ToRegexPattern()}");
+        Console.WriteLine($"  'ID-123' matches: {idRegex.IsMatch("ID-123")}");
+        Console.WriteLine($"  'ID-12' matches: {idRegex.IsMatch("ID-12")}");
+
+        // Example 2: Pattern with anchors
+        Console.WriteLine("\nExample 2: Pattern with Anchors (start/end)");
+        var anchoredPattern = RB.Pattern()
+            .Start()
+            .Literal("test")
+            .Digits(1, 3)
+            .End()
+            .Build();
+
+        var anchoredRegex = RB.Build(anchoredPattern);
+        Console.WriteLine($"  Pattern: {anchoredPattern.ToRegexPattern()}");
+        Console.WriteLine($"  'test123' matches: {anchoredRegex.IsMatch("test123")}");
+        Console.WriteLine($"  'prefix test123 suffix' matches: {anchoredRegex.IsMatch("prefix test123 suffix")}");
+
+        // Example 3: Pattern with alternation (OR)
+        Console.WriteLine("\nExample 3: Alternation Pattern (ID or CODE)");
+        var alternationPattern = RB.Pattern()
+            .Start()
+            .Literal("ID-")
+            .Digits(3, 5)
+            .Or(o => o.Literal("CODE-").Letters(2, 4))
+            .End()
+            .Build();
+
+        var alternationRegex = RB.Build(alternationPattern);
+        Console.WriteLine($"  Pattern: {alternationPattern.ToRegexPattern()}");
+        Console.WriteLine($"  'ID-123' matches: {alternationRegex.IsMatch("ID-123")}");
+        Console.WriteLine($"  'CODE-AB' matches: {alternationRegex.IsMatch("CODE-AB")}");
+        Console.WriteLine($"  'OTHER-123' matches: {alternationRegex.IsMatch("OTHER-123")}");
+
+        // Example 4: Pattern with groups
+        Console.WriteLine("\nExample 4: Grouped Pattern");
+        var groupPattern = RB.Pattern()
+            .Literal("Name: ")
+            .Group(g => g
+                .Letters(1, null)
+                .Whitespace()
+                .Letters(1, null))
+            .Build();
+
+        var groupRegex = RB.Build(groupPattern);
+        Console.WriteLine($"  Pattern: {groupPattern.ToRegexPattern()}");
+        var match = groupRegex.Match("Name: John Smith");
+        Console.WriteLine($"  'Name: John Smith' matches: {match.Success}");
+        if (match.Success)
+        {
+            Console.WriteLine($"  Captured group: '{match.Groups[1].Value}'");
+        }
+
+        // Example 5: Optional pattern
+        Console.WriteLine("\nExample 5: Optional Pattern (http/https)");
+        var urlPattern = RB.Pattern()
+            .Literal("http")
+            .Optional(o => o.Literal("s"))
+            .Literal("://")
+            .WordCharacter(1, null)
+            .Build();
+
+        var urlRegex = RB.Build(urlPattern);
+        Console.WriteLine($"  Pattern: {urlPattern.ToRegexPattern()}");
+        Console.WriteLine($"  'https://example' matches: {urlRegex.IsMatch("https://example")}");
+        Console.WriteLine($"  'http://example' matches: {urlRegex.IsMatch("http://example")}");
+
+        // Example 6: Complex pattern with multiple operators
+        Console.WriteLine("\nExample 6: Complex Phone Number Pattern");
+        var phonePattern = RB.Pattern()
+            .Optional(o => o.Literal("+1"))
+            .Optional(o => o.Literal("-"))
+            .Group(g => g.Digits(3))
+            .Optional(o => o.Literal("-"))
+            .Group(g => g.Digits(3))
+            .Optional(o => o.Literal("-"))
+            .Group(g => g.Digits(4))
+            .Build();
+
+        var phoneRegex = RB.Build(phonePattern);
+        Console.WriteLine($"  Pattern: {phonePattern.ToRegexPattern()}");
+        Console.WriteLine($"  '555-123-4567' matches: {phoneRegex.IsMatch("555-123-4567")}");
+        Console.WriteLine($"  '+1-555-123-4567' matches: {phoneRegex.IsMatch("+1-555-123-4567")}");
+        Console.WriteLine($"  '5551234567' matches: {phoneRegex.IsMatch("5551234567")}");
 
         Console.WriteLine();
     }

@@ -5,6 +5,48 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+
+- **Fluent Pattern Builder** - New `PatternBuilder` class for composing complex regex patterns with improved ergonomics
+  - Fluent API with chainable methods for intuitive pattern construction
+  - Entry point: `RegexBuilder.Pattern()` returns new `PatternBuilder` instance
+  - Core pattern methods:
+    - `Literal(string)` - Add literal text with automatic escaping
+    - `Digits(min, max)` - Add digit pattern `\d` with optional quantifiers
+    - `Letters(min, max)` - Add letter pattern `[a-zA-Z]` with optional quantifiers
+    - `Whitespace(min, max)` - Add whitespace pattern `\s` with optional quantifiers
+    - `WordCharacter(min, max)` - Add word character pattern `\w` with optional quantifiers
+    - `AnyCharacter(min, max)` - Add any character pattern `.` with optional quantifiers
+    - `CharacterSet(string, min, max)` - Add custom character set with optional quantifiers
+  - Anchor methods:
+    - `Start()` - Add start-of-line anchor `^`
+    - `End()` - Add end-of-line anchor `$`
+  - Grouping methods:
+    - `Group(Action<PatternBuilder>)` - Add capturing group `(pattern)`
+    - `NonCapturingGroup(Action<PatternBuilder>)` - Add non-capturing group `(?:pattern)`
+  - Alternation methods:
+    - `Or(Action<PatternBuilder>)` - Add alternation with builder callback
+    - `Or(RegexNode)` - Add alternation with existing RegexNode
+  - Utility methods:
+    - `Optional(Action<PatternBuilder>)` - Make pattern optional with `?` quantifier
+    - `Email()` - Add common email pattern
+    - `Url()` - Add common URL pattern
+    - `Pattern(RegexNode)` - Add custom RegexNode
+  - Method chaining support for fluent composition
+  - Comprehensive validation with helpful exception messages
+  - Complete test suite with 45+ test cases covering:
+    - Sequential patterns and concatenation
+    - Quantifiers (min, max, none)
+    - Character classes and custom character sets
+    - Grouping and nesting
+    - Alternation with multiple branches
+    - Optional patterns
+    - Complex real-world patterns (IDs, URLs, phone numbers)
+    - Error handling and edge cases
+  - Full integration with existing RegexBuilder API
+
 ## [1.1.0] - 2025-10-21
 
 ### Added

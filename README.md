@@ -137,18 +137,97 @@ More examples can be found in [CustomRegexTests.cs](/src/RegexBuilder.Tests/Cust
 
 ## API Guide
 
+### Fluent Pattern Builder
+
+RegexBuilder now includes a **Fluent Builder Pattern** for composing complex regex patterns with improved ergonomics. The `PatternBuilder` class provides a chainable API for building patterns step-by-step.
+
+#### Quick Example
+
+```csharp
+// Build an ID pattern that matches either "ID-123" or "CODE-AB"
+var pattern = RegexBuilder.Pattern()
+    .Start()                          // ^ anchor
+    .Literal("ID-")
+    .Digits(3, 5)                     // \d{3,5}
+    .Or(o => o.Literal("CODE-").Letters(2, 4))  // | CODE-[a-zA-Z]{2,4}
+    .End()                            // $ anchor
+    .Build();
+
+var regex = RegexBuilder.Build(pattern);
+Console.WriteLine(regex.IsMatch("ID-123"));   // True
+Console.WriteLine(regex.IsMatch("CODE-AB"));  // True
+```
+
+#### PatternBuilder Methods
+
+**Anchors:**
+
+- `Start()` - Add start-of-line anchor `^`
+- `End()` - Add end-of-line anchor `$`
+
+**Patterns:**
+
+- `Literal(string)` - Literal text (auto-escaped)
+- `Digits(min, max)` - Digit pattern `\d` with quantifiers
+- `Letters(min, max)` - Letter pattern `[a-zA-Z]` with quantifiers
+- `Whitespace(min, max)` - Whitespace pattern `\s` with quantifiers
+- `WordCharacter(min, max)` - Word character pattern `\w` with quantifiers
+- `AnyCharacter(min, max)` - Any character pattern `.` with quantifiers
+- `CharacterSet(charset, min, max)` - Custom character set with quantifiers
+
+**Grouping:**
+
+- `Group(action)` - Capturing group `(pattern)`
+- `NonCapturingGroup(action)` - Non-capturing group `(?:pattern)`
+
+**Operators:**
+
+- `Or(action)` - Alternation with another pattern via builder
+- `Or(node)` - Alternation with an existing RegexNode
+- `Optional(action)` - Optional pattern `pattern?`
+
+**Common Patterns:**
+
+- `Email()` - Email pattern
+- `Url()` - URL pattern
+- `Pattern(node)` - Add a custom RegexNode
+
+#### Advanced Example
+
+```csharp
+// Phone number pattern: [+1-]555-123-4567
+var phonePattern = RegexBuilder.Pattern()
+    .Optional(o => o.Literal("+1"))
+    .Optional(o => o.Literal("-"))
+    .Group(g => g.Digits(3))       // Area code
+    .Optional(o => o.Literal("-"))
+    .Group(g => g.Digits(3))       // Prefix
+    .Optional(o => o.Literal("-"))
+    .Group(g => g.Digits(4))       // Line number
+    .Build();
+
+var regex = RegexBuilder.Build(phonePattern);
+Console.WriteLine(regex.IsMatch("555-123-4567"));     // True
+Console.WriteLine(regex.IsMatch("+1-555-123-4567"));  // True
+Console.WriteLine(regex.IsMatch("5551234567"));       // True
+```
+
 ### Core Classes
 
-RegexBuilder has 3 main classes you'll work with:
+RegexBuilder has 4 main classes you'll work with:
 
 1. **`RegexBuilder`** - Factory class for building regex patterns
    - Static methods that produce and combine different parts of a regular expression
-   - Entry point: `RegexBuilder.Build(...)`
+   - Entry points: `RegexBuilder.Build(...)` and `RegexBuilder.Pattern()`
 
-2. **`RegexQuantifier`** - Produces quantifiers for regex parts
+2. **`PatternBuilder`** - Fluent builder for composing patterns
+   - Chainable methods for building complex patterns
+   - Entry point: `RegexBuilder.Pattern()`
+
+3. **`RegexQuantifier`** - Produces quantifiers for regex parts
    - Properties like `ZeroOrMore`, `OneOrMore`, `Optional`, `ExactCount(n)`, `Range(min, max)`, etc.
 
-3. **`RegexMetaChars`** - Named constants for character classes
+4. **`RegexMetaChars`** - Named constants for character classes
    - `WordCharacter`, `NonwordCharacter`, `WhiteSpace`, `NonwhiteSpace`, etc.
    - More readable than memorizing `\w`, `\W`, `\s`, `\S`
 

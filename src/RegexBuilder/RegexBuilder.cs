@@ -62,6 +62,19 @@ namespace RegexBuilder
 
         #endregion Build methods
 
+        #region Fluent Pattern Builder
+
+        /// <summary>
+        /// Creates a new PatternBuilder instance for building complex regex patterns using a fluent API.
+        /// </summary>
+        /// <returns>A new PatternBuilder instance.</returns>
+        public static PatternBuilder Pattern()
+        {
+            return new PatternBuilder();
+        }
+
+        #endregion Fluent Pattern Builder
+
         #region Static factory methods
 
         /// <summary>
