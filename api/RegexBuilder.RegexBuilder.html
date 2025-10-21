@@ -1,0 +1,4195 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class RegexBuilder | RegexBuilder.NET9 - Fluent Regex Builder </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class RegexBuilder | RegexBuilder.NET9 - Fluent Regex Builder ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/somenoe/RegexBuilder.NET9/new/master/apiSpec/new?filename=RegexBuilder_RegexBuilder.md&amp;value=---%0Auid%3A%20RegexBuilder.RegexBuilder%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="RegexBuilder">
+            RegexBuilder
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="RegexBuilder.RegexBuilder">
+
+
+
+  <h1 id="RegexBuilder_RegexBuilder" data-uid="RegexBuilder.RegexBuilder" class="text-break">
+Class RegexBuilder  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L7"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="RegexBuilder.html">RegexBuilder</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>RegexBuilder.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class RegexBuilder</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">RegexBuilder</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="RegexBuilder_RegexBuilder_Alternate_" data-uid="RegexBuilder.RegexBuilder.Alternate*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_Alternate_RegexBuilder_RegexNode_RegexBuilder_RegexNode_" data-uid="RegexBuilder.RegexBuilder.Alternate(RegexBuilder.RegexNode,RegexBuilder.RegexNode)">
+  Alternate(RegexNode, RegexNode)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L635"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates an alternation expression with two options (&quot;a|b&quot;).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeAlternation Alternate(RegexNode expression1, RegexNode expression2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>expression1</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
+    <dd><p>First option.</p>
+</dd>
+    <dt><code>expression2</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
+    <dd><p>Second option.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeAlternation.html">RegexNodeAlternation</a></dt>
+    <dd><p>An instance of RegexNode containing the alternation expression.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_Alternate_" data-uid="RegexBuilder.RegexBuilder.Alternate*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_Alternate_RegexBuilder_RegexNode_RegexBuilder_RegexNode_RegexBuilder_RegexQuantifier_" data-uid="RegexBuilder.RegexBuilder.Alternate(RegexBuilder.RegexNode,RegexBuilder.RegexNode,RegexBuilder.RegexQuantifier)">
+  Alternate(RegexNode, RegexNode, RegexQuantifier)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L647"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates an alternation expression with two options (&quot;a|b&quot;).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeAlternation Alternate(RegexNode expression1, RegexNode expression2, RegexQuantifier quantifier)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>expression1</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
+    <dd><p>First option.</p>
+</dd>
+    <dt><code>expression2</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
+    <dd><p>Second option.</p>
+</dd>
+    <dt><code>quantifier</code> <a class="xref" href="RegexBuilder.RegexQuantifier.html">RegexQuantifier</a></dt>
+    <dd><p>Node quantifier.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeAlternation.html">RegexNodeAlternation</a></dt>
+    <dd><p>An instance of RegexNode containing the alternation expression.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_Alternate_" data-uid="RegexBuilder.RegexBuilder.Alternate*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_Alternate_RegexBuilder_RegexNode___" data-uid="RegexBuilder.RegexBuilder.Alternate(RegexBuilder.RegexNode[])">
+  Alternate(RegexNode[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L657"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates an alternation expression with two or more options (&quot;a|b|c|...&quot;).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeAlternation Alternate(RegexNode[] expressions)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>expressions</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a>[]</dt>
+    <dd><p>Array of option expressions.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeAlternation.html">RegexNodeAlternation</a></dt>
+    <dd><p>An instance of RegexNode containing the alternation expression.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_Alternate_" data-uid="RegexBuilder.RegexBuilder.Alternate*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_Alternate_RegexBuilder_RegexNode___RegexBuilder_RegexQuantifier_" data-uid="RegexBuilder.RegexBuilder.Alternate(RegexBuilder.RegexNode[],RegexBuilder.RegexQuantifier)">
+  Alternate(RegexNode[], RegexQuantifier)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L668"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates an alternation expression with two or more options (&quot;a|b|c|...&quot;).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeAlternation Alternate(RegexNode[] expressions, RegexQuantifier quantifier)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>expressions</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a>[]</dt>
+    <dd><p>Array of option expressions.</p>
+</dd>
+    <dt><code>quantifier</code> <a class="xref" href="RegexBuilder.RegexQuantifier.html">RegexQuantifier</a></dt>
+    <dd><p>Node quantifier.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeAlternation.html">RegexNodeAlternation</a></dt>
+    <dd><p>An instance of RegexNode containing the alternation expression.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_AsciiCharacter_" data-uid="RegexBuilder.RegexBuilder.AsciiCharacter*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_AsciiCharacter_System_Byte_" data-uid="RegexBuilder.RegexBuilder.AsciiCharacter(System.Byte)">
+  AsciiCharacter(byte)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L150"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates an ASCII character pattern (&quot;\xNN&quot;) with the specified character code.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeLiteral AsciiCharacter(byte code)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>code</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a></dt>
+    <dd><p>ASCII character code.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeLiteral.html">RegexNodeLiteral</a></dt>
+    <dd><p>An instance of RegexNode containing the specified ASCII character.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_AsciiCharacter_" data-uid="RegexBuilder.RegexBuilder.AsciiCharacter*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_AsciiCharacter_System_Byte_RegexBuilder_RegexQuantifier_" data-uid="RegexBuilder.RegexBuilder.AsciiCharacter(System.Byte,RegexBuilder.RegexQuantifier)">
+  AsciiCharacter(byte, RegexQuantifier)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L161"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates an ASCII character pattern (&quot;\xNN&quot;) with the specified character code.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeLiteral AsciiCharacter(byte code, RegexQuantifier quantifier)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>code</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a></dt>
+    <dd><p>ASCII character code.</p>
+</dd>
+    <dt><code>quantifier</code> <a class="xref" href="RegexBuilder.RegexQuantifier.html">RegexQuantifier</a></dt>
+    <dd><p>Node quantifier.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeLiteral.html">RegexNodeLiteral</a></dt>
+    <dd><p>An instance of RegexNode containing the specified ASCII character.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_BacktrackingSuppression_" data-uid="RegexBuilder.RegexBuilder.BacktrackingSuppression*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_BacktrackingSuppression_RegexBuilder_RegexNode_" data-uid="RegexBuilder.RegexBuilder.BacktrackingSuppression(RegexBuilder.RegexNode)">
+  BacktrackingSuppression(RegexNode)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L557"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a subexpression with disabled backtracking (&quot;(?&gt;expression)&quot;).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeBacktrackingSuppression BacktrackingSuppression(RegexNode innerExpression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>innerExpression</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
+    <dd><p>Inner expression.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeBacktrackingSuppression.html">RegexNodeBacktrackingSuppression</a></dt>
+    <dd><p>An instance of RegexNode containing the expression with suppressed backtracking.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_BacktrackingSuppression_" data-uid="RegexBuilder.RegexBuilder.BacktrackingSuppression*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_BacktrackingSuppression_RegexBuilder_RegexNode_RegexBuilder_RegexQuantifier_" data-uid="RegexBuilder.RegexBuilder.BacktrackingSuppression(RegexBuilder.RegexNode,RegexBuilder.RegexQuantifier)">
+  BacktrackingSuppression(RegexNode, RegexQuantifier)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L568"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a subexpression with disabled backtracking (&quot;(?&gt;expression)&quot;).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeBacktrackingSuppression BacktrackingSuppression(RegexNode innerExpression, RegexQuantifier quantifier)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>innerExpression</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
+    <dd><p>Inner expression.</p>
+</dd>
+    <dt><code>quantifier</code> <a class="xref" href="RegexBuilder.RegexQuantifier.html">RegexQuantifier</a></dt>
+    <dd><p>Node quantifier.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeBacktrackingSuppression.html">RegexNodeBacktrackingSuppression</a></dt>
+    <dd><p>An instance of RegexNode containing the expression with suppressed backtracking.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_BalancingGroup_" data-uid="RegexBuilder.RegexBuilder.BalancingGroup*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_BalancingGroup_System_String_System_String_RegexBuilder_RegexNode_" data-uid="RegexBuilder.RegexBuilder.BalancingGroup(System.String,System.String,RegexBuilder.RegexNode)">
+  BalancingGroup(string, string, RegexNode)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L582"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a balancing group that pushes to one named stack and pops from another.
+Used for matching nested/balanced constructs like parentheses, XML tags, or code blocks.
+Syntax: (?&lt;name1-name2&gt;expr)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeBalancingGroup BalancingGroup(string pushGroupName, string popGroupName, RegexNode innerExpression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pushGroupName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Name of group to push matched text onto.</p>
+</dd>
+    <dt><code>popGroupName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Name of group to pop from stack.</p>
+</dd>
+    <dt><code>innerExpression</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
+    <dd><p>The inner expression to match.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeBalancingGroup.html">RegexNodeBalancingGroup</a></dt>
+    <dd><p>An instance of RegexNode containing the balancing group.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_BalancingGroup_" data-uid="RegexBuilder.RegexBuilder.BalancingGroup*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_BalancingGroup_System_String_System_String_RegexBuilder_RegexNode_RegexBuilder_RegexQuantifier_" data-uid="RegexBuilder.RegexBuilder.BalancingGroup(System.String,System.String,RegexBuilder.RegexNode,RegexBuilder.RegexQuantifier)">
+  BalancingGroup(string, string, RegexNode, RegexQuantifier)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L597"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a balancing group that pushes to one named stack and pops from another, with a quantifier.
+Used for matching nested/balanced constructs like parentheses, XML tags, or code blocks.
+Syntax: (?&lt;name1-name2&gt;expr)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeBalancingGroup BalancingGroup(string pushGroupName, string popGroupName, RegexNode innerExpression, RegexQuantifier quantifier)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pushGroupName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Name of group to push matched text onto.</p>
+</dd>
+    <dt><code>popGroupName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Name of group to pop from stack.</p>
+</dd>
+    <dt><code>innerExpression</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
+    <dd><p>The inner expression to match.</p>
+</dd>
+    <dt><code>quantifier</code> <a class="xref" href="RegexBuilder.RegexQuantifier.html">RegexQuantifier</a></dt>
+    <dd><p>Node quantifier.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeBalancingGroup.html">RegexNodeBalancingGroup</a></dt>
+    <dd><p>An instance of RegexNode containing the balancing group.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_BellCharacter_" data-uid="RegexBuilder.RegexBuilder.BellCharacter*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_BellCharacter" data-uid="RegexBuilder.RegexBuilder.BellCharacter">
+  BellCharacter()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L1021"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a bell character (alert) escape sequence (&quot;\a&quot;, ASCII 7).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeLiteral BellCharacter()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeLiteral.html">RegexNodeLiteral</a></dt>
+    <dd><p>An instance of RegexNode containing the bell character escape.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_BellCharacter_" data-uid="RegexBuilder.RegexBuilder.BellCharacter*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_BellCharacter_RegexBuilder_RegexQuantifier_" data-uid="RegexBuilder.RegexBuilder.BellCharacter(RegexBuilder.RegexQuantifier)">
+  BellCharacter(RegexQuantifier)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L1031"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a bell character (alert) escape sequence (&quot;\a&quot;, ASCII 7) with a quantifier.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeLiteral BellCharacter(RegexQuantifier quantifier)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>quantifier</code> <a class="xref" href="RegexBuilder.RegexQuantifier.html">RegexQuantifier</a></dt>
+    <dd><p>Node quantifier.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeLiteral.html">RegexNodeLiteral</a></dt>
+    <dd><p>An instance of RegexNode containing the bell character escape.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_Build_" data-uid="RegexBuilder.RegexBuilder.Build*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_Build_RegexBuilder_RegexNode_" data-uid="RegexBuilder.RegexBuilder.Build(RegexBuilder.RegexNode)">
+  Build(RegexNode)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a Regex object from a single RegexNode.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Regex Build(RegexNode rootNode)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rootNode</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
+    <dd><p>Root node.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.regularexpressions.regex">Regex</a></dt>
+    <dd><p>A new instance of Regex which corresponds to the specified RegexNode.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_Build_" data-uid="RegexBuilder.RegexBuilder.Build*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_Build_RegexBuilder_RegexNode___" data-uid="RegexBuilder.RegexBuilder.Build(RegexBuilder.RegexNode[])">
+  Build(params RegexNode[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L45"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a Regex object from a list of RegexNodes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Regex Build(params RegexNode[] regexNodes)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>regexNodes</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a>[]</dt>
+    <dd><p>Top-level nodes for the Regex.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.regularexpressions.regex">Regex</a></dt>
+    <dd><p>A new instance of Regex which corresponds to the specified RegexNode list.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_Build_" data-uid="RegexBuilder.RegexBuilder.Build*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_Build_System_Text_RegularExpressions_RegexOptions_RegexBuilder_RegexNode_" data-uid="RegexBuilder.RegexBuilder.Build(System.Text.RegularExpressions.RegexOptions,RegexBuilder.RegexNode)">
+  Build(RegexOptions, RegexNode)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a Regex object from a single RegexNode and applies a combination of RegexOptions to it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Regex Build(RegexOptions regexOptions, RegexNode rootNode)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>regexOptions</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.regularexpressions.regexoptions">RegexOptions</a></dt>
+    <dd><p>Combination of RegexOption flags to be applied to the Regex.</p>
+</dd>
+    <dt><code>rootNode</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
+    <dd><p>Root node.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.regularexpressions.regex">Regex</a></dt>
+    <dd><p>A new instance of Regex which corresponds to the specified RegexNode.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_Build_" data-uid="RegexBuilder.RegexBuilder.Build*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_Build_System_Text_RegularExpressions_RegexOptions_RegexBuilder_RegexNode___" data-uid="RegexBuilder.RegexBuilder.Build(System.Text.RegularExpressions.RegexOptions,RegexBuilder.RegexNode[])">
+  Build(RegexOptions, params RegexNode[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L57"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a Regex object from a list of RegexNode and applies a combination of RegexOptions to it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Regex Build(RegexOptions regexOptions, params RegexNode[] regexNodes)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>regexOptions</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.regularexpressions.regexoptions">RegexOptions</a></dt>
+    <dd><p>Combination of RegexOption flags to be applied to the Regex.</p>
+</dd>
+    <dt><code>regexNodes</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a>[]</dt>
+    <dd><p>Top-level nodes for the Regex.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.regularexpressions.regex">Regex</a></dt>
+    <dd><p>A new instance of Regex which corresponds to the specified RegexNode list.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_CharacterRange_" data-uid="RegexBuilder.RegexBuilder.CharacterRange*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_CharacterRange_System_Char_System_Char_System_Boolean_RegexBuilder_RegexQuantifier_" data-uid="RegexBuilder.RegexBuilder.CharacterRange(System.Char,System.Char,System.Boolean,RegexBuilder.RegexQuantifier)">
+  CharacterRange(char, char, bool, RegexQuantifier)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L306"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a character range expression (&quot;[a-z]&quot;) with the specified start/end characters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeCharacterRange CharacterRange(char rangeStart, char rangeEnd, bool useCharacterCodes, RegexQuantifier quantifier)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rangeStart</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></dt>
+    <dd><p>First character in the range.</p>
+</dd>
+    <dt><code>rangeEnd</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></dt>
+    <dd><p>Last character in the range.</p>
+</dd>
+    <dt><code>useCharacterCodes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True - encode every character with &quot;\uNNNN&quot; pattern. False - use every character explicitly.</p>
+</dd>
+    <dt><code>quantifier</code> <a class="xref" href="RegexBuilder.RegexQuantifier.html">RegexQuantifier</a></dt>
+    <dd><p>Node quantifier.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeCharacterRange.html">RegexNodeCharacterRange</a></dt>
+    <dd><p>An instance of RegexNode containing the character range.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_CharacterSet_" data-uid="RegexBuilder.RegexBuilder.CharacterSet*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_CharacterSet_System_Char___System_Boolean_RegexBuilder_RegexQuantifier_" data-uid="RegexBuilder.RegexBuilder.CharacterSet(System.Char[],System.Boolean,RegexBuilder.RegexQuantifier)">
+  CharacterSet(char[], bool, RegexQuantifier)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L270"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a character set expression (&quot;[abc]&quot;) from the specified character array.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeCharacterSet CharacterSet(char[] characters, bool useCharacterCodes, RegexQuantifier quantifier)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>characters</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a>[]</dt>
+    <dd><p>An array of allowed characters.</p>
+</dd>
+    <dt><code>useCharacterCodes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True - encode every character with &quot;\uNNNN&quot; pattern. False - use every character explicitly.</p>
+</dd>
+    <dt><code>quantifier</code> <a class="xref" href="RegexBuilder.RegexQuantifier.html">RegexQuantifier</a></dt>
+    <dd><p>Node quantifier.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeCharacterSet.html">RegexNodeCharacterSet</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_CharacterSet_" data-uid="RegexBuilder.RegexBuilder.CharacterSet*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_CharacterSet_System_String_RegexBuilder_RegexQuantifier_" data-uid="RegexBuilder.RegexBuilder.CharacterSet(System.String,RegexBuilder.RegexQuantifier)">
+  CharacterSet(string, RegexQuantifier)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L258"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a character set expression (&quot;[abc]&quot;) using a preformatted character string.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeCharacterSet CharacterSet(string characters, RegexQuantifier quantifier)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>characters</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Character set description. Special characters will be automatically escaped.</p>
+</dd>
+    <dt><code>quantifier</code> <a class="xref" href="RegexBuilder.RegexQuantifier.html">RegexQuantifier</a></dt>
+    <dd><p>Node quantifier.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeCharacterSet.html">RegexNodeCharacterSet</a></dt>
+    <dd><p>An instance of RegexNode containing the character set.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_Comment_" data-uid="RegexBuilder.RegexBuilder.Comment*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_Comment_System_String_" data-uid="RegexBuilder.RegexBuilder.Comment(System.String)">
+  Comment(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L192"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates an inline Regex comment (&quot;(?#text)&quot;).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeComment Comment(string commentText)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>commentText</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Comment text.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeComment.html">RegexNodeComment</a></dt>
+    <dd><p>An instance of RegexNode containing the specified comment.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_Concatenate_" data-uid="RegexBuilder.RegexBuilder.Concatenate*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_Concatenate_RegexBuilder_RegexNode_RegexBuilder_RegexNode_" data-uid="RegexBuilder.RegexBuilder.Concatenate(RegexBuilder.RegexNode,RegexBuilder.RegexNode)">
+  Concatenate(RegexNode, RegexNode)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L729"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Concatenates two nodes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeConcatenation Concatenate(RegexNode node1, RegexNode node2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>node1</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
+    <dd><p>First node.</p>
+</dd>
+    <dt><code>node2</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
+    <dd><p>Second node.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeConcatenation.html">RegexNodeConcatenation</a></dt>
+    <dd><p>An instance of RegexNode representing the concatenation of child nodes.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_Concatenate_" data-uid="RegexBuilder.RegexBuilder.Concatenate*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_Concatenate_RegexBuilder_RegexNode_RegexBuilder_RegexNode_RegexBuilder_RegexNode_" data-uid="RegexBuilder.RegexBuilder.Concatenate(RegexBuilder.RegexNode,RegexBuilder.RegexNode,RegexBuilder.RegexNode)">
+  Concatenate(RegexNode, RegexNode, RegexNode)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L753"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Concatenates three nodes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeConcatenation Concatenate(RegexNode node1, RegexNode node2, RegexNode node3)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>node1</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
+    <dd><p>First node.</p>
+</dd>
+    <dt><code>node2</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
+    <dd><p>Second node.</p>
+</dd>
+    <dt><code>node3</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
+    <dd><p>Third node.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeConcatenation.html">RegexNodeConcatenation</a></dt>
+    <dd><p>An instance of RegexNode representing the concatenation of child nodes.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_Concatenate_" data-uid="RegexBuilder.RegexBuilder.Concatenate*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_Concatenate_RegexBuilder_RegexNode_RegexBuilder_RegexNode_RegexBuilder_RegexNode_RegexBuilder_RegexNode_" data-uid="RegexBuilder.RegexBuilder.Concatenate(RegexBuilder.RegexNode,RegexBuilder.RegexNode,RegexBuilder.RegexNode,RegexBuilder.RegexNode)">
+  Concatenate(RegexNode, RegexNode, RegexNode, RegexNode)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L779"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Concatenates four nodes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeConcatenation Concatenate(RegexNode node1, RegexNode node2, RegexNode node3, RegexNode node4)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>node1</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
+    <dd><p>First node.</p>
+</dd>
+    <dt><code>node2</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
+    <dd><p>Second node.</p>
+</dd>
+    <dt><code>node3</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
+    <dd><p>Third node.</p>
+</dd>
+    <dt><code>node4</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
+    <dd><p>Fourth node.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeConcatenation.html">RegexNodeConcatenation</a></dt>
+    <dd><p>An instance of RegexNode representing the concatenation of child nodes.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_Concatenate_" data-uid="RegexBuilder.RegexBuilder.Concatenate*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_Concatenate_RegexBuilder_RegexNode_RegexBuilder_RegexNode_RegexBuilder_RegexNode_RegexBuilder_RegexNode_RegexBuilder_RegexQuantifier_" data-uid="RegexBuilder.RegexBuilder.Concatenate(RegexBuilder.RegexNode,RegexBuilder.RegexNode,RegexBuilder.RegexNode,RegexBuilder.RegexNode,RegexBuilder.RegexQuantifier)">
+  Concatenate(RegexNode, RegexNode, RegexNode, RegexNode, RegexQuantifier)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L793"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Concatenates four nodes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeConcatenation Concatenate(RegexNode node1, RegexNode node2, RegexNode node3, RegexNode node4, RegexQuantifier quantifier)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>node1</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
+    <dd><p>First node.</p>
+</dd>
+    <dt><code>node2</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
+    <dd><p>Second node.</p>
+</dd>
+    <dt><code>node3</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
+    <dd><p>Third node.</p>
+</dd>
+    <dt><code>node4</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
+    <dd><p>Fourth node.</p>
+</dd>
+    <dt><code>quantifier</code> <a class="xref" href="RegexBuilder.RegexQuantifier.html">RegexQuantifier</a></dt>
+    <dd><p>Node quantifier.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeConcatenation.html">RegexNodeConcatenation</a></dt>
+    <dd><p>An instance of RegexNode representing the concatenation of child nodes.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_Concatenate_" data-uid="RegexBuilder.RegexBuilder.Concatenate*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_Concatenate_RegexBuilder_RegexNode_RegexBuilder_RegexNode_RegexBuilder_RegexNode_RegexBuilder_RegexQuantifier_" data-uid="RegexBuilder.RegexBuilder.Concatenate(RegexBuilder.RegexNode,RegexBuilder.RegexNode,RegexBuilder.RegexNode,RegexBuilder.RegexQuantifier)">
+  Concatenate(RegexNode, RegexNode, RegexNode, RegexQuantifier)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L766"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Concatenates three nodes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeConcatenation Concatenate(RegexNode node1, RegexNode node2, RegexNode node3, RegexQuantifier quantifier)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>node1</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
+    <dd><p>First node.</p>
+</dd>
+    <dt><code>node2</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
+    <dd><p>Second node.</p>
+</dd>
+    <dt><code>node3</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
+    <dd><p>Third node.</p>
+</dd>
+    <dt><code>quantifier</code> <a class="xref" href="RegexBuilder.RegexQuantifier.html">RegexQuantifier</a></dt>
+    <dd><p>Node quantifier.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeConcatenation.html">RegexNodeConcatenation</a></dt>
+    <dd><p>An instance of RegexNode representing the concatenation of child nodes.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_Concatenate_" data-uid="RegexBuilder.RegexBuilder.Concatenate*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_Concatenate_RegexBuilder_RegexNode_RegexBuilder_RegexNode_RegexBuilder_RegexQuantifier_" data-uid="RegexBuilder.RegexBuilder.Concatenate(RegexBuilder.RegexNode,RegexBuilder.RegexNode,RegexBuilder.RegexQuantifier)">
+  Concatenate(RegexNode, RegexNode, RegexQuantifier)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L741"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Concatenates two nodes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeConcatenation Concatenate(RegexNode node1, RegexNode node2, RegexQuantifier quantifier)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>node1</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
+    <dd><p>First node.</p>
+</dd>
+    <dt><code>node2</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
+    <dd><p>Second node.</p>
+</dd>
+    <dt><code>quantifier</code> <a class="xref" href="RegexBuilder.RegexQuantifier.html">RegexQuantifier</a></dt>
+    <dd><p>Node quantifier.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeConcatenation.html">RegexNodeConcatenation</a></dt>
+    <dd><p>An instance of RegexNode representing the concatenation of child nodes.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_Concatenate_" data-uid="RegexBuilder.RegexBuilder.Concatenate*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_Concatenate_RegexBuilder_RegexNode___" data-uid="RegexBuilder.RegexBuilder.Concatenate(RegexBuilder.RegexNode[])">
+  Concatenate(RegexNode[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L803"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Concatenates an array of nodes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeConcatenation Concatenate(RegexNode[] expressions)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>expressions</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a>[]</dt>
+    <dd><p>Nodes to concatenate.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeConcatenation.html">RegexNodeConcatenation</a></dt>
+    <dd><p>An instance of RegexNode representing the concatenation of child nodes.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_Concatenate_" data-uid="RegexBuilder.RegexBuilder.Concatenate*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_Concatenate_RegexBuilder_RegexNode___RegexBuilder_RegexQuantifier_" data-uid="RegexBuilder.RegexBuilder.Concatenate(RegexBuilder.RegexNode[],RegexBuilder.RegexQuantifier)">
+  Concatenate(RegexNode[], RegexQuantifier)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L814"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Concatenates an array of nodes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeConcatenation Concatenate(RegexNode[] expressions, RegexQuantifier quantifier)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>expressions</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a>[]</dt>
+    <dd><p>Nodes to concatenate.</p>
+</dd>
+    <dt><code>quantifier</code> <a class="xref" href="RegexBuilder.RegexQuantifier.html">RegexQuantifier</a></dt>
+    <dd><p>Node quantifier.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeConcatenation.html">RegexNodeConcatenation</a></dt>
+    <dd><p>An instance of RegexNode representing the concatenation of child nodes.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_ConditionalMatch_" data-uid="RegexBuilder.RegexBuilder.ConditionalMatch*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_ConditionalMatch_RegexBuilder_RegexNode_RegexBuilder_RegexNode_RegexBuilder_RegexNode_" data-uid="RegexBuilder.RegexBuilder.ConditionalMatch(RegexBuilder.RegexNode,RegexBuilder.RegexNode,RegexBuilder.RegexNode)">
+  ConditionalMatch(RegexNode, RegexNode, RegexNode)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L680"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a conditional match expression (&quot;(?(condition)|(true)|(false))&quot;).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeConditionalMatch ConditionalMatch(RegexNode conditionExpression, RegexNode trueMatchExpression, RegexNode falseMatchExpression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>conditionExpression</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
+    <dd><p>Condition expression.</p>
+</dd>
+    <dt><code>trueMatchExpression</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
+    <dd><p>True match expression.</p>
+</dd>
+    <dt><code>falseMatchExpression</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
+    <dd><p>False match expression.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeConditionalMatch.html">RegexNodeConditionalMatch</a></dt>
+    <dd><p>An instance of RegexNode containing the conditional match expression.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_ConditionalMatch_" data-uid="RegexBuilder.RegexBuilder.ConditionalMatch*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_ConditionalMatch_RegexBuilder_RegexNode_RegexBuilder_RegexNode_RegexBuilder_RegexNode_RegexBuilder_RegexQuantifier_" data-uid="RegexBuilder.RegexBuilder.ConditionalMatch(RegexBuilder.RegexNode,RegexBuilder.RegexNode,RegexBuilder.RegexNode,RegexBuilder.RegexQuantifier)">
+  ConditionalMatch(RegexNode, RegexNode, RegexNode, RegexQuantifier)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L693"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a conditional match expression (&quot;(?(condition)|(true)|(false))&quot;).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeConditionalMatch ConditionalMatch(RegexNode conditionExpression, RegexNode trueMatchExpression, RegexNode falseMatchExpression, RegexQuantifier quantifier)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>conditionExpression</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
+    <dd><p>Condition expression.</p>
+</dd>
+    <dt><code>trueMatchExpression</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
+    <dd><p>True match expression.</p>
+</dd>
+    <dt><code>falseMatchExpression</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
+    <dd><p>False match expression.</p>
+</dd>
+    <dt><code>quantifier</code> <a class="xref" href="RegexBuilder.RegexQuantifier.html">RegexQuantifier</a></dt>
+    <dd><p>Node quantifier.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeConditionalMatch.html">RegexNodeConditionalMatch</a></dt>
+    <dd><p>An instance of RegexNode containing the conditional match expression.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_ConditionalMatch_" data-uid="RegexBuilder.RegexBuilder.ConditionalMatch*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_ConditionalMatch_System_String_RegexBuilder_RegexNode_RegexBuilder_RegexNode_" data-uid="RegexBuilder.RegexBuilder.ConditionalMatch(System.String,RegexBuilder.RegexNode,RegexBuilder.RegexNode)">
+  ConditionalMatch(string, RegexNode, RegexNode)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L705"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a conditional match expression which uses a named group for condition evaluation (&quot;(?(GroupName)|(true)|(false))&quot;).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeConditionalMatch ConditionalMatch(string conditionGroupName, RegexNode trueMatchExpression, RegexNode falseMatchExpression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>conditionGroupName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The name of the group to be used as a condition.</p>
+</dd>
+    <dt><code>trueMatchExpression</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
+    <dd><p>True match expression.</p>
+</dd>
+    <dt><code>falseMatchExpression</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
+    <dd><p>False match expression.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeConditionalMatch.html">RegexNodeConditionalMatch</a></dt>
+    <dd><p>An instance of RegexNode containing the conditional match expression.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_ConditionalMatch_" data-uid="RegexBuilder.RegexBuilder.ConditionalMatch*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_ConditionalMatch_System_String_RegexBuilder_RegexNode_RegexBuilder_RegexNode_RegexBuilder_RegexQuantifier_" data-uid="RegexBuilder.RegexBuilder.ConditionalMatch(System.String,RegexBuilder.RegexNode,RegexBuilder.RegexNode,RegexBuilder.RegexQuantifier)">
+  ConditionalMatch(string, RegexNode, RegexNode, RegexQuantifier)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L718"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a conditional match expression which uses a named group for condition evaluation (&quot;(?(GroupName)|(true)|(false))&quot;).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeConditionalMatch ConditionalMatch(string conditionGroupName, RegexNode trueMatchExpression, RegexNode falseMatchExpression, RegexQuantifier quantifier)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>conditionGroupName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The name of the group to be used as a condition.</p>
+</dd>
+    <dt><code>trueMatchExpression</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
+    <dd><p>True match expression.</p>
+</dd>
+    <dt><code>falseMatchExpression</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
+    <dd><p>False match expression.</p>
+</dd>
+    <dt><code>quantifier</code> <a class="xref" href="RegexBuilder.RegexQuantifier.html">RegexQuantifier</a></dt>
+    <dd><p>Node quantifier.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeConditionalMatch.html">RegexNodeConditionalMatch</a></dt>
+    <dd><p>An instance of RegexNode containing the conditional match expression.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_Digit_" data-uid="RegexBuilder.RegexBuilder.Digit*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_Digit" data-uid="RegexBuilder.RegexBuilder.Digit">
+  Digit()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L827"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a digit character class (&quot;\d&quot;).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeLiteral Digit()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeLiteral.html">RegexNodeLiteral</a></dt>
+    <dd><p>An instance of RegexNode containing the digit character class.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_Digit_" data-uid="RegexBuilder.RegexBuilder.Digit*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_Digit_RegexBuilder_RegexQuantifier_" data-uid="RegexBuilder.RegexBuilder.Digit(RegexBuilder.RegexQuantifier)">
+  Digit(RegexQuantifier)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L837"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a digit character class (&quot;\d&quot;) with a quantifier.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeLiteral Digit(RegexQuantifier quantifier)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>quantifier</code> <a class="xref" href="RegexBuilder.RegexQuantifier.html">RegexQuantifier</a></dt>
+    <dd><p>Node quantifier.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeLiteral.html">RegexNodeLiteral</a></dt>
+    <dd><p>An instance of RegexNode containing the digit character class.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_EscapeCharacter_" data-uid="RegexBuilder.RegexBuilder.EscapeCharacter*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_EscapeCharacter" data-uid="RegexBuilder.RegexBuilder.EscapeCharacter">
+  EscapeCharacter()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L1078"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates an escape character escape sequence (&quot;\e&quot;, ASCII 27).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeLiteral EscapeCharacter()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeLiteral.html">RegexNodeLiteral</a></dt>
+    <dd><p>An instance of RegexNode containing the escape character escape.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_EscapeCharacter_" data-uid="RegexBuilder.RegexBuilder.EscapeCharacter*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_EscapeCharacter_RegexBuilder_RegexQuantifier_" data-uid="RegexBuilder.RegexBuilder.EscapeCharacter(RegexBuilder.RegexQuantifier)">
+  EscapeCharacter(RegexQuantifier)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L1088"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates an escape character escape sequence (&quot;\e&quot;, ASCII 27) with a quantifier.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeLiteral EscapeCharacter(RegexQuantifier quantifier)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>quantifier</code> <a class="xref" href="RegexBuilder.RegexQuantifier.html">RegexQuantifier</a></dt>
+    <dd><p>Node quantifier.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeLiteral.html">RegexNodeLiteral</a></dt>
+    <dd><p>An instance of RegexNode containing the escape character escape.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_FormFeed_" data-uid="RegexBuilder.RegexBuilder.FormFeed*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_FormFeed" data-uid="RegexBuilder.RegexBuilder.FormFeed">
+  FormFeed()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L1040"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a form feed character escape sequence (&quot;\f&quot;, ASCII 12).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeLiteral FormFeed()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeLiteral.html">RegexNodeLiteral</a></dt>
+    <dd><p>An instance of RegexNode containing the form feed character escape.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_FormFeed_" data-uid="RegexBuilder.RegexBuilder.FormFeed*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_FormFeed_RegexBuilder_RegexQuantifier_" data-uid="RegexBuilder.RegexBuilder.FormFeed(RegexBuilder.RegexQuantifier)">
+  FormFeed(RegexQuantifier)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L1050"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a form feed character escape sequence (&quot;\f&quot;, ASCII 12) with a quantifier.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeLiteral FormFeed(RegexQuantifier quantifier)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>quantifier</code> <a class="xref" href="RegexBuilder.RegexQuantifier.html">RegexQuantifier</a></dt>
+    <dd><p>Node quantifier.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeLiteral.html">RegexNodeLiteral</a></dt>
+    <dd><p>An instance of RegexNode containing the form feed character escape.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_Group_" data-uid="RegexBuilder.RegexBuilder.Group*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_Group_RegexBuilder_RegexNode_" data-uid="RegexBuilder.RegexBuilder.Group(RegexBuilder.RegexNode)">
+  Group(RegexNode)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L463"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates an unnamed capturing group with the specified subexpression.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeGroup Group(RegexNode matchExpression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>matchExpression</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
+    <dd><p>Inner expression.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeGroup.html">RegexNodeGroup</a></dt>
+    <dd><p>An instance of RegexNode containing the unnamed capturing group.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_Group_" data-uid="RegexBuilder.RegexBuilder.Group*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_Group_RegexBuilder_RegexNode_RegexBuilder_RegexQuantifier_" data-uid="RegexBuilder.RegexBuilder.Group(RegexBuilder.RegexNode,RegexBuilder.RegexQuantifier)">
+  Group(RegexNode, RegexQuantifier)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L474"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates an unnamed capturing group with the specified subexpression.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeGroup Group(RegexNode matchExpression, RegexQuantifier quantifier)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>matchExpression</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
+    <dd><p>Inner expression.</p>
+</dd>
+    <dt><code>quantifier</code> <a class="xref" href="RegexBuilder.RegexQuantifier.html">RegexQuantifier</a></dt>
+    <dd><p>Node quantifier.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeGroup.html">RegexNodeGroup</a></dt>
+    <dd><p>An instance of RegexNode containing the unnamed capturing group.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_Group_" data-uid="RegexBuilder.RegexBuilder.Group*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_Group_System_String_RegexBuilder_RegexNode_" data-uid="RegexBuilder.RegexBuilder.Group(System.String,RegexBuilder.RegexNode)">
+  Group(string, RegexNode)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L485"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a named capturing group with the specified subexpression.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeGroup Group(string groupName, RegexNode matchExpression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>groupName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Group name.</p>
+</dd>
+    <dt><code>matchExpression</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
+    <dd><p>Inner expression.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeGroup.html">RegexNodeGroup</a></dt>
+    <dd><p>An instance of RegexNode containing the named capturing group.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_Group_" data-uid="RegexBuilder.RegexBuilder.Group*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_Group_System_String_RegexBuilder_RegexNode_RegexBuilder_RegexQuantifier_" data-uid="RegexBuilder.RegexBuilder.Group(System.String,RegexBuilder.RegexNode,RegexBuilder.RegexQuantifier)">
+  Group(string, RegexNode, RegexQuantifier)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L497"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a named capturing group with the specified subexpression.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeGroup Group(string groupName, RegexNode matchExpression, RegexQuantifier quantifier)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>groupName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Group name.</p>
+</dd>
+    <dt><code>matchExpression</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
+    <dd><p>Inner expression.</p>
+</dd>
+    <dt><code>quantifier</code> <a class="xref" href="RegexBuilder.RegexQuantifier.html">RegexQuantifier</a></dt>
+    <dd><p>Node quantifier.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeGroup.html">RegexNodeGroup</a></dt>
+    <dd><p>An instance of RegexNode containing the named capturing group.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_GroupApostrophe_" data-uid="RegexBuilder.RegexBuilder.GroupApostrophe*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_GroupApostrophe_System_String_RegexBuilder_RegexNode_" data-uid="RegexBuilder.RegexBuilder.GroupApostrophe(System.String,RegexBuilder.RegexNode)">
+  GroupApostrophe(string, RegexNode)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L530"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a named capturing group using apostrophe syntax for VBScript compatibility.
+Syntax: (?'name'expr)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeGroup GroupApostrophe(string groupName, RegexNode matchExpression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>groupName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Group name.</p>
+</dd>
+    <dt><code>matchExpression</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
+    <dd><p>Inner expression.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeGroup.html">RegexNodeGroup</a></dt>
+    <dd><p>An instance of RegexNode containing the named capturing group with apostrophe syntax.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_GroupApostrophe_" data-uid="RegexBuilder.RegexBuilder.GroupApostrophe*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_GroupApostrophe_System_String_RegexBuilder_RegexNode_RegexBuilder_RegexQuantifier_" data-uid="RegexBuilder.RegexBuilder.GroupApostrophe(System.String,RegexBuilder.RegexNode,RegexBuilder.RegexQuantifier)">
+  GroupApostrophe(string, RegexNode, RegexQuantifier)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L545"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a named capturing group using apostrophe syntax for VBScript compatibility.
+Syntax: (?'name'expr)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeGroup GroupApostrophe(string groupName, RegexNode matchExpression, RegexQuantifier quantifier)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>groupName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Group name.</p>
+</dd>
+    <dt><code>matchExpression</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
+    <dd><p>Inner expression.</p>
+</dd>
+    <dt><code>quantifier</code> <a class="xref" href="RegexBuilder.RegexQuantifier.html">RegexQuantifier</a></dt>
+    <dd><p>Node quantifier.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeGroup.html">RegexNodeGroup</a></dt>
+    <dd><p>An instance of RegexNode containing the named capturing group with apostrophe syntax.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_GroupBackReference_" data-uid="RegexBuilder.RegexBuilder.GroupBackReference*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_GroupBackReference_System_Int32_RegexBuilder_RegexQuantifier_" data-uid="RegexBuilder.RegexBuilder.GroupBackReference(System.Int32,RegexBuilder.RegexQuantifier)">
+  GroupBackReference(int, RegexQuantifier)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L226"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a backreference to the group with the specified index (&quot;\N&quot;).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeGroupReference GroupBackReference(int groupIndex, RegexQuantifier quantifier)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>groupIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Group ordinal number.</p>
+</dd>
+    <dt><code>quantifier</code> <a class="xref" href="RegexBuilder.RegexQuantifier.html">RegexQuantifier</a></dt>
+    <dd><p>Node quantifier.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeGroupReference.html">RegexNodeGroupReference</a></dt>
+    <dd><p>An instance of RegexNode containing the group reference.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_GroupBackReference_" data-uid="RegexBuilder.RegexBuilder.GroupBackReference*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_GroupBackReference_System_String_" data-uid="RegexBuilder.RegexBuilder.GroupBackReference(System.String)">
+  GroupBackReference(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L236"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a backreference to a named group (&quot;\k&lt;GroupName&gt;&quot;).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeGroupReference GroupBackReference(string groupName)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>groupName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Group name.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeGroupReference.html">RegexNodeGroupReference</a></dt>
+    <dd><p>An instance of RegexNode containing the group reference.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_GroupBackReference_" data-uid="RegexBuilder.RegexBuilder.GroupBackReference*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_GroupBackReference_System_String_RegexBuilder_RegexQuantifier_" data-uid="RegexBuilder.RegexBuilder.GroupBackReference(System.String,RegexBuilder.RegexQuantifier)">
+  GroupBackReference(string, RegexQuantifier)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L247"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a backreference to a named group (&quot;\k&lt;GroupName&gt;&quot;).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeGroupReference GroupBackReference(string groupName, RegexQuantifier quantifier)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>groupName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Group name.</p>
+</dd>
+    <dt><code>quantifier</code> <a class="xref" href="RegexBuilder.RegexQuantifier.html">RegexQuantifier</a></dt>
+    <dd><p>Node quantifier.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeGroupReference.html">RegexNodeGroupReference</a></dt>
+    <dd><p>An instance of RegexNode containing the group reference.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_InlineOptionGrouping_" data-uid="RegexBuilder.RegexBuilder.InlineOptionGrouping*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_InlineOptionGrouping_System_Text_RegularExpressions_RegexOptions_RegexBuilder_RegexNode_" data-uid="RegexBuilder.RegexBuilder.InlineOptionGrouping(System.Text.RegularExpressions.RegexOptions,RegexBuilder.RegexNode)">
+  InlineOptionGrouping(RegexOptions, RegexNode)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L203"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates an inline option grouping with enabled options (&quot;(?i:expr)&quot;, &quot;(?im:expr)&quot;, etc.).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeInlineOptionGrouping InlineOptionGrouping(RegexOptions enabledOptions, RegexNode expression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>enabledOptions</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.regularexpressions.regexoptions">RegexOptions</a></dt>
+    <dd><p>Options to enable for the expression.</p>
+</dd>
+    <dt><code>expression</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
+    <dd><p>Inner expression.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeInlineOptionGrouping.html">RegexNodeInlineOptionGrouping</a></dt>
+    <dd><p>An instance of RegexNode containing the inline option grouping.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_InlineOptionGrouping_" data-uid="RegexBuilder.RegexBuilder.InlineOptionGrouping*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_InlineOptionGrouping_System_Text_RegularExpressions_RegexOptions_System_Text_RegularExpressions_RegexOptions_RegexBuilder_RegexNode_" data-uid="RegexBuilder.RegexBuilder.InlineOptionGrouping(System.Text.RegularExpressions.RegexOptions,System.Text.RegularExpressions.RegexOptions,RegexBuilder.RegexNode)">
+  InlineOptionGrouping(RegexOptions, RegexOptions, RegexNode)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L215"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates an inline option grouping with enabled and disabled options (&quot;(?i-m:expr)&quot;, etc.).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeInlineOptionGrouping InlineOptionGrouping(RegexOptions enabledOptions, RegexOptions disabledOptions, RegexNode expression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>enabledOptions</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.regularexpressions.regexoptions">RegexOptions</a></dt>
+    <dd><p>Options to enable for the expression.</p>
+</dd>
+    <dt><code>disabledOptions</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.regularexpressions.regexoptions">RegexOptions</a></dt>
+    <dd><p>Options to disable for the expression.</p>
+</dd>
+    <dt><code>expression</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
+    <dd><p>Inner expression.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeInlineOptionGrouping.html">RegexNodeInlineOptionGrouping</a></dt>
+    <dd><p>An instance of RegexNode containing the inline option grouping.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_LineEnd_" data-uid="RegexBuilder.RegexBuilder.LineEnd*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_LineEnd" data-uid="RegexBuilder.RegexBuilder.LineEnd">
+  LineEnd()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L954"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a line end anchor (&quot;$&quot;).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeLiteral LineEnd()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeLiteral.html">RegexNodeLiteral</a></dt>
+    <dd><p>An instance of RegexNode containing the line end anchor.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_LineStart_" data-uid="RegexBuilder.RegexBuilder.LineStart*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_LineStart" data-uid="RegexBuilder.RegexBuilder.LineStart">
+  LineStart()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L945"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a line start anchor (&quot;^&quot;).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeLiteral LineStart()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeLiteral.html">RegexNodeLiteral</a></dt>
+    <dd><p>An instance of RegexNode containing the line start anchor.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_Literal_" data-uid="RegexBuilder.RegexBuilder.Literal*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_Literal_System_String_" data-uid="RegexBuilder.RegexBuilder.Literal(System.String)">
+  Literal(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L85"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a simple string literal with automatic character escaping.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeEscapingLiteral Literal(string value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Node text. Special characters will be automatically escaped.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeEscapingLiteral.html">RegexNodeEscapingLiteral</a></dt>
+    <dd><p>An instance of RegexNode containing the specified text.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_Literal_" data-uid="RegexBuilder.RegexBuilder.Literal*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_Literal_System_String_RegexBuilder_RegexQuantifier_" data-uid="RegexBuilder.RegexBuilder.Literal(System.String,RegexBuilder.RegexQuantifier)">
+  Literal(string, RegexQuantifier)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L96"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a simple string literal with automatic character escaping.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeEscapingLiteral Literal(string value, RegexQuantifier quantifier)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Node text. Special characters will be automatically escaped.</p>
+</dd>
+    <dt><code>quantifier</code> <a class="xref" href="RegexBuilder.RegexQuantifier.html">RegexQuantifier</a></dt>
+    <dd><p>Node quantifier.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeEscapingLiteral.html">RegexNodeEscapingLiteral</a></dt>
+    <dd><p>An instance of RegexNode containing the specified text.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_MatchPointAnchor_" data-uid="RegexBuilder.RegexBuilder.MatchPointAnchor*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_MatchPointAnchor" data-uid="RegexBuilder.RegexBuilder.MatchPointAnchor">
+  MatchPointAnchor()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L1008"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a match point anchor (&quot;\G&quot;), which matches at the position of the previous match.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeLiteral MatchPointAnchor()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeLiteral.html">RegexNodeLiteral</a></dt>
+    <dd><p>An instance of RegexNode containing the match point anchor.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_MetaCharacter_" data-uid="RegexBuilder.RegexBuilder.MetaCharacter*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_MetaCharacter_System_String_" data-uid="RegexBuilder.RegexBuilder.MetaCharacter(System.String)">
+  MetaCharacter(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L129"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a Regex metacharacter, such as \d, \w or \s. Many metacharacter constants are available in RegexMetaChars class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeLiteral MetaCharacter(string characterPattern)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>characterPattern</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Metacharacter pattern.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeLiteral.html">RegexNodeLiteral</a></dt>
+    <dd><p>An instance of RegexNode containing the specified metacharacter.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_MetaCharacter_" data-uid="RegexBuilder.RegexBuilder.MetaCharacter*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_MetaCharacter_System_String_RegexBuilder_RegexQuantifier_" data-uid="RegexBuilder.RegexBuilder.MetaCharacter(System.String,RegexBuilder.RegexQuantifier)">
+  MetaCharacter(string, RegexQuantifier)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L140"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a Regex metacharacter, such as \d, \w or \s. Many metacharacter constants are available in RegexMetaChars class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeLiteral MetaCharacter(string characterPattern, RegexQuantifier quantifier)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>characterPattern</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Metacharacter pattern.</p>
+</dd>
+    <dt><code>quantifier</code> <a class="xref" href="RegexBuilder.RegexQuantifier.html">RegexQuantifier</a></dt>
+    <dd><p>Node quantifier.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeLiteral.html">RegexNodeLiteral</a></dt>
+    <dd><p>An instance of RegexNode containing the specified metacharacter.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_NegativeCharacterRange_" data-uid="RegexBuilder.RegexBuilder.NegativeCharacterRange*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_NegativeCharacterRange_System_Char_System_Char_System_Boolean_RegexBuilder_RegexQuantifier_" data-uid="RegexBuilder.RegexBuilder.NegativeCharacterRange(System.Char,System.Char,System.Boolean,RegexBuilder.RegexQuantifier)">
+  NegativeCharacterRange(char, char, bool, RegexQuantifier)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L319"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a negative character range expression (&quot;[^a-z]&quot;) with the specified start/end characters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeCharacterRange NegativeCharacterRange(char rangeStart, char rangeEnd, bool useCharacterCodes, RegexQuantifier quantifier)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rangeStart</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></dt>
+    <dd><p>First character in the range.</p>
+</dd>
+    <dt><code>rangeEnd</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></dt>
+    <dd><p>Last character in the range.</p>
+</dd>
+    <dt><code>useCharacterCodes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True - encode every character with &quot;\uNNNN&quot; pattern. False - use every character explicitly.</p>
+</dd>
+    <dt><code>quantifier</code> <a class="xref" href="RegexBuilder.RegexQuantifier.html">RegexQuantifier</a></dt>
+    <dd><p>Node quantifier.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeCharacterRange.html">RegexNodeCharacterRange</a></dt>
+    <dd><p>An instance of RegexNode containing the character range.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_NegativeCharacterSet_" data-uid="RegexBuilder.RegexBuilder.NegativeCharacterSet*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_NegativeCharacterSet_System_Char___System_Boolean_RegexBuilder_RegexQuantifier_" data-uid="RegexBuilder.RegexBuilder.NegativeCharacterSet(System.Char[],System.Boolean,RegexBuilder.RegexQuantifier)">
+  NegativeCharacterSet(char[], bool, RegexQuantifier)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L293"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a negative character set expression (&quot;[^abc]&quot;) from the specified character array.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeCharacterSet NegativeCharacterSet(char[] characters, bool useCharacterCodes, RegexQuantifier quantifier)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>characters</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a>[]</dt>
+    <dd><p>An array of allowed characters.</p>
+</dd>
+    <dt><code>useCharacterCodes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True - encode every character with &quot;\uNNNN&quot; pattern. False - use every character explicitly.</p>
+</dd>
+    <dt><code>quantifier</code> <a class="xref" href="RegexBuilder.RegexQuantifier.html">RegexQuantifier</a></dt>
+    <dd><p>Node quantifier.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeCharacterSet.html">RegexNodeCharacterSet</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_NegativeCharacterSet_" data-uid="RegexBuilder.RegexBuilder.NegativeCharacterSet*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_NegativeCharacterSet_System_String_RegexBuilder_RegexQuantifier_" data-uid="RegexBuilder.RegexBuilder.NegativeCharacterSet(System.String,RegexBuilder.RegexQuantifier)">
+  NegativeCharacterSet(string, RegexQuantifier)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L281"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a negative character set expression (&quot;[^abc]&quot;) using a preformatted character string.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeCharacterSet NegativeCharacterSet(string characters, RegexQuantifier quantifier)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>characters</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Character set description. Special characters will be automatically escaped.</p>
+</dd>
+    <dt><code>quantifier</code> <a class="xref" href="RegexBuilder.RegexQuantifier.html">RegexQuantifier</a></dt>
+    <dd><p>Node quantifier.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeCharacterSet.html">RegexNodeCharacterSet</a></dt>
+    <dd><p>An instance of RegexNode containing the character set.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_NegativeLookAhead_" data-uid="RegexBuilder.RegexBuilder.NegativeLookAhead*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_NegativeLookAhead_RegexBuilder_RegexNode_RegexBuilder_RegexNode_" data-uid="RegexBuilder.RegexBuilder.NegativeLookAhead(RegexBuilder.RegexNode,RegexBuilder.RegexNode)">
+  NegativeLookAhead(RegexNode, RegexNode)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L418"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a zero-width negative lookahead assertion (&quot;match(?!lookahead)&quot;).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeLookAround NegativeLookAhead(RegexNode lookupExpression, RegexNode matchExpression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>lookupExpression</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
+    <dd><p>Lookahead expression.</p>
+</dd>
+    <dt><code>matchExpression</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
+    <dd><p>Match expression.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeLookAround.html">RegexNodeLookAround</a></dt>
+    <dd><p>An instance of RegexNode containing the negative lookahead assertion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_NegativeLookAhead_" data-uid="RegexBuilder.RegexBuilder.NegativeLookAhead*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_NegativeLookAhead_RegexBuilder_RegexNode_RegexBuilder_RegexNode_RegexBuilder_RegexQuantifier_" data-uid="RegexBuilder.RegexBuilder.NegativeLookAhead(RegexBuilder.RegexNode,RegexBuilder.RegexNode,RegexBuilder.RegexQuantifier)">
+  NegativeLookAhead(RegexNode, RegexNode, RegexQuantifier)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L430"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a zero-width negative lookahead assertion (&quot;match(?!lookahead)&quot;).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeLookAround NegativeLookAhead(RegexNode lookupExpression, RegexNode matchExpression, RegexQuantifier quantifier)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>lookupExpression</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
+    <dd><p>Lookahead expression.</p>
+</dd>
+    <dt><code>matchExpression</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
+    <dd><p>Match expression.</p>
+</dd>
+    <dt><code>quantifier</code> <a class="xref" href="RegexBuilder.RegexQuantifier.html">RegexQuantifier</a></dt>
+    <dd><p>Node quantifier.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeLookAround.html">RegexNodeLookAround</a></dt>
+    <dd><p>An instance of RegexNode containing the negative lookahead assertion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_NegativeLookBehind_" data-uid="RegexBuilder.RegexBuilder.NegativeLookBehind*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_NegativeLookBehind_RegexBuilder_RegexNode_RegexBuilder_RegexNode_" data-uid="RegexBuilder.RegexBuilder.NegativeLookBehind(RegexBuilder.RegexNode,RegexBuilder.RegexNode)">
+  NegativeLookBehind(RegexNode, RegexNode)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L441"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a zero-width negative lookbehind assertion (&quot;(?&lt;!lookbehind)match&quot;).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeLookAround NegativeLookBehind(RegexNode lookupExpression, RegexNode matchExpression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>lookupExpression</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
+    <dd><p>Lookbehind expression.</p>
+</dd>
+    <dt><code>matchExpression</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
+    <dd><p>Match expression.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeLookAround.html">RegexNodeLookAround</a></dt>
+    <dd><p>An instance of RegexNode containing the negative lookbehind assertion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_NegativeLookBehind_" data-uid="RegexBuilder.RegexBuilder.NegativeLookBehind*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_NegativeLookBehind_RegexBuilder_RegexNode_RegexBuilder_RegexNode_RegexBuilder_RegexQuantifier_" data-uid="RegexBuilder.RegexBuilder.NegativeLookBehind(RegexBuilder.RegexNode,RegexBuilder.RegexNode,RegexBuilder.RegexQuantifier)">
+  NegativeLookBehind(RegexNode, RegexNode, RegexQuantifier)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L453"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a zero-width negative lookbehind assertion (&quot;(?&lt;!lookbehind)match&quot;).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeLookAround NegativeLookBehind(RegexNode lookupExpression, RegexNode matchExpression, RegexQuantifier quantifier)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>lookupExpression</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
+    <dd><p>Lookbehind expression.</p>
+</dd>
+    <dt><code>matchExpression</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
+    <dd><p>Match expression.</p>
+</dd>
+    <dt><code>quantifier</code> <a class="xref" href="RegexBuilder.RegexQuantifier.html">RegexQuantifier</a></dt>
+    <dd><p>Node quantifier.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeLookAround.html">RegexNodeLookAround</a></dt>
+    <dd><p>An instance of RegexNode containing the negative lookbehind assertion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_NegativeUnicodeCategory_" data-uid="RegexBuilder.RegexBuilder.NegativeUnicodeCategory*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_NegativeUnicodeCategory_System_String_" data-uid="RegexBuilder.RegexBuilder.NegativeUnicodeCategory(System.String)">
+  NegativeUnicodeCategory(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L350"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a negated Unicode category escape sequence (&quot;\P{name}&quot;) for matching characters NOT in a Unicode category.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeUnicodeCategory NegativeUnicodeCategory(string categoryName)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>categoryName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The Unicode category name (e.g., &quot;L&quot;, &quot;N&quot;, &quot;IsCyrillic&quot;).</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeUnicodeCategory.html">RegexNodeUnicodeCategory</a></dt>
+    <dd><p>An instance of RegexNode containing the negated Unicode category escape.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_NegativeUnicodeCategory_" data-uid="RegexBuilder.RegexBuilder.NegativeUnicodeCategory*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_NegativeUnicodeCategory_System_String_RegexBuilder_RegexQuantifier_" data-uid="RegexBuilder.RegexBuilder.NegativeUnicodeCategory(System.String,RegexBuilder.RegexQuantifier)">
+  NegativeUnicodeCategory(string, RegexQuantifier)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L361"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a negated Unicode category escape sequence (&quot;\P{name}&quot;) for matching characters NOT in a Unicode category with a quantifier.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeUnicodeCategory NegativeUnicodeCategory(string categoryName, RegexQuantifier quantifier)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>categoryName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The Unicode category name (e.g., &quot;L&quot;, &quot;N&quot;, &quot;IsCyrillic&quot;).</p>
+</dd>
+    <dt><code>quantifier</code> <a class="xref" href="RegexBuilder.RegexQuantifier.html">RegexQuantifier</a></dt>
+    <dd><p>Node quantifier.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeUnicodeCategory.html">RegexNodeUnicodeCategory</a></dt>
+    <dd><p>An instance of RegexNode containing the negated Unicode category escape.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_NonCapturingGroup_" data-uid="RegexBuilder.RegexBuilder.NonCapturingGroup*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_NonCapturingGroup_RegexBuilder_RegexNode_" data-uid="RegexBuilder.RegexBuilder.NonCapturingGroup(RegexBuilder.RegexNode)">
+  NonCapturingGroup(RegexNode)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L507"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a non-capturing group with the specified subexpression.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeGroup NonCapturingGroup(RegexNode matchExpression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>matchExpression</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
+    <dd><p>Inner expression.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeGroup.html">RegexNodeGroup</a></dt>
+    <dd><p>An instance of RegexNode containing the non-capturing group.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_NonCapturingGroup_" data-uid="RegexBuilder.RegexBuilder.NonCapturingGroup*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_NonCapturingGroup_RegexBuilder_RegexNode_RegexBuilder_RegexQuantifier_" data-uid="RegexBuilder.RegexBuilder.NonCapturingGroup(RegexBuilder.RegexNode,RegexBuilder.RegexQuantifier)">
+  NonCapturingGroup(RegexNode, RegexQuantifier)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L518"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a non-capturing group with the specified subexpression.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeGroup NonCapturingGroup(RegexNode matchExpression, RegexQuantifier quantifier)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>matchExpression</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
+    <dd><p>Inner expression.</p>
+</dd>
+    <dt><code>quantifier</code> <a class="xref" href="RegexBuilder.RegexQuantifier.html">RegexQuantifier</a></dt>
+    <dd><p>Node quantifier.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeGroup.html">RegexNodeGroup</a></dt>
+    <dd><p>An instance of RegexNode containing the non-capturing group.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_NonDigit_" data-uid="RegexBuilder.RegexBuilder.NonDigit*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_NonDigit" data-uid="RegexBuilder.RegexBuilder.NonDigit">
+  NonDigit()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L846"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a non-digit character class (&quot;\D&quot;).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeLiteral NonDigit()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeLiteral.html">RegexNodeLiteral</a></dt>
+    <dd><p>An instance of RegexNode containing the non-digit character class.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_NonDigit_" data-uid="RegexBuilder.RegexBuilder.NonDigit*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_NonDigit_RegexBuilder_RegexQuantifier_" data-uid="RegexBuilder.RegexBuilder.NonDigit(RegexBuilder.RegexQuantifier)">
+  NonDigit(RegexQuantifier)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L856"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a non-digit character class (&quot;\D&quot;) with a quantifier.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeLiteral NonDigit(RegexQuantifier quantifier)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>quantifier</code> <a class="xref" href="RegexBuilder.RegexQuantifier.html">RegexQuantifier</a></dt>
+    <dd><p>Node quantifier.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeLiteral.html">RegexNodeLiteral</a></dt>
+    <dd><p>An instance of RegexNode containing the non-digit character class.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_NonEscapedLiteral_" data-uid="RegexBuilder.RegexBuilder.NonEscapedLiteral*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_NonEscapedLiteral_System_String_" data-uid="RegexBuilder.RegexBuilder.NonEscapedLiteral(System.String)">
+  NonEscapedLiteral(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L107"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a simple string literal &quot;as is&quot;, without character escaping. This method can be used to render
+explicit preformatted patterns of the Regex or some rare constructions not supported by RegexBuilder.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeLiteral NonEscapedLiteral(string value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Node text.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeLiteral.html">RegexNodeLiteral</a></dt>
+    <dd><p>An instance of RegexNode containing the specified text.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_NonEscapedLiteral_" data-uid="RegexBuilder.RegexBuilder.NonEscapedLiteral*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_NonEscapedLiteral_System_String_RegexBuilder_RegexQuantifier_" data-uid="RegexBuilder.RegexBuilder.NonEscapedLiteral(System.String,RegexBuilder.RegexQuantifier)">
+  NonEscapedLiteral(string, RegexQuantifier)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L119"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a simple string literal &quot;as is&quot;, without character escaping. This method can be used to render
+explicit preformatted patterns of the Regex or some rare constructions not supported by RegexBuilder.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeLiteral NonEscapedLiteral(string value, RegexQuantifier quantifier)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Node text.</p>
+</dd>
+    <dt><code>quantifier</code> <a class="xref" href="RegexBuilder.RegexQuantifier.html">RegexQuantifier</a></dt>
+    <dd><p>Node quantifier.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeLiteral.html">RegexNodeLiteral</a></dt>
+    <dd><p>An instance of RegexNode containing the specified text.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_NonWhitespace_" data-uid="RegexBuilder.RegexBuilder.NonWhitespace*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_NonWhitespace" data-uid="RegexBuilder.RegexBuilder.NonWhitespace">
+  NonWhitespace()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L884"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a non-whitespace character class (&quot;\S&quot;).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeLiteral NonWhitespace()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeLiteral.html">RegexNodeLiteral</a></dt>
+    <dd><p>An instance of RegexNode containing the non-whitespace character class.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_NonWhitespace_" data-uid="RegexBuilder.RegexBuilder.NonWhitespace*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_NonWhitespace_RegexBuilder_RegexQuantifier_" data-uid="RegexBuilder.RegexBuilder.NonWhitespace(RegexBuilder.RegexQuantifier)">
+  NonWhitespace(RegexQuantifier)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L894"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a non-whitespace character class (&quot;\S&quot;) with a quantifier.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeLiteral NonWhitespace(RegexQuantifier quantifier)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>quantifier</code> <a class="xref" href="RegexBuilder.RegexQuantifier.html">RegexQuantifier</a></dt>
+    <dd><p>Node quantifier.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeLiteral.html">RegexNodeLiteral</a></dt>
+    <dd><p>An instance of RegexNode containing the non-whitespace character class.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_NonWordBoundary_" data-uid="RegexBuilder.RegexBuilder.NonWordBoundary*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_NonWordBoundary" data-uid="RegexBuilder.RegexBuilder.NonWordBoundary">
+  NonWordBoundary()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L999"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a non-word boundary anchor (&quot;\B&quot;).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeLiteral NonWordBoundary()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeLiteral.html">RegexNodeLiteral</a></dt>
+    <dd><p>An instance of RegexNode containing the non-word boundary anchor.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_NonWordCharacter_" data-uid="RegexBuilder.RegexBuilder.NonWordCharacter*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_NonWordCharacter" data-uid="RegexBuilder.RegexBuilder.NonWordCharacter">
+  NonWordCharacter()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L922"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a non-word character class (&quot;\W&quot;).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeLiteral NonWordCharacter()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeLiteral.html">RegexNodeLiteral</a></dt>
+    <dd><p>An instance of RegexNode containing the non-word character class.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_NonWordCharacter_" data-uid="RegexBuilder.RegexBuilder.NonWordCharacter*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_NonWordCharacter_RegexBuilder_RegexQuantifier_" data-uid="RegexBuilder.RegexBuilder.NonWordCharacter(RegexBuilder.RegexQuantifier)">
+  NonWordCharacter(RegexQuantifier)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L932"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a non-word character class (&quot;\W&quot;) with a quantifier.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeLiteral NonWordCharacter(RegexQuantifier quantifier)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>quantifier</code> <a class="xref" href="RegexBuilder.RegexQuantifier.html">RegexQuantifier</a></dt>
+    <dd><p>Node quantifier.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeLiteral.html">RegexNodeLiteral</a></dt>
+    <dd><p>An instance of RegexNode containing the non-word character class.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_OctalCharacter_" data-uid="RegexBuilder.RegexBuilder.OctalCharacter*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_OctalCharacter_System_Int32_" data-uid="RegexBuilder.RegexBuilder.OctalCharacter(System.Int32)">
+  OctalCharacter(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L1098"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates an octal character escape sequence (&quot;\NNN&quot;) with the specified octal value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeLiteral OctalCharacter(int octalValue)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>octalValue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Octal value (0-377 for 0-255 decimal).</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeLiteral.html">RegexNodeLiteral</a></dt>
+    <dd><p>An instance of RegexNode containing the octal character escape.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_OctalCharacter_" data-uid="RegexBuilder.RegexBuilder.OctalCharacter*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_OctalCharacter_System_Int32_RegexBuilder_RegexQuantifier_" data-uid="RegexBuilder.RegexBuilder.OctalCharacter(System.Int32,RegexBuilder.RegexQuantifier)">
+  OctalCharacter(int, RegexQuantifier)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L1111"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates an octal character escape sequence (&quot;\NNN&quot;) with the specified octal value and quantifier.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeLiteral OctalCharacter(int octalValue, RegexQuantifier quantifier)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>octalValue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Octal value (0-377 for 0-255 decimal).</p>
+</dd>
+    <dt><code>quantifier</code> <a class="xref" href="RegexBuilder.RegexQuantifier.html">RegexQuantifier</a></dt>
+    <dd><p>Node quantifier.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeLiteral.html">RegexNodeLiteral</a></dt>
+    <dd><p>An instance of RegexNode containing the octal character escape.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_Pattern_" data-uid="RegexBuilder.RegexBuilder.Pattern*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_Pattern" data-uid="RegexBuilder.RegexBuilder.Pattern">
+  Pattern()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L71"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new PatternBuilder instance for building complex regex patterns using a fluent API.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static PatternBuilder Pattern()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.PatternBuilder.html">PatternBuilder</a></dt>
+    <dd><p>A new PatternBuilder instance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_PositiveLookAhead_" data-uid="RegexBuilder.RegexBuilder.PositiveLookAhead*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_PositiveLookAhead_RegexBuilder_RegexNode_RegexBuilder_RegexNode_" data-uid="RegexBuilder.RegexBuilder.PositiveLookAhead(RegexBuilder.RegexNode,RegexBuilder.RegexNode)">
+  PositiveLookAhead(RegexNode, RegexNode)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L372"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a zero-width positive lookahead assertion (&quot;match(?=lookahead)&quot;).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeLookAround PositiveLookAhead(RegexNode lookupExpression, RegexNode matchExpression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>lookupExpression</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
+    <dd><p>Lookahead expression.</p>
+</dd>
+    <dt><code>matchExpression</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
+    <dd><p>Match expression.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeLookAround.html">RegexNodeLookAround</a></dt>
+    <dd><p>An instance of RegexNode containing the positive lookahead assertion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_PositiveLookAhead_" data-uid="RegexBuilder.RegexBuilder.PositiveLookAhead*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_PositiveLookAhead_RegexBuilder_RegexNode_RegexBuilder_RegexNode_RegexBuilder_RegexQuantifier_" data-uid="RegexBuilder.RegexBuilder.PositiveLookAhead(RegexBuilder.RegexNode,RegexBuilder.RegexNode,RegexBuilder.RegexQuantifier)">
+  PositiveLookAhead(RegexNode, RegexNode, RegexQuantifier)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L384"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a zero-width positive lookahead assertion (&quot;match(?=lookahead)&quot;).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeLookAround PositiveLookAhead(RegexNode lookupExpression, RegexNode matchExpression, RegexQuantifier quantifier)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>lookupExpression</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
+    <dd><p>Lookahead expression.</p>
+</dd>
+    <dt><code>matchExpression</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
+    <dd><p>Match expression.</p>
+</dd>
+    <dt><code>quantifier</code> <a class="xref" href="RegexBuilder.RegexQuantifier.html">RegexQuantifier</a></dt>
+    <dd><p>Node quantifier.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeLookAround.html">RegexNodeLookAround</a></dt>
+    <dd><p>An instance of RegexNode containing the positive lookahead assertion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_PositiveLookBehind_" data-uid="RegexBuilder.RegexBuilder.PositiveLookBehind*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_PositiveLookBehind_RegexBuilder_RegexNode_RegexBuilder_RegexNode_" data-uid="RegexBuilder.RegexBuilder.PositiveLookBehind(RegexBuilder.RegexNode,RegexBuilder.RegexNode)">
+  PositiveLookBehind(RegexNode, RegexNode)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L395"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a zero-width positive lookbehind assertion (&quot;(?&lt;=lookbehind)match&quot;).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeLookAround PositiveLookBehind(RegexNode lookupExpression, RegexNode matchExpression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>lookupExpression</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
+    <dd><p>Lookbehind expression.</p>
+</dd>
+    <dt><code>matchExpression</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
+    <dd><p>Match expression.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeLookAround.html">RegexNodeLookAround</a></dt>
+    <dd><p>An instance of RegexNode containing the positive lookbehind assertion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_PositiveLookBehind_" data-uid="RegexBuilder.RegexBuilder.PositiveLookBehind*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_PositiveLookBehind_RegexBuilder_RegexNode_RegexBuilder_RegexNode_RegexBuilder_RegexQuantifier_" data-uid="RegexBuilder.RegexBuilder.PositiveLookBehind(RegexBuilder.RegexNode,RegexBuilder.RegexNode,RegexBuilder.RegexQuantifier)">
+  PositiveLookBehind(RegexNode, RegexNode, RegexQuantifier)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L407"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a zero-width positive lookbehind assertion (&quot;(?&lt;=lookbehind)match&quot;).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeLookAround PositiveLookBehind(RegexNode lookupExpression, RegexNode matchExpression, RegexQuantifier quantifier)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>lookupExpression</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
+    <dd><p>Lookbehind expression.</p>
+</dd>
+    <dt><code>matchExpression</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
+    <dd><p>Match expression.</p>
+</dd>
+    <dt><code>quantifier</code> <a class="xref" href="RegexBuilder.RegexQuantifier.html">RegexQuantifier</a></dt>
+    <dd><p>Node quantifier.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeLookAround.html">RegexNodeLookAround</a></dt>
+    <dd><p>An instance of RegexNode containing the positive lookbehind assertion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_SimpleBalancingGroup_" data-uid="RegexBuilder.RegexBuilder.SimpleBalancingGroup*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_SimpleBalancingGroup_System_String_RegexBuilder_RegexNode_" data-uid="RegexBuilder.RegexBuilder.SimpleBalancingGroup(System.String,RegexBuilder.RegexNode)">
+  SimpleBalancingGroup(string, RegexNode)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L610"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a simple balancing group that only uses one stack.
+Used for matching nested/balanced constructs like parentheses, XML tags, or code blocks.
+Syntax: (?&lt;name&gt;-expr)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeBalancingGroup SimpleBalancingGroup(string groupName, RegexNode innerExpression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>groupName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Name of group to push onto the stack.</p>
+</dd>
+    <dt><code>innerExpression</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
+    <dd><p>The inner expression to match.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeBalancingGroup.html">RegexNodeBalancingGroup</a></dt>
+    <dd><p>An instance of RegexNode containing the simple balancing group.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_SimpleBalancingGroup_" data-uid="RegexBuilder.RegexBuilder.SimpleBalancingGroup*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_SimpleBalancingGroup_System_String_RegexBuilder_RegexNode_RegexBuilder_RegexQuantifier_" data-uid="RegexBuilder.RegexBuilder.SimpleBalancingGroup(System.String,RegexBuilder.RegexNode,RegexBuilder.RegexQuantifier)">
+  SimpleBalancingGroup(string, RegexNode, RegexQuantifier)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L624"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a simple balancing group that only uses one stack, with a quantifier.
+Used for matching nested/balanced constructs like parentheses, XML tags, or code blocks.
+Syntax: (?&lt;name&gt;-expr)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeBalancingGroup SimpleBalancingGroup(string groupName, RegexNode innerExpression, RegexQuantifier quantifier)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>groupName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Name of group to push onto the stack.</p>
+</dd>
+    <dt><code>innerExpression</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
+    <dd><p>The inner expression to match.</p>
+</dd>
+    <dt><code>quantifier</code> <a class="xref" href="RegexBuilder.RegexQuantifier.html">RegexQuantifier</a></dt>
+    <dd><p>Node quantifier.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeBalancingGroup.html">RegexNodeBalancingGroup</a></dt>
+    <dd><p>An instance of RegexNode containing the simple balancing group.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_StringEnd_" data-uid="RegexBuilder.RegexBuilder.StringEnd*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_StringEnd" data-uid="RegexBuilder.RegexBuilder.StringEnd">
+  StringEnd()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L972"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a string end anchor (&quot;\Z&quot;).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeLiteral StringEnd()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeLiteral.html">RegexNodeLiteral</a></dt>
+    <dd><p>An instance of RegexNode containing the string end anchor.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_StringEndAbsolute_" data-uid="RegexBuilder.RegexBuilder.StringEndAbsolute*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_StringEndAbsolute" data-uid="RegexBuilder.RegexBuilder.StringEndAbsolute">
+  StringEndAbsolute()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L981"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates an absolute string end anchor (&quot;\z&quot;).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeLiteral StringEndAbsolute()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeLiteral.html">RegexNodeLiteral</a></dt>
+    <dd><p>An instance of RegexNode containing the absolute string end anchor.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_StringStart_" data-uid="RegexBuilder.RegexBuilder.StringStart*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_StringStart" data-uid="RegexBuilder.RegexBuilder.StringStart">
+  StringStart()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L963"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a string start anchor (&quot;\A&quot;).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeLiteral StringStart()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeLiteral.html">RegexNodeLiteral</a></dt>
+    <dd><p>An instance of RegexNode containing the string start anchor.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_UnicodeCategory_" data-uid="RegexBuilder.RegexBuilder.UnicodeCategory*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_UnicodeCategory_System_String_" data-uid="RegexBuilder.RegexBuilder.UnicodeCategory(System.String)">
+  UnicodeCategory(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L329"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a Unicode category escape sequence (&quot;\p{name}&quot;) for matching Unicode character categories.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeUnicodeCategory UnicodeCategory(string categoryName)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>categoryName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The Unicode category name (e.g., &quot;L&quot;, &quot;N&quot;, &quot;IsCyrillic&quot;).</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeUnicodeCategory.html">RegexNodeUnicodeCategory</a></dt>
+    <dd><p>An instance of RegexNode containing the Unicode category escape.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_UnicodeCategory_" data-uid="RegexBuilder.RegexBuilder.UnicodeCategory*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_UnicodeCategory_System_String_RegexBuilder_RegexQuantifier_" data-uid="RegexBuilder.RegexBuilder.UnicodeCategory(System.String,RegexBuilder.RegexQuantifier)">
+  UnicodeCategory(string, RegexQuantifier)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L340"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a Unicode category escape sequence (&quot;\p{name}&quot;) for matching Unicode character categories with a quantifier.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeUnicodeCategory UnicodeCategory(string categoryName, RegexQuantifier quantifier)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>categoryName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The Unicode category name (e.g., &quot;L&quot;, &quot;N&quot;, &quot;IsCyrillic&quot;).</p>
+</dd>
+    <dt><code>quantifier</code> <a class="xref" href="RegexBuilder.RegexQuantifier.html">RegexQuantifier</a></dt>
+    <dd><p>Node quantifier.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeUnicodeCategory.html">RegexNodeUnicodeCategory</a></dt>
+    <dd><p>An instance of RegexNode containing the Unicode category escape.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_UnicodeCharacter_" data-uid="RegexBuilder.RegexBuilder.UnicodeCharacter*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_UnicodeCharacter_System_Int32_" data-uid="RegexBuilder.RegexBuilder.UnicodeCharacter(System.Int32)">
+  UnicodeCharacter(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L171"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a Unicode character pattern (&quot;\uNNNN&quot;) with the specified character code.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeLiteral UnicodeCharacter(int code)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>code</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Unicode character code.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeLiteral.html">RegexNodeLiteral</a></dt>
+    <dd><p>An instance of RegexNode containing the specified Unicode character.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_UnicodeCharacter_" data-uid="RegexBuilder.RegexBuilder.UnicodeCharacter*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_UnicodeCharacter_System_Int32_RegexBuilder_RegexQuantifier_" data-uid="RegexBuilder.RegexBuilder.UnicodeCharacter(System.Int32,RegexBuilder.RegexQuantifier)">
+  UnicodeCharacter(int, RegexQuantifier)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L182"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a Unicode character pattern (&quot;\uNNNN&quot;) with the specified character code.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeLiteral UnicodeCharacter(int code, RegexQuantifier quantifier)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>code</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Unicode character code.</p>
+</dd>
+    <dt><code>quantifier</code> <a class="xref" href="RegexBuilder.RegexQuantifier.html">RegexQuantifier</a></dt>
+    <dd><p>Node quantifier.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeLiteral.html">RegexNodeLiteral</a></dt>
+    <dd><p>An instance of RegexNode containing the specified Unicode character.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_VerticalTab_" data-uid="RegexBuilder.RegexBuilder.VerticalTab*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_VerticalTab" data-uid="RegexBuilder.RegexBuilder.VerticalTab">
+  VerticalTab()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L1059"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a vertical tab character escape sequence (&quot;\v&quot;, ASCII 11).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeLiteral VerticalTab()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeLiteral.html">RegexNodeLiteral</a></dt>
+    <dd><p>An instance of RegexNode containing the vertical tab character escape.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_VerticalTab_" data-uid="RegexBuilder.RegexBuilder.VerticalTab*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_VerticalTab_RegexBuilder_RegexQuantifier_" data-uid="RegexBuilder.RegexBuilder.VerticalTab(RegexBuilder.RegexQuantifier)">
+  VerticalTab(RegexQuantifier)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L1069"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a vertical tab character escape sequence (&quot;\v&quot;, ASCII 11) with a quantifier.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeLiteral VerticalTab(RegexQuantifier quantifier)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>quantifier</code> <a class="xref" href="RegexBuilder.RegexQuantifier.html">RegexQuantifier</a></dt>
+    <dd><p>Node quantifier.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeLiteral.html">RegexNodeLiteral</a></dt>
+    <dd><p>An instance of RegexNode containing the vertical tab character escape.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_Whitespace_" data-uid="RegexBuilder.RegexBuilder.Whitespace*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_Whitespace" data-uid="RegexBuilder.RegexBuilder.Whitespace">
+  Whitespace()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L865"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a whitespace character class (&quot;\s&quot;).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeLiteral Whitespace()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeLiteral.html">RegexNodeLiteral</a></dt>
+    <dd><p>An instance of RegexNode containing the whitespace character class.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_Whitespace_" data-uid="RegexBuilder.RegexBuilder.Whitespace*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_Whitespace_RegexBuilder_RegexQuantifier_" data-uid="RegexBuilder.RegexBuilder.Whitespace(RegexBuilder.RegexQuantifier)">
+  Whitespace(RegexQuantifier)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L875"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a whitespace character class (&quot;\s&quot;) with a quantifier.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeLiteral Whitespace(RegexQuantifier quantifier)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>quantifier</code> <a class="xref" href="RegexBuilder.RegexQuantifier.html">RegexQuantifier</a></dt>
+    <dd><p>Node quantifier.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeLiteral.html">RegexNodeLiteral</a></dt>
+    <dd><p>An instance of RegexNode containing the whitespace character class.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_WordBoundary_" data-uid="RegexBuilder.RegexBuilder.WordBoundary*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_WordBoundary" data-uid="RegexBuilder.RegexBuilder.WordBoundary">
+  WordBoundary()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L990"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a word boundary anchor (&quot;\b&quot;).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeLiteral WordBoundary()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeLiteral.html">RegexNodeLiteral</a></dt>
+    <dd><p>An instance of RegexNode containing the word boundary anchor.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_WordCharacter_" data-uid="RegexBuilder.RegexBuilder.WordCharacter*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_WordCharacter" data-uid="RegexBuilder.RegexBuilder.WordCharacter">
+  WordCharacter()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L903"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a word character class (&quot;\w&quot;).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeLiteral WordCharacter()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeLiteral.html">RegexNodeLiteral</a></dt>
+    <dd><p>An instance of RegexNode containing the word character class.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexBuilder_WordCharacter_" data-uid="RegexBuilder.RegexBuilder.WordCharacter*"></a>
+
+  <h3 id="RegexBuilder_RegexBuilder_WordCharacter_RegexBuilder_RegexQuantifier_" data-uid="RegexBuilder.RegexBuilder.WordCharacter(RegexBuilder.RegexQuantifier)">
+  WordCharacter(RegexQuantifier)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L913"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a word character class (&quot;\w&quot;) with a quantifier.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexNodeLiteral WordCharacter(RegexQuantifier quantifier)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>quantifier</code> <a class="xref" href="RegexBuilder.RegexQuantifier.html">RegexQuantifier</a></dt>
+    <dd><p>Node quantifier.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNodeLiteral.html">RegexNodeLiteral</a></dt>
+    <dd><p>An instance of RegexNode containing the word character class.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexBuilder.cs/#L7" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

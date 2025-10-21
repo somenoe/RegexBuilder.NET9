@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class RegexNodeTests | RegexBuilder.NET9 - Fluent Regex Builder </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class RegexNodeTests | RegexBuilder.NET9 - Fluent Regex Builder ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/somenoe/RegexBuilder.NET9/new/master/apiSpec/new?filename=RegexBuilder_Tests_RegexNodeTests.md&amp;value=---%0Auid%3A%20RegexBuilder.Tests.RegexNodeTests%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="RegexBuilder">
+            RegexBuilder
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="RegexBuilder.Tests.RegexNodeTests">
+
+
+
+  <h1 id="RegexBuilder_Tests_RegexNodeTests" data-uid="RegexBuilder.Tests.RegexNodeTests" class="text-break">
+Class RegexNodeTests  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/RegexNodeTests.cs/#L8"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="RegexBuilder.html">RegexBuilder</a>.<a class="xref" href="RegexBuilder.Tests.html">Tests</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>RegexBuilder.Tests.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestClass]
+public class RegexNodeTests</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">RegexNodeTests</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="RegexBuilder_Tests_RegexNodeTests_TestAlternationNodeConstruction_" data-uid="RegexBuilder.Tests.RegexNodeTests.TestAlternationNodeConstruction*"></a>
+
+  <h3 id="RegexBuilder_Tests_RegexNodeTests_TestAlternationNodeConstruction" data-uid="RegexBuilder.Tests.RegexNodeTests.TestAlternationNodeConstruction">
+  TestAlternationNodeConstruction()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/RegexNodeTests.cs/#L152"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void TestAlternationNodeConstruction()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_RegexNodeTests_TestAlternationNodeNullExpressionListAssignment1_" data-uid="RegexBuilder.Tests.RegexNodeTests.TestAlternationNodeNullExpressionListAssignment1*"></a>
+
+  <h3 id="RegexBuilder_Tests_RegexNodeTests_TestAlternationNodeNullExpressionListAssignment1" data-uid="RegexBuilder.Tests.RegexNodeTests.TestAlternationNodeNullExpressionListAssignment1">
+  TestAlternationNodeNullExpressionListAssignment1()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/RegexNodeTests.cs/#L165"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+[ExpectedException(typeof(ArgumentNullException))]
+public void TestAlternationNodeNullExpressionListAssignment1()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_RegexNodeTests_TestAlternationNodeNullExpressionListAssignment2_" data-uid="RegexBuilder.Tests.RegexNodeTests.TestAlternationNodeNullExpressionListAssignment2*"></a>
+
+  <h3 id="RegexBuilder_Tests_RegexNodeTests_TestAlternationNodeNullExpressionListAssignment2" data-uid="RegexBuilder.Tests.RegexNodeTests.TestAlternationNodeNullExpressionListAssignment2">
+  TestAlternationNodeNullExpressionListAssignment2()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/RegexNodeTests.cs/#L173"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+[ExpectedException(typeof(ArgumentNullException))]
+public void TestAlternationNodeNullExpressionListAssignment2()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_RegexNodeTests_TestAlternationNodeNullExpressionListAssignment3_" data-uid="RegexBuilder.Tests.RegexNodeTests.TestAlternationNodeNullExpressionListAssignment3*"></a>
+
+  <h3 id="RegexBuilder_Tests_RegexNodeTests_TestAlternationNodeNullExpressionListAssignment3" data-uid="RegexBuilder.Tests.RegexNodeTests.TestAlternationNodeNullExpressionListAssignment3">
+  TestAlternationNodeNullExpressionListAssignment3()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/RegexNodeTests.cs/#L181"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+[ExpectedException(typeof(ArgumentNullException))]
+public void TestAlternationNodeNullExpressionListAssignment3()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_RegexNodeTests_TestBacktrackingSuppressionNodeNullExpressionAssignment1_" data-uid="RegexBuilder.Tests.RegexNodeTests.TestBacktrackingSuppressionNodeNullExpressionAssignment1*"></a>
+
+  <h3 id="RegexBuilder_Tests_RegexNodeTests_TestBacktrackingSuppressionNodeNullExpressionAssignment1" data-uid="RegexBuilder.Tests.RegexNodeTests.TestBacktrackingSuppressionNodeNullExpressionAssignment1">
+  TestBacktrackingSuppressionNodeNullExpressionAssignment1()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/RegexNodeTests.cs/#L189"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+[ExpectedException(typeof(ArgumentNullException))]
+public void TestBacktrackingSuppressionNodeNullExpressionAssignment1()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_RegexNodeTests_TestBacktrackingSuppressionNodeNullExpressionAssignment2_" data-uid="RegexBuilder.Tests.RegexNodeTests.TestBacktrackingSuppressionNodeNullExpressionAssignment2*"></a>
+
+  <h3 id="RegexBuilder_Tests_RegexNodeTests_TestBacktrackingSuppressionNodeNullExpressionAssignment2" data-uid="RegexBuilder.Tests.RegexNodeTests.TestBacktrackingSuppressionNodeNullExpressionAssignment2">
+  TestBacktrackingSuppressionNodeNullExpressionAssignment2()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/RegexNodeTests.cs/#L197"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+[ExpectedException(typeof(ArgumentNullException))]
+public void TestBacktrackingSuppressionNodeNullExpressionAssignment2()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_RegexNodeTests_TestCharacterSetNodeCharacterListExpressionProperty_" data-uid="RegexBuilder.Tests.RegexNodeTests.TestCharacterSetNodeCharacterListExpressionProperty*"></a>
+
+  <h3 id="RegexBuilder_Tests_RegexNodeTests_TestCharacterSetNodeCharacterListExpressionProperty" data-uid="RegexBuilder.Tests.RegexNodeTests.TestCharacterSetNodeCharacterListExpressionProperty">
+  TestCharacterSetNodeCharacterListExpressionProperty()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/RegexNodeTests.cs/#L206"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void TestCharacterSetNodeCharacterListExpressionProperty()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_RegexNodeTests_TestCharacterSetNodeNullAssignment1_" data-uid="RegexBuilder.Tests.RegexNodeTests.TestCharacterSetNodeNullAssignment1*"></a>
+
+  <h3 id="RegexBuilder_Tests_RegexNodeTests_TestCharacterSetNodeNullAssignment1" data-uid="RegexBuilder.Tests.RegexNodeTests.TestCharacterSetNodeNullAssignment1">
+  TestCharacterSetNodeNullAssignment1()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/RegexNodeTests.cs/#L217"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+[ExpectedException(typeof(ArgumentNullException))]
+public void TestCharacterSetNodeNullAssignment1()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_RegexNodeTests_TestCharacterSetNodeNullAssignment2_" data-uid="RegexBuilder.Tests.RegexNodeTests.TestCharacterSetNodeNullAssignment2*"></a>
+
+  <h3 id="RegexBuilder_Tests_RegexNodeTests_TestCharacterSetNodeNullAssignment2" data-uid="RegexBuilder.Tests.RegexNodeTests.TestCharacterSetNodeNullAssignment2">
+  TestCharacterSetNodeNullAssignment2()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/RegexNodeTests.cs/#L225"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+[ExpectedException(typeof(ArgumentNullException))]
+public void TestCharacterSetNodeNullAssignment2()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_RegexNodeTests_TestCharacterSetNodeNullAssignment3_" data-uid="RegexBuilder.Tests.RegexNodeTests.TestCharacterSetNodeNullAssignment3*"></a>
+
+  <h3 id="RegexBuilder_Tests_RegexNodeTests_TestCharacterSetNodeNullAssignment3" data-uid="RegexBuilder.Tests.RegexNodeTests.TestCharacterSetNodeNullAssignment3">
+  TestCharacterSetNodeNullAssignment3()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/RegexNodeTests.cs/#L233"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+[ExpectedException(typeof(ArgumentNullException))]
+public void TestCharacterSetNodeNullAssignment3()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_RegexNodeTests_TestConcatenationNodeConstruction_" data-uid="RegexBuilder.Tests.RegexNodeTests.TestConcatenationNodeConstruction*"></a>
+
+  <h3 id="RegexBuilder_Tests_RegexNodeTests_TestConcatenationNodeConstruction" data-uid="RegexBuilder.Tests.RegexNodeTests.TestConcatenationNodeConstruction">
+  TestConcatenationNodeConstruction()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/RegexNodeTests.cs/#L122"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void TestConcatenationNodeConstruction()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_RegexNodeTests_TestConcatenationNodeNullChildAssignment1_" data-uid="RegexBuilder.Tests.RegexNodeTests.TestConcatenationNodeNullChildAssignment1*"></a>
+
+  <h3 id="RegexBuilder_Tests_RegexNodeTests_TestConcatenationNodeNullChildAssignment1" data-uid="RegexBuilder.Tests.RegexNodeTests.TestConcatenationNodeNullChildAssignment1">
+  TestConcatenationNodeNullChildAssignment1()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/RegexNodeTests.cs/#L129"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+[ExpectedException(typeof(ArgumentNullException))]
+public void TestConcatenationNodeNullChildAssignment1()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_RegexNodeTests_TestConcatenationNodeNullChildAssignment2_" data-uid="RegexBuilder.Tests.RegexNodeTests.TestConcatenationNodeNullChildAssignment2*"></a>
+
+  <h3 id="RegexBuilder_Tests_RegexNodeTests_TestConcatenationNodeNullChildAssignment2" data-uid="RegexBuilder.Tests.RegexNodeTests.TestConcatenationNodeNullChildAssignment2">
+  TestConcatenationNodeNullChildAssignment2()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/RegexNodeTests.cs/#L137"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+[ExpectedException(typeof(ArgumentNullException))]
+public void TestConcatenationNodeNullChildAssignment2()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_RegexNodeTests_TestConditionalMatchNodeNullAssignment1_" data-uid="RegexBuilder.Tests.RegexNodeTests.TestConditionalMatchNodeNullAssignment1*"></a>
+
+  <h3 id="RegexBuilder_Tests_RegexNodeTests_TestConditionalMatchNodeNullAssignment1" data-uid="RegexBuilder.Tests.RegexNodeTests.TestConditionalMatchNodeNullAssignment1">
+  TestConditionalMatchNodeNullAssignment1()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/RegexNodeTests.cs/#L242"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+[ExpectedException(typeof(ArgumentNullException))]
+public void TestConditionalMatchNodeNullAssignment1()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_RegexNodeTests_TestConditionalMatchNodeNullAssignment2_" data-uid="RegexBuilder.Tests.RegexNodeTests.TestConditionalMatchNodeNullAssignment2*"></a>
+
+  <h3 id="RegexBuilder_Tests_RegexNodeTests_TestConditionalMatchNodeNullAssignment2" data-uid="RegexBuilder.Tests.RegexNodeTests.TestConditionalMatchNodeNullAssignment2">
+  TestConditionalMatchNodeNullAssignment2()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/RegexNodeTests.cs/#L252"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+[ExpectedException(typeof(ArgumentNullException))]
+public void TestConditionalMatchNodeNullAssignment2()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_RegexNodeTests_TestConditionalMatchNodeNullAssignment3_" data-uid="RegexBuilder.Tests.RegexNodeTests.TestConditionalMatchNodeNullAssignment3*"></a>
+
+  <h3 id="RegexBuilder_Tests_RegexNodeTests_TestConditionalMatchNodeNullAssignment3" data-uid="RegexBuilder.Tests.RegexNodeTests.TestConditionalMatchNodeNullAssignment3">
+  TestConditionalMatchNodeNullAssignment3()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/RegexNodeTests.cs/#L262"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+[ExpectedException(typeof(ArgumentNullException))]
+public void TestConditionalMatchNodeNullAssignment3()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_RegexNodeTests_TestGroupNodeNullAssignment1_" data-uid="RegexBuilder.Tests.RegexNodeTests.TestGroupNodeNullAssignment1*"></a>
+
+  <h3 id="RegexBuilder_Tests_RegexNodeTests_TestGroupNodeNullAssignment1" data-uid="RegexBuilder.Tests.RegexNodeTests.TestGroupNodeNullAssignment1">
+  TestGroupNodeNullAssignment1()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/RegexNodeTests.cs/#L275"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+[ExpectedException(typeof(ArgumentNullException))]
+public void TestGroupNodeNullAssignment1()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_RegexNodeTests_TestGroupNodeNullAssignment2_" data-uid="RegexBuilder.Tests.RegexNodeTests.TestGroupNodeNullAssignment2*"></a>
+
+  <h3 id="RegexBuilder_Tests_RegexNodeTests_TestGroupNodeNullAssignment2" data-uid="RegexBuilder.Tests.RegexNodeTests.TestGroupNodeNullAssignment2">
+  TestGroupNodeNullAssignment2()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/RegexNodeTests.cs/#L283"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+[ExpectedException(typeof(ArgumentNullException))]
+public void TestGroupNodeNullAssignment2()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_RegexNodeTests_TestInlineOptionNodeInvalidOptionAssignment1_" data-uid="RegexBuilder.Tests.RegexNodeTests.TestInlineOptionNodeInvalidOptionAssignment1*"></a>
+
+  <h3 id="RegexBuilder_Tests_RegexNodeTests_TestInlineOptionNodeInvalidOptionAssignment1" data-uid="RegexBuilder.Tests.RegexNodeTests.TestInlineOptionNodeInvalidOptionAssignment1">
+  TestInlineOptionNodeInvalidOptionAssignment1()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/RegexNodeTests.cs/#L335"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+[ExpectedException(typeof(ArgumentException))]
+public void TestInlineOptionNodeInvalidOptionAssignment1()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_RegexNodeTests_TestInlineOptionNodeInvalidOptionAssignment2_" data-uid="RegexBuilder.Tests.RegexNodeTests.TestInlineOptionNodeInvalidOptionAssignment2*"></a>
+
+  <h3 id="RegexBuilder_Tests_RegexNodeTests_TestInlineOptionNodeInvalidOptionAssignment2" data-uid="RegexBuilder.Tests.RegexNodeTests.TestInlineOptionNodeInvalidOptionAssignment2">
+  TestInlineOptionNodeInvalidOptionAssignment2()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/RegexNodeTests.cs/#L343"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+[ExpectedException(typeof(ArgumentException))]
+public void TestInlineOptionNodeInvalidOptionAssignment2()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_RegexNodeTests_TestInlineOptionNodeInvalidOptionAssignment3_" data-uid="RegexBuilder.Tests.RegexNodeTests.TestInlineOptionNodeInvalidOptionAssignment3*"></a>
+
+  <h3 id="RegexBuilder_Tests_RegexNodeTests_TestInlineOptionNodeInvalidOptionAssignment3" data-uid="RegexBuilder.Tests.RegexNodeTests.TestInlineOptionNodeInvalidOptionAssignment3">
+  TestInlineOptionNodeInvalidOptionAssignment3()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/RegexNodeTests.cs/#L351"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+[ExpectedException(typeof(ArgumentException))]
+public void TestInlineOptionNodeInvalidOptionAssignment3()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_RegexNodeTests_TestInlineOptionNodeInvalidOptionAssignment4_" data-uid="RegexBuilder.Tests.RegexNodeTests.TestInlineOptionNodeInvalidOptionAssignment4*"></a>
+
+  <h3 id="RegexBuilder_Tests_RegexNodeTests_TestInlineOptionNodeInvalidOptionAssignment4" data-uid="RegexBuilder.Tests.RegexNodeTests.TestInlineOptionNodeInvalidOptionAssignment4">
+  TestInlineOptionNodeInvalidOptionAssignment4()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/RegexNodeTests.cs/#L359"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+[ExpectedException(typeof(ArgumentException))]
+public void TestInlineOptionNodeInvalidOptionAssignment4()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_RegexNodeTests_TestInlineOptionNodeInvalidOptionAssignment5_" data-uid="RegexBuilder.Tests.RegexNodeTests.TestInlineOptionNodeInvalidOptionAssignment5*"></a>
+
+  <h3 id="RegexBuilder_Tests_RegexNodeTests_TestInlineOptionNodeInvalidOptionAssignment5" data-uid="RegexBuilder.Tests.RegexNodeTests.TestInlineOptionNodeInvalidOptionAssignment5">
+  TestInlineOptionNodeInvalidOptionAssignment5()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/RegexNodeTests.cs/#L367"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+[ExpectedException(typeof(ArgumentException))]
+public void TestInlineOptionNodeInvalidOptionAssignment5()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_RegexNodeTests_TestInlineOptionNodeNullExpressionAssignment_" data-uid="RegexBuilder.Tests.RegexNodeTests.TestInlineOptionNodeNullExpressionAssignment*"></a>
+
+  <h3 id="RegexBuilder_Tests_RegexNodeTests_TestInlineOptionNodeNullExpressionAssignment" data-uid="RegexBuilder.Tests.RegexNodeTests.TestInlineOptionNodeNullExpressionAssignment">
+  TestInlineOptionNodeNullExpressionAssignment()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/RegexNodeTests.cs/#L327"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+[ExpectedException(typeof(ArgumentNullException))]
+public void TestInlineOptionNodeNullExpressionAssignment()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_RegexNodeTests_TestInlineOptionNodeQuantifierAssignment_" data-uid="RegexBuilder.Tests.RegexNodeTests.TestInlineOptionNodeQuantifierAssignment*"></a>
+
+  <h3 id="RegexBuilder_Tests_RegexNodeTests_TestInlineOptionNodeQuantifierAssignment" data-uid="RegexBuilder.Tests.RegexNodeTests.TestInlineOptionNodeQuantifierAssignment">
+  TestInlineOptionNodeQuantifierAssignment()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/RegexNodeTests.cs/#L318"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+[ExpectedException(typeof(InvalidOperationException))]
+public void TestInlineOptionNodeQuantifierAssignment()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_RegexNodeTests_TestLookAroundNodeNullAssignment1_" data-uid="RegexBuilder.Tests.RegexNodeTests.TestLookAroundNodeNullAssignment1*"></a>
+
+  <h3 id="RegexBuilder_Tests_RegexNodeTests_TestLookAroundNodeNullAssignment1" data-uid="RegexBuilder.Tests.RegexNodeTests.TestLookAroundNodeNullAssignment1">
+  TestLookAroundNodeNullAssignment1()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/RegexNodeTests.cs/#L292"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+[ExpectedException(typeof(ArgumentNullException))]
+public void TestLookAroundNodeNullAssignment1()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_RegexNodeTests_TestLookAroundNodeNullAssignment2_" data-uid="RegexBuilder.Tests.RegexNodeTests.TestLookAroundNodeNullAssignment2*"></a>
+
+  <h3 id="RegexBuilder_Tests_RegexNodeTests_TestLookAroundNodeNullAssignment2" data-uid="RegexBuilder.Tests.RegexNodeTests.TestLookAroundNodeNullAssignment2">
+  TestLookAroundNodeNullAssignment2()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/RegexNodeTests.cs/#L300"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+[ExpectedException(typeof(ArgumentNullException))]
+public void TestLookAroundNodeNullAssignment2()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_RegexNodeTests_TestLookAroundNodeNullAssignment3_" data-uid="RegexBuilder.Tests.RegexNodeTests.TestLookAroundNodeNullAssignment3*"></a>
+
+  <h3 id="RegexBuilder_Tests_RegexNodeTests_TestLookAroundNodeNullAssignment3" data-uid="RegexBuilder.Tests.RegexNodeTests.TestLookAroundNodeNullAssignment3">
+  TestLookAroundNodeNullAssignment3()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/RegexNodeTests.cs/#L309"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+[ExpectedException(typeof(ArgumentNullException))]
+public void TestLookAroundNodeNullAssignment3()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_RegexNodeTests_TestQuantifierSetterForNodesWithQuantifierAllowed_" data-uid="RegexBuilder.Tests.RegexNodeTests.TestQuantifierSetterForNodesWithQuantifierAllowed*"></a>
+
+  <h3 id="RegexBuilder_Tests_RegexNodeTests_TestQuantifierSetterForNodesWithQuantifierAllowed" data-uid="RegexBuilder.Tests.RegexNodeTests.TestQuantifierSetterForNodesWithQuantifierAllowed">
+  TestQuantifierSetterForNodesWithQuantifierAllowed()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/RegexNodeTests.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void TestQuantifierSetterForNodesWithQuantifierAllowed()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_RegexNodeTests_TestQuantifierSetterForNodesWithQuantifierNotAllowed_" data-uid="RegexBuilder.Tests.RegexNodeTests.TestQuantifierSetterForNodesWithQuantifierNotAllowed*"></a>
+
+  <h3 id="RegexBuilder_Tests_RegexNodeTests_TestQuantifierSetterForNodesWithQuantifierNotAllowed" data-uid="RegexBuilder.Tests.RegexNodeTests.TestQuantifierSetterForNodesWithQuantifierNotAllowed">
+  TestQuantifierSetterForNodesWithQuantifierNotAllowed()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/RegexNodeTests.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+[ExpectedException(typeof(InvalidOperationException))]
+public void TestQuantifierSetterForNodesWithQuantifierNotAllowed()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_RegexNodeTests_TestRegexNodeAdditionOperator1_" data-uid="RegexBuilder.Tests.RegexNodeTests.TestRegexNodeAdditionOperator1*"></a>
+
+  <h3 id="RegexBuilder_Tests_RegexNodeTests_TestRegexNodeAdditionOperator1" data-uid="RegexBuilder.Tests.RegexNodeTests.TestRegexNodeAdditionOperator1">
+  TestRegexNodeAdditionOperator1()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/RegexNodeTests.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void TestRegexNodeAdditionOperator1()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_RegexNodeTests_TestRegexNodeAdditionOperator2_" data-uid="RegexBuilder.Tests.RegexNodeTests.TestRegexNodeAdditionOperator2*"></a>
+
+  <h3 id="RegexBuilder_Tests_RegexNodeTests_TestRegexNodeAdditionOperator2" data-uid="RegexBuilder.Tests.RegexNodeTests.TestRegexNodeAdditionOperator2">
+  TestRegexNodeAdditionOperator2()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/RegexNodeTests.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void TestRegexNodeAdditionOperator2()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_RegexNodeTests_TestRegexNodeAdditionOperator3_" data-uid="RegexBuilder.Tests.RegexNodeTests.TestRegexNodeAdditionOperator3*"></a>
+
+  <h3 id="RegexBuilder_Tests_RegexNodeTests_TestRegexNodeAdditionOperator3" data-uid="RegexBuilder.Tests.RegexNodeTests.TestRegexNodeAdditionOperator3">
+  TestRegexNodeAdditionOperator3()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/RegexNodeTests.cs/#L57"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void TestRegexNodeAdditionOperator3()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_RegexNodeTests_TestRegexNodeAdditionOperator4_" data-uid="RegexBuilder.Tests.RegexNodeTests.TestRegexNodeAdditionOperator4*"></a>
+
+  <h3 id="RegexBuilder_Tests_RegexNodeTests_TestRegexNodeAdditionOperator4" data-uid="RegexBuilder.Tests.RegexNodeTests.TestRegexNodeAdditionOperator4">
+  TestRegexNodeAdditionOperator4()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/RegexNodeTests.cs/#L74"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void TestRegexNodeAdditionOperator4()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_RegexNodeTests_TestRegexNodeAdditionOperator5_" data-uid="RegexBuilder.Tests.RegexNodeTests.TestRegexNodeAdditionOperator5*"></a>
+
+  <h3 id="RegexBuilder_Tests_RegexNodeTests_TestRegexNodeAdditionOperator5" data-uid="RegexBuilder.Tests.RegexNodeTests.TestRegexNodeAdditionOperator5">
+  TestRegexNodeAdditionOperator5()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/RegexNodeTests.cs/#L96"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+[ExpectedException(typeof(ArgumentException))]
+public void TestRegexNodeAdditionOperator5()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_RegexNodeTests_TestRegexNodeAdditionOperator6_" data-uid="RegexBuilder.Tests.RegexNodeTests.TestRegexNodeAdditionOperator6*"></a>
+
+  <h3 id="RegexBuilder_Tests_RegexNodeTests_TestRegexNodeAdditionOperator6" data-uid="RegexBuilder.Tests.RegexNodeTests.TestRegexNodeAdditionOperator6">
+  TestRegexNodeAdditionOperator6()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/RegexNodeTests.cs/#L105"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+[ExpectedException(typeof(ArgumentException))]
+public void TestRegexNodeAdditionOperator6()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_RegexNodeTests_TestRegexNodeAdditionOperator7_" data-uid="RegexBuilder.Tests.RegexNodeTests.TestRegexNodeAdditionOperator7*"></a>
+
+  <h3 id="RegexBuilder_Tests_RegexNodeTests_TestRegexNodeAdditionOperator7" data-uid="RegexBuilder.Tests.RegexNodeTests.TestRegexNodeAdditionOperator7">
+  TestRegexNodeAdditionOperator7()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/RegexNodeTests.cs/#L114"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+[ExpectedException(typeof(ArgumentException))]
+public void TestRegexNodeAdditionOperator7()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/RegexNodeTests.cs/#L8" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

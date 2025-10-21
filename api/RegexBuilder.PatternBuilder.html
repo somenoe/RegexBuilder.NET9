@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class PatternBuilder | RegexBuilder.NET9 - Fluent Regex Builder </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class PatternBuilder | RegexBuilder.NET9 - Fluent Regex Builder ">
+      
+      <meta name="description" content="Provides a fluent API for building complex regex patterns with method chaining.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/somenoe/RegexBuilder.NET9/new/master/apiSpec/new?filename=RegexBuilder_PatternBuilder.md&amp;value=---%0Auid%3A%20RegexBuilder.PatternBuilder%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="RegexBuilder">
+            RegexBuilder
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="RegexBuilder.PatternBuilder">
+
+
+
+  <h1 id="RegexBuilder_PatternBuilder" data-uid="RegexBuilder.PatternBuilder" class="text-break">
+Class PatternBuilder  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/PatternBuilder.cs/#L10"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="RegexBuilder.html">RegexBuilder</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>RegexBuilder.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Provides a fluent API for building complex regex patterns with method chaining.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class PatternBuilder</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">PatternBuilder</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="RegexBuilder_PatternBuilder__ctor_" data-uid="RegexBuilder.PatternBuilder.#ctor*"></a>
+
+  <h3 id="RegexBuilder_PatternBuilder__ctor" data-uid="RegexBuilder.PatternBuilder.#ctor">
+  PatternBuilder()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/PatternBuilder.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="RegexBuilder.PatternBuilder.html">PatternBuilder</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PatternBuilder()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="RegexBuilder_PatternBuilder_AnyCharacter_" data-uid="RegexBuilder.PatternBuilder.AnyCharacter*"></a>
+
+  <h3 id="RegexBuilder_PatternBuilder_AnyCharacter_System_Nullable_System_Int32__System_Nullable_System_Int32__" data-uid="RegexBuilder.PatternBuilder.AnyCharacter(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+  AnyCharacter(int?, int?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/PatternBuilder.cs/#L137"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds any character pattern (.) with optional quantifiers.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PatternBuilder AnyCharacter(int? min = null, int? max = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>min</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd><p>Minimum number of any characters (null for exactly one).</p>
+</dd>
+    <dt><code>max</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd><p>Maximum number of any characters (null for exactly min, or unbounded if min is set).</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.PatternBuilder.html">PatternBuilder</a></dt>
+    <dd><p>The current PatternBuilder instance for method chaining.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_PatternBuilder_Build_" data-uid="RegexBuilder.PatternBuilder.Build*"></a>
+
+  <h3 id="RegexBuilder_PatternBuilder_Build" data-uid="RegexBuilder.PatternBuilder.Build">
+  Build()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/PatternBuilder.cs/#L335"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Builds and returns the final RegexNode representing the complete pattern.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RegexNode Build()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
+    <dd><p>A RegexNode representing the built pattern, or null if no pattern was defined.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_PatternBuilder_CharacterSet_" data-uid="RegexBuilder.PatternBuilder.CharacterSet*"></a>
+
+  <h3 id="RegexBuilder_PatternBuilder_CharacterSet_System_String_System_Nullable_System_Int32__System_Nullable_System_Int32__" data-uid="RegexBuilder.PatternBuilder.CharacterSet(System.String,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+  CharacterSet(string, int?, int?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/PatternBuilder.cs/#L152"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a character set pattern with optional quantifiers.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PatternBuilder CharacterSet(string characterSet, int? min = null, int? max = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>characterSet</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The character set definition (e.g., &quot;0-9a-f&quot; for hex digits).</p>
+</dd>
+    <dt><code>min</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd><p>Minimum occurrences (null for exactly one).</p>
+</dd>
+    <dt><code>max</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd><p>Maximum occurrences (null for exactly min, or unbounded if min is set).</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.PatternBuilder.html">PatternBuilder</a></dt>
+    <dd><p>The current PatternBuilder instance for method chaining.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_PatternBuilder_Digits_" data-uid="RegexBuilder.PatternBuilder.Digits*"></a>
+
+  <h3 id="RegexBuilder_PatternBuilder_Digits_System_Nullable_System_Int32__System_Nullable_System_Int32__" data-uid="RegexBuilder.PatternBuilder.Digits(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+  Digits(int?, int?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/PatternBuilder.cs/#L81"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a digit pattern (\d) with optional quantifiers.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PatternBuilder Digits(int? min = null, int? max = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>min</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd><p>Minimum number of digits (null for exactly one).</p>
+</dd>
+    <dt><code>max</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd><p>Maximum number of digits (null for exactly min, or unbounded if min is set).</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.PatternBuilder.html">PatternBuilder</a></dt>
+    <dd><p>The current PatternBuilder instance for method chaining.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_PatternBuilder_Email_" data-uid="RegexBuilder.PatternBuilder.Email*"></a>
+
+  <h3 id="RegexBuilder_PatternBuilder_Email" data-uid="RegexBuilder.PatternBuilder.Email">
+  Email()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/PatternBuilder.cs/#L315"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds the common email pattern to the builder.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PatternBuilder Email()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.PatternBuilder.html">PatternBuilder</a></dt>
+    <dd><p>The current PatternBuilder instance for method chaining.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_PatternBuilder_End_" data-uid="RegexBuilder.PatternBuilder.End*"></a>
+
+  <h3 id="RegexBuilder_PatternBuilder_End" data-uid="RegexBuilder.PatternBuilder.End">
+  End()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/PatternBuilder.cs/#L49"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds an end-of-line anchor ($) to the pattern.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PatternBuilder End()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.PatternBuilder.html">PatternBuilder</a></dt>
+    <dd><p>The current PatternBuilder instance for method chaining.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_PatternBuilder_Group_" data-uid="RegexBuilder.PatternBuilder.Group*"></a>
+
+  <h3 id="RegexBuilder_PatternBuilder_Group_System_Action_RegexBuilder_PatternBuilder__" data-uid="RegexBuilder.PatternBuilder.Group(System.Action{RegexBuilder.PatternBuilder})">
+  Group(Action&lt;PatternBuilder&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/PatternBuilder.cs/#L184"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a capturing group to the pattern using a builder action.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PatternBuilder Group(Action&lt;PatternBuilder&gt; builderAction)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>builderAction</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="RegexBuilder.PatternBuilder.html">PatternBuilder</a>&gt;</dt>
+    <dd><p>Action that defines the group's content.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.PatternBuilder.html">PatternBuilder</a></dt>
+    <dd><p>The current PatternBuilder instance for method chaining.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_PatternBuilder_Letters_" data-uid="RegexBuilder.PatternBuilder.Letters*"></a>
+
+  <h3 id="RegexBuilder_PatternBuilder_Letters_System_Nullable_System_Int32__System_Nullable_System_Int32__" data-uid="RegexBuilder.PatternBuilder.Letters(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+  Letters(int?, int?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/PatternBuilder.cs/#L95"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a letter pattern ([a-zA-Z]) with optional quantifiers.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PatternBuilder Letters(int? min = null, int? max = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>min</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd><p>Minimum number of letters (null for exactly one).</p>
+</dd>
+    <dt><code>max</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd><p>Maximum number of letters (null for exactly min, or unbounded if min is set).</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.PatternBuilder.html">PatternBuilder</a></dt>
+    <dd><p>The current PatternBuilder instance for method chaining.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_PatternBuilder_Literal_" data-uid="RegexBuilder.PatternBuilder.Literal*"></a>
+
+  <h3 id="RegexBuilder_PatternBuilder_Literal_System_String_" data-uid="RegexBuilder.PatternBuilder.Literal(System.String)">
+  Literal(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/PatternBuilder.cs/#L65"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a literal string to the pattern.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PatternBuilder Literal(string text)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>text</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The literal text to match.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.PatternBuilder.html">PatternBuilder</a></dt>
+    <dd><p>The current PatternBuilder instance for method chaining.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_PatternBuilder_NonCapturingGroup_" data-uid="RegexBuilder.PatternBuilder.NonCapturingGroup*"></a>
+
+  <h3 id="RegexBuilder_PatternBuilder_NonCapturingGroup_System_Action_RegexBuilder_PatternBuilder__" data-uid="RegexBuilder.PatternBuilder.NonCapturingGroup(System.Action{RegexBuilder.PatternBuilder})">
+  NonCapturingGroup(Action&lt;PatternBuilder&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/PatternBuilder.cs/#L208"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a non-capturing group to the pattern using a builder action.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PatternBuilder NonCapturingGroup(Action&lt;PatternBuilder&gt; builderAction)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>builderAction</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="RegexBuilder.PatternBuilder.html">PatternBuilder</a>&gt;</dt>
+    <dd><p>Action that defines the group's content.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.PatternBuilder.html">PatternBuilder</a></dt>
+    <dd><p>The current PatternBuilder instance for method chaining.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_PatternBuilder_Optional_" data-uid="RegexBuilder.PatternBuilder.Optional*"></a>
+
+  <h3 id="RegexBuilder_PatternBuilder_Optional_System_Action_RegexBuilder_PatternBuilder__" data-uid="RegexBuilder.PatternBuilder.Optional(System.Action{RegexBuilder.PatternBuilder})">
+  Optional(Action&lt;PatternBuilder&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/PatternBuilder.cs/#L232"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Makes the previous pattern optional (adds ? quantifier).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PatternBuilder Optional(Action&lt;PatternBuilder&gt; builderAction)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>builderAction</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="RegexBuilder.PatternBuilder.html">PatternBuilder</a>&gt;</dt>
+    <dd><p>Action that defines the optional content.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.PatternBuilder.html">PatternBuilder</a></dt>
+    <dd><p>The current PatternBuilder instance for method chaining.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_PatternBuilder_Or_" data-uid="RegexBuilder.PatternBuilder.Or*"></a>
+
+  <h3 id="RegexBuilder_PatternBuilder_Or_RegexBuilder_RegexNode_" data-uid="RegexBuilder.PatternBuilder.Or(RegexBuilder.RegexNode)">
+  Or(RegexNode)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/PatternBuilder.cs/#L292"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds an alternation (OR) pattern using an existing RegexNode.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PatternBuilder Or(RegexNode node)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>node</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
+    <dd><p>The alternative pattern node.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.PatternBuilder.html">PatternBuilder</a></dt>
+    <dd><p>The current PatternBuilder instance for method chaining.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_PatternBuilder_Or_" data-uid="RegexBuilder.PatternBuilder.Or*"></a>
+
+  <h3 id="RegexBuilder_PatternBuilder_Or_System_Action_RegexBuilder_PatternBuilder__" data-uid="RegexBuilder.PatternBuilder.Or(System.Action{RegexBuilder.PatternBuilder})">
+  Or(Action&lt;PatternBuilder&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/PatternBuilder.cs/#L259"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds an alternation (OR) pattern using a builder action.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PatternBuilder Or(Action&lt;PatternBuilder&gt; builderAction)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>builderAction</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="RegexBuilder.PatternBuilder.html">PatternBuilder</a>&gt;</dt>
+    <dd><p>Action that defines the alternative branch.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.PatternBuilder.html">PatternBuilder</a></dt>
+    <dd><p>The current PatternBuilder instance for method chaining.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_PatternBuilder_Pattern_" data-uid="RegexBuilder.PatternBuilder.Pattern*"></a>
+
+  <h3 id="RegexBuilder_PatternBuilder_Pattern_RegexBuilder_RegexNode_" data-uid="RegexBuilder.PatternBuilder.Pattern(RegexBuilder.RegexNode)">
+  Pattern(RegexNode)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/PatternBuilder.cs/#L169"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds an existing RegexNode to the pattern.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PatternBuilder Pattern(RegexNode node)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>node</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
+    <dd><p>The RegexNode to add.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.PatternBuilder.html">PatternBuilder</a></dt>
+    <dd><p>The current PatternBuilder instance for method chaining.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_PatternBuilder_Start_" data-uid="RegexBuilder.PatternBuilder.Start*"></a>
+
+  <h3 id="RegexBuilder_PatternBuilder_Start" data-uid="RegexBuilder.PatternBuilder.Start">
+  Start()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/PatternBuilder.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a start-of-line anchor (^) to the pattern.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PatternBuilder Start()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.PatternBuilder.html">PatternBuilder</a></dt>
+    <dd><p>The current PatternBuilder instance for method chaining.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_PatternBuilder_Url_" data-uid="RegexBuilder.PatternBuilder.Url*"></a>
+
+  <h3 id="RegexBuilder_PatternBuilder_Url" data-uid="RegexBuilder.PatternBuilder.Url">
+  Url()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/PatternBuilder.cs/#L325"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds the common URL pattern to the builder.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PatternBuilder Url()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.PatternBuilder.html">PatternBuilder</a></dt>
+    <dd><p>The current PatternBuilder instance for method chaining.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_PatternBuilder_Whitespace_" data-uid="RegexBuilder.PatternBuilder.Whitespace*"></a>
+
+  <h3 id="RegexBuilder_PatternBuilder_Whitespace_System_Nullable_System_Int32__System_Nullable_System_Int32__" data-uid="RegexBuilder.PatternBuilder.Whitespace(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+  Whitespace(int?, int?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/PatternBuilder.cs/#L109"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a whitespace pattern (\s) with optional quantifiers.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PatternBuilder Whitespace(int? min = null, int? max = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>min</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd><p>Minimum number of whitespace characters (null for exactly one).</p>
+</dd>
+    <dt><code>max</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd><p>Maximum number of whitespace characters (null for exactly min, or unbounded if min is set).</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.PatternBuilder.html">PatternBuilder</a></dt>
+    <dd><p>The current PatternBuilder instance for method chaining.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_PatternBuilder_WordCharacter_" data-uid="RegexBuilder.PatternBuilder.WordCharacter*"></a>
+
+  <h3 id="RegexBuilder_PatternBuilder_WordCharacter_System_Nullable_System_Int32__System_Nullable_System_Int32__" data-uid="RegexBuilder.PatternBuilder.WordCharacter(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+  WordCharacter(int?, int?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/PatternBuilder.cs/#L123"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a word character pattern (\w) with optional quantifiers.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PatternBuilder WordCharacter(int? min = null, int? max = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>min</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd><p>Minimum number of word characters (null for exactly one).</p>
+</dd>
+    <dt><code>max</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd><p>Maximum number of word characters (null for exactly min, or unbounded if min is set).</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.PatternBuilder.html">PatternBuilder</a></dt>
+    <dd><p>The current PatternBuilder instance for method chaining.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/PatternBuilder.cs/#L10" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

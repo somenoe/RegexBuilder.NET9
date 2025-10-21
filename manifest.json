@@ -1,0 +1,704 @@
+{
+  "source_base_path": "/home/runner/work/RegexBuilder.NET9/RegexBuilder.NET9/docs",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      }
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RegexBuilder.CommonPatterns.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RegexBuilder.CommonPatterns.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RegexBuilder.CommonPatterns",
+      "Summary": "<p sourcefile=\"api/RegexBuilder.CommonPatterns.yml\" sourcestartlinenumber=\"1\">Provides factory methods for commonly used regex patterns.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RegexBuilder.ExtensionMethods.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RegexBuilder.ExtensionMethods.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RegexBuilder.ExtensionMethods",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RegexBuilder.PatternBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RegexBuilder.PatternBuilder.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RegexBuilder.PatternBuilder",
+      "Summary": "<p sourcefile=\"api/RegexBuilder.PatternBuilder.yml\" sourcestartlinenumber=\"1\">Provides a fluent API for building complex regex patterns with method chaining.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RegexBuilder.RegexBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RegexBuilder.RegexBuilder.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RegexBuilder.RegexBuilder",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RegexBuilder.RegexLookAround.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RegexBuilder.RegexLookAround.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RegexBuilder.RegexLookAround",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RegexBuilder.RegexMetaChars.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RegexBuilder.RegexMetaChars.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RegexBuilder.RegexMetaChars",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RegexBuilder.RegexNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RegexBuilder.RegexNode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RegexBuilder.RegexNode",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RegexBuilder.RegexNodeAlternation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RegexBuilder.RegexNodeAlternation.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RegexBuilder.RegexNodeAlternation",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RegexBuilder.RegexNodeBacktrackingSuppression.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RegexBuilder.RegexNodeBacktrackingSuppression.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RegexBuilder.RegexNodeBacktrackingSuppression",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RegexBuilder.RegexNodeBalancingGroup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RegexBuilder.RegexNodeBalancingGroup.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RegexBuilder.RegexNodeBalancingGroup",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RegexBuilder.RegexNodeCharacterRange.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RegexBuilder.RegexNodeCharacterRange.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RegexBuilder.RegexNodeCharacterRange",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RegexBuilder.RegexNodeCharacterSet.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RegexBuilder.RegexNodeCharacterSet.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RegexBuilder.RegexNodeCharacterSet",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RegexBuilder.RegexNodeComment.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RegexBuilder.RegexNodeComment.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RegexBuilder.RegexNodeComment",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RegexBuilder.RegexNodeConcatenation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RegexBuilder.RegexNodeConcatenation.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RegexBuilder.RegexNodeConcatenation",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RegexBuilder.RegexNodeConditionalMatch.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RegexBuilder.RegexNodeConditionalMatch.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RegexBuilder.RegexNodeConditionalMatch",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RegexBuilder.RegexNodeEscapingLiteral.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RegexBuilder.RegexNodeEscapingLiteral.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RegexBuilder.RegexNodeEscapingLiteral",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RegexBuilder.RegexNodeGroup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RegexBuilder.RegexNodeGroup.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RegexBuilder.RegexNodeGroup",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RegexBuilder.RegexNodeGroupReference.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RegexBuilder.RegexNodeGroupReference.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RegexBuilder.RegexNodeGroupReference",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RegexBuilder.RegexNodeInlineOption.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RegexBuilder.RegexNodeInlineOption.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RegexBuilder.RegexNodeInlineOption",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RegexBuilder.RegexNodeInlineOptionGrouping.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RegexBuilder.RegexNodeInlineOptionGrouping.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RegexBuilder.RegexNodeInlineOptionGrouping",
+      "Summary": "<p sourcefile=\"api/RegexBuilder.RegexNodeInlineOptionGrouping.yml\" sourcestartlinenumber=\"1\">Represents an inline option grouping node with support for enabling and disabling options.\nGenerates patterns like (?i:expr), (?im:expr), or (?i-m:expr).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RegexBuilder.RegexNodeLiteral.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RegexBuilder.RegexNodeLiteral.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RegexBuilder.RegexNodeLiteral",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RegexBuilder.RegexNodeLookAround.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RegexBuilder.RegexNodeLookAround.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RegexBuilder.RegexNodeLookAround",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RegexBuilder.RegexNodeUnicodeCategory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RegexBuilder.RegexNodeUnicodeCategory.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RegexBuilder.RegexNodeUnicodeCategory",
+      "Summary": "<p sourcefile=\"api/RegexBuilder.RegexNodeUnicodeCategory.yml\" sourcestartlinenumber=\"1\">Represents a Unicode category escape sequence in a regular expression.\nEnables matching of Unicode letters, numbers, and other character categories.\nSupports both positive matching (\\p{name}) and negative matching (\\P{name}).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RegexBuilder.RegexQuantifier.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RegexBuilder.RegexQuantifier.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RegexBuilder.RegexQuantifier",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RegexBuilder.RegexStringEscaper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RegexBuilder.RegexStringEscaper.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RegexBuilder.RegexStringEscaper",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RegexBuilder.SubstitutionBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RegexBuilder.SubstitutionBuilder.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RegexBuilder.SubstitutionBuilder",
+      "Summary": "<p sourcefile=\"api/RegexBuilder.SubstitutionBuilder.yml\" sourcestartlinenumber=\"1\">Factory class for creating substitution/replacement pattern nodes.\nUse these methods to build replacement patterns for Regex.Replace() operations.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RegexBuilder.SubstitutionConcatenation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RegexBuilder.SubstitutionConcatenation.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RegexBuilder.SubstitutionConcatenation",
+      "Summary": "<p sourcefile=\"api/RegexBuilder.SubstitutionConcatenation.yml\" sourcestartlinenumber=\"1\">Represents a concatenation of multiple substitution nodes.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RegexBuilder.SubstitutionGroupReference.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RegexBuilder.SubstitutionGroupReference.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RegexBuilder.SubstitutionGroupReference",
+      "Summary": "<p sourcefile=\"api/RegexBuilder.SubstitutionGroupReference.yml\" sourcestartlinenumber=\"1\">Represents a substitution that references a captured group by number or name.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RegexBuilder.SubstitutionLiteral.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RegexBuilder.SubstitutionLiteral.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RegexBuilder.SubstitutionLiteral",
+      "Summary": "<p sourcefile=\"api/RegexBuilder.SubstitutionLiteral.yml\" sourcestartlinenumber=\"1\">Represents a literal text substitution node. Dollar signs ($) are automatically escaped.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RegexBuilder.SubstitutionNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RegexBuilder.SubstitutionNode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RegexBuilder.SubstitutionNode",
+      "Summary": "<p sourcefile=\"api/RegexBuilder.SubstitutionNode.yml\" sourcestartlinenumber=\"1\">Represents a substitution/replacement pattern node that can be used in regex replacement operations.\nThis is the base class for all substitution pattern nodes.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RegexBuilder.SubstitutionSpecialReference.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RegexBuilder.SubstitutionSpecialReference.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RegexBuilder.SubstitutionSpecialReference",
+      "Summary": "<p sourcefile=\"api/RegexBuilder.SubstitutionSpecialReference.yml\" sourcestartlinenumber=\"1\">Represents a special substitution reference (like $&amp;, $`, $', $+, $_, $$).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RegexBuilder.SubstitutionType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RegexBuilder.SubstitutionType.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RegexBuilder.SubstitutionType",
+      "Summary": "<p sourcefile=\"api/RegexBuilder.SubstitutionType.yml\" sourcestartlinenumber=\"1\">Defines the types of special substitution references.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RegexBuilder.Tests.CommonPatternsTests.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RegexBuilder.Tests.CommonPatternsTests.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RegexBuilder.Tests.CommonPatternsTests",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RegexBuilder.Tests.CustomRegexTests.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RegexBuilder.Tests.CustomRegexTests.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RegexBuilder.Tests.CustomRegexTests",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RegexBuilder.Tests.ExtensionMethodTests.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RegexBuilder.Tests.ExtensionMethodTests.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RegexBuilder.Tests.ExtensionMethodTests",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RegexBuilder.Tests.PatternBuilderTests.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RegexBuilder.Tests.PatternBuilderTests.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RegexBuilder.Tests.PatternBuilderTests",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RegexBuilder.Tests.RegexBuilderTests.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RegexBuilder.Tests.RegexBuilderTests.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RegexBuilder.Tests.RegexBuilderTests",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RegexBuilder.Tests.RegexNodeRenderingTests.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RegexBuilder.Tests.RegexNodeRenderingTests.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RegexBuilder.Tests.RegexNodeRenderingTests",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RegexBuilder.Tests.RegexNodeTests.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RegexBuilder.Tests.RegexNodeTests.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RegexBuilder.Tests.RegexNodeTests",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RegexBuilder.Tests.RegexQuantifierRenderingTests.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RegexBuilder.Tests.RegexQuantifierRenderingTests.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RegexBuilder.Tests.RegexQuantifierRenderingTests",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RegexBuilder.Tests.RegexQuantifierTests.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RegexBuilder.Tests.RegexQuantifierTests.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RegexBuilder.Tests.RegexQuantifierTests",
+      "Summary": "<p sourcefile=\"api/RegexBuilder.Tests.RegexQuantifierTests.yml\" sourcestartlinenumber=\"1\">Summary description for UnitTest1</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RegexBuilder.Tests.SubstitutionBuilderTests.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RegexBuilder.Tests.SubstitutionBuilderTests.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RegexBuilder.Tests.SubstitutionBuilderTests",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RegexBuilder.Tests.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RegexBuilder.Tests.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RegexBuilder.Tests",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RegexBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RegexBuilder.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RegexBuilder",
+      "Summary": null
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/getting-started.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/getting-started.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/introduction.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/introduction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "docs/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "docs/toc.html"
+        },
+        ".json": {
+          "relative_path": "docs/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

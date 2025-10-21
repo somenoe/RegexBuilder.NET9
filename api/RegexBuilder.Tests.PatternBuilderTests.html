@@ -1,0 +1,1408 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class PatternBuilderTests | RegexBuilder.NET9 - Fluent Regex Builder </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class PatternBuilderTests | RegexBuilder.NET9 - Fluent Regex Builder ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/somenoe/RegexBuilder.NET9/new/master/apiSpec/new?filename=RegexBuilder_Tests_PatternBuilderTests.md&amp;value=---%0Auid%3A%20RegexBuilder.Tests.PatternBuilderTests%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="RegexBuilder">
+            RegexBuilder
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="RegexBuilder.Tests.PatternBuilderTests">
+
+
+
+  <h1 id="RegexBuilder_Tests_PatternBuilderTests" data-uid="RegexBuilder.Tests.PatternBuilderTests" class="text-break">
+Class PatternBuilderTests  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/PatternBuilderTests.cs/#L8"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="RegexBuilder.html">RegexBuilder</a>.<a class="xref" href="RegexBuilder.Tests.html">Tests</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>RegexBuilder.Tests.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestClass]
+public class PatternBuilderTests</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">PatternBuilderTests</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="RegexBuilder_Tests_PatternBuilderTests_AnyCharacter_WithQuantifier_MatchesAnyCharacter_" data-uid="RegexBuilder.Tests.PatternBuilderTests.AnyCharacter_WithQuantifier_MatchesAnyCharacter*"></a>
+
+  <h3 id="RegexBuilder_Tests_PatternBuilderTests_AnyCharacter_WithQuantifier_MatchesAnyCharacter" data-uid="RegexBuilder.Tests.PatternBuilderTests.AnyCharacter_WithQuantifier_MatchesAnyCharacter">
+  AnyCharacter_WithQuantifier_MatchesAnyCharacter()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/PatternBuilderTests.cs/#L205"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void AnyCharacter_WithQuantifier_MatchesAnyCharacter()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_PatternBuilderTests_ApplyQuantifier_WithMaxLessThanMin_ThrowsException_" data-uid="RegexBuilder.Tests.PatternBuilderTests.ApplyQuantifier_WithMaxLessThanMin_ThrowsException*"></a>
+
+  <h3 id="RegexBuilder_Tests_PatternBuilderTests_ApplyQuantifier_WithMaxLessThanMin_ThrowsException" data-uid="RegexBuilder.Tests.PatternBuilderTests.ApplyQuantifier_WithMaxLessThanMin_ThrowsException">
+  ApplyQuantifier_WithMaxLessThanMin_ThrowsException()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/PatternBuilderTests.cs/#L579"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+[ExpectedException(typeof(ArgumentException))]
+public void ApplyQuantifier_WithMaxLessThanMin_ThrowsException()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_PatternBuilderTests_ApplyQuantifier_WithNegativeMax_ThrowsException_" data-uid="RegexBuilder.Tests.PatternBuilderTests.ApplyQuantifier_WithNegativeMax_ThrowsException*"></a>
+
+  <h3 id="RegexBuilder_Tests_PatternBuilderTests_ApplyQuantifier_WithNegativeMax_ThrowsException" data-uid="RegexBuilder.Tests.PatternBuilderTests.ApplyQuantifier_WithNegativeMax_ThrowsException">
+  ApplyQuantifier_WithNegativeMax_ThrowsException()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/PatternBuilderTests.cs/#L572"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+[ExpectedException(typeof(ArgumentException))]
+public void ApplyQuantifier_WithNegativeMax_ThrowsException()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_PatternBuilderTests_ApplyQuantifier_WithNegativeMin_ThrowsException_" data-uid="RegexBuilder.Tests.PatternBuilderTests.ApplyQuantifier_WithNegativeMin_ThrowsException*"></a>
+
+  <h3 id="RegexBuilder_Tests_PatternBuilderTests_ApplyQuantifier_WithNegativeMin_ThrowsException" data-uid="RegexBuilder.Tests.PatternBuilderTests.ApplyQuantifier_WithNegativeMin_ThrowsException">
+  ApplyQuantifier_WithNegativeMin_ThrowsException()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/PatternBuilderTests.cs/#L565"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+[ExpectedException(typeof(ArgumentException))]
+public void ApplyQuantifier_WithNegativeMin_ThrowsException()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_PatternBuilderTests_Build_EmptyBuilder_ReturnsNull_" data-uid="RegexBuilder.Tests.PatternBuilderTests.Build_EmptyBuilder_ReturnsNull*"></a>
+
+  <h3 id="RegexBuilder_Tests_PatternBuilderTests_Build_EmptyBuilder_ReturnsNull" data-uid="RegexBuilder.Tests.PatternBuilderTests.Build_EmptyBuilder_ReturnsNull">
+  Build_EmptyBuilder_ReturnsNull()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/PatternBuilderTests.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void Build_EmptyBuilder_ReturnsNull()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_PatternBuilderTests_CharacterSet_WithEmptyString_ThrowsException_" data-uid="RegexBuilder.Tests.PatternBuilderTests.CharacterSet_WithEmptyString_ThrowsException*"></a>
+
+  <h3 id="RegexBuilder_Tests_PatternBuilderTests_CharacterSet_WithEmptyString_ThrowsException" data-uid="RegexBuilder.Tests.PatternBuilderTests.CharacterSet_WithEmptyString_ThrowsException">
+  CharacterSet_WithEmptyString_ThrowsException()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/PatternBuilderTests.cs/#L537"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+[ExpectedException(typeof(ArgumentException))]
+public void CharacterSet_WithEmptyString_ThrowsException()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_PatternBuilderTests_CharacterSet_WithNullString_ThrowsException_" data-uid="RegexBuilder.Tests.PatternBuilderTests.CharacterSet_WithNullString_ThrowsException*"></a>
+
+  <h3 id="RegexBuilder_Tests_PatternBuilderTests_CharacterSet_WithNullString_ThrowsException" data-uid="RegexBuilder.Tests.PatternBuilderTests.CharacterSet_WithNullString_ThrowsException">
+  CharacterSet_WithNullString_ThrowsException()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/PatternBuilderTests.cs/#L530"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+[ExpectedException(typeof(ArgumentException))]
+public void CharacterSet_WithNullString_ThrowsException()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_PatternBuilderTests_CharacterSet_WithQuantifier_MatchesCustomCharacterSet_" data-uid="RegexBuilder.Tests.PatternBuilderTests.CharacterSet_WithQuantifier_MatchesCustomCharacterSet*"></a>
+
+  <h3 id="RegexBuilder_Tests_PatternBuilderTests_CharacterSet_WithQuantifier_MatchesCustomCharacterSet" data-uid="RegexBuilder.Tests.PatternBuilderTests.CharacterSet_WithQuantifier_MatchesCustomCharacterSet">
+  CharacterSet_WithQuantifier_MatchesCustomCharacterSet()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/PatternBuilderTests.cs/#L191"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void CharacterSet_WithQuantifier_MatchesCustomCharacterSet()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_PatternBuilderTests_ComplexPattern_IDWithAlternatives_WorksCorrectly_" data-uid="RegexBuilder.Tests.PatternBuilderTests.ComplexPattern_IDWithAlternatives_WorksCorrectly*"></a>
+
+  <h3 id="RegexBuilder_Tests_PatternBuilderTests_ComplexPattern_IDWithAlternatives_WorksCorrectly" data-uid="RegexBuilder.Tests.PatternBuilderTests.ComplexPattern_IDWithAlternatives_WorksCorrectly">
+  ComplexPattern_IDWithAlternatives_WorksCorrectly()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/PatternBuilderTests.cs/#L453"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void ComplexPattern_IDWithAlternatives_WorksCorrectly()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_PatternBuilderTests_ComplexPattern_PhoneNumber_WorksCorrectly_" data-uid="RegexBuilder.Tests.PatternBuilderTests.ComplexPattern_PhoneNumber_WorksCorrectly*"></a>
+
+  <h3 id="RegexBuilder_Tests_PatternBuilderTests_ComplexPattern_PhoneNumber_WorksCorrectly" data-uid="RegexBuilder.Tests.PatternBuilderTests.ComplexPattern_PhoneNumber_WorksCorrectly">
+  ComplexPattern_PhoneNumber_WorksCorrectly()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/PatternBuilderTests.cs/#L492"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void ComplexPattern_PhoneNumber_WorksCorrectly()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_PatternBuilderTests_ComplexPattern_URLWithOptionalProtocol_WorksCorrectly_" data-uid="RegexBuilder.Tests.PatternBuilderTests.ComplexPattern_URLWithOptionalProtocol_WorksCorrectly*"></a>
+
+  <h3 id="RegexBuilder_Tests_PatternBuilderTests_ComplexPattern_URLWithOptionalProtocol_WorksCorrectly" data-uid="RegexBuilder.Tests.PatternBuilderTests.ComplexPattern_URLWithOptionalProtocol_WorksCorrectly">
+  ComplexPattern_URLWithOptionalProtocol_WorksCorrectly()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/PatternBuilderTests.cs/#L476"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void ComplexPattern_URLWithOptionalProtocol_WorksCorrectly()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_PatternBuilderTests_Digits_NoQuantifier_MatchesSingleDigit_" data-uid="RegexBuilder.Tests.PatternBuilderTests.Digits_NoQuantifier_MatchesSingleDigit*"></a>
+
+  <h3 id="RegexBuilder_Tests_PatternBuilderTests_Digits_NoQuantifier_MatchesSingleDigit" data-uid="RegexBuilder.Tests.PatternBuilderTests.Digits_NoQuantifier_MatchesSingleDigit">
+  Digits_NoQuantifier_MatchesSingleDigit()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/PatternBuilderTests.cs/#L104"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void Digits_NoQuantifier_MatchesSingleDigit()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_PatternBuilderTests_Digits_WithMinMax_MatchesQuantifiedPattern_" data-uid="RegexBuilder.Tests.PatternBuilderTests.Digits_WithMinMax_MatchesQuantifiedPattern*"></a>
+
+  <h3 id="RegexBuilder_Tests_PatternBuilderTests_Digits_WithMinMax_MatchesQuantifiedPattern" data-uid="RegexBuilder.Tests.PatternBuilderTests.Digits_WithMinMax_MatchesQuantifiedPattern">
+  Digits_WithMinMax_MatchesQuantifiedPattern()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/PatternBuilderTests.cs/#L117"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void Digits_WithMinMax_MatchesQuantifiedPattern()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_PatternBuilderTests_Digits_WithMinOnly_MatchesMinimumQuantifier_" data-uid="RegexBuilder.Tests.PatternBuilderTests.Digits_WithMinOnly_MatchesMinimumQuantifier*"></a>
+
+  <h3 id="RegexBuilder_Tests_PatternBuilderTests_Digits_WithMinOnly_MatchesMinimumQuantifier" data-uid="RegexBuilder.Tests.PatternBuilderTests.Digits_WithMinOnly_MatchesMinimumQuantifier">
+  Digits_WithMinOnly_MatchesMinimumQuantifier()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/PatternBuilderTests.cs/#L134"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void Digits_WithMinOnly_MatchesMinimumQuantifier()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_PatternBuilderTests_Email_AddsEmailPattern_" data-uid="RegexBuilder.Tests.PatternBuilderTests.Email_AddsEmailPattern*"></a>
+
+  <h3 id="RegexBuilder_Tests_PatternBuilderTests_Email_AddsEmailPattern" data-uid="RegexBuilder.Tests.PatternBuilderTests.Email_AddsEmailPattern">
+  Email_AddsEmailPattern()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/PatternBuilderTests.cs/#L407"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void Email_AddsEmailPattern()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_PatternBuilderTests_End_AddedToPattern_GeneratesEndAnchor_" data-uid="RegexBuilder.Tests.PatternBuilderTests.End_AddedToPattern_GeneratesEndAnchor*"></a>
+
+  <h3 id="RegexBuilder_Tests_PatternBuilderTests_End_AddedToPattern_GeneratesEndAnchor" data-uid="RegexBuilder.Tests.PatternBuilderTests.End_AddedToPattern_GeneratesEndAnchor">
+  End_AddedToPattern_GeneratesEndAnchor()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/PatternBuilderTests.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void End_AddedToPattern_GeneratesEndAnchor()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_PatternBuilderTests_End_CalledTwice_ThrowsException_" data-uid="RegexBuilder.Tests.PatternBuilderTests.End_CalledTwice_ThrowsException*"></a>
+
+  <h3 id="RegexBuilder_Tests_PatternBuilderTests_End_CalledTwice_ThrowsException" data-uid="RegexBuilder.Tests.PatternBuilderTests.End_CalledTwice_ThrowsException">
+  End_CalledTwice_ThrowsException()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/PatternBuilderTests.cs/#L90"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+[ExpectedException(typeof(InvalidOperationException))]
+public void End_CalledTwice_ThrowsException()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_PatternBuilderTests_Group_WithBuilderAction_CreatesCapturingGroup_" data-uid="RegexBuilder.Tests.PatternBuilderTests.Group_WithBuilderAction_CreatesCapturingGroup*"></a>
+
+  <h3 id="RegexBuilder_Tests_PatternBuilderTests_Group_WithBuilderAction_CreatesCapturingGroup" data-uid="RegexBuilder.Tests.PatternBuilderTests.Group_WithBuilderAction_CreatesCapturingGroup">
+  Group_WithBuilderAction_CreatesCapturingGroup()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/PatternBuilderTests.cs/#L237"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void Group_WithBuilderAction_CreatesCapturingGroup()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_PatternBuilderTests_Group_WithNullAction_ThrowsException_" data-uid="RegexBuilder.Tests.PatternBuilderTests.Group_WithNullAction_ThrowsException*"></a>
+
+  <h3 id="RegexBuilder_Tests_PatternBuilderTests_Group_WithNullAction_ThrowsException" data-uid="RegexBuilder.Tests.PatternBuilderTests.Group_WithNullAction_ThrowsException">
+  Group_WithNullAction_ThrowsException()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/PatternBuilderTests.cs/#L544"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+[ExpectedException(typeof(ArgumentNullException))]
+public void Group_WithNullAction_ThrowsException()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_PatternBuilderTests_Letters_WithQuantifier_MatchesLetterPattern_" data-uid="RegexBuilder.Tests.PatternBuilderTests.Letters_WithQuantifier_MatchesLetterPattern*"></a>
+
+  <h3 id="RegexBuilder_Tests_PatternBuilderTests_Letters_WithQuantifier_MatchesLetterPattern" data-uid="RegexBuilder.Tests.PatternBuilderTests.Letters_WithQuantifier_MatchesLetterPattern">
+  Letters_WithQuantifier_MatchesLetterPattern()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/PatternBuilderTests.cs/#L147"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void Letters_WithQuantifier_MatchesLetterPattern()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_PatternBuilderTests_Literal_SimpleString_GeneratesCorrectPattern_" data-uid="RegexBuilder.Tests.PatternBuilderTests.Literal_SimpleString_GeneratesCorrectPattern*"></a>
+
+  <h3 id="RegexBuilder_Tests_PatternBuilderTests_Literal_SimpleString_GeneratesCorrectPattern" data-uid="RegexBuilder.Tests.PatternBuilderTests.Literal_SimpleString_GeneratesCorrectPattern">
+  Literal_SimpleString_GeneratesCorrectPattern()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/PatternBuilderTests.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void Literal_SimpleString_GeneratesCorrectPattern()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_PatternBuilderTests_Literal_WithEmptyString_ThrowsException_" data-uid="RegexBuilder.Tests.PatternBuilderTests.Literal_WithEmptyString_ThrowsException*"></a>
+
+  <h3 id="RegexBuilder_Tests_PatternBuilderTests_Literal_WithEmptyString_ThrowsException" data-uid="RegexBuilder.Tests.PatternBuilderTests.Literal_WithEmptyString_ThrowsException">
+  Literal_WithEmptyString_ThrowsException()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/PatternBuilderTests.cs/#L523"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+[ExpectedException(typeof(ArgumentException))]
+public void Literal_WithEmptyString_ThrowsException()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_PatternBuilderTests_Literal_WithNullString_ThrowsException_" data-uid="RegexBuilder.Tests.PatternBuilderTests.Literal_WithNullString_ThrowsException*"></a>
+
+  <h3 id="RegexBuilder_Tests_PatternBuilderTests_Literal_WithNullString_ThrowsException" data-uid="RegexBuilder.Tests.PatternBuilderTests.Literal_WithNullString_ThrowsException">
+  Literal_WithNullString_ThrowsException()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/PatternBuilderTests.cs/#L516"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+[ExpectedException(typeof(ArgumentException))]
+public void Literal_WithNullString_ThrowsException()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_PatternBuilderTests_Literal_WithSpecialCharacters_EscapesCorrectly_" data-uid="RegexBuilder.Tests.PatternBuilderTests.Literal_WithSpecialCharacters_EscapesCorrectly*"></a>
+
+  <h3 id="RegexBuilder_Tests_PatternBuilderTests_Literal_WithSpecialCharacters_EscapesCorrectly" data-uid="RegexBuilder.Tests.PatternBuilderTests.Literal_WithSpecialCharacters_EscapesCorrectly">
+  Literal_WithSpecialCharacters_EscapesCorrectly()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/PatternBuilderTests.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void Literal_WithSpecialCharacters_EscapesCorrectly()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_PatternBuilderTests_MethodChaining_MultipleOperations_WorksCorrectly_" data-uid="RegexBuilder.Tests.PatternBuilderTests.MethodChaining_MultipleOperations_WorksCorrectly*"></a>
+
+  <h3 id="RegexBuilder_Tests_PatternBuilderTests_MethodChaining_MultipleOperations_WorksCorrectly" data-uid="RegexBuilder.Tests.PatternBuilderTests.MethodChaining_MultipleOperations_WorksCorrectly">
+  MethodChaining_MultipleOperations_WorksCorrectly()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/PatternBuilderTests.cs/#L590"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void MethodChaining_MultipleOperations_WorksCorrectly()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_PatternBuilderTests_MethodChaining_ReturnsPatternBuilder_" data-uid="RegexBuilder.Tests.PatternBuilderTests.MethodChaining_ReturnsPatternBuilder*"></a>
+
+  <h3 id="RegexBuilder_Tests_PatternBuilderTests_MethodChaining_ReturnsPatternBuilder" data-uid="RegexBuilder.Tests.PatternBuilderTests.MethodChaining_ReturnsPatternBuilder">
+  MethodChaining_ReturnsPatternBuilder()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/PatternBuilderTests.cs/#L607"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void MethodChaining_ReturnsPatternBuilder()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_PatternBuilderTests_MultipleOr_CreatesMultiAlternation_" data-uid="RegexBuilder.Tests.PatternBuilderTests.MultipleOr_CreatesMultiAlternation*"></a>
+
+  <h3 id="RegexBuilder_Tests_PatternBuilderTests_MultipleOr_CreatesMultiAlternation" data-uid="RegexBuilder.Tests.PatternBuilderTests.MultipleOr_CreatesMultiAlternation">
+  MultipleOr_CreatesMultiAlternation()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/PatternBuilderTests.cs/#L317"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void MultipleOr_CreatesMultiAlternation()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_PatternBuilderTests_NestedGroups_CreatesProperNesting_" data-uid="RegexBuilder.Tests.PatternBuilderTests.NestedGroups_CreatesProperNesting*"></a>
+
+  <h3 id="RegexBuilder_Tests_PatternBuilderTests_NestedGroups_CreatesProperNesting" data-uid="RegexBuilder.Tests.PatternBuilderTests.NestedGroups_CreatesProperNesting">
+  NestedGroups_CreatesProperNesting()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/PatternBuilderTests.cs/#L271"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void NestedGroups_CreatesProperNesting()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_PatternBuilderTests_NonCapturingGroup_WithBuilderAction_CreatesNonCapturingGroup_" data-uid="RegexBuilder.Tests.PatternBuilderTests.NonCapturingGroup_WithBuilderAction_CreatesNonCapturingGroup*"></a>
+
+  <h3 id="RegexBuilder_Tests_PatternBuilderTests_NonCapturingGroup_WithBuilderAction_CreatesNonCapturingGroup" data-uid="RegexBuilder.Tests.PatternBuilderTests.NonCapturingGroup_WithBuilderAction_CreatesNonCapturingGroup">
+  NonCapturingGroup_WithBuilderAction_CreatesNonCapturingGroup()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/PatternBuilderTests.cs/#L255"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void NonCapturingGroup_WithBuilderAction_CreatesNonCapturingGroup()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_PatternBuilderTests_Optional_WithAction_MakesPatternOptional_" data-uid="RegexBuilder.Tests.PatternBuilderTests.Optional_WithAction_MakesPatternOptional*"></a>
+
+  <h3 id="RegexBuilder_Tests_PatternBuilderTests_Optional_WithAction_MakesPatternOptional" data-uid="RegexBuilder.Tests.PatternBuilderTests.Optional_WithAction_MakesPatternOptional">
+  Optional_WithAction_MakesPatternOptional()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/PatternBuilderTests.cs/#L373"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void Optional_WithAction_MakesPatternOptional()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_PatternBuilderTests_Optional_WithMultipleCharacters_MakesGroupOptional_" data-uid="RegexBuilder.Tests.PatternBuilderTests.Optional_WithMultipleCharacters_MakesGroupOptional*"></a>
+
+  <h3 id="RegexBuilder_Tests_PatternBuilderTests_Optional_WithMultipleCharacters_MakesGroupOptional" data-uid="RegexBuilder.Tests.PatternBuilderTests.Optional_WithMultipleCharacters_MakesGroupOptional">
+  Optional_WithMultipleCharacters_MakesGroupOptional()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/PatternBuilderTests.cs/#L387"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void Optional_WithMultipleCharacters_MakesGroupOptional()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_PatternBuilderTests_Or_WithAction_CreatesAlternation_" data-uid="RegexBuilder.Tests.PatternBuilderTests.Or_WithAction_CreatesAlternation*"></a>
+
+  <h3 id="RegexBuilder_Tests_PatternBuilderTests_Or_WithAction_CreatesAlternation" data-uid="RegexBuilder.Tests.PatternBuilderTests.Or_WithAction_CreatesAlternation">
+  Or_WithAction_CreatesAlternation()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/PatternBuilderTests.cs/#L289"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void Or_WithAction_CreatesAlternation()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_PatternBuilderTests_Or_WithComplexPatterns_CreatesComplexAlternation_" data-uid="RegexBuilder.Tests.PatternBuilderTests.Or_WithComplexPatterns_CreatesComplexAlternation*"></a>
+
+  <h3 id="RegexBuilder_Tests_PatternBuilderTests_Or_WithComplexPatterns_CreatesComplexAlternation" data-uid="RegexBuilder.Tests.PatternBuilderTests.Or_WithComplexPatterns_CreatesComplexAlternation">
+  Or_WithComplexPatterns_CreatesComplexAlternation()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/PatternBuilderTests.cs/#L333"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void Or_WithComplexPatterns_CreatesComplexAlternation()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_PatternBuilderTests_Or_WithNullAction_ThrowsException_" data-uid="RegexBuilder.Tests.PatternBuilderTests.Or_WithNullAction_ThrowsException*"></a>
+
+  <h3 id="RegexBuilder_Tests_PatternBuilderTests_Or_WithNullAction_ThrowsException" data-uid="RegexBuilder.Tests.PatternBuilderTests.Or_WithNullAction_ThrowsException">
+  Or_WithNullAction_ThrowsException()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/PatternBuilderTests.cs/#L551"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+[ExpectedException(typeof(ArgumentNullException))]
+public void Or_WithNullAction_ThrowsException()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_PatternBuilderTests_Or_WithRegexNode_CreatesAlternation_" data-uid="RegexBuilder.Tests.PatternBuilderTests.Or_WithRegexNode_CreatesAlternation*"></a>
+
+  <h3 id="RegexBuilder_Tests_PatternBuilderTests_Or_WithRegexNode_CreatesAlternation" data-uid="RegexBuilder.Tests.PatternBuilderTests.Or_WithRegexNode_CreatesAlternation">
+  Or_WithRegexNode_CreatesAlternation()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/PatternBuilderTests.cs/#L303"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void Or_WithRegexNode_CreatesAlternation()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_PatternBuilderTests_Or_WithinGroups_CreatesGroupedAlternation_" data-uid="RegexBuilder.Tests.PatternBuilderTests.Or_WithinGroups_CreatesGroupedAlternation*"></a>
+
+  <h3 id="RegexBuilder_Tests_PatternBuilderTests_Or_WithinGroups_CreatesGroupedAlternation" data-uid="RegexBuilder.Tests.PatternBuilderTests.Or_WithinGroups_CreatesGroupedAlternation">
+  Or_WithinGroups_CreatesGroupedAlternation()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/PatternBuilderTests.cs/#L353"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void Or_WithinGroups_CreatesGroupedAlternation()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_PatternBuilderTests_Pattern_WithCustomNode_AddsNodeToBuilder_" data-uid="RegexBuilder.Tests.PatternBuilderTests.Pattern_WithCustomNode_AddsNodeToBuilder*"></a>
+
+  <h3 id="RegexBuilder_Tests_PatternBuilderTests_Pattern_WithCustomNode_AddsNodeToBuilder" data-uid="RegexBuilder.Tests.PatternBuilderTests.Pattern_WithCustomNode_AddsNodeToBuilder">
+  Pattern_WithCustomNode_AddsNodeToBuilder()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/PatternBuilderTests.cs/#L435"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void Pattern_WithCustomNode_AddsNodeToBuilder()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_PatternBuilderTests_Pattern_WithNullNode_ThrowsException_" data-uid="RegexBuilder.Tests.PatternBuilderTests.Pattern_WithNullNode_ThrowsException*"></a>
+
+  <h3 id="RegexBuilder_Tests_PatternBuilderTests_Pattern_WithNullNode_ThrowsException" data-uid="RegexBuilder.Tests.PatternBuilderTests.Pattern_WithNullNode_ThrowsException">
+  Pattern_WithNullNode_ThrowsException()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/PatternBuilderTests.cs/#L558"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+[ExpectedException(typeof(ArgumentNullException))]
+public void Pattern_WithNullNode_ThrowsException()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_PatternBuilderTests_SequentialPatterns_ConcatenatesCorrectly_" data-uid="RegexBuilder.Tests.PatternBuilderTests.SequentialPatterns_ConcatenatesCorrectly*"></a>
+
+  <h3 id="RegexBuilder_Tests_PatternBuilderTests_SequentialPatterns_ConcatenatesCorrectly" data-uid="RegexBuilder.Tests.PatternBuilderTests.SequentialPatterns_ConcatenatesCorrectly">
+  SequentialPatterns_ConcatenatesCorrectly()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/PatternBuilderTests.cs/#L218"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void SequentialPatterns_ConcatenatesCorrectly()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_PatternBuilderTests_StartAndEnd_GeneratesAnchors_" data-uid="RegexBuilder.Tests.PatternBuilderTests.StartAndEnd_GeneratesAnchors*"></a>
+
+  <h3 id="RegexBuilder_Tests_PatternBuilderTests_StartAndEnd_GeneratesAnchors" data-uid="RegexBuilder.Tests.PatternBuilderTests.StartAndEnd_GeneratesAnchors">
+  StartAndEnd_GeneratesAnchors()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/PatternBuilderTests.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void StartAndEnd_GeneratesAnchors()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_PatternBuilderTests_Start_AddedToPattern_GeneratesStartAnchor_" data-uid="RegexBuilder.Tests.PatternBuilderTests.Start_AddedToPattern_GeneratesStartAnchor*"></a>
+
+  <h3 id="RegexBuilder_Tests_PatternBuilderTests_Start_AddedToPattern_GeneratesStartAnchor" data-uid="RegexBuilder.Tests.PatternBuilderTests.Start_AddedToPattern_GeneratesStartAnchor">
+  Start_AddedToPattern_GeneratesStartAnchor()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/PatternBuilderTests.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void Start_AddedToPattern_GeneratesStartAnchor()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_PatternBuilderTests_Start_CalledTwice_ThrowsException_" data-uid="RegexBuilder.Tests.PatternBuilderTests.Start_CalledTwice_ThrowsException*"></a>
+
+  <h3 id="RegexBuilder_Tests_PatternBuilderTests_Start_CalledTwice_ThrowsException" data-uid="RegexBuilder.Tests.PatternBuilderTests.Start_CalledTwice_ThrowsException">
+  Start_CalledTwice_ThrowsException()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/PatternBuilderTests.cs/#L80"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+[ExpectedException(typeof(InvalidOperationException))]
+public void Start_CalledTwice_ThrowsException()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_PatternBuilderTests_Url_AddsUrlPattern_" data-uid="RegexBuilder.Tests.PatternBuilderTests.Url_AddsUrlPattern*"></a>
+
+  <h3 id="RegexBuilder_Tests_PatternBuilderTests_Url_AddsUrlPattern" data-uid="RegexBuilder.Tests.PatternBuilderTests.Url_AddsUrlPattern">
+  Url_AddsUrlPattern()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/PatternBuilderTests.cs/#L419"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void Url_AddsUrlPattern()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_PatternBuilderTests_Whitespace_WithQuantifier_MatchesWhitespacePattern_" data-uid="RegexBuilder.Tests.PatternBuilderTests.Whitespace_WithQuantifier_MatchesWhitespacePattern*"></a>
+
+  <h3 id="RegexBuilder_Tests_PatternBuilderTests_Whitespace_WithQuantifier_MatchesWhitespacePattern" data-uid="RegexBuilder.Tests.PatternBuilderTests.Whitespace_WithQuantifier_MatchesWhitespacePattern">
+  Whitespace_WithQuantifier_MatchesWhitespacePattern()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/PatternBuilderTests.cs/#L163"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void Whitespace_WithQuantifier_MatchesWhitespacePattern()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_PatternBuilderTests_WordCharacter_WithQuantifier_MatchesWordCharacters_" data-uid="RegexBuilder.Tests.PatternBuilderTests.WordCharacter_WithQuantifier_MatchesWordCharacters*"></a>
+
+  <h3 id="RegexBuilder_Tests_PatternBuilderTests_WordCharacter_WithQuantifier_MatchesWordCharacters" data-uid="RegexBuilder.Tests.PatternBuilderTests.WordCharacter_WithQuantifier_MatchesWordCharacters">
+  WordCharacter_WithQuantifier_MatchesWordCharacters()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/PatternBuilderTests.cs/#L177"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void WordCharacter_WithQuantifier_MatchesWordCharacters()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/PatternBuilderTests.cs/#L8" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

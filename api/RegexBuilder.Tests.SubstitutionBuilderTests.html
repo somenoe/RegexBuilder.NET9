@@ -1,0 +1,1463 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class SubstitutionBuilderTests | RegexBuilder.NET9 - Fluent Regex Builder </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class SubstitutionBuilderTests | RegexBuilder.NET9 - Fluent Regex Builder ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/somenoe/RegexBuilder.NET9/new/master/apiSpec/new?filename=RegexBuilder_Tests_SubstitutionBuilderTests.md&amp;value=---%0Auid%3A%20RegexBuilder.Tests.SubstitutionBuilderTests%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="RegexBuilder">
+            RegexBuilder
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="RegexBuilder.Tests.SubstitutionBuilderTests">
+
+
+
+  <h1 id="RegexBuilder_Tests_SubstitutionBuilderTests" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests" class="text-break">
+Class SubstitutionBuilderTests  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/SubstitutionBuilderTests.cs/#L8"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="RegexBuilder.html">RegexBuilder</a>.<a class="xref" href="RegexBuilder.Tests.html">Tests</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>RegexBuilder.Tests.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestClass]
+public class SubstitutionBuilderTests</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">SubstitutionBuilderTests</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="RegexBuilder_Tests_SubstitutionBuilderTests_AfterMatch_RendersCorrectly_" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.AfterMatch_RendersCorrectly*"></a>
+
+  <h3 id="RegexBuilder_Tests_SubstitutionBuilderTests_AfterMatch_RendersCorrectly" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.AfterMatch_RendersCorrectly">
+  AfterMatch_RendersCorrectly()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/SubstitutionBuilderTests.cs/#L137"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void AfterMatch_RendersCorrectly()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_SubstitutionBuilderTests_BeforeMatch_RendersCorrectly_" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.BeforeMatch_RendersCorrectly*"></a>
+
+  <h3 id="RegexBuilder_Tests_SubstitutionBuilderTests_BeforeMatch_RendersCorrectly" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.BeforeMatch_RendersCorrectly">
+  BeforeMatch_RendersCorrectly()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/SubstitutionBuilderTests.cs/#L130"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void BeforeMatch_RendersCorrectly()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_SubstitutionBuilderTests_Build_EmptyArray_ThrowsException_" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.Build_EmptyArray_ThrowsException*"></a>
+
+  <h3 id="RegexBuilder_Tests_SubstitutionBuilderTests_Build_EmptyArray_ThrowsException" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.Build_EmptyArray_ThrowsException">
+  Build_EmptyArray_ThrowsException()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/SubstitutionBuilderTests.cs/#L273"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+[ExpectedException(typeof(ArgumentException))]
+public void Build_EmptyArray_ThrowsException()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_SubstitutionBuilderTests_Build_MixedValidAndNullNodes_ThrowsException_" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.Build_MixedValidAndNullNodes_ThrowsException*"></a>
+
+  <h3 id="RegexBuilder_Tests_SubstitutionBuilderTests_Build_MixedValidAndNullNodes_ThrowsException" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.Build_MixedValidAndNullNodes_ThrowsException">
+  Build_MixedValidAndNullNodes_ThrowsException()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/SubstitutionBuilderTests.cs/#L280"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+[ExpectedException(typeof(ArgumentException))]
+public void Build_MixedValidAndNullNodes_ThrowsException()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_SubstitutionBuilderTests_Build_MultipleNodes_RendersCorrectly_" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.Build_MultipleNodes_RendersCorrectly*"></a>
+
+  <h3 id="RegexBuilder_Tests_SubstitutionBuilderTests_Build_MultipleNodes_RendersCorrectly" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.Build_MultipleNodes_RendersCorrectly">
+  Build_MultipleNodes_RendersCorrectly()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/SubstitutionBuilderTests.cs/#L248"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void Build_MultipleNodes_RendersCorrectly()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_SubstitutionBuilderTests_Build_NullArray_ThrowsException_" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.Build_NullArray_ThrowsException*"></a>
+
+  <h3 id="RegexBuilder_Tests_SubstitutionBuilderTests_Build_NullArray_ThrowsException" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.Build_NullArray_ThrowsException">
+  Build_NullArray_ThrowsException()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/SubstitutionBuilderTests.cs/#L266"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+[ExpectedException(typeof(ArgumentException))]
+public void Build_NullArray_ThrowsException()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_SubstitutionBuilderTests_Build_SingleNode_RendersCorrectly_" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.Build_SingleNode_RendersCorrectly*"></a>
+
+  <h3 id="RegexBuilder_Tests_SubstitutionBuilderTests_Build_SingleNode_RendersCorrectly" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.Build_SingleNode_RendersCorrectly">
+  Build_SingleNode_RendersCorrectly()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/SubstitutionBuilderTests.cs/#L241"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void Build_SingleNode_RendersCorrectly()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_SubstitutionBuilderTests_Build_SingleNullNode_ThrowsException_" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.Build_SingleNullNode_ThrowsException*"></a>
+
+  <h3 id="RegexBuilder_Tests_SubstitutionBuilderTests_Build_SingleNullNode_ThrowsException" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.Build_SingleNullNode_ThrowsException">
+  Build_SingleNullNode_ThrowsException()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/SubstitutionBuilderTests.cs/#L259"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+[ExpectedException(typeof(ArgumentNullException))]
+public void Build_SingleNullNode_ThrowsException()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_SubstitutionBuilderTests_Concatenate_ArrayWithNullElement_ThrowsException_" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.Concatenate_ArrayWithNullElement_ThrowsException*"></a>
+
+  <h3 id="RegexBuilder_Tests_SubstitutionBuilderTests_Concatenate_ArrayWithNullElement_ThrowsException" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.Concatenate_ArrayWithNullElement_ThrowsException">
+  Concatenate_ArrayWithNullElement_ThrowsException()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/SubstitutionBuilderTests.cs/#L205"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+[ExpectedException(typeof(ArgumentException))]
+public void Concatenate_ArrayWithNullElement_ThrowsException()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_SubstitutionBuilderTests_Concatenate_EmptyArray_ThrowsException_" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.Concatenate_EmptyArray_ThrowsException*"></a>
+
+  <h3 id="RegexBuilder_Tests_SubstitutionBuilderTests_Concatenate_EmptyArray_ThrowsException" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.Concatenate_EmptyArray_ThrowsException">
+  Concatenate_EmptyArray_ThrowsException()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/SubstitutionBuilderTests.cs/#L198"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+[ExpectedException(typeof(ArgumentException))]
+public void Concatenate_EmptyArray_ThrowsException()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_SubstitutionBuilderTests_Concatenate_MultipleNodes_RendersCorrectly_" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.Concatenate_MultipleNodes_RendersCorrectly*"></a>
+
+  <h3 id="RegexBuilder_Tests_SubstitutionBuilderTests_Concatenate_MultipleNodes_RendersCorrectly" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.Concatenate_MultipleNodes_RendersCorrectly">
+  Concatenate_MultipleNodes_RendersCorrectly()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/SubstitutionBuilderTests.cs/#L169"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void Concatenate_MultipleNodes_RendersCorrectly()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_SubstitutionBuilderTests_Concatenate_NullArray_ThrowsException_" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.Concatenate_NullArray_ThrowsException*"></a>
+
+  <h3 id="RegexBuilder_Tests_SubstitutionBuilderTests_Concatenate_NullArray_ThrowsException" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.Concatenate_NullArray_ThrowsException">
+  Concatenate_NullArray_ThrowsException()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/SubstitutionBuilderTests.cs/#L191"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+[ExpectedException(typeof(ArgumentNullException))]
+public void Concatenate_NullArray_ThrowsException()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_SubstitutionBuilderTests_Concatenate_WithSpecialReferences_RendersCorrectly_" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.Concatenate_WithSpecialReferences_RendersCorrectly*"></a>
+
+  <h3 id="RegexBuilder_Tests_SubstitutionBuilderTests_Concatenate_WithSpecialReferences_RendersCorrectly" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.Concatenate_WithSpecialReferences_RendersCorrectly">
+  Concatenate_WithSpecialReferences_RendersCorrectly()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/SubstitutionBuilderTests.cs/#L180"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void Concatenate_WithSpecialReferences_RendersCorrectly()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_SubstitutionBuilderTests_EntireInput_RendersCorrectly_" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.EntireInput_RendersCorrectly*"></a>
+
+  <h3 id="RegexBuilder_Tests_SubstitutionBuilderTests_EntireInput_RendersCorrectly" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.EntireInput_RendersCorrectly">
+  EntireInput_RendersCorrectly()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/SubstitutionBuilderTests.cs/#L151"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void EntireInput_RendersCorrectly()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_SubstitutionBuilderTests_GroupName_ComplexName_RendersCorrectly_" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.GroupName_ComplexName_RendersCorrectly*"></a>
+
+  <h3 id="RegexBuilder_Tests_SubstitutionBuilderTests_GroupName_ComplexName_RendersCorrectly" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.GroupName_ComplexName_RendersCorrectly">
+  GroupName_ComplexName_RendersCorrectly()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/SubstitutionBuilderTests.cs/#L91"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void GroupName_ComplexName_RendersCorrectly()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_SubstitutionBuilderTests_GroupName_EmptyName_ThrowsException_" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.GroupName_EmptyName_ThrowsException*"></a>
+
+  <h3 id="RegexBuilder_Tests_SubstitutionBuilderTests_GroupName_EmptyName_ThrowsException" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.GroupName_EmptyName_ThrowsException">
+  GroupName_EmptyName_ThrowsException()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/SubstitutionBuilderTests.cs/#L105"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+[ExpectedException(typeof(ArgumentException))]
+public void GroupName_EmptyName_ThrowsException()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_SubstitutionBuilderTests_GroupName_NullName_ThrowsException_" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.GroupName_NullName_ThrowsException*"></a>
+
+  <h3 id="RegexBuilder_Tests_SubstitutionBuilderTests_GroupName_NullName_ThrowsException" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.GroupName_NullName_ThrowsException">
+  GroupName_NullName_ThrowsException()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/SubstitutionBuilderTests.cs/#L98"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+[ExpectedException(typeof(ArgumentException))]
+public void GroupName_NullName_ThrowsException()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_SubstitutionBuilderTests_GroupName_SimpleName_RendersCorrectly_" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.GroupName_SimpleName_RendersCorrectly*"></a>
+
+  <h3 id="RegexBuilder_Tests_SubstitutionBuilderTests_GroupName_SimpleName_RendersCorrectly" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.GroupName_SimpleName_RendersCorrectly">
+  GroupName_SimpleName_RendersCorrectly()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/SubstitutionBuilderTests.cs/#L84"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void GroupName_SimpleName_RendersCorrectly()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_SubstitutionBuilderTests_GroupName_WhitespaceName_ThrowsException_" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.GroupName_WhitespaceName_ThrowsException*"></a>
+
+  <h3 id="RegexBuilder_Tests_SubstitutionBuilderTests_GroupName_WhitespaceName_ThrowsException" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.GroupName_WhitespaceName_ThrowsException">
+  GroupName_WhitespaceName_ThrowsException()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/SubstitutionBuilderTests.cs/#L112"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+[ExpectedException(typeof(ArgumentException))]
+public void GroupName_WhitespaceName_ThrowsException()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_SubstitutionBuilderTests_GroupNumber_MultipleDigits_RendersCorrectly_" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.GroupNumber_MultipleDigits_RendersCorrectly*"></a>
+
+  <h3 id="RegexBuilder_Tests_SubstitutionBuilderTests_GroupNumber_MultipleDigits_RendersCorrectly" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.GroupNumber_MultipleDigits_RendersCorrectly">
+  GroupNumber_MultipleDigits_RendersCorrectly()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/SubstitutionBuilderTests.cs/#L59"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void GroupNumber_MultipleDigits_RendersCorrectly()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_SubstitutionBuilderTests_GroupNumber_Negative_ThrowsException_" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.GroupNumber_Negative_ThrowsException*"></a>
+
+  <h3 id="RegexBuilder_Tests_SubstitutionBuilderTests_GroupNumber_Negative_ThrowsException" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.GroupNumber_Negative_ThrowsException">
+  GroupNumber_Negative_ThrowsException()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/SubstitutionBuilderTests.cs/#L73"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+[ExpectedException(typeof(ArgumentOutOfRangeException))]
+public void GroupNumber_Negative_ThrowsException()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_SubstitutionBuilderTests_GroupNumber_SingleDigit_RendersCorrectly_" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.GroupNumber_SingleDigit_RendersCorrectly*"></a>
+
+  <h3 id="RegexBuilder_Tests_SubstitutionBuilderTests_GroupNumber_SingleDigit_RendersCorrectly" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.GroupNumber_SingleDigit_RendersCorrectly">
+  GroupNumber_SingleDigit_RendersCorrectly()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/SubstitutionBuilderTests.cs/#L52"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void GroupNumber_SingleDigit_RendersCorrectly()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_SubstitutionBuilderTests_GroupNumber_Zero_RendersCorrectly_" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.GroupNumber_Zero_RendersCorrectly*"></a>
+
+  <h3 id="RegexBuilder_Tests_SubstitutionBuilderTests_GroupNumber_Zero_RendersCorrectly" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.GroupNumber_Zero_RendersCorrectly">
+  GroupNumber_Zero_RendersCorrectly()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/SubstitutionBuilderTests.cs/#L66"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void GroupNumber_Zero_RendersCorrectly()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_SubstitutionBuilderTests_Integration_AfterMatch_ReplacesWithSuffix_" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.Integration_AfterMatch_ReplacesWithSuffix*"></a>
+
+  <h3 id="RegexBuilder_Tests_SubstitutionBuilderTests_Integration_AfterMatch_ReplacesWithSuffix" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.Integration_AfterMatch_ReplacesWithSuffix">
+  Integration_AfterMatch_ReplacesWithSuffix()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/SubstitutionBuilderTests.cs/#L414"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void Integration_AfterMatch_ReplacesWithSuffix()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_SubstitutionBuilderTests_Integration_BeforeMatch_ReplacesWithPrefix_" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.Integration_BeforeMatch_ReplacesWithPrefix*"></a>
+
+  <h3 id="RegexBuilder_Tests_SubstitutionBuilderTests_Integration_BeforeMatch_ReplacesWithPrefix" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.Integration_BeforeMatch_ReplacesWithPrefix">
+  Integration_BeforeMatch_ReplacesWithPrefix()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/SubstitutionBuilderTests.cs/#L402"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void Integration_BeforeMatch_ReplacesWithPrefix()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_SubstitutionBuilderTests_Integration_CombineAllSpecialReferences_WorksCorrectly_" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.Integration_CombineAllSpecialReferences_WorksCorrectly*"></a>
+
+  <h3 id="RegexBuilder_Tests_SubstitutionBuilderTests_Integration_CombineAllSpecialReferences_WorksCorrectly" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.Integration_CombineAllSpecialReferences_WorksCorrectly">
+  Integration_CombineAllSpecialReferences_WorksCorrectly()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/SubstitutionBuilderTests.cs/#L497"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void Integration_CombineAllSpecialReferences_WorksCorrectly()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_SubstitutionBuilderTests_Integration_ComplexPattern_RestructuresData_" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.Integration_ComplexPattern_RestructuresData*"></a>
+
+  <h3 id="RegexBuilder_Tests_SubstitutionBuilderTests_Integration_ComplexPattern_RestructuresData" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.Integration_ComplexPattern_RestructuresData">
+  Integration_ComplexPattern_RestructuresData()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/SubstitutionBuilderTests.cs/#L450"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void Integration_ComplexPattern_RestructuresData()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_SubstitutionBuilderTests_Integration_EntireInput_ReplacesWithWholeString_" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.Integration_EntireInput_ReplacesWithWholeString*"></a>
+
+  <h3 id="RegexBuilder_Tests_SubstitutionBuilderTests_Integration_EntireInput_ReplacesWithWholeString" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.Integration_EntireInput_ReplacesWithWholeString">
+  Integration_EntireInput_ReplacesWithWholeString()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/SubstitutionBuilderTests.cs/#L438"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void Integration_EntireInput_ReplacesWithWholeString()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_SubstitutionBuilderTests_Integration_EscapedDollarInLiteral_OutputsCorrectly_" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.Integration_EscapedDollarInLiteral_OutputsCorrectly*"></a>
+
+  <h3 id="RegexBuilder_Tests_SubstitutionBuilderTests_Integration_EscapedDollarInLiteral_OutputsCorrectly" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.Integration_EscapedDollarInLiteral_OutputsCorrectly">
+  Integration_EscapedDollarInLiteral_OutputsCorrectly()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/SubstitutionBuilderTests.cs/#L484"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void Integration_EscapedDollarInLiteral_OutputsCorrectly()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_SubstitutionBuilderTests_Integration_LastCapturedGroup_OutputsLastGroup_" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.Integration_LastCapturedGroup_OutputsLastGroup*"></a>
+
+  <h3 id="RegexBuilder_Tests_SubstitutionBuilderTests_Integration_LastCapturedGroup_OutputsLastGroup" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.Integration_LastCapturedGroup_OutputsLastGroup">
+  Integration_LastCapturedGroup_OutputsLastGroup()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/SubstitutionBuilderTests.cs/#L426"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void Integration_LastCapturedGroup_OutputsLastGroup()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_SubstitutionBuilderTests_Integration_LiteralDollar_InsertsMoneySymbol_" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.Integration_LiteralDollar_InsertsMoneySymbol*"></a>
+
+  <h3 id="RegexBuilder_Tests_SubstitutionBuilderTests_Integration_LiteralDollar_InsertsMoneySymbol" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.Integration_LiteralDollar_InsertsMoneySymbol">
+  Integration_LiteralDollar_InsertsMoneySymbol()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/SubstitutionBuilderTests.cs/#L386"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void Integration_LiteralDollar_InsertsMoneySymbol()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_SubstitutionBuilderTests_Integration_MultipleReplacements_AppliesAll_" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.Integration_MultipleReplacements_AppliesAll*"></a>
+
+  <h3 id="RegexBuilder_Tests_SubstitutionBuilderTests_Integration_MultipleReplacements_AppliesAll" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.Integration_MultipleReplacements_AppliesAll">
+  Integration_MultipleReplacements_AppliesAll()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/SubstitutionBuilderTests.cs/#L470"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void Integration_MultipleReplacements_AppliesAll()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_SubstitutionBuilderTests_Integration_NamedGroupSubstitution_FormatsPhoneNumber_" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.Integration_NamedGroupSubstitution_FormatsPhoneNumber*"></a>
+
+  <h3 id="RegexBuilder_Tests_SubstitutionBuilderTests_Integration_NamedGroupSubstitution_FormatsPhoneNumber" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.Integration_NamedGroupSubstitution_FormatsPhoneNumber">
+  Integration_NamedGroupSubstitution_FormatsPhoneNumber()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/SubstitutionBuilderTests.cs/#L334"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void Integration_NamedGroupSubstitution_FormatsPhoneNumber()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_SubstitutionBuilderTests_Integration_NamedGroupSubstitution_SwapsTwoWords_" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.Integration_NamedGroupSubstitution_SwapsTwoWords*"></a>
+
+  <h3 id="RegexBuilder_Tests_SubstitutionBuilderTests_Integration_NamedGroupSubstitution_SwapsTwoWords" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.Integration_NamedGroupSubstitution_SwapsTwoWords">
+  Integration_NamedGroupSubstitution_SwapsTwoWords()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/SubstitutionBuilderTests.cs/#L315"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void Integration_NamedGroupSubstitution_SwapsTwoWords()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_SubstitutionBuilderTests_Integration_NumberedGroupSubstitution_SwapsTwoWords_" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.Integration_NumberedGroupSubstitution_SwapsTwoWords*"></a>
+
+  <h3 id="RegexBuilder_Tests_SubstitutionBuilderTests_Integration_NumberedGroupSubstitution_SwapsTwoWords" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.Integration_NumberedGroupSubstitution_SwapsTwoWords">
+  Integration_NumberedGroupSubstitution_SwapsTwoWords()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/SubstitutionBuilderTests.cs/#L296"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void Integration_NumberedGroupSubstitution_SwapsTwoWords()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_SubstitutionBuilderTests_Integration_WholeMatch_DuplicatesMatch_" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.Integration_WholeMatch_DuplicatesMatch*"></a>
+
+  <h3 id="RegexBuilder_Tests_SubstitutionBuilderTests_Integration_WholeMatch_DuplicatesMatch" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.Integration_WholeMatch_DuplicatesMatch">
+  Integration_WholeMatch_DuplicatesMatch()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/SubstitutionBuilderTests.cs/#L358"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void Integration_WholeMatch_DuplicatesMatch()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_SubstitutionBuilderTests_Integration_WholeMatch_WrapsInBrackets_" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.Integration_WholeMatch_WrapsInBrackets*"></a>
+
+  <h3 id="RegexBuilder_Tests_SubstitutionBuilderTests_Integration_WholeMatch_WrapsInBrackets" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.Integration_WholeMatch_WrapsInBrackets">
+  Integration_WholeMatch_WrapsInBrackets()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/SubstitutionBuilderTests.cs/#L372"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void Integration_WholeMatch_WrapsInBrackets()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_SubstitutionBuilderTests_LastCapturedGroup_RendersCorrectly_" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.LastCapturedGroup_RendersCorrectly*"></a>
+
+  <h3 id="RegexBuilder_Tests_SubstitutionBuilderTests_LastCapturedGroup_RendersCorrectly" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.LastCapturedGroup_RendersCorrectly">
+  LastCapturedGroup_RendersCorrectly()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/SubstitutionBuilderTests.cs/#L144"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void LastCapturedGroup_RendersCorrectly()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_SubstitutionBuilderTests_LiteralDollar_RendersCorrectly_" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.LiteralDollar_RendersCorrectly*"></a>
+
+  <h3 id="RegexBuilder_Tests_SubstitutionBuilderTests_LiteralDollar_RendersCorrectly" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.LiteralDollar_RendersCorrectly">
+  LiteralDollar_RendersCorrectly()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/SubstitutionBuilderTests.cs/#L158"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void LiteralDollar_RendersCorrectly()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_SubstitutionBuilderTests_Literal_EmptyString_RendersEmptyPattern_" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.Literal_EmptyString_RendersEmptyPattern*"></a>
+
+  <h3 id="RegexBuilder_Tests_SubstitutionBuilderTests_Literal_EmptyString_RendersEmptyPattern" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.Literal_EmptyString_RendersEmptyPattern">
+  Literal_EmptyString_RendersEmptyPattern()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/SubstitutionBuilderTests.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void Literal_EmptyString_RendersEmptyPattern()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_SubstitutionBuilderTests_Literal_MultipleDollarSigns_EscapesAll_" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.Literal_MultipleDollarSigns_EscapesAll*"></a>
+
+  <h3 id="RegexBuilder_Tests_SubstitutionBuilderTests_Literal_MultipleDollarSigns_EscapesAll" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.Literal_MultipleDollarSigns_EscapesAll">
+  Literal_MultipleDollarSigns_EscapesAll()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/SubstitutionBuilderTests.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void Literal_MultipleDollarSigns_EscapesAll()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_SubstitutionBuilderTests_Literal_NullText_ThrowsException_" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.Literal_NullText_ThrowsException*"></a>
+
+  <h3 id="RegexBuilder_Tests_SubstitutionBuilderTests_Literal_NullText_ThrowsException" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.Literal_NullText_ThrowsException">
+  Literal_NullText_ThrowsException()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/SubstitutionBuilderTests.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+[ExpectedException(typeof(ArgumentNullException))]
+public void Literal_NullText_ThrowsException()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_SubstitutionBuilderTests_Literal_SimpleText_RendersCorrectly_" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.Literal_SimpleText_RendersCorrectly*"></a>
+
+  <h3 id="RegexBuilder_Tests_SubstitutionBuilderTests_Literal_SimpleText_RendersCorrectly" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.Literal_SimpleText_RendersCorrectly">
+  Literal_SimpleText_RendersCorrectly()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/SubstitutionBuilderTests.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void Literal_SimpleText_RendersCorrectly()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_SubstitutionBuilderTests_Literal_TextWithDollarSign_EscapesDollarSign_" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.Literal_TextWithDollarSign_EscapesDollarSign*"></a>
+
+  <h3 id="RegexBuilder_Tests_SubstitutionBuilderTests_Literal_TextWithDollarSign_EscapesDollarSign" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.Literal_TextWithDollarSign_EscapesDollarSign">
+  Literal_TextWithDollarSign_EscapesDollarSign()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/SubstitutionBuilderTests.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void Literal_TextWithDollarSign_EscapesDollarSign()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_SubstitutionBuilderTests_SubstitutionConcatenation_IEnumerableConstructor_HappyPath_" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.SubstitutionConcatenation_IEnumerableConstructor_HappyPath*"></a>
+
+  <h3 id="RegexBuilder_Tests_SubstitutionBuilderTests_SubstitutionConcatenation_IEnumerableConstructor_HappyPath" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.SubstitutionConcatenation_IEnumerableConstructor_HappyPath">
+  SubstitutionConcatenation_IEnumerableConstructor_HappyPath()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/SubstitutionBuilderTests.cs/#L215"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void SubstitutionConcatenation_IEnumerableConstructor_HappyPath()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_SubstitutionBuilderTests_SubstitutionConcatenation_IEnumerableConstructor_NullArgument_ThrowsException_" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.SubstitutionConcatenation_IEnumerableConstructor_NullArgument_ThrowsException*"></a>
+
+  <h3 id="RegexBuilder_Tests_SubstitutionBuilderTests_SubstitutionConcatenation_IEnumerableConstructor_NullArgument_ThrowsException" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.SubstitutionConcatenation_IEnumerableConstructor_NullArgument_ThrowsException">
+  SubstitutionConcatenation_IEnumerableConstructor_NullArgument_ThrowsException()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/SubstitutionBuilderTests.cs/#L229"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+[ExpectedException(typeof(ArgumentNullException))]
+public void SubstitutionConcatenation_IEnumerableConstructor_NullArgument_ThrowsException()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_Tests_SubstitutionBuilderTests_WholeMatch_RendersCorrectly_" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.WholeMatch_RendersCorrectly*"></a>
+
+  <h3 id="RegexBuilder_Tests_SubstitutionBuilderTests_WholeMatch_RendersCorrectly" data-uid="RegexBuilder.Tests.SubstitutionBuilderTests.WholeMatch_RendersCorrectly">
+  WholeMatch_RendersCorrectly()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/SubstitutionBuilderTests.cs/#L123"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TestMethod]
+public void WholeMatch_RendersCorrectly()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/SubstitutionBuilderTests.cs/#L8" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

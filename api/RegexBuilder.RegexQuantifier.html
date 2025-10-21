@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class RegexQuantifier | RegexBuilder.NET9 - Fluent Regex Builder </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class RegexQuantifier | RegexBuilder.NET9 - Fluent Regex Builder ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/somenoe/RegexBuilder.NET9/new/master/apiSpec/new?filename=RegexBuilder_RegexQuantifier.md&amp;value=---%0Auid%3A%20RegexBuilder.RegexQuantifier%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="RegexBuilder">
+            RegexBuilder
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="RegexBuilder.RegexQuantifier">
+
+
+
+  <h1 id="RegexBuilder_RegexQuantifier" data-uid="RegexBuilder.RegexQuantifier" class="text-break">
+Class RegexQuantifier  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexQuantifier.cs/#L6"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="RegexBuilder.html">RegexBuilder</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>RegexBuilder.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class RegexQuantifier</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">RegexQuantifier</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="RegexBuilder_RegexQuantifier__ctor_" data-uid="RegexBuilder.RegexQuantifier.#ctor*"></a>
+
+  <h3 id="RegexBuilder_RegexQuantifier__ctor" data-uid="RegexBuilder.RegexQuantifier.#ctor">
+  RegexQuantifier()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexQuantifier.cs/#L165"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of RegexQuantifier.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RegexQuantifier()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexQuantifier__ctor_" data-uid="RegexBuilder.RegexQuantifier.#ctor*"></a>
+
+  <h3 id="RegexBuilder_RegexQuantifier__ctor_System_Nullable_System_Int32__System_Nullable_System_Int32__" data-uid="RegexBuilder.RegexQuantifier.#ctor(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+  RegexQuantifier(int?, int?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexQuantifier.cs/#L175"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of RegexQuantifier.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RegexQuantifier(int? minOccurrenceCount, int? maxOccurrenceCount)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>minOccurrenceCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd><p>Minimum occurrence count.</p>
+</dd>
+    <dt><code>maxOccurrenceCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd><p>Maximum occurrence count.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexQuantifier__ctor_" data-uid="RegexBuilder.RegexQuantifier.#ctor*"></a>
+
+  <h3 id="RegexBuilder_RegexQuantifier__ctor_System_Nullable_System_Int32__System_Nullable_System_Int32__System_Boolean_" data-uid="RegexBuilder.RegexQuantifier.#ctor(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Boolean)">
+  RegexQuantifier(int?, int?, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexQuantifier.cs/#L188"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of RegexQuantifier.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RegexQuantifier(int? minOccurrenceCount, int? maxOccurrenceCount, bool isLazy)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>minOccurrenceCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd><p>Minimum occurrence count.</p>
+</dd>
+    <dt><code>maxOccurrenceCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd><p>Maximum occurrence count.</p>
+</dd>
+    <dt><code>isLazy</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True - use lazy quantifier. False - use greedy quantifier.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="RegexBuilder_RegexQuantifier_IsLazy_" data-uid="RegexBuilder.RegexQuantifier.IsLazy*"></a>
+
+  <h3 id="RegexBuilder_RegexQuantifier_IsLazy" data-uid="RegexBuilder.RegexQuantifier.IsLazy">
+  IsLazy
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexQuantifier.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Specifies whether the quantified expression should be matched as few times as possible.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsLazy { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexQuantifier_MaxOccurrenceCount_" data-uid="RegexBuilder.RegexQuantifier.MaxOccurrenceCount*"></a>
+
+  <h3 id="RegexBuilder_RegexQuantifier_MaxOccurrenceCount" data-uid="RegexBuilder.RegexQuantifier.MaxOccurrenceCount">
+  MaxOccurrenceCount
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexQuantifier.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Maximum occurrence count. NULL = unlimited.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int? MaxOccurrenceCount { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexQuantifier_MinOccurrenceCount_" data-uid="RegexBuilder.RegexQuantifier.MinOccurrenceCount*"></a>
+
+  <h3 id="RegexBuilder_RegexQuantifier_MinOccurrenceCount" data-uid="RegexBuilder.RegexQuantifier.MinOccurrenceCount">
+  MinOccurrenceCount
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexQuantifier.cs/#L14"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Minimum occurrence count.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int? MinOccurrenceCount { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexQuantifier_None_" data-uid="RegexBuilder.RegexQuantifier.None*"></a>
+
+  <h3 id="RegexBuilder_RegexQuantifier_None" data-uid="RegexBuilder.RegexQuantifier.None">
+  None
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexQuantifier.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>NULL quantifier.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexQuantifier None { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexQuantifier.html">RegexQuantifier</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexQuantifier_OneOrMore_" data-uid="RegexBuilder.RegexQuantifier.OneOrMore*"></a>
+
+  <h3 id="RegexBuilder_RegexQuantifier_OneOrMore" data-uid="RegexBuilder.RegexQuantifier.OneOrMore">
+  OneOrMore
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexQuantifier.cs/#L79"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The &quot;+&quot; quantifier.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexQuantifier OneOrMore { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexQuantifier.html">RegexQuantifier</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexQuantifier_OneOrMoreLazy_" data-uid="RegexBuilder.RegexQuantifier.OneOrMoreLazy*"></a>
+
+  <h3 id="RegexBuilder_RegexQuantifier_OneOrMoreLazy" data-uid="RegexBuilder.RegexQuantifier.OneOrMoreLazy">
+  OneOrMoreLazy
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexQuantifier.cs/#L87"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The &quot;+?&quot; quantifier.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexQuantifier OneOrMoreLazy { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexQuantifier.html">RegexQuantifier</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexQuantifier_ZeroOrMore_" data-uid="RegexBuilder.RegexQuantifier.ZeroOrMore*"></a>
+
+  <h3 id="RegexBuilder_RegexQuantifier_ZeroOrMore" data-uid="RegexBuilder.RegexQuantifier.ZeroOrMore">
+  ZeroOrMore
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexQuantifier.cs/#L63"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The &quot;*&quot; quantifier.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexQuantifier ZeroOrMore { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexQuantifier.html">RegexQuantifier</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexQuantifier_ZeroOrMoreLazy_" data-uid="RegexBuilder.RegexQuantifier.ZeroOrMoreLazy*"></a>
+
+  <h3 id="RegexBuilder_RegexQuantifier_ZeroOrMoreLazy" data-uid="RegexBuilder.RegexQuantifier.ZeroOrMoreLazy">
+  ZeroOrMoreLazy
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexQuantifier.cs/#L71"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The &quot;*?&quot; quantifier.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexQuantifier ZeroOrMoreLazy { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexQuantifier.html">RegexQuantifier</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexQuantifier_ZeroOrOne_" data-uid="RegexBuilder.RegexQuantifier.ZeroOrOne*"></a>
+
+  <h3 id="RegexBuilder_RegexQuantifier_ZeroOrOne" data-uid="RegexBuilder.RegexQuantifier.ZeroOrOne">
+  ZeroOrOne
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexQuantifier.cs/#L95"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The &quot;?&quot; quantifier.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexQuantifier ZeroOrOne { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexQuantifier.html">RegexQuantifier</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexQuantifier_ZeroOrOneLazy_" data-uid="RegexBuilder.RegexQuantifier.ZeroOrOneLazy*"></a>
+
+  <h3 id="RegexBuilder_RegexQuantifier_ZeroOrOneLazy" data-uid="RegexBuilder.RegexQuantifier.ZeroOrOneLazy">
+  ZeroOrOneLazy
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexQuantifier.cs/#L103"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The &quot;??&quot; quantifier.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexQuantifier ZeroOrOneLazy { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexQuantifier.html">RegexQuantifier</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="RegexBuilder_RegexQuantifier_AtLeast_" data-uid="RegexBuilder.RegexQuantifier.AtLeast*"></a>
+
+  <h3 id="RegexBuilder_RegexQuantifier_AtLeast_System_Int32_" data-uid="RegexBuilder.RegexQuantifier.AtLeast(System.Int32)">
+  AtLeast(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexQuantifier.cs/#L113"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The &quot;{n,}&quot; quantifier.</p>
+<param name="minOccurrenceCount">Minimum occurrence count.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexQuantifier AtLeast(int minOccurrenceCount)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>minOccurrenceCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexQuantifier.html">RegexQuantifier</a></dt>
+    <dd><p>An instance of RegexQuantifier with the specified options.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexQuantifier_AtLeast_" data-uid="RegexBuilder.RegexQuantifier.AtLeast*"></a>
+
+  <h3 id="RegexBuilder_RegexQuantifier_AtLeast_System_Int32_System_Boolean_" data-uid="RegexBuilder.RegexQuantifier.AtLeast(System.Int32,System.Boolean)">
+  AtLeast(int, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexQuantifier.cs/#L124"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The &quot;{n,}&quot; or &quot;{n,}?&quot; quantifier.</p>
+<param name="minOccurrenceCount">Minimum occurrence count.
+<param name="isLazy">True - use lazy quantifier. False - use greedy quantifier.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexQuantifier AtLeast(int minOccurrenceCount, bool isLazy)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>minOccurrenceCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>isLazy</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexQuantifier.html">RegexQuantifier</a></dt>
+    <dd><p>An instance of RegexQuantifier with the specified options.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexQuantifier_Custom_" data-uid="RegexBuilder.RegexQuantifier.Custom*"></a>
+
+  <h3 id="RegexBuilder_RegexQuantifier_Custom_System_Nullable_System_Int32__System_Nullable_System_Int32__System_Boolean_" data-uid="RegexBuilder.RegexQuantifier.Custom(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Boolean)">
+  Custom(int?, int?, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexQuantifier.cs/#L157"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Custom &quot;{n,m}&quot; or &quot;{n,m}?&quot; quantifier.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexQuantifier Custom(int? minOccurrenceCount, int? maxOccurrenceCount, bool isLazy)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>minOccurrenceCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd><p>Minimum occurrence count.</p>
+</dd>
+    <dt><code>maxOccurrenceCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd><p>Maximum occurrence count.</p>
+</dd>
+    <dt><code>isLazy</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True - use lazy quantifier. False - use greedy quantifier.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexQuantifier.html">RegexQuantifier</a></dt>
+    <dd><p>An instance of RegexQuantifier with the specified options.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexQuantifier_Exactly_" data-uid="RegexBuilder.RegexQuantifier.Exactly*"></a>
+
+  <h3 id="RegexBuilder_RegexQuantifier_Exactly_System_Int32_" data-uid="RegexBuilder.RegexQuantifier.Exactly(System.Int32)">
+  Exactly(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexQuantifier.cs/#L134"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The &quot;{n}&quot; or &quot;{n}?&quot; quantifier.</p>
+<param name="occurrenceCount">Exact occurrence count.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexQuantifier Exactly(int occurrenceCount)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>occurrenceCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexQuantifier.html">RegexQuantifier</a></dt>
+    <dd><p>An instance of RegexQuantifier with the specified options.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexQuantifier_Exactly_" data-uid="RegexBuilder.RegexQuantifier.Exactly*"></a>
+
+  <h3 id="RegexBuilder_RegexQuantifier_Exactly_System_Int32_System_Boolean_" data-uid="RegexBuilder.RegexQuantifier.Exactly(System.Int32,System.Boolean)">
+  Exactly(int, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexQuantifier.cs/#L145"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The &quot;{n}&quot; or &quot;{n}?&quot; quantifier.</p>
+<param name="occurrenceCount">Exact occurrence count.
+<param name="isLazy">True - use lazy quantifier. False - use greedy quantifier.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RegexQuantifier Exactly(int occurrenceCount, bool isLazy)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>occurrenceCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>isLazy</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RegexBuilder.RegexQuantifier.html">RegexQuantifier</a></dt>
+    <dd><p>An instance of RegexQuantifier with the specified options.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RegexBuilder_RegexQuantifier_ToRegexPattern_" data-uid="RegexBuilder.RegexQuantifier.ToRegexPattern*"></a>
+
+  <h3 id="RegexBuilder_RegexQuantifier_ToRegexPattern" data-uid="RegexBuilder.RegexQuantifier.ToRegexPattern">
+  ToRegexPattern()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexQuantifier.cs/#L198"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts RegexQuantifier to a Regex pattern string.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual string ToRegexPattern()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexQuantifier.cs/#L6" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
