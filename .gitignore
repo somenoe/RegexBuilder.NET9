@@ -116,3 +116,8 @@ UpgradeLog*.XML
 
 # Temporary files
 temp_*
+
+# DocFX generated files (docs folder)
+docs/_site/
+docs/api/
+docs/obj/
