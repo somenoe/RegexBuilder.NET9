@@ -45,7 +45,17 @@ git pull origin master
 
 Ensure you have the latest changes on the `master` branch.
 
-### 5. Merge `dev` into `master`
+### 5. Push All Local Commits Before Tagging
+
+```powershell
+git push origin master
+```
+
+Push all local commits on the `master` branch to the remote repository before creating the tag. This ensures that all commits are available on the remote and the tag will reference commits that exist both locally and remotely.
+
+**Important:** Do not create tags for commits that only exist locally. Always push commits to remote first.
+
+### 6. Merge `dev` into `master`
 
 ```powershell
 git merge dev --no-ff -m "Merge dev into master for release v1.0.5"
@@ -55,7 +65,7 @@ Merge the release changes from `dev` branch into `master`. The `--no-ff` flag cr
 
 Replace `1.0.5` with your actual version number in the commit message.
 
-### 6. Create an Annotated Tag
+### 7. Create an Annotated Tag
 
 Create an annotated tag with the version number prefixed with `v` on the `master` branch:
 
@@ -67,7 +77,7 @@ Replace `1.0.5` with the actual version from CHANGELOG.md.
 
 **Note:** Use annotated tags (`-a`) rather than lightweight tags for releases, as they include metadata like the tagger name, date, and message.
 
-### 7. Verify the Tag was Created
+### 8. Verify the Tag was Created
 
 ```powershell
 git tag -l
@@ -79,7 +89,7 @@ Or to see the specific tag with details:
 git show v1.0.5
 ```
 
-### 8. Push `master` Branch to Remote
+### 9. Push `master` Branch to Remote
 
 ```powershell
 git push origin master
@@ -87,7 +97,7 @@ git push origin master
 
 Push the merged `master` branch to remote before pushing tags.
 
-### 9. Push the Tag to Remote
+### 10. Push the Tag to Remote
 
 Push the tag to the remote repository:
 
@@ -101,7 +111,7 @@ Or push all tags at once:
 git push origin --tags
 ```
 
-### 10. Verify the Tag on Remote
+### 11. Verify the Tag on Remote
 
 Check that the tag appears on GitHub/remote repository:
 
@@ -166,10 +176,11 @@ git push origin v1.0.5
 git status                                                        # Verify clean on dev
 git checkout master                                               # Switch to master
 git pull origin master                                            # Get latest master
+git push origin master                                            # Push all local commits first
 git merge dev --no-ff -m "Merge dev into master for release v1.0.5"  # Merge dev
 git tag -a v1.0.5 -m "Release version 1.0.5"                    # Create annotated tag
 git tag -l                                                        # Verify tag exists
-git push origin master                                            # Push master branch
+git push origin master                                            # Push master branch with merge
 git push origin v1.0.5                                            # Push tag to remote
 git ls-remote --tags origin                                       # Verify on remote
 ```
