@@ -7,11 +7,21 @@ namespace RegexBuilder.Tests
     [TestClass]
     public class ExtensionMethodTests
     {
+        private static readonly string[] s_oldValues1 = new[] { "a", "c" };
+        private static readonly string[] s_newValues1 = new[] { "x", "cz" };
+        private static readonly string[] s_oldValues2 = new[] { "x", "y" };
+        private static readonly string[] s_newValues2 = new[] { "X", "Y" };
+        private static readonly string[] s_oldValues3 = new[] { "a" };
+        private static readonly string[] s_newValues3 = new[] { "b" };
+        private static readonly string[] s_oldValues4 = new[] { "a", "b" };
+        private static readonly string[] s_newValues4 = new[] { "a", "b" };
+        private static readonly string[] s_newValues5 = new[] { "x" };
+
         [TestMethod]
         public void TestReplaceMany1()
         {
             StringBuilder stringBuilder = new StringBuilder("abc");
-            stringBuilder.ReplaceMany(new[] { "a", "c" }, new[] { "x", "cz" });
+            stringBuilder.ReplaceMany(s_oldValues1, s_newValues1);
             Assert.AreEqual(stringBuilder.ToString(), "xbcz");
         }
 
@@ -19,7 +29,7 @@ namespace RegexBuilder.Tests
         public void TestReplaceMany2()
         {
             StringBuilder stringBuilder = new StringBuilder("abc");
-            stringBuilder.ReplaceMany(new[] { "x", "y" }, new[] { "X", "Y" });
+            stringBuilder.ReplaceMany(s_oldValues2, s_newValues2);
             Assert.AreEqual(stringBuilder.ToString(), "abc");
         }
 
@@ -29,7 +39,7 @@ namespace RegexBuilder.Tests
         {
             StringBuilder builder = null;
             // ReSharper disable ExpressionIsAlwaysNull
-            builder.ReplaceMany(new[] { "a" }, new[] { "b" });
+            builder.ReplaceMany(s_oldValues3, s_newValues3);
             // ReSharper restore ExpressionIsAlwaysNull
         }
 
@@ -44,21 +54,21 @@ namespace RegexBuilder.Tests
         [ExpectedException(typeof(ArgumentNullException))]
         public void TestReplaceManyWithNullArguments2()
         {
-            new StringBuilder("abc").ReplaceMany(new[] { "a", "b" }, null);
+            new StringBuilder("abc").ReplaceMany(s_oldValues4, null);
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
         public void TestReplaceManyWithNullArguments3()
         {
-            new StringBuilder("abc").ReplaceMany(null, new[] { "a", "b" });
+            new StringBuilder("abc").ReplaceMany(null, s_newValues4);
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
         public void TestReplaceManyWithDifferentArgumentLength()
         {
-            new StringBuilder("abc").ReplaceMany(new[] { "a", "b" }, new[] { "x" });
+            new StringBuilder("abc").ReplaceMany(s_oldValues4, s_newValues5);
         }
     }
 }

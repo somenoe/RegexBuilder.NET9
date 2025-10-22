@@ -22,7 +22,7 @@ namespace RegexBuilder
             string result = Value;
             if (HasQuantifier)
             {
-                bool shouldNotRenderGroup = (Value.Length == 1) || (Value.Length == 2 && Value.StartsWith("\\", StringComparison.Ordinal));
+                bool shouldNotRenderGroup = (Value.Length == 1) || (Value.Length == 2 && Value.StartsWith('\\'));
                 result = string.Format(CultureInfo.InvariantCulture, shouldNotRenderGroup ? "{0}{1}" : "(?:{0}){1}", result, Quantifier.ToRegexPattern());
             }
             return result;

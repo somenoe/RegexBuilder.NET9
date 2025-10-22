@@ -15,10 +15,7 @@ namespace RegexBuilder
         /// <returns>A new instance of Regex which corresponds to the specified RegexNode.</returns>
         public static Regex Build(RegexNode rootNode)
         {
-            if (rootNode == null)
-            {
-                throw new ArgumentNullException("rootNode");
-            }
+            ArgumentNullException.ThrowIfNull(rootNode);
             return new Regex(rootNode.ToRegexPattern());
         }
 
@@ -30,10 +27,7 @@ namespace RegexBuilder
         /// <returns>A new instance of Regex which corresponds to the specified RegexNode.</returns>
         public static Regex Build(RegexOptions regexOptions, RegexNode rootNode)
         {
-            if (rootNode == null)
-            {
-                throw new ArgumentNullException("rootNode");
-            }
+            ArgumentNullException.ThrowIfNull(rootNode);
             return new Regex(rootNode.ToRegexPattern(), regexOptions);
         }
 

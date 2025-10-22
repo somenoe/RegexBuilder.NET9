@@ -21,10 +21,7 @@ namespace RegexBuilder
         /// <param name="childNodes">The substitution nodes to concatenate.</param>
         public SubstitutionConcatenation(params SubstitutionNode[] childNodes)
         {
-            if (childNodes == null)
-            {
-                throw new ArgumentNullException(nameof(childNodes));
-            }
+            ArgumentNullException.ThrowIfNull(childNodes);
             if (childNodes.Length == 0)
             {
                 throw new ArgumentException("At least one child node is required.", nameof(childNodes));

@@ -23,7 +23,7 @@ namespace RegexBuilder
             {
                 if (value == null)
                 {
-                    throw new ArgumentNullException("value", "InnerExpression cannot be null.");
+                    throw new ArgumentNullException(nameof(value), "InnerExpression cannot be null.");
                 }
                 innerExpression = value;
             }

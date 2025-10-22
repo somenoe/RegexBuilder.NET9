@@ -222,12 +222,14 @@ namespace RegexBuilder.Tests
             characterRange4.Quantifier = RegexQuantifier.ZeroOrMore;
             Assert.AreEqual(@"[^\u0062-\u0078]*", characterRange4.ToRegexPattern());
         }
+        private static readonly char[] characters = new[] { 'a', 'B', '0', ']', 'd', '^', 'c' };
+        private static readonly char[] charactersArray = new[] { 'a', 'B', '0', 'd', '^', 'x' };
 
         [TestMethod]
         public void TestCharacterSetNodeRendering()
         {
             // Char array, positive.
-            RegexNodeCharacterSet characterSet1 = new RegexNodeCharacterSet(new[] { 'a', 'B', '0', ']', 'd', '^', 'c' }, false);
+            RegexNodeCharacterSet characterSet1 = new RegexNodeCharacterSet(characters, false);
             Assert.AreEqual(@"[aB0\]d\^c]", characterSet1.ToRegexPattern());
 
             characterSet1.Quantifier = RegexQuantifier.ZeroOrMore;
@@ -241,7 +243,7 @@ namespace RegexBuilder.Tests
             Assert.AreEqual(@"[\u0061\u0042\u0030\u005d\u0064\u005e\u0063]*", characterSet1.ToRegexPattern());
 
             // Char array, negative.
-            RegexNodeCharacterSet characterSet2 = new RegexNodeCharacterSet(new[] { 'a', 'B', '0', 'd', '^', 'x' }, true);
+            RegexNodeCharacterSet characterSet2 = new RegexNodeCharacterSet(charactersArray, true);
             Assert.AreEqual(@"[^aB0d\^x]", characterSet2.ToRegexPattern());
 
             characterSet2.Quantifier = RegexQuantifier.ZeroOrMore;
@@ -283,7 +285,7 @@ namespace RegexBuilder.Tests
             Assert.AreEqual(@"[^\u0061\u0042\u0030\u0064\u005c\u0057\u005c\u0073]*", characterSet4.ToRegexPattern());
 
             // RegexBuilder, char array, positive.
-            RegexNodeCharacterSet characterSet5 = RegexBuilder.CharacterSet(new[] { 'a', 'B', '0', ']', 'd', '^', 'c' }, false, RegexQuantifier.None);
+            RegexNodeCharacterSet characterSet5 = RegexBuilder.CharacterSet(characters, false, RegexQuantifier.None);
             Assert.AreEqual(@"[aB0\]d\^c]", characterSet5.ToRegexPattern());
 
             characterSet5.Quantifier = RegexQuantifier.ZeroOrMore;
@@ -297,7 +299,7 @@ namespace RegexBuilder.Tests
             Assert.AreEqual(@"[\u0061\u0042\u0030\u005d\u0064\u005e\u0063]*", characterSet5.ToRegexPattern());
 
             // RegexBuilder, char array, negative.
-            RegexNodeCharacterSet characterSet6 = RegexBuilder.NegativeCharacterSet(new[] { 'a', 'B', '0', 'd', '^', 'x' }, false, RegexQuantifier.None);
+            RegexNodeCharacterSet characterSet6 = RegexBuilder.NegativeCharacterSet(charactersArray, false, RegexQuantifier.None);
             Assert.AreEqual(@"[^aB0d\^x]", characterSet6.ToRegexPattern());
 
             characterSet6.Quantifier = RegexQuantifier.ZeroOrMore;
@@ -938,7 +940,7 @@ namespace RegexBuilder.Tests
             var charSet = RegexBuilder.CharacterSet("a-zA-Z0-9", null);
             var balanceCharSet = RegexBuilder.BalancingGroup("id", "name", charSet);
             Assert.IsTrue(balanceCharSet.ToRegexPattern().StartsWith(@"(?<id-name>"));
-            Assert.IsTrue(balanceCharSet.ToRegexPattern().Contains("["));
+            Assert.IsTrue(balanceCharSet.ToRegexPattern().Contains('['));
         }
 
         [TestMethod]
@@ -949,7 +951,7 @@ namespace RegexBuilder.Tests
             // Test null push group name
             try
             {
-                new RegexNodeBalancingGroup(null, "pop", validInner);
+                _ = new RegexNodeBalancingGroup(null, "pop", validInner);
                 Assert.Fail("Should throw ArgumentException for null push group name");
             }
             catch (ArgumentException ex)
@@ -960,7 +962,7 @@ namespace RegexBuilder.Tests
             // Test empty push group name
             try
             {
-                new RegexNodeBalancingGroup("", "pop", validInner);
+                _ = new RegexNodeBalancingGroup("", "pop", validInner);
                 Assert.Fail("Should throw ArgumentException for empty push group name");
             }
             catch (ArgumentException ex)
@@ -971,7 +973,7 @@ namespace RegexBuilder.Tests
             // Test null inner expression
             try
             {
-                new RegexNodeBalancingGroup("push", "pop", null);
+                _ = new RegexNodeBalancingGroup("push", "pop", null);
                 Assert.Fail("Should throw ArgumentNullException for null inner expression");
             }
             catch (ArgumentNullException)
@@ -982,7 +984,7 @@ namespace RegexBuilder.Tests
             // Test simple balancing with null group name
             try
             {
-                new RegexNodeBalancingGroup(null, validInner);
+                _ = new RegexNodeBalancingGroup(null, validInner);
                 Assert.Fail("Should throw ArgumentException for null group name");
             }
             catch (ArgumentException ex)
@@ -993,7 +995,7 @@ namespace RegexBuilder.Tests
             // Test simple balancing with null inner expression
             try
             {
-                new RegexNodeBalancingGroup("name", null);
+                _ = new RegexNodeBalancingGroup("name", null);
                 Assert.Fail("Should throw ArgumentNullException for null inner expression");
             }
             catch (ArgumentNullException)
@@ -1361,7 +1363,7 @@ namespace RegexBuilder.Tests
             // Verify error message contains useful information
             try
             {
-                new RegexNodeBalancingGroup(null, "pop", RegexBuilder.NonEscapedLiteral("x"));
+                _ = new RegexNodeBalancingGroup(null, "pop", RegexBuilder.NonEscapedLiteral("x"));
                 Assert.Fail("Should throw");
             }
             catch (ArgumentException ex)
@@ -1377,7 +1379,7 @@ namespace RegexBuilder.Tests
             // Verify error message for simple form
             try
             {
-                new RegexNodeBalancingGroup(null, RegexBuilder.NonEscapedLiteral("x"));
+                _ = new RegexNodeBalancingGroup(null, RegexBuilder.NonEscapedLiteral("x"));
                 Assert.Fail("Should throw");
             }
             catch (ArgumentException ex)
@@ -1465,7 +1467,7 @@ namespace RegexBuilder.Tests
             // Ensure that null inner expression always throws
             try
             {
-                new RegexNodeBalancingGroup("name", "pop", null);
+                _ = new RegexNodeBalancingGroup("name", "pop", null);
                 Assert.Fail("Should throw ArgumentNullException");
             }
             catch (ArgumentNullException)
@@ -1480,7 +1482,7 @@ namespace RegexBuilder.Tests
             // Ensure empty push name throws
             try
             {
-                new RegexNodeBalancingGroup("", "pop", RegexBuilder.NonEscapedLiteral("x"));
+                _ = new RegexNodeBalancingGroup("", "pop", RegexBuilder.NonEscapedLiteral("x"));
                 Assert.Fail("Should throw ArgumentException");
             }
             catch (ArgumentException ex)

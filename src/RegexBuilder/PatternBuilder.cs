@@ -168,10 +168,7 @@ namespace RegexBuilder
         /// <returns>The current PatternBuilder instance for method chaining.</returns>
         public PatternBuilder Pattern(RegexNode node)
         {
-            if (node == null)
-            {
-                throw new ArgumentNullException(nameof(node));
-            }
+            ArgumentNullException.ThrowIfNull(node);
             _currentBranch.Add(node);
             return this;
         }
@@ -183,10 +180,7 @@ namespace RegexBuilder
         /// <returns>The current PatternBuilder instance for method chaining.</returns>
         public PatternBuilder Group(Action<PatternBuilder> builderAction)
         {
-            if (builderAction == null)
-            {
-                throw new ArgumentNullException(nameof(builderAction));
-            }
+            ArgumentNullException.ThrowIfNull(builderAction);
 
             var groupBuilder = new PatternBuilder();
             builderAction(groupBuilder);
@@ -207,10 +201,7 @@ namespace RegexBuilder
         /// <returns>The current PatternBuilder instance for method chaining.</returns>
         public PatternBuilder NonCapturingGroup(Action<PatternBuilder> builderAction)
         {
-            if (builderAction == null)
-            {
-                throw new ArgumentNullException(nameof(builderAction));
-            }
+            ArgumentNullException.ThrowIfNull(builderAction);
 
             var groupBuilder = new PatternBuilder();
             builderAction(groupBuilder);
@@ -231,10 +222,7 @@ namespace RegexBuilder
         /// <returns>The current PatternBuilder instance for method chaining.</returns>
         public PatternBuilder Optional(Action<PatternBuilder> builderAction)
         {
-            if (builderAction == null)
-            {
-                throw new ArgumentNullException(nameof(builderAction));
-            }
+            ArgumentNullException.ThrowIfNull(builderAction);
 
             var optionalBuilder = new PatternBuilder();
             builderAction(optionalBuilder);
@@ -258,10 +246,7 @@ namespace RegexBuilder
         /// <returns>The current PatternBuilder instance for method chaining.</returns>
         public PatternBuilder Or(Action<PatternBuilder> builderAction)
         {
-            if (builderAction == null)
-            {
-                throw new ArgumentNullException(nameof(builderAction));
-            }
+            ArgumentNullException.ThrowIfNull(builderAction);
 
             // Save current branch
             if (_currentBranch.Count > 0)
@@ -291,10 +276,7 @@ namespace RegexBuilder
         /// <returns>The current PatternBuilder instance for method chaining.</returns>
         public PatternBuilder Or(RegexNode node)
         {
-            if (node == null)
-            {
-                throw new ArgumentNullException(nameof(node));
-            }
+            ArgumentNullException.ThrowIfNull(node);
 
             // Save current branch
             if (_currentBranch.Count > 0)
@@ -394,7 +376,7 @@ namespace RegexBuilder
         /// <summary>
         /// Applies quantifier to a RegexNode if min/max values are provided.
         /// </summary>
-        private void ApplyQuantifier(RegexNode node, int? min, int? max)
+        private static void ApplyQuantifier(RegexNode node, int? min, int? max)
         {
             if (min == null && max == null)
             {

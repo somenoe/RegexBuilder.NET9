@@ -43,7 +43,7 @@ namespace RegexBuilder
         {
             if (string.IsNullOrEmpty(categoryName))
             {
-                throw new ArgumentException("Category name cannot be null or empty.", "categoryName");
+                throw new ArgumentException("Category name cannot be null or empty.", nameof(categoryName));
             }
 
             CategoryName = categoryName;

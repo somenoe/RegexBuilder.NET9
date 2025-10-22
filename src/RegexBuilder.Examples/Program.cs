@@ -6,6 +6,8 @@ using SubstitutionBuilder = global::RegexBuilder.SubstitutionBuilder;
 
 namespace RegexBuilder.Examples;
 
+partial
+
 /// <summary>
 /// Demonstrates all code examples from README.md
 /// </summary>
@@ -77,10 +79,7 @@ class Program
         Console.WriteLine("--- Real-World Example: Extract href Attributes ---");
 
         // Traditional regex (shown for comparison)
-        Regex traditionalRegex = new Regex(
-            "href\\s*=\\s*(?:[\"'](?<Target>[^\"']*)[\"']|(?<Target>\\S+))",
-            RegexOptions.IgnoreCase
-        );
+        Regex traditionalRegex = MyRegex();
 
         // With RegexBuilder (self-documenting)
         const string quotationMark = "\"";
@@ -817,4 +816,7 @@ class Program
 
         Console.WriteLine();
     }
+
+    [GeneratedRegex("href\\s*=\\s*(?:[\"'](?<Target>[^\"']*)[\"']|(?<Target>\\S+))", RegexOptions.IgnoreCase, "en-IE")]
+    private static partial Regex MyRegex();
 }

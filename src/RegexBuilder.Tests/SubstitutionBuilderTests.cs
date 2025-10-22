@@ -6,7 +6,7 @@ using System.Text.RegularExpressions;
 namespace RegexBuilder.Tests
 {
     [TestClass]
-    public class SubstitutionBuilderTests
+    public partial class SubstitutionBuilderTests
     {
         #region Literal Tests
 
@@ -402,7 +402,7 @@ namespace RegexBuilder.Tests
         [TestMethod]
         public void Integration_BeforeMatch_ReplacesWithPrefix()
         {
-            var pattern = new Regex("B+");
+            var pattern = MyRegex();
             var replacement = SubstitutionBuilder.Build(
                 SubstitutionBuilder.BeforeMatch()
             );
@@ -414,7 +414,7 @@ namespace RegexBuilder.Tests
         [TestMethod]
         public void Integration_AfterMatch_ReplacesWithSuffix()
         {
-            var pattern = new Regex("B+");
+            var pattern = MyRegex();
             var replacement = SubstitutionBuilder.Build(
                 SubstitutionBuilder.AfterMatch()
             );
@@ -426,7 +426,7 @@ namespace RegexBuilder.Tests
         [TestMethod]
         public void Integration_LastCapturedGroup_OutputsLastGroup()
         {
-            var pattern = new Regex(@"B+(C+)");
+            var pattern = MyRegex1();
             var replacement = SubstitutionBuilder.Build(
                 SubstitutionBuilder.LastCapturedGroup()
             );
@@ -438,7 +438,7 @@ namespace RegexBuilder.Tests
         [TestMethod]
         public void Integration_EntireInput_ReplacesWithWholeString()
         {
-            var pattern = new Regex("B+");
+            var pattern = MyRegex2();
             var replacement = SubstitutionBuilder.Build(
                 SubstitutionBuilder.EntireInput()
             );
@@ -497,7 +497,7 @@ namespace RegexBuilder.Tests
         [TestMethod]
         public void Integration_CombineAllSpecialReferences_WorksCorrectly()
         {
-            var pattern = new Regex(@"hello\sworld");
+            var pattern = MyRegex3();
 
             // This is a complex test combining multiple substitution types
             var replacement = SubstitutionBuilder.Build(
@@ -527,6 +527,15 @@ namespace RegexBuilder.Tests
             Assert.IsTrue(result.Contains("Match:[hello world]"), $"Result should contain match. Result: {result}");
             Assert.IsTrue(result.Contains("After:[ end]"), $"Result should contain after. Result: {result}");
         }
+
+        [GeneratedRegex("B+")]
+        private static partial Regex MyRegex();
+        [GeneratedRegex(@"B+(C+)")]
+        private static partial Regex MyRegex1();
+        [GeneratedRegex("B+")]
+        private static partial Regex MyRegex2();
+        [GeneratedRegex(@"hello\sworld")]
+        private static partial Regex MyRegex3();
 
         #endregion
     }

@@ -10,39 +10,39 @@ namespace RegexBuilder.Tests
         [TestMethod]
         public void TestAsciiCharacterRendering()
         {
-            RegexNode node1 = RegexBuilder.AsciiCharacter(0x30);
+            RegexNodeLiteral node1 = RegexBuilder.AsciiCharacter(0x30);
             Assert.AreEqual(@"\x30", node1.ToRegexPattern());
 
-            RegexNode node2 = RegexBuilder.AsciiCharacter(0x7F, RegexQuantifier.Custom(1, 4, true));
+            RegexNodeLiteral node2 = RegexBuilder.AsciiCharacter(0x7F, RegexQuantifier.Custom(1, 4, true));
             Assert.AreEqual(@"(?:\x7f){1,4}?", node2.ToRegexPattern());
 
-            RegexNode node3 = RegexBuilder.AsciiCharacter(0x0B, RegexQuantifier.Exactly(5));
+            RegexNodeLiteral node3 = RegexBuilder.AsciiCharacter(0x0B, RegexQuantifier.Exactly(5));
             Assert.AreEqual(@"(?:\x0b){5}", node3.ToRegexPattern());
         }
 
         [TestMethod]
         public void TestUnicodeCharacterRendering()
         {
-            RegexNode node1 = RegexBuilder.UnicodeCharacter(0x1234);
+            RegexNodeLiteral node1 = RegexBuilder.UnicodeCharacter(0x1234);
             Assert.AreEqual(@"\u1234", node1.ToRegexPattern());
 
-            RegexNode node2 = RegexBuilder.UnicodeCharacter(0x7F03, RegexQuantifier.Custom(1, 4, true));
+            RegexNodeLiteral node2 = RegexBuilder.UnicodeCharacter(0x7F03, RegexQuantifier.Custom(1, 4, true));
             Assert.AreEqual(@"(?:\u7f03){1,4}?", node2.ToRegexPattern());
 
-            RegexNode node3 = RegexBuilder.UnicodeCharacter(0x0BA5, RegexQuantifier.Exactly(5));
+            RegexNodeLiteral node3 = RegexBuilder.UnicodeCharacter(0x0BA5, RegexQuantifier.Exactly(5));
             Assert.AreEqual(@"(?:\u0ba5){5}", node3.ToRegexPattern());
         }
 
         [TestMethod]
         public void TestMetaCharacterRendering()
         {
-            RegexNode node1 = RegexBuilder.MetaCharacter(RegexMetaChars.NonWordBoundary);
+            RegexNodeLiteral node1 = RegexBuilder.MetaCharacter(RegexMetaChars.NonWordBoundary);
             Assert.AreEqual(@"\B", node1.ToRegexPattern());
 
-            RegexNode node2 = RegexBuilder.MetaCharacter(RegexMetaChars.Digit, RegexQuantifier.Custom(1, 4, true));
+            RegexNodeLiteral node2 = RegexBuilder.MetaCharacter(RegexMetaChars.Digit, RegexQuantifier.Custom(1, 4, true));
             Assert.AreEqual(@"\d{1,4}?", node2.ToRegexPattern());
 
-            RegexNode node3 = RegexBuilder.MetaCharacter(RegexMetaChars.WhiteSpace, RegexQuantifier.Exactly(5));
+            RegexNodeLiteral node3 = RegexBuilder.MetaCharacter(RegexMetaChars.WhiteSpace, RegexQuantifier.Exactly(5));
             Assert.AreEqual(@"\s{5}", node3.ToRegexPattern());
         }
 
@@ -123,84 +123,84 @@ namespace RegexBuilder.Tests
         [TestMethod]
         public void TestDigitShortcut()
         {
-            RegexNode node = RegexBuilder.Digit();
+            RegexNodeLiteral node = RegexBuilder.Digit();
             Assert.AreEqual(@"\d", node.ToRegexPattern());
         }
 
         [TestMethod]
         public void TestDigitShortcutWithQuantifier()
         {
-            RegexNode node = RegexBuilder.Digit(RegexQuantifier.ZeroOrMore);
+            RegexNodeLiteral node = RegexBuilder.Digit(RegexQuantifier.ZeroOrMore);
             Assert.AreEqual(@"\d*", node.ToRegexPattern());
         }
 
         [TestMethod]
         public void TestNonDigitShortcut()
         {
-            RegexNode node = RegexBuilder.NonDigit();
+            RegexNodeLiteral node = RegexBuilder.NonDigit();
             Assert.AreEqual(@"\D", node.ToRegexPattern());
         }
 
         [TestMethod]
         public void TestNonDigitShortcutWithQuantifier()
         {
-            RegexNode node = RegexBuilder.NonDigit(RegexQuantifier.OneOrMore);
+            RegexNodeLiteral node = RegexBuilder.NonDigit(RegexQuantifier.OneOrMore);
             Assert.AreEqual(@"\D+", node.ToRegexPattern());
         }
 
         [TestMethod]
         public void TestWhitespaceShortcut()
         {
-            RegexNode node = RegexBuilder.Whitespace();
+            RegexNodeLiteral node = RegexBuilder.Whitespace();
             Assert.AreEqual(@"\s", node.ToRegexPattern());
         }
 
         [TestMethod]
         public void TestWhitespaceShortcutWithQuantifier()
         {
-            RegexNode node = RegexBuilder.Whitespace(RegexQuantifier.ZeroOrOne);
+            RegexNodeLiteral node = RegexBuilder.Whitespace(RegexQuantifier.ZeroOrOne);
             Assert.AreEqual(@"\s?", node.ToRegexPattern());
         }
 
         [TestMethod]
         public void TestNonWhitespaceShortcut()
         {
-            RegexNode node = RegexBuilder.NonWhitespace();
+            RegexNodeLiteral node = RegexBuilder.NonWhitespace();
             Assert.AreEqual(@"\S", node.ToRegexPattern());
         }
 
         [TestMethod]
         public void TestNonWhitespaceShortcutWithQuantifier()
         {
-            RegexNode node = RegexBuilder.NonWhitespace(RegexQuantifier.Exactly(3));
+            RegexNodeLiteral node = RegexBuilder.NonWhitespace(RegexQuantifier.Exactly(3));
             Assert.AreEqual(@"\S{3}", node.ToRegexPattern());
         }
 
         [TestMethod]
         public void TestWordCharacterShortcut()
         {
-            RegexNode node = RegexBuilder.WordCharacter();
+            RegexNodeLiteral node = RegexBuilder.WordCharacter();
             Assert.AreEqual(@"\w", node.ToRegexPattern());
         }
 
         [TestMethod]
         public void TestWordCharacterShortcutWithQuantifier()
         {
-            RegexNode node = RegexBuilder.WordCharacter(RegexQuantifier.Custom(1, 5, false));
+            RegexNodeLiteral node = RegexBuilder.WordCharacter(RegexQuantifier.Custom(1, 5, false));
             Assert.AreEqual(@"\w{1,5}", node.ToRegexPattern());
         }
 
         [TestMethod]
         public void TestNonWordCharacterShortcut()
         {
-            RegexNode node = RegexBuilder.NonWordCharacter();
+            RegexNodeLiteral node = RegexBuilder.NonWordCharacter();
             Assert.AreEqual(@"\W", node.ToRegexPattern());
         }
 
         [TestMethod]
         public void TestNonWordCharacterShortcutWithQuantifier()
         {
-            RegexNode node = RegexBuilder.NonWordCharacter(RegexQuantifier.ZeroOrMore);
+            RegexNodeLiteral node = RegexBuilder.NonWordCharacter(RegexQuantifier.ZeroOrMore);
             Assert.AreEqual(@"\W*", node.ToRegexPattern());
         }
 
@@ -211,56 +211,56 @@ namespace RegexBuilder.Tests
         [TestMethod]
         public void TestLineStartShortcut()
         {
-            RegexNode node = RegexBuilder.LineStart();
+            RegexNodeLiteral node = RegexBuilder.LineStart();
             Assert.AreEqual("^", node.ToRegexPattern());
         }
 
         [TestMethod]
         public void TestLineEndShortcut()
         {
-            RegexNode node = RegexBuilder.LineEnd();
+            RegexNodeLiteral node = RegexBuilder.LineEnd();
             Assert.AreEqual("$", node.ToRegexPattern());
         }
 
         [TestMethod]
         public void TestStringStartShortcut()
         {
-            RegexNode node = RegexBuilder.StringStart();
+            RegexNodeLiteral node = RegexBuilder.StringStart();
             Assert.AreEqual(@"\A", node.ToRegexPattern());
         }
 
         [TestMethod]
         public void TestStringEndShortcut()
         {
-            RegexNode node = RegexBuilder.StringEnd();
+            RegexNodeLiteral node = RegexBuilder.StringEnd();
             Assert.AreEqual(@"\Z", node.ToRegexPattern());
         }
 
         [TestMethod]
         public void TestStringEndAbsoluteShortcut()
         {
-            RegexNode node = RegexBuilder.StringEndAbsolute();
+            RegexNodeLiteral node = RegexBuilder.StringEndAbsolute();
             Assert.AreEqual(@"\z", node.ToRegexPattern());
         }
 
         [TestMethod]
         public void TestWordBoundaryShortcut()
         {
-            RegexNode node = RegexBuilder.WordBoundary();
+            RegexNodeLiteral node = RegexBuilder.WordBoundary();
             Assert.AreEqual(@"\b", node.ToRegexPattern());
         }
 
         [TestMethod]
         public void TestNonWordBoundaryShortcut()
         {
-            RegexNode node = RegexBuilder.NonWordBoundary();
+            RegexNodeLiteral node = RegexBuilder.NonWordBoundary();
             Assert.AreEqual(@"\B", node.ToRegexPattern());
         }
 
         [TestMethod]
         public void TestMatchPointAnchorShortcut()
         {
-            RegexNode node = RegexBuilder.MatchPointAnchor();
+            RegexNodeLiteral node = RegexBuilder.MatchPointAnchor();
             Assert.AreEqual(@"\G", node.ToRegexPattern());
         }
 
@@ -271,77 +271,77 @@ namespace RegexBuilder.Tests
         [TestMethod]
         public void TestBellCharacterShortcut()
         {
-            RegexNode node = RegexBuilder.BellCharacter();
+            RegexNodeLiteral node = RegexBuilder.BellCharacter();
             Assert.AreEqual(@"\a", node.ToRegexPattern());
         }
 
         [TestMethod]
         public void TestBellCharacterShortcutWithQuantifier()
         {
-            RegexNode node = RegexBuilder.BellCharacter(RegexQuantifier.ZeroOrOne);
+            RegexNodeLiteral node = RegexBuilder.BellCharacter(RegexQuantifier.ZeroOrOne);
             Assert.AreEqual(@"\a?", node.ToRegexPattern());
         }
 
         [TestMethod]
         public void TestFormFeedShortcut()
         {
-            RegexNode node = RegexBuilder.FormFeed();
+            RegexNodeLiteral node = RegexBuilder.FormFeed();
             Assert.AreEqual(@"\f", node.ToRegexPattern());
         }
 
         [TestMethod]
         public void TestFormFeedShortcutWithQuantifier()
         {
-            RegexNode node = RegexBuilder.FormFeed(RegexQuantifier.Exactly(2));
+            RegexNodeLiteral node = RegexBuilder.FormFeed(RegexQuantifier.Exactly(2));
             Assert.AreEqual(@"\f{2}", node.ToRegexPattern());
         }
 
         [TestMethod]
         public void TestVerticalTabShortcut()
         {
-            RegexNode node = RegexBuilder.VerticalTab();
+            RegexNodeLiteral node = RegexBuilder.VerticalTab();
             Assert.AreEqual(@"\v", node.ToRegexPattern());
         }
 
         [TestMethod]
         public void TestVerticalTabShortcutWithQuantifier()
         {
-            RegexNode node = RegexBuilder.VerticalTab(RegexQuantifier.ZeroOrMore);
+            RegexNodeLiteral node = RegexBuilder.VerticalTab(RegexQuantifier.ZeroOrMore);
             Assert.AreEqual(@"\v*", node.ToRegexPattern());
         }
 
         [TestMethod]
         public void TestEscapeCharacterShortcut()
         {
-            RegexNode node = RegexBuilder.EscapeCharacter();
+            RegexNodeLiteral node = RegexBuilder.EscapeCharacter();
             Assert.AreEqual(@"\e", node.ToRegexPattern());
         }
 
         [TestMethod]
         public void TestEscapeCharacterShortcutWithQuantifier()
         {
-            RegexNode node = RegexBuilder.EscapeCharacter(RegexQuantifier.OneOrMore);
+            RegexNodeLiteral node = RegexBuilder.EscapeCharacter(RegexQuantifier.OneOrMore);
             Assert.AreEqual(@"\e+", node.ToRegexPattern());
         }
 
         [TestMethod]
         public void TestOctalCharacterShortcut()
         {
-            RegexNode node = RegexBuilder.OctalCharacter(255);
+            RegexNodeLiteral node = RegexBuilder.OctalCharacter(255);
             Assert.AreEqual(@"\377", node.ToRegexPattern());
         }
 
         [TestMethod]
         public void TestOctalCharacterShortcutSmallValue()
         {
-            RegexNode node = RegexBuilder.OctalCharacter(10);
+            RegexNodeLiteral node = RegexBuilder.OctalCharacter(10);
             Assert.AreEqual(@"\012", node.ToRegexPattern());
         }
 
         [TestMethod]
         public void TestOctalCharacterShortcutWithQuantifier()
         {
-            RegexNode node = RegexBuilder.OctalCharacter(65, RegexQuantifier.Exactly(3));
+            RegexNodeLiteral node = RegexBuilder.OctalCharacter(65, RegexQuantifier.Exactly(3));
             Assert.AreEqual(@"(?:\101){3}", node.ToRegexPattern());
         }
 
@@ -352,7 +352,7 @@ namespace RegexBuilder.Tests
         [TestMethod]
         public void TestShortcutsInConcatenation()
         {
-            RegexNode pattern = RegexBuilder.Concatenate(
+            RegexNodeConcatenation pattern = RegexBuilder.Concatenate(
                 new[]
                 {
                     RegexBuilder.LineStart() as RegexNode,
@@ -368,7 +368,7 @@ namespace RegexBuilder.Tests
         [TestMethod]
         public void TestShortcutsInGroup()
         {
-            RegexNode pattern = RegexBuilder.Group(
+            RegexNodeGroup pattern = RegexBuilder.Group(
                 "word",
                 RegexBuilder.Concatenate(
                     RegexBuilder.WordCharacter(RegexQuantifier.OneOrMore),
@@ -419,42 +419,42 @@ namespace RegexBuilder.Tests
         [TestMethod]
         public void TestInlineOptionGroupingSingleOptionIgnoreCase()
         {
-            RegexNode node = RegexBuilder.InlineOptionGrouping(RegexOptions.IgnoreCase, RegexBuilder.Literal("hello"));
+            RegexNodeInlineOptionGrouping node = RegexBuilder.InlineOptionGrouping(RegexOptions.IgnoreCase, RegexBuilder.Literal("hello"));
             Assert.AreEqual("(?i:hello)", node.ToRegexPattern());
         }
 
         [TestMethod]
         public void TestInlineOptionGroupingSingleOptionMultiline()
         {
-            RegexNode node = RegexBuilder.InlineOptionGrouping(RegexOptions.Multiline, RegexBuilder.Literal("test"));
+            RegexNodeInlineOptionGrouping node = RegexBuilder.InlineOptionGrouping(RegexOptions.Multiline, RegexBuilder.Literal("test"));
             Assert.AreEqual("(?m:test)", node.ToRegexPattern());
         }
 
         [TestMethod]
         public void TestInlineOptionGroupingSingleOptionSingleline()
         {
-            RegexNode node = RegexBuilder.InlineOptionGrouping(RegexOptions.Singleline, RegexBuilder.Literal("expr"));
+            RegexNodeInlineOptionGrouping node = RegexBuilder.InlineOptionGrouping(RegexOptions.Singleline, RegexBuilder.Literal("expr"));
             Assert.AreEqual("(?s:expr)", node.ToRegexPattern());
         }
 
         [TestMethod]
         public void TestInlineOptionGroupingSingleOptionExplicitCapture()
         {
-            RegexNode node = RegexBuilder.InlineOptionGrouping(RegexOptions.ExplicitCapture, RegexBuilder.Literal("pattern"));
+            RegexNodeInlineOptionGrouping node = RegexBuilder.InlineOptionGrouping(RegexOptions.ExplicitCapture, RegexBuilder.Literal("pattern"));
             Assert.AreEqual("(?n:pattern)", node.ToRegexPattern());
         }
 
         [TestMethod]
         public void TestInlineOptionGroupingSingleOptionIgnorePatternWhitespace()
         {
-            RegexNode node = RegexBuilder.InlineOptionGrouping(RegexOptions.IgnorePatternWhitespace, RegexBuilder.Literal("spaced"));
+            RegexNodeInlineOptionGrouping node = RegexBuilder.InlineOptionGrouping(RegexOptions.IgnorePatternWhitespace, RegexBuilder.Literal("spaced"));
             Assert.AreEqual("(?x:spaced)", node.ToRegexPattern());
         }
 
         [TestMethod]
         public void TestInlineOptionGroupingMultipleOptionsIgnoreCaseMultiline()
         {
-            RegexNode node = RegexBuilder.InlineOptionGrouping(
+            RegexNodeInlineOptionGrouping node = RegexBuilder.InlineOptionGrouping(
                 RegexOptions.IgnoreCase | RegexOptions.Multiline,
                 RegexBuilder.Literal("text")
             );
@@ -464,7 +464,7 @@ namespace RegexBuilder.Tests
         [TestMethod]
         public void TestInlineOptionGroupingMultipleOptionsAll()
         {
-            RegexNode node = RegexBuilder.InlineOptionGrouping(
+            RegexNodeInlineOptionGrouping node = RegexBuilder.InlineOptionGrouping(
                 RegexOptions.IgnoreCase | RegexOptions.Multiline | RegexOptions.Singleline | RegexOptions.ExplicitCapture | RegexOptions.IgnorePatternWhitespace,
                 RegexBuilder.Literal("all")
             );
@@ -474,7 +474,7 @@ namespace RegexBuilder.Tests
         [TestMethod]
         public void TestInlineOptionGroupingWithDisabledOptions()
         {
-            RegexNode node = RegexBuilder.InlineOptionGrouping(
+            RegexNodeInlineOptionGrouping node = RegexBuilder.InlineOptionGrouping(
                 RegexOptions.IgnoreCase,
                 RegexOptions.Multiline,
                 RegexBuilder.Literal("expr")
@@ -485,7 +485,7 @@ namespace RegexBuilder.Tests
         [TestMethod]
         public void TestInlineOptionGroupingMultipleEnabledMultipleDisabled()
         {
-            RegexNode node = RegexBuilder.InlineOptionGrouping(
+            RegexNodeInlineOptionGrouping node = RegexBuilder.InlineOptionGrouping(
                 RegexOptions.IgnoreCase | RegexOptions.Singleline,
                 RegexOptions.Multiline | RegexOptions.ExplicitCapture,
                 RegexBuilder.Literal("complex")
@@ -496,7 +496,7 @@ namespace RegexBuilder.Tests
         [TestMethod]
         public void TestInlineOptionGroupingNoneEnabledWithDisabled()
         {
-            RegexNode node = RegexBuilder.InlineOptionGrouping(
+            RegexNodeInlineOptionGrouping node = RegexBuilder.InlineOptionGrouping(
                 RegexOptions.None,
                 RegexOptions.IgnoreCase,
                 RegexBuilder.Literal("disable")
@@ -511,7 +511,7 @@ namespace RegexBuilder.Tests
                 RegexBuilder.Literal("hello"),
                 RegexBuilder.MetaCharacter(RegexMetaChars.Digit, RegexQuantifier.OneOrMore)
             );
-            RegexNode node = RegexBuilder.InlineOptionGrouping(RegexOptions.IgnoreCase, complexExpr);
+            RegexNodeInlineOptionGrouping node = RegexBuilder.InlineOptionGrouping(RegexOptions.IgnoreCase, complexExpr);
             Assert.AreEqual("(?i:hello\\d+)", node.ToRegexPattern());
         }
 

@@ -18,10 +18,7 @@ namespace RegexBuilder
         /// <returns>A string that can be used as a replacement pattern in Regex.Replace().</returns>
         public static string Build(SubstitutionNode node)
         {
-            if (node == null)
-            {
-                throw new ArgumentNullException(nameof(node));
-            }
+            ArgumentNullException.ThrowIfNull(node);
             return node.ToSubstitutionPattern();
         }
 

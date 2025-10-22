@@ -45,7 +45,7 @@ namespace RegexBuilder
             {
                 if (value == null)
                 {
-                    throw new ArgumentNullException("value", "InnerExpression cannot be null.");
+                    throw new ArgumentNullException(nameof(value), "InnerExpression cannot be null.");
                 }
                 innerExpression = value;
             }
@@ -71,12 +71,9 @@ namespace RegexBuilder
         {
             if (string.IsNullOrEmpty(pushGroupName))
             {
-                throw new ArgumentException("Push group name cannot be null or empty.", "pushGroupName");
+                throw new ArgumentException("Push group name cannot be null or empty.", nameof(pushGroupName));
             }
-            if (innerExpression == null)
-            {
-                throw new ArgumentNullException("innerExpression");
-            }
+            ArgumentNullException.ThrowIfNull(innerExpression);
 
             PushGroupName = pushGroupName;
             PopGroupName = popGroupName;
@@ -93,12 +90,9 @@ namespace RegexBuilder
         {
             if (string.IsNullOrEmpty(groupName))
             {
-                throw new ArgumentException("Group name cannot be null or empty.", "groupName");
+                throw new ArgumentException("Group name cannot be null or empty.", nameof(groupName));
             }
-            if (innerExpression == null)
-            {
-                throw new ArgumentNullException("innerExpression");
-            }
+            ArgumentNullException.ThrowIfNull(innerExpression);
 
             PushGroupName = groupName;
             PopGroupName = null;

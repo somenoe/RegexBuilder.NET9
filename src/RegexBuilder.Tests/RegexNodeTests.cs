@@ -202,11 +202,12 @@ namespace RegexBuilder.Tests
             alternation.InnerExpression = null;
             Assert.IsNull(alternation);
         }
+        private static readonly char[] charactersArray = new[] { 'x', 'y', 'z' };
 
         [TestMethod]
         public void TestCharacterSetNodeCharacterListExpressionProperty()
         {
-            RegexNodeCharacterSet characterSet = new RegexNodeCharacterSet(new[] { 'x', 'y', 'z' }, false);
+            RegexNodeCharacterSet characterSet = new RegexNodeCharacterSet(charactersArray, false);
             characterSet.CharacterListExpression = "abc";
             List<char> characters = new List<char>(characterSet.Characters);
             Assert.AreEqual(3, characters.Count);
@@ -229,12 +230,13 @@ namespace RegexBuilder.Tests
             RegexNodeCharacterSet characterSet = new RegexNodeCharacterSet((string)null, false);
             Assert.IsNull(characterSet);
         }
+        private static readonly char[] characters = new[] { 'a', 'b', 'c' };
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
         public void TestCharacterSetNodeNullAssignment3()
         {
-            RegexNodeCharacterSet characterSet = new RegexNodeCharacterSet(new[] { 'a', 'b', 'c' }, false);
+            RegexNodeCharacterSet characterSet = new RegexNodeCharacterSet(characters, false);
             characterSet.CharacterListExpression = null;
             Assert.IsNull(characterSet);
         }

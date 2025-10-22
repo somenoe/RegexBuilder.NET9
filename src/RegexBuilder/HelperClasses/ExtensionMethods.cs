@@ -7,10 +7,7 @@ namespace RegexBuilder
     {
         public static void ReplaceMany(this StringBuilder builder, string[] oldValues, string[] newValues)
         {
-            if (builder == null)
-            {
-                throw new ArgumentNullException("builder");
-            }
+            ArgumentNullException.ThrowIfNull(builder);
 
             if (oldValues == null || newValues == null)
             {

@@ -24,7 +24,7 @@ namespace RegexBuilder
             string result = GetEscapedValue();
             if (HasQuantifier)
             {
-                bool shouldNotRenderGroup = (result.Length == 1) || (result.Length == 2 && result.StartsWith("\\", StringComparison.Ordinal));
+                bool shouldNotRenderGroup = (result.Length == 1) || (result.Length == 2 && result.StartsWith('\\'));
                 result = string.Format(CultureInfo.InvariantCulture, shouldNotRenderGroup ? "{0}{1}" : "(?:{0}){1}", result, Quantifier.ToRegexPattern());
             }
             return result;
