@@ -12,7 +12,12 @@ This file provides guidance when working with code in this repository.
    - `CHANGELOG.md` with the new feature details.
    - (optional) `README.md` if necessary.
    - (optional) `AGENTS.md` if the feature affects agent behavior.
-5. Format the codebase with `make format` or manually run `npx prettier --write .` and `dotnet format src`.
+5. Analyze and fix code conventions:
+   - Use `roslynator analyze .\src\RegexBuilder.slnx` to check for code conventions.
+   - Auto fix issues using `roslynator fix .\src\RegexBuilder.slnx`.
+   - Run `roslynator analyze .\src\RegexBuilder.slnx` again to ensure no diagnostics remain.
+   - Manually fix any remaining issues.
+6. Format the codebase with `make format` or manually run `npx prettier --write .` and `dotnet format src`.
 
 ## Recommended Tools
 
