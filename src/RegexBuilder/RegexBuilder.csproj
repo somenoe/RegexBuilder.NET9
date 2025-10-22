@@ -8,7 +8,7 @@
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 
     <!-- Package Metadata -->
-    <Version>1.1.1</Version>
+    <Version>1.1.2</Version>
     <PackageId>RegexBuilder.NET9</PackageId>
     <Authors>Pridsadang Pansiri</Authors>
     <Description>.NET library for human-readable declaration of regular expressions without having
