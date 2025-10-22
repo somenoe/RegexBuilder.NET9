@@ -65,6 +65,8 @@ dotnet add package RegexBuilder.NET9 --version 1.1.1
 <PackageReference Include="RegexBuilder.NET9" Version="1.1.1" />
 ```
 
+You can also view the package page on NuGet: [RegexBuilder.NET9 on NuGet](https://www.nuget.org/packages/RegexBuilder.NET9/)
+
 ## Quick Start
 
 Here's a simple example to get you started. Let's build a regex to match email addresses:
@@ -160,7 +162,7 @@ More examples can be found in [CustomRegexTests.cs](/src/RegexBuilder.Tests/Cust
 Full documentation (including Getting Started, Common Patterns, and API Guide) is available in the `docs/` folder and on the generated site.
 
 - Local docs: `docs/` (open `docs/index.md`)
-- Generated site: [https://somenoe.github.io/RegexBuilder.NET9/](https://somenoe.github.io/RegexBuilder.NET9/) (when published)
+- Generated site: [https://somenoe.github.io/RegexBuilder.NET9/](https://somenoe.github.io/RegexBuilder.NET9/)
 
 ## API Guide
 
@@ -244,14 +246,17 @@ Console.WriteLine(regex.IsMatch("5551234567"));       // True
 RegexBuilder has 4 main classes you'll work with:
 
 1. **`RegexBuilder`** - Factory class for building regex patterns
+
    - Static methods that produce and combine different parts of a regular expression
    - Entry points: `RegexBuilder.Build(...)` and `RegexBuilder.Pattern()`
 
 2. **`PatternBuilder`** - Fluent builder for composing patterns
+
    - Chainable methods for building complex patterns
    - Entry point: `RegexBuilder.Pattern()`
 
 3. **`RegexQuantifier`** - Produces quantifiers for regex parts
+
    - Properties like `ZeroOrMore`, `OneOrMore`, `Optional`, `ExactCount(n)`, `Range(min, max)`, etc.
 
 4. **`RegexMetaChars`** - Named constants for character classes
