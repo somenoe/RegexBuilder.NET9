@@ -5,10 +5,11 @@
       "src": [
         {
           "src": "../src",
-          "files": ["**/*.csproj"]
+          "files": ["RegexBuilder/**/*.csproj"],
+          "exclude": ["**/RegexBuilder.Tests/**", "**/RegexBuilder.Examples/**"]
         }
       ],
-      "dest": "api"
+      "output": "api"
     }
   ],
   "build": {

@@ -9,6 +9,7 @@ C# library for building .NET regular expressions with human-readable code.
 - [Installation](#installation)
 - [Quick Start](#quick-start)
 - [Real-World Example](#real-world-example)
+- [Documentation](#documentation)
 - [When to Use RegexBuilder](#when-to-use-regexbuilder)
 - [Supported Features](#supported-features)
 - [API Guide](#api-guide)
@@ -93,6 +94,25 @@ if (match.Success)
 }
 ```
 
+### Fluent API Quick Start (recommended)
+
+Use the Fluent `PatternBuilder` for concise, chainable pattern creation. The following builds the same email validator:
+
+```csharp
+var emailPattern = RegexBuilder.Pattern()
+    .Start()
+    .CharacterSet("a-zA-Z0-9._%+-", 1, null)
+    .Literal("@")
+    .CharacterSet("a-zA-Z0-9.-", 1, null)
+    .Literal(".")
+    .Letters(2, 6)
+    .End()
+    .Build();
+
+var emailRegex2 = RegexBuilder.Build(emailPattern);
+Console.WriteLine(emailRegex2.IsMatch("user@example.com")); // True
+```
+
 ## Real-World Example
 
 Let's build a regex to capture `href` attributes from HTML hyperlinks. Compare the traditional approach:
@@ -134,6 +154,13 @@ Regex hrefRegex = RegexBuilder.Build(
 ```
 
 More examples can be found in [CustomRegexTests.cs](/src/RegexBuilder.Tests/CustomRegexTests.cs).
+
+## Documentation
+
+Full documentation (including Getting Started, Common Patterns, and API Guide) is available in the `docs/` folder and on the generated site.
+
+- Local docs: `docs/` (open `docs/index.md`)
+- Generated site: [https://somenoe.github.io/RegexBuilder.NET9/](https://somenoe.github.io/RegexBuilder.NET9/) (when published)
 
 ## API Guide
 
