@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class RegexNodeBalancingGroup | RegexBuilder.NET9 - Fluent Regex Builder ">
       
-      
+      <meta name="description" content="Represents a balancing group construct in a regular expression. Balancing groups are used to match nested/balanced constructs such as parentheses, XML tags, or code blocks. Supports both two-name form (?&amp;lt;name1-name2&amp;gt;expr) and single-name form (?&amp;lt;name&amp;gt;-expr).">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -97,7 +97,10 @@ Class RegexNodeBalancingGroup  <a class="header-action link-secondary" title="Vi
   <dl><dt>Assembly</dt><dd>RegexBuilder.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary"><p>Represents a balancing group construct in a regular expression.
+Balancing groups are used to match nested/balanced constructs such as parentheses, XML tags, or code blocks.
+Supports both two-name form (?&lt;name1-name2&gt;expr) and single-name form (?&lt;name&gt;-expr).</p>
+</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -156,6 +159,11 @@ Class RegexNodeBalancingGroup  <a class="header-action link-secondary" title="Vi
 
 
 
+  <h2 id="RegexBuilder_RegexNodeBalancingGroup_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Balancing groups work by maintaining a stack of captured groups. The syntax (?&lt;name1-name2&gt;expr)
+captures to 'name1' and pops 'name2' from the stack. This is useful for matching balanced constructs.
+Example: ( (?:[^()] | (?&lt;paren&gt;() | (?&lt;-paren&gt;)))*+ )  matches balanced parentheses.</p>
+</div>
 
 
   <h2 class="section" id="constructors">Constructors
@@ -166,10 +174,12 @@ Class RegexNodeBalancingGroup  <a class="header-action link-secondary" title="Vi
 
   <h3 id="RegexBuilder_RegexNodeBalancingGroup__ctor_System_String_RegexBuilder_RegexNode_" data-uid="RegexBuilder.RegexNodeBalancingGroup.#ctor(System.String,RegexBuilder.RegexNode)">
   RegexNodeBalancingGroup(string, RegexNode)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexNodeTypes/RegexNodeBalancingGroup.cs/#L92"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexNodeTypes/RegexNodeBalancingGroup.cs/#L89"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the RegexNodeBalancingGroup class with a single group name.
+Creates a simple balancing group with syntax: (?&lt;name&gt;-expr)</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -179,9 +189,11 @@ Class RegexNodeBalancingGroup  <a class="header-action link-secondary" title="Vi
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>groupName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd><p>The name of the group to push onto the stack.</p>
+</dd>
     <dt><code>innerExpression</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
-    <dd></dd>
+    <dd><p>The inner expression to match.</p>
+</dd>
   </dl>
 
 
@@ -202,7 +214,9 @@ Class RegexNodeBalancingGroup  <a class="header-action link-secondary" title="Vi
   <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexNodeTypes/RegexNodeBalancingGroup.cs/#L70"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the RegexNodeBalancingGroup class with two group names.
+Creates a balancing group with syntax: (?&lt;pushName-popName&gt;expr)</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -212,11 +226,14 @@ Class RegexNodeBalancingGroup  <a class="header-action link-secondary" title="Vi
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>pushGroupName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd><p>The name of the group to push onto the stack.</p>
+</dd>
     <dt><code>popGroupName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd><p>The name of the group to pop from the stack.</p>
+</dd>
     <dt><code>innerExpression</code> <a class="xref" href="RegexBuilder.RegexNode.html">RegexNode</a></dt>
-    <dd></dd>
+    <dd><p>The inner expression to match.</p>
+</dd>
   </dl>
 
 
@@ -304,7 +321,9 @@ Class RegexNodeBalancingGroup  <a class="header-action link-secondary" title="Vi
   <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexNodeTypes/RegexNodeBalancingGroup.cs/#L58"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets a value indicating whether this is a simple balancing group (single name only).
+Simple balancing groups use syntax: (?&lt;name&gt;-expr)</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -335,7 +354,10 @@ Class RegexNodeBalancingGroup  <a class="header-action link-secondary" title="Vi
   <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexNodeTypes/RegexNodeBalancingGroup.cs/#L36"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets or sets the name of the group to pop from the stack.
+In (?&lt;name1-name2&gt;expr), this is 'name2'.
+If null or empty, only push operation is performed: (?&lt;name&gt;-expr).</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -366,7 +388,9 @@ Class RegexNodeBalancingGroup  <a class="header-action link-secondary" title="Vi
   <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexNodeTypes/RegexNodeBalancingGroup.cs/#L29"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets or sets the name of the group to push onto the stack.
+In (?&lt;name1-name2&gt;expr), this is 'name1'.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -398,10 +422,11 @@ Class RegexNodeBalancingGroup  <a class="header-action link-secondary" title="Vi
 
   <h3 id="RegexBuilder_RegexNodeBalancingGroup_ToRegexPattern" data-uid="RegexBuilder.RegexNodeBalancingGroup.ToRegexPattern">
   ToRegexPattern()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexNodeTypes/RegexNodeBalancingGroup.cs/#L116"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder/RegexNodeTypes/RegexNodeBalancingGroup.cs/#L110"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Converts this node to a regular expression pattern string.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -412,7 +437,10 @@ Class RegexNodeBalancingGroup  <a class="header-action link-secondary" title="Vi
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd><p>A regular expression pattern string.
+Returns (?&lt;name1-name2&gt;expr) for two-name balancing groups.
+Returns (?&lt;name&gt;-expr) for simple balancing groups.</p>
+</dd>
   </dl>
 
 

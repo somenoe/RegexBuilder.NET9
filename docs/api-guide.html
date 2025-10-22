@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>API Guide | RegexBuilder.NET9 - Fluent Regex Builder </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="API Guide | RegexBuilder.NET9 - Fluent Regex Builder ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/somenoe/RegexBuilder.NET9/blob/master/docs/docs/api-guide.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="RegexBuilder">
+            RegexBuilder
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="api-guide">API Guide</h1>
+
+<p>Complete reference for all RegexBuilder.NET9 capabilities. This guide covers both the modern <strong>Fluent API</strong> and the <strong>Classic API</strong>, along with advanced features.</p>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ul>
+<li><a href="#core-architecture">Core Architecture</a></li>
+<li><a href="#fluent-api-patternbuilder">Fluent API (PatternBuilder)</a></li>
+<li><a href="#classic-api-regexbuilder">Classic API (RegexBuilder)</a></li>
+<li><a href="#quantifiers">Quantifiers</a></li>
+<li><a href="#substitution-patterns">Substitution Patterns</a></li>
+<li><a href="#advanced-features">Advanced Features</a></li>
+<li><a href="#syntax-mapping-reference">Syntax Mapping Reference</a></li>
+<li><a href="#troubleshooting">Troubleshooting</a></li>
+</ul>
+<hr>
+<h2 id="core-architecture">Core Architecture</h2>
+<p>RegexBuilder consists of several key classes:</p>
+<h3 id="regexbuilder">RegexBuilder</h3>
+<p><strong>Purpose</strong>: Static factory class for building regex patterns</p>
+<p><strong>Main Methods</strong>:</p>
+<ul>
+<li><code>Build(params RegexNode[])</code> - Builds a Regex from nodes</li>
+<li><code>Build(RegexOptions, params RegexNode[])</code> - Builds with options</li>
+<li><code>Pattern()</code> - Returns new PatternBuilder instance</li>
+<li>Static factory methods for all pattern types</li>
+</ul>
+<h3 id="patternbuilder">PatternBuilder</h3>
+<p><strong>Purpose</strong>: Fluent builder for composing patterns with chainable methods</p>
+<p><strong>Entry Point</strong>:</p>
+<pre><code class="lang-csharp">var builder = RegexBuilder.Pattern();
+</code></pre>
+<p><strong>Returns</strong>: <code>RegexNode</code> via <code>Build()</code> method</p>
+<h3 id="regexnode">RegexNode</h3>
+<p><strong>Purpose</strong>: Base class for all regex pattern nodes</p>
+<p><strong>Inheritance Hierarchy</strong>:</p>
+<ul>
+<li><code>RegexNode</code> (abstract base)
+<ul>
+<li><code>RegexNodeLiteral</code></li>
+<li><code>RegexNodeCharacterSet</code></li>
+<li><code>RegexNodeGroup</code></li>
+<li><code>RegexNodeAlternation</code></li>
+<li><code>RegexNodeConcatenation</code></li>
+<li><code>RegexNodeLookAround</code></li>
+<li>And many more...</li>
+</ul>
+</li>
+</ul>
+<h3 id="regexquantifier">RegexQuantifier</h3>
+<p><strong>Purpose</strong>: Factory class for creating quantifiers</p>
+<p><strong>Common Properties</strong>:</p>
+<ul>
+<li><code>ZeroOrMore</code> → <code>*</code></li>
+<li><code>OneOrMore</code> → <code>+</code></li>
+<li><code>Optional</code> → <code>?</code></li>
+<li><code>Exactly(n)</code> → <code>{n}</code></li>
+<li><code>Range(min, max)</code> → <code>{min,max}</code></li>
+<li><code>AtLeast(n)</code> → <code>{n,}</code></li>
+</ul>
+<h3 id="regexmetachars">RegexMetaChars</h3>
+<p><strong>Purpose</strong>: Named constants for character classes</p>
+<p><strong>Constants</strong>:</p>
+<ul>
+<li><code>WordCharacter</code> → <code>\w</code></li>
+<li><code>NonwordCharacter</code> → <code>\W</code></li>
+<li><code>Digit</code> → <code>\d</code></li>
+<li><code>Nondigit</code> → <code>\D</code></li>
+<li><code>WhiteSpace</code> → <code>\s</code></li>
+<li><code>NonwhiteSpace</code> → <code>\S</code></li>
+<li><code>AnyCharacter</code> → <code>.</code></li>
+</ul>
+<h3 id="commonpatterns">CommonPatterns</h3>
+<p><strong>Purpose</strong>: Pre-built patterns for common scenarios</p>
+<p><strong>Methods</strong>:</p>
+<ul>
+<li><code>Email()</code> - Email validation pattern</li>
+<li><code>Url()</code> - URL validation pattern</li>
+</ul>
+<h3 id="substitutionbuilder">SubstitutionBuilder</h3>
+<p><strong>Purpose</strong>: Factory class for creating replacement patterns (used with <code>Regex.Replace()</code>)</p>
+<p><strong>Methods</strong>: Group references, special references, literals</p>
+<hr>
+<h2 id="fluent-api-patternbuilder">Fluent API (PatternBuilder)</h2>
+<p>The modern, recommended approach for building patterns.</p>
+<h3 id="getting-started">Getting Started</h3>
+<pre><code class="lang-csharp">// Create a new builder
+var builder = RegexBuilder.Pattern();
+
+// Chain methods
+var pattern = builder
+    .Start()
+    .Literal(&quot;prefix-&quot;)
+    .Digits(3, 5)
+    .End()
+    .Build();
+
+// Convert to Regex
+var regex = RegexBuilder.Build(pattern);
+</code></pre>
+<h3 id="pattern-methods">Pattern Methods</h3>
+<h4 id="literal-text">Literal Text</h4>
+<p><strong><code>Literal(string text)</code></strong></p>
+<p>Adds literal text with automatic escaping.</p>
+<pre><code class="lang-csharp">.Literal(&quot;hello.world&quot;)  // → hello\.world
+.Literal(&quot;price: $5&quot;)    // → price:\ \$5
+</code></pre>
+<h4 id="digits">Digits</h4>
+<p><strong><code>Digits()</code></strong> - One or more digits (<code>\d+</code>)</p>
+<p><strong><code>Digits(int exact)</code></strong> - Exactly N digits (<code>\d{n}</code>)</p>
+<p><strong><code>Digits(int? min, int? max)</code></strong> - Range of digits</p>
+<pre><code class="lang-csharp">.Digits()           // \d+
+.Digits(3)          // \d{3}
+.Digits(2, 5)       // \d{2,5}
+.Digits(1, null)    // \d+ (one or more)
+.Digits(0, null)    // \d* (zero or more)
+</code></pre>
+<h4 id="letters">Letters</h4>
+<p><strong><code>Letters()</code></strong> - One or more letters (<code>[a-zA-Z]+</code>)</p>
+<p><strong><code>Letters(int exact)</code></strong> - Exactly N letters</p>
+<p><strong><code>Letters(int? min, int? max)</code></strong> - Range of letters</p>
+<pre><code class="lang-csharp">.Letters()          // [a-zA-Z]+
+.Letters(2)         // [a-zA-Z]{2}
+.Letters(2, 4)      // [a-zA-Z]{2,4}
+</code></pre>
+<h4 id="whitespace">Whitespace</h4>
+<p><strong><code>Whitespace()</code></strong> - One or more whitespace (<code>\s+</code>)</p>
+<p><strong><code>Whitespace(int exact)</code></strong> - Exactly N whitespace</p>
+<p><strong><code>Whitespace(int? min, int? max)</code></strong> - Range of whitespace</p>
+<pre><code class="lang-csharp">.Whitespace()       // \s+
+.Whitespace(1)      // \s{1}
+.Whitespace(0, 1)   // \s?
+</code></pre>
+<h4 id="word-characters">Word Characters</h4>
+<p><strong><code>WordCharacter()</code></strong> - One or more word characters (<code>\w+</code>)</p>
+<p><strong><code>WordCharacter(int exact)</code></strong> - Exactly N word characters</p>
+<p><strong><code>WordCharacter(int? min, int? max)</code></strong> - Range of word characters</p>
+<pre><code class="lang-csharp">.WordCharacter()        // \w+
+.WordCharacter(5)       // \w{5}
+.WordCharacter(3, 10)   // \w{3,10}
+</code></pre>
+<h4 id="any-character">Any Character</h4>
+<p><strong><code>AnyCharacter()</code></strong> - One or more of any character (<code>.+</code>)</p>
+<p><strong><code>AnyCharacter(int exact)</code></strong> - Exactly N of any character</p>
+<p><strong><code>AnyCharacter(int? min, int? max)</code></strong> - Range of any character</p>
+<pre><code class="lang-csharp">.AnyCharacter()         // .+
+.AnyCharacter(3)        // .{3}
+.AnyCharacter(0, null)  // .*
+</code></pre>
+<h4 id="character-sets">Character Sets</h4>
+<p><strong><code>CharacterSet(string characters)</code></strong> - One or more from set</p>
+<p><strong><code>CharacterSet(string characters, int exact)</code></strong> - Exactly N from set</p>
+<p><strong><code>CharacterSet(string characters, int? min, int? max)</code></strong> - Range from set</p>
+<pre><code class="lang-csharp">.CharacterSet(&quot;abc&quot;)              // [abc]+
+.CharacterSet(&quot;a-z&quot;, 3)           // [a-z]{3}
+.CharacterSet(&quot;0-9A-F&quot;, 2, 4)     // [0-9A-F]{2,4}
+</code></pre>
+<h3 id="anchor-methods">Anchor Methods</h3>
+<h4 id="start">Start</h4>
+<p><strong><code>Start()</code></strong></p>
+<p>Adds start-of-line anchor (<code>^</code>).</p>
+<pre><code class="lang-csharp">.Start()  // ^
+</code></pre>
+<h4 id="end">End</h4>
+<p><strong><code>End()</code></strong></p>
+<p>Adds end-of-line anchor (<code>$</code>).</p>
+<pre><code class="lang-csharp">.End()  // $
+</code></pre>
+<h3 id="grouping-methods">Grouping Methods</h3>
+<h4 id="capturing-group">Capturing Group</h4>
+<p><strong><code>Group(Action&lt;PatternBuilder&gt; configure)</code></strong></p>
+<p>Creates a capturing group.</p>
+<pre><code class="lang-csharp">.Group(g =&gt; g.Digits(3))  // (\d{3})
+</code></pre>
+<h4 id="non-capturing-group">Non-Capturing Group</h4>
+<p><strong><code>NonCapturingGroup(Action&lt;PatternBuilder&gt; configure)</code></strong></p>
+<p>Creates a non-capturing group.</p>
+<pre><code class="lang-csharp">.NonCapturingGroup(g =&gt; g.Literal(&quot;http&quot;).Optional(s =&gt; s.Literal(&quot;s&quot;)))  // (?:https?)
+</code></pre>
+<h3 id="alternation-methods">Alternation Methods</h3>
+<h4 id="or-with-builder">Or with Builder</h4>
+<p><strong><code>Or(Action&lt;PatternBuilder&gt; configure)</code></strong></p>
+<p>Adds an alternative pattern using a builder.</p>
+<pre><code class="lang-csharp">.Literal(&quot;cat&quot;).Or(o =&gt; o.Literal(&quot;dog&quot;))  // cat|dog
+</code></pre>
+<h4 id="or-with-node">Or with Node</h4>
+<p><strong><code>Or(RegexNode node)</code></strong></p>
+<p>Adds an alternative pattern using an existing RegexNode.</p>
+<pre><code class="lang-csharp">var catNode = RegexBuilder.Literal(&quot;cat&quot;);
+builder.Literal(&quot;dog&quot;).Or(catNode)  // dog|cat
+</code></pre>
+<h3 id="utility-methods">Utility Methods</h3>
+<h4 id="optional">Optional</h4>
+<p><strong><code>Optional(Action&lt;PatternBuilder&gt; configure)</code></strong></p>
+<p>Makes a pattern optional (<code>?</code> quantifier).</p>
+<pre><code class="lang-csharp">.Optional(o =&gt; o.Literal(&quot;+1&quot;))  // (?:\+1)?
+</code></pre>
+<h4 id="email">Email</h4>
+<p><strong><code>Email()</code></strong></p>
+<p>Adds the pre-built email pattern.</p>
+<pre><code class="lang-csharp">.Email()  // Adds CommonPatterns.Email()
+</code></pre>
+<h4 id="url">URL</h4>
+<p><strong><code>Url()</code></strong></p>
+<p>Adds the pre-built URL pattern.</p>
+<pre><code class="lang-csharp">.Url()  // Adds CommonPatterns.Url()
+</code></pre>
+<h4 id="custom-pattern">Custom Pattern</h4>
+<p><strong><code>Pattern(RegexNode node)</code></strong></p>
+<p>Adds a custom RegexNode to the builder.</p>
+<pre><code class="lang-csharp">var customNode = RegexBuilder.Digit(RegexQuantifier.Exactly(3));
+builder.Pattern(customNode)
+</code></pre>
+<h3 id="build-method">Build Method</h3>
+<p><strong><code>Build()</code></strong></p>
+<p>Converts the built pattern to a <code>RegexNode</code>.</p>
+<pre><code class="lang-csharp">var node = builder.Build();
+var regex = RegexBuilder.Build(node);
+</code></pre>
+<h3 id="complete-example">Complete Example</h3>
+<pre><code class="lang-csharp">// Build a phone number pattern
+var phonePattern = RegexBuilder.Pattern()
+    .Start()
+    .Optional(o =&gt; o.Literal(&quot;+1&quot;).Whitespace(0, 1))
+    .Group(g =&gt; g.Digits(3))
+    .CharacterSet(&quot;- .&quot;, 0, 1)
+    .Group(g =&gt; g.Digits(3))
+    .CharacterSet(&quot;- .&quot;, 0, 1)
+    .Group(g =&gt; g.Digits(4))
+    .End()
+    .Build();
+
+var phoneRegex = RegexBuilder.Build(phonePattern);
+Console.WriteLine(phoneRegex.IsMatch(&quot;555-123-4567&quot;));  // True
+</code></pre>
+<hr>
+<h2 id="classic-api-regexbuilder">Classic API (RegexBuilder)</h2>
+<p>The traditional, more verbose API with full access to advanced features.</p>
+<h3 id="basic-building">Basic Building</h3>
+<pre><code class="lang-csharp">// Entry point
+var regex = RegexBuilder.Build(components...);
+
+// With options
+var regex = RegexBuilder.Build(
+    RegexOptions.IgnoreCase | RegexOptions.Compiled,
+    components...
+);
+</code></pre>
+<h3 id="literal-and-escaping">Literal and Escaping</h3>
+<h4 id="literal">Literal</h4>
+<p><strong><code>Literal(string text)</code></strong></p>
+<p>Escaped literal text.</p>
+<pre><code class="lang-csharp">RegexBuilder.Literal(&quot;hello.world&quot;)  // → hello\.world
+</code></pre>
+<h4 id="nonescapedliteral">NonEscapedLiteral</h4>
+<p><strong><code>NonEscapedLiteral(string pattern)</code></strong></p>
+<p>Raw regex pattern (not escaped).</p>
+<pre><code class="lang-csharp">RegexBuilder.NonEscapedLiteral(@&quot;\d+&quot;)  // → \d+ (raw)
+</code></pre>
+<blockquote>
+<p>⚠️ <strong>Warning</strong>: Use with caution. Incorrect patterns can break regex compilation.</p>
+</blockquote>
+<h4 id="metacharacter">MetaCharacter</h4>
+<p><strong><code>MetaCharacter(char metaChar, RegexQuantifier? quantifier = null)</code></strong></p>
+<p>Adds a character class metacharacter.</p>
+<pre><code class="lang-csharp">RegexBuilder.MetaCharacter(RegexMetaChars.Digit, RegexQuantifier.OneOrMore)  // \d+
+</code></pre>
+<h3 id="character-classes">Character Classes</h3>
+<h4 id="digit">Digit</h4>
+<p><strong><code>Digit(RegexQuantifier? quantifier = null)</code></strong></p>
+<p>Matches digit characters (<code>\d</code>).</p>
+<pre><code class="lang-csharp">RegexBuilder.Digit()                              // \d
+RegexBuilder.Digit(RegexQuantifier.OneOrMore)     // \d+
+RegexBuilder.Digit(RegexQuantifier.Exactly(3))    // \d{3}
+</code></pre>
+<h4 id="nondigit">NonDigit</h4>
+<p><strong><code>NonDigit(RegexQuantifier? quantifier = null)</code></strong></p>
+<p>Matches non-digit characters (<code>\D</code>).</p>
+<pre><code class="lang-csharp">RegexBuilder.NonDigit(RegexQuantifier.OneOrMore)  // \D+
+</code></pre>
+<h4 id="whitespace-1">Whitespace</h4>
+<p><strong><code>Whitespace(RegexQuantifier? quantifier = null)</code></strong></p>
+<p>Matches whitespace characters (<code>\s</code>).</p>
+<pre><code class="lang-csharp">RegexBuilder.Whitespace()                          // \s
+RegexBuilder.Whitespace(RegexQuantifier.ZeroOrMore) // \s*
+</code></pre>
+<h4 id="nonwhitespace">NonWhitespace</h4>
+<p><strong><code>NonWhitespace(RegexQuantifier? quantifier = null)</code></strong></p>
+<p>Matches non-whitespace characters (<code>\S</code>).</p>
+<pre><code class="lang-csharp">RegexBuilder.NonWhitespace(RegexQuantifier.OneOrMore)  // \S+
+</code></pre>
+<h4 id="wordcharacter">WordCharacter</h4>
+<p><strong><code>WordCharacter(RegexQuantifier? quantifier = null)</code></strong></p>
+<p>Matches word characters (<code>\w</code>).</p>
+<pre><code class="lang-csharp">RegexBuilder.WordCharacter()                          // \w
+RegexBuilder.WordCharacter(RegexQuantifier.OneOrMore) // \w+
+</code></pre>
+<h4 id="nonwordcharacter">NonWordCharacter</h4>
+<p><strong><code>NonWordCharacter(RegexQuantifier? quantifier = null)</code></strong></p>
+<p>Matches non-word characters (<code>\W</code>).</p>
+<pre><code class="lang-csharp">RegexBuilder.NonWordCharacter(RegexQuantifier.OneOrMore)  // \W+
+</code></pre>
+<h4 id="characterset">CharacterSet</h4>
+<p><strong><code>CharacterSet(string characters, RegexQuantifier? quantifier = null)</code></strong></p>
+<p>Positive character set (<code>[...]</code>).</p>
+<pre><code class="lang-csharp">RegexBuilder.CharacterSet(&quot;abc&quot;)                             // [abc]
+RegexBuilder.CharacterSet(&quot;a-z&quot;, RegexQuantifier.OneOrMore)  // [a-z]+
+RegexBuilder.CharacterSet(&quot;0-9A-F&quot;, RegexQuantifier.Exactly(2)) // [0-9A-F]{2}
+</code></pre>
+<h4 id="negativecharacterset">NegativeCharacterSet</h4>
+<p><strong><code>NegativeCharacterSet(string characters, RegexQuantifier? quantifier = null)</code></strong></p>
+<p>Negative character set (<code>[^...]</code>).</p>
+<pre><code class="lang-csharp">RegexBuilder.NegativeCharacterSet(&quot;abc&quot;)                     // [^abc]
+RegexBuilder.NegativeCharacterSet(&quot;0-9&quot;, RegexQuantifier.OneOrMore) // [^0-9]+
+</code></pre>
+<h4 id="characterrange">CharacterRange</h4>
+<p><strong><code>CharacterRange(char fromChar, char toChar, RegexQuantifier? quantifier = null)</code></strong></p>
+<p>Character range (<code>[a-z]</code>).</p>
+<pre><code class="lang-csharp">RegexBuilder.CharacterRange('a', 'z')                            // [a-z]
+RegexBuilder.CharacterRange('A', 'Z', RegexQuantifier.OneOrMore) // [A-Z]+
+</code></pre>
+<h3 id="anchors">Anchors</h3>
+<h4 id="linestart">LineStart</h4>
+<p><strong><code>LineStart()</code></strong></p>
+<p>Start of line anchor (<code>^</code>).</p>
+<pre><code class="lang-csharp">RegexBuilder.LineStart()  // ^
+</code></pre>
+<h4 id="lineend">LineEnd</h4>
+<p><strong><code>LineEnd()</code></strong></p>
+<p>End of line anchor (<code>$</code>).</p>
+<pre><code class="lang-csharp">RegexBuilder.LineEnd()  // $
+</code></pre>
+<h4 id="stringstart">StringStart</h4>
+<p><strong><code>StringStart()</code></strong></p>
+<p>Start of string anchor (<code>\A</code>).</p>
+<pre><code class="lang-csharp">RegexBuilder.StringStart()  // \A
+</code></pre>
+<h4 id="stringend">StringEnd</h4>
+<p><strong><code>StringEnd()</code></strong></p>
+<p>End of string anchor (<code>\Z</code>).</p>
+<pre><code class="lang-csharp">RegexBuilder.StringEnd()  // \Z
+</code></pre>
+<h4 id="stringendabsolute">StringEndAbsolute</h4>
+<p><strong><code>StringEndAbsolute()</code></strong></p>
+<p>Absolute end of string anchor (<code>\z</code>).</p>
+<pre><code class="lang-csharp">RegexBuilder.StringEndAbsolute()  // \z
+</code></pre>
+<h4 id="wordboundary">WordBoundary</h4>
+<p><strong><code>WordBoundary(RegexQuantifier? quantifier = null)</code></strong></p>
+<p>Word boundary anchor (<code>\b</code>).</p>
+<pre><code class="lang-csharp">RegexBuilder.WordBoundary()  // \b
+</code></pre>
+<h4 id="nonwordboundary">NonWordBoundary</h4>
+<p><strong><code>NonWordBoundary(RegexQuantifier? quantifier = null)</code></strong></p>
+<p>Non-word boundary anchor (<code>\B</code>).</p>
+<pre><code class="lang-csharp">RegexBuilder.NonWordBoundary()  // \B
+</code></pre>
+<h4 id="matchpointanchor">MatchPointAnchor</h4>
+<p><strong><code>MatchPointAnchor(RegexQuantifier? quantifier = null)</code></strong></p>
+<p>Match point anchor (<code>\G</code>).</p>
+<pre><code class="lang-csharp">RegexBuilder.MatchPointAnchor()  // \G
+</code></pre>
+<h3 id="grouping-and-capturing">Grouping and Capturing</h3>
+<h4 id="group-named">Group (Named)</h4>
+<p><strong><code>Group(string groupName, RegexNode matchExpression, RegexQuantifier? quantifier = null)</code></strong></p>
+<p>Named capturing group.</p>
+<pre><code class="lang-csharp">RegexBuilder.Group(&quot;area&quot;, RegexBuilder.Digit(RegexQuantifier.Exactly(3)))  // (?&lt;area&gt;\d{3})
+</code></pre>
+<h4 id="group-numbered">Group (Numbered)</h4>
+<p><strong><code>Group(RegexNode matchExpression, RegexQuantifier? quantifier = null)</code></strong></p>
+<p>Numbered capturing group.</p>
+<pre><code class="lang-csharp">RegexBuilder.Group(RegexBuilder.Digit(RegexQuantifier.Exactly(3)))  // (\d{3})
+</code></pre>
+<h4 id="groupapostrophe">GroupApostrophe</h4>
+<p><strong><code>GroupApostrophe(string groupName, RegexNode matchExpression, RegexQuantifier? quantifier = null)</code></strong></p>
+<p>Named capturing group with apostrophe syntax (VBScript compatible).</p>
+<pre><code class="lang-csharp">RegexBuilder.GroupApostrophe(&quot;name&quot;, RegexBuilder.Literal(&quot;value&quot;))  // (?'name'value)
+</code></pre>
+<h4 id="noncapturinggroup">NonCapturingGroup</h4>
+<p><strong><code>NonCapturingGroup(RegexNode matchExpression, RegexQuantifier? quantifier = null)</code></strong></p>
+<p>Non-capturing group.</p>
+<pre><code class="lang-csharp">RegexBuilder.NonCapturingGroup(
+    RegexBuilder.Alternate(
+        RegexBuilder.Literal(&quot;cat&quot;),
+        RegexBuilder.Literal(&quot;dog&quot;)
+    )
+)  // (?:cat|dog)
+</code></pre>
+<h4 id="balancinggroup">BalancingGroup</h4>
+<p><strong><code>BalancingGroup(string pushName, string popName, RegexNode matchExpression, RegexQuantifier? quantifier = null)</code></strong></p>
+<p>Two-name balancing group for nested structures.</p>
+<pre><code class="lang-csharp">RegexBuilder.BalancingGroup(&quot;depth&quot;, &quot;depth&quot;,
+    RegexBuilder.CharacterSet(&quot;^()&quot;, RegexQuantifier.ZeroOrMore)
+)  // (?&lt;depth-depth&gt;[^()]*)
+</code></pre>
+<h4 id="simplebalancinggroup">SimpleBalancingGroup</h4>
+<p><strong><code>SimpleBalancingGroup(string name, RegexNode matchExpression, RegexQuantifier? quantifier = null)</code></strong></p>
+<p>Single-name balancing group.</p>
+<pre><code class="lang-csharp">RegexBuilder.SimpleBalancingGroup(&quot;stack&quot;, RegexBuilder.Literal(&quot;item&quot;))  // (?&lt;stack&gt;-item)
+</code></pre>
+<h3 id="backreferences">Backreferences</h3>
+<h4 id="groupreference-named">GroupReference (Named)</h4>
+<p><strong><code>GroupReference(string groupName)</code></strong></p>
+<p>Reference a named capturing group.</p>
+<pre><code class="lang-csharp">RegexBuilder.GroupReference(&quot;word&quot;)  // \k&lt;word&gt;
+</code></pre>
+<h4 id="groupreference-numbered">GroupReference (Numbered)</h4>
+<p><strong><code>GroupReference(int groupNumber)</code></strong></p>
+<p>Reference a numbered capturing group.</p>
+<pre><code class="lang-csharp">RegexBuilder.GroupReference(1)  // \1
+</code></pre>
+<h3 id="lookaround-assertions">Lookaround Assertions</h3>
+<h4 id="positivelookahead">PositiveLookAhead</h4>
+<p><strong><code>PositiveLookAhead(RegexNode matchExpression)</code></strong></p>
+<p>Positive lookahead (<code>(?=...)</code>).</p>
+<pre><code class="lang-csharp">RegexBuilder.PositiveLookAhead(RegexBuilder.Digit())  // (?=\d)
+</code></pre>
+<h4 id="negativelookahead">NegativeLookAhead</h4>
+<p><strong><code>NegativeLookAhead(RegexNode matchExpression)</code></strong></p>
+<p>Negative lookahead (<code>(?!...)</code>).</p>
+<pre><code class="lang-csharp">RegexBuilder.NegativeLookAhead(RegexBuilder.Digit())  // (?!\d)
+</code></pre>
+<h4 id="positivelookbehind">PositiveLookBehind</h4>
+<p><strong><code>PositiveLookBehind(RegexNode matchExpression)</code></strong></p>
+<p>Positive lookbehind (<code>(?&lt;=...)</code>).</p>
+<pre><code class="lang-csharp">RegexBuilder.PositiveLookBehind(RegexBuilder.Literal(&quot;$&quot;))  // (?&lt;=\$)
+</code></pre>
+<h4 id="negativelookbehind">NegativeLookBehind</h4>
+<p><strong><code>NegativeLookBehind(RegexNode matchExpression)</code></strong></p>
+<p>Negative lookbehind (<code>(?&lt;!...)</code>).</p>
+<pre><code class="lang-csharp">RegexBuilder.NegativeLookBehind(RegexBuilder.Literal(&quot;$&quot;))  // (?&lt;!\$)
+</code></pre>
+<h3 id="alternation">Alternation</h3>
+<p><strong><code>Alternate(params RegexNode[] options)</code></strong></p>
+<p>Creates alternation between multiple patterns.</p>
+<pre><code class="lang-csharp">RegexBuilder.Alternate(
+    RegexBuilder.Literal(&quot;cat&quot;),
+    RegexBuilder.Literal(&quot;dog&quot;),
+    RegexBuilder.Literal(&quot;bird&quot;)
+)  // cat|dog|bird
+</code></pre>
+<h3 id="concatenation">Concatenation</h3>
+<p><strong><code>Concatenate(params RegexNode[] nodes)</code></strong></p>
+<p>Combines multiple patterns in sequence.</p>
+<pre><code class="lang-csharp">RegexBuilder.Concatenate(
+    RegexBuilder.Literal(&quot;prefix-&quot;),
+    RegexBuilder.Digit(RegexQuantifier.Exactly(3)),
+    RegexBuilder.Literal(&quot;-suffix&quot;)
+)  // prefix-\d{3}-suffix
+</code></pre>
+<h3 id="inline-options">Inline Options</h3>
+<h4 id="inlineoption">InlineOption</h4>
+<p><strong><code>InlineOption(RegexOptions options)</code></strong></p>
+<p>Inline option modifier (<code>(?imnsx-imnsx)</code>).</p>
+<pre><code class="lang-csharp">RegexBuilder.InlineOption(RegexOptions.IgnoreCase)  // (?i)
+</code></pre>
+<h4 id="inlineoptiongrouping">InlineOptionGrouping</h4>
+<p><strong><code>InlineOptionGrouping(RegexOptions enabledOptions, RegexNode expression)</code></strong></p>
+<p>Inline option grouping (<code>(?i:expr)</code>).</p>
+<pre><code class="lang-csharp">RegexBuilder.InlineOptionGrouping(
+    RegexOptions.IgnoreCase,
+    RegexBuilder.Literal(&quot;abc&quot;)
+)  // (?i:abc)
+</code></pre>
+<p><strong><code>InlineOptionGrouping(RegexOptions enabledOptions, RegexOptions disabledOptions, RegexNode expression)</code></strong></p>
+<p>Inline option grouping with enabled and disabled options (<code>(?i-m:expr)</code>).</p>
+<pre><code class="lang-csharp">RegexBuilder.InlineOptionGrouping(
+    RegexOptions.IgnoreCase,
+    RegexOptions.Multiline,
+    RegexBuilder.Literal(&quot;abc&quot;)
+)  // (?i-m:abc)
+</code></pre>
+<h3 id="comments">Comments</h3>
+<p><strong><code>Comment(string commentText)</code></strong></p>
+<p>Adds an inline comment (<code>(?#comment)</code>).</p>
+<pre><code class="lang-csharp">RegexBuilder.Comment(&quot;This matches digits&quot;)  // (?#This matches digits)
+</code></pre>
+<h3 id="unicode-categories">Unicode Categories</h3>
+<h4 id="unicodecategory">UnicodeCategory</h4>
+<p><strong><code>UnicodeCategory(string categoryName, RegexQuantifier? quantifier = null)</code></strong></p>
+<p>Matches Unicode category (<code>\p{...}</code>).</p>
+<pre><code class="lang-csharp">RegexBuilder.UnicodeCategory(&quot;L&quot;)                              // \p{L}
+RegexBuilder.UnicodeCategory(&quot;Lu&quot;, RegexQuantifier.OneOrMore)  // \p{Lu}+
+RegexBuilder.UnicodeCategory(&quot;IsCyrillic&quot;)                     // \p{IsCyrillic}
+</code></pre>
+<h4 id="negativeunicodecategory">NegativeUnicodeCategory</h4>
+<p><strong><code>NegativeUnicodeCategory(string categoryName, RegexQuantifier? quantifier = null)</code></strong></p>
+<p>Matches negative Unicode category (<code>\P{...}</code>).</p>
+<pre><code class="lang-csharp">RegexBuilder.NegativeUnicodeCategory(&quot;L&quot;)  // \P{L}
+</code></pre>
+<p><strong>Common Categories</strong>:</p>
+<ul>
+<li><code>L</code> - All letters</li>
+<li><code>Lu</code> - Uppercase letters</li>
+<li><code>Ll</code> - Lowercase letters</li>
+<li><code>N</code> - All numbers</li>
+<li><code>Nd</code> - Decimal digits</li>
+<li><code>P</code> - All punctuation</li>
+<li><code>IsCyrillic</code>, <code>IsArabic</code>, <code>IsGreek</code>, etc. - Unicode blocks</li>
+</ul>
+<h3 id="special-escapes">Special Escapes</h3>
+<h4 id="bellcharacter">BellCharacter</h4>
+<p><strong><code>BellCharacter(RegexQuantifier? quantifier = null)</code></strong></p>
+<p>Bell character (<code>\a</code>).</p>
+<pre><code class="lang-csharp">RegexBuilder.BellCharacter()  // \a
+</code></pre>
+<h4 id="formfeed">FormFeed</h4>
+<p><strong><code>FormFeed(RegexQuantifier? quantifier = null)</code></strong></p>
+<p>Form feed character (<code>\f</code>).</p>
+<pre><code class="lang-csharp">RegexBuilder.FormFeed()  // \f
+</code></pre>
+<h4 id="verticaltab">VerticalTab</h4>
+<p><strong><code>VerticalTab(RegexQuantifier? quantifier = null)</code></strong></p>
+<p>Vertical tab character (<code>\v</code>).</p>
+<pre><code class="lang-csharp">RegexBuilder.VerticalTab()  // \v
+</code></pre>
+<h4 id="escapecharacter">EscapeCharacter</h4>
+<p><strong><code>EscapeCharacter(RegexQuantifier? quantifier = null)</code></strong></p>
+<p>Escape character (<code>\e</code>).</p>
+<pre><code class="lang-csharp">RegexBuilder.EscapeCharacter()  // \e
+</code></pre>
+<h4 id="octalcharacter">OctalCharacter</h4>
+<p><strong><code>OctalCharacter(int octalValue, RegexQuantifier? quantifier = null)</code></strong></p>
+<p>Octal character code (<code>\NNN</code>).</p>
+<pre><code class="lang-csharp">RegexBuilder.OctalCharacter(40)  // \040 (space character)
+</code></pre>
+<h3 id="conditional-matching">Conditional Matching</h3>
+<p><strong><code>ConditionalMatch(RegexNode conditionExpression, RegexNode trueExpression, RegexNode? falseExpression = null)</code></strong></p>
+<p>Conditional matching (<code>(?(condition)yes|no)</code>).</p>
+<pre><code class="lang-csharp">RegexBuilder.ConditionalMatch(
+    RegexBuilder.GroupReference(&quot;prefix&quot;),
+    RegexBuilder.Literal(&quot;-suffix&quot;),
+    RegexBuilder.Literal(&quot;_suffix&quot;)
+)  // (?(prefix)-suffix|_suffix)
+</code></pre>
+<h3 id="backtracking-suppression">Backtracking Suppression</h3>
+<p><strong><code>BacktrackingSuppression(RegexNode matchExpression)</code></strong></p>
+<p>Atomic grouping/backtracking suppression (<code>(?&gt;...)</code>).</p>
+<pre><code class="lang-csharp">RegexBuilder.BacktrackingSuppression(
+    RegexBuilder.Digit(RegexQuantifier.OneOrMore)
+)  // (?&gt;\d+)
+</code></pre>
+<hr>
+<h2 id="quantifiers">Quantifiers</h2>
+<p>Control how many times a pattern should repeat.</p>
+<h3 id="properties">Properties</h3>
+<pre><code class="lang-csharp">RegexQuantifier.ZeroOrMore       // *
+RegexQuantifier.OneOrMore        // +
+RegexQuantifier.Optional         // ?
+</code></pre>
+<h3 id="factory-methods">Factory Methods</h3>
+<pre><code class="lang-csharp">RegexQuantifier.Exactly(5)       // {5}
+RegexQuantifier.AtLeast(3)       // {3,}
+RegexQuantifier.Range(2, 5)      // {2,5}
+</code></pre>
+<h3 id="lazy-quantifiers">Lazy Quantifiers</h3>
+<pre><code class="lang-csharp">var quantifier = RegexQuantifier.OneOrMore;
+quantifier.Lazy = true;  // +?
+</code></pre>
+<h3 id="usage-examples">Usage Examples</h3>
+<pre><code class="lang-csharp">// With Classic API
+RegexBuilder.Digit(RegexQuantifier.OneOrMore)           // \d+
+RegexBuilder.Digit(RegexQuantifier.Exactly(3))          // \d{3}
+RegexBuilder.Digit(RegexQuantifier.Range(2, 5))         // \d{2,5}
+
+// With Fluent API
+.Digits(3)          // {3}
+.Digits(2, 5)       // {2,5}
+.Digits(1, null)    // +
+</code></pre>
+<hr>
+<h2 id="substitution-patterns">Substitution Patterns</h2>
+<p>Build replacement patterns for use with <code>Regex.Replace()</code>.</p>
+<h3 id="entry-point">Entry Point</h3>
+<pre><code class="lang-csharp">var replacement = SubstitutionBuilder.Build(components...);
+string result = regex.Replace(input, replacement);
+</code></pre>
+<h3 id="group-references">Group References</h3>
+<h4 id="named-group">Named Group</h4>
+<p><strong><code>Group(string groupName)</code></strong></p>
+<p>Reference a named group (<code>${name}</code>).</p>
+<pre><code class="lang-csharp">SubstitutionBuilder.Group(&quot;word&quot;)  // ${word}
+</code></pre>
+<h4 id="numbered-group">Numbered Group</h4>
+<p><strong><code>Group(int groupNumber)</code></strong></p>
+<p>Reference a numbered group (<code>$1</code>).</p>
+<pre><code class="lang-csharp">SubstitutionBuilder.Group(1)  // $1
+</code></pre>
+<h3 id="special-references">Special References</h3>
+<p><strong><code>WholeMatch()</code></strong> - Entire match (<code>$&amp;</code>)</p>
+<pre><code class="lang-csharp">SubstitutionBuilder.WholeMatch()  // $&amp;
+</code></pre>
+<p><strong><code>BeforeMatch()</code></strong> - Text before match (<code>$`</code>)</p>
+<pre><code class="lang-csharp">SubstitutionBuilder.BeforeMatch()  // $`
+</code></pre>
+<p><strong><code>AfterMatch()</code></strong> - Text after match (<code>$'</code>)</p>
+<pre><code class="lang-csharp">SubstitutionBuilder.AfterMatch()  // $'
+</code></pre>
+<p><strong><code>LastCapturedGroup()</code></strong> - Last captured group (<code>$+</code>)</p>
+<pre><code class="lang-csharp">SubstitutionBuilder.LastCapturedGroup()  // $+
+</code></pre>
+<p><strong><code>EntireInput()</code></strong> - Entire input string (<code>$_</code>)</p>
+<pre><code class="lang-csharp">SubstitutionBuilder.EntireInput()  // $_
+</code></pre>
+<p><strong><code>LiteralDollar()</code></strong> - Literal dollar sign (<code>$$</code>)</p>
+<pre><code class="lang-csharp">SubstitutionBuilder.LiteralDollar()  // $$
+</code></pre>
+<h3 id="literal-text-1">Literal Text</h3>
+<p><strong><code>Literal(string text)</code></strong></p>
+<p>Literal text in replacement (auto-escapes <code>$</code>).</p>
+<pre><code class="lang-csharp">SubstitutionBuilder.Literal(&quot;price: $5&quot;)  // price: $$5
+</code></pre>
+<h3 id="complete-example-1">Complete Example</h3>
+<pre><code class="lang-csharp">// Swap two words
+var pattern = RegexBuilder.Build(
+    RegexBuilder.Group(&quot;word1&quot;, RegexBuilder.WordCharacter(RegexQuantifier.OneOrMore)),
+    RegexBuilder.Whitespace(),
+    RegexBuilder.Group(&quot;word2&quot;, RegexBuilder.WordCharacter(RegexQuantifier.OneOrMore))
+);
+
+var replacement = SubstitutionBuilder.Build(
+    SubstitutionBuilder.Group(&quot;word2&quot;),
+    SubstitutionBuilder.Literal(&quot; &quot;),
+    SubstitutionBuilder.Group(&quot;word1&quot;)
+);
+
+string result = pattern.Replace(&quot;hello world&quot;, replacement);
+// result = &quot;world hello&quot;
+</code></pre>
+<hr>
+<h2 id="advanced-features">Advanced Features</h2>
+<h3 id="balancing-groups">Balancing Groups</h3>
+<p>Match nested/balanced structures like parentheses, XML tags, or code blocks.</p>
+<p><strong>Syntax</strong>: <code>(?&lt;push-pop&gt;expr)</code> or <code>(?&lt;name&gt;-expr)</code></p>
+<pre><code class="lang-csharp">// Match balanced parentheses
+var balancedParens = RegexBuilder.Build(
+    RegexBuilder.Literal(&quot;(&quot;),
+    RegexBuilder.BalancingGroup(&quot;depth&quot;, &quot;depth&quot;,
+        RegexBuilder.NegativeCharacterSet(&quot;()&quot;, RegexQuantifier.ZeroOrMore)
+    ),
+    RegexBuilder.Literal(&quot;)&quot;)
+);
+
+// Matches: &quot;()&quot;, &quot;(text)&quot;, &quot;((nested))&quot;
+</code></pre>
+<p><strong>Use Cases</strong>:</p>
+<ul>
+<li>Matching balanced parentheses</li>
+<li>Parsing XML/HTML tags</li>
+<li>Extracting code blocks</li>
+<li>Finding nested JSON structures</li>
+</ul>
+<h3 id="unicode-category-matching">Unicode Category Matching</h3>
+<p>Match characters by Unicode category or block.</p>
+<pre><code class="lang-csharp">// Match any letter (any language)
+var letters = RegexBuilder.UnicodeCategory(&quot;L&quot;, RegexQuantifier.OneOrMore);
+
+// Match Cyrillic text
+var cyrillic = RegexBuilder.UnicodeCategory(&quot;IsCyrillic&quot;, RegexQuantifier.OneOrMore);
+
+// Match non-Latin characters
+var nonLatin = RegexBuilder.NegativeUnicodeCategory(&quot;IsBasicLatin&quot;);
+
+// Test
+var regex = RegexBuilder.Build(cyrillic);
+Console.WriteLine(regex.IsMatch(&quot;Привет&quot;));  // True (Cyrillic)
+Console.WriteLine(regex.IsMatch(&quot;Hello&quot;));   // False (Latin)
+</code></pre>
+<p><strong>Common Categories</strong>:</p>
+<ul>
+<li><code>L</code> - All letters</li>
+<li><code>Lu</code> - Uppercase letters</li>
+<li><code>Ll</code> - Lowercase letters</li>
+<li><code>N</code> - Numbers</li>
+<li><code>Nd</code> - Decimal digits</li>
+<li><code>P</code> - Punctuation</li>
+<li><code>S</code> - Symbols</li>
+<li><code>Z</code> - Separators</li>
+</ul>
+<p><strong>Common Blocks</strong>:</p>
+<ul>
+<li><code>IsBasicLatin</code></li>
+<li><code>IsCyrillic</code></li>
+<li><code>IsArabic</code></li>
+<li><code>IsGreek</code></li>
+<li><code>IsHebrew</code></li>
+<li><code>IsCJKUnifiedIdeographs</code></li>
+</ul>
+<h3 id="inline-option-grouping">Inline Option Grouping</h3>
+<p>Apply regex options to specific sub-expressions only.</p>
+<pre><code class="lang-csharp">// Case-insensitive match for specific part
+var pattern = RegexBuilder.Build(
+    RegexBuilder.Literal(&quot;ID:&quot;),
+    RegexBuilder.InlineOptionGrouping(
+        RegexOptions.IgnoreCase,
+        RegexBuilder.Literal(&quot;abc&quot;)
+    ),
+    RegexBuilder.Digit(RegexQuantifier.Exactly(3))
+);
+
+// Matches: &quot;ID:abc123&quot;, &quot;ID:ABC123&quot;, &quot;ID:AbC123&quot;
+// Doesn't match: &quot;id:abc123&quot; (ID is case-sensitive)
+</code></pre>
+<p><strong>Available Options</strong>:</p>
+<ul>
+<li><code>IgnoreCase</code> (i)</li>
+<li><code>Multiline</code> (m)</li>
+<li><code>Singleline</code> (s)</li>
+<li><code>ExplicitCapture</code> (n)</li>
+<li><code>IgnorePatternWhitespace</code> (x)</li>
+</ul>
+<h3 id="conditional-matching-1">Conditional Matching</h3>
+<p>Match different patterns based on whether a condition is true.</p>
+<pre><code class="lang-csharp">// Match suffix based on whether prefix group exists
+var pattern = RegexBuilder.Build(
+    RegexBuilder.Optional(RegexBuilder.Group(&quot;prefix&quot;, RegexBuilder.Literal(&quot;PRE&quot;))),
+    RegexBuilder.Literal(&quot;-&quot;),
+    RegexBuilder.ConditionalMatch(
+        RegexBuilder.GroupReference(&quot;prefix&quot;),
+        RegexBuilder.Literal(&quot;SUFFIX&quot;),
+        RegexBuilder.Literal(&quot;suffix&quot;)
+    )
+);
+
+// Matches: &quot;PRE-SUFFIX&quot; or &quot;-suffix&quot;
+</code></pre>
+<hr>
+<h2 id="syntax-mapping-reference">Syntax Mapping Reference</h2>
+<p>Quick lookup table for traditional regex → RegexBuilder conversion.</p>
+<table>
+<thead>
+<tr>
+<th>Traditional</th>
+<th>RegexBuilder (Classic)</th>
+<th>RegexBuilder (Fluent)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>^</code></td>
+<td><code>LineStart()</code></td>
+<td><code>.Start()</code></td>
+</tr>
+<tr>
+<td><code>$</code></td>
+<td><code>LineEnd()</code></td>
+<td><code>.End()</code></td>
+</tr>
+<tr>
+<td><code>\d</code></td>
+<td><code>Digit()</code></td>
+<td><code>.Digits()</code></td>
+</tr>
+<tr>
+<td><code>\d+</code></td>
+<td><code>Digit(RegexQuantifier.OneOrMore)</code></td>
+<td><code>.Digits(1, null)</code></td>
+</tr>
+<tr>
+<td><code>\d{3}</code></td>
+<td><code>Digit(RegexQuantifier.Exactly(3))</code></td>
+<td><code>.Digits(3)</code> or <code>.Digits(3, 3)</code></td>
+</tr>
+<tr>
+<td><code>\d{2,5}</code></td>
+<td><code>Digit(RegexQuantifier.Range(2, 5))</code></td>
+<td><code>.Digits(2, 5)</code></td>
+</tr>
+<tr>
+<td><code>\w</code></td>
+<td><code>WordCharacter()</code></td>
+<td><code>.WordCharacter()</code></td>
+</tr>
+<tr>
+<td><code>\w+</code></td>
+<td><code>WordCharacter(RegexQuantifier.OneOrMore)</code></td>
+<td><code>.WordCharacter(1, null)</code></td>
+</tr>
+<tr>
+<td><code>\s</code></td>
+<td><code>Whitespace()</code></td>
+<td><code>.Whitespace()</code></td>
+</tr>
+<tr>
+<td><code>\s*</code></td>
+<td><code>Whitespace(RegexQuantifier.ZeroOrMore)</code></td>
+<td><code>.Whitespace(0, null)</code></td>
+</tr>
+<tr>
+<td><code>.</code></td>
+<td><code>MetaCharacter(RegexMetaChars.AnyCharacter)</code></td>
+<td><code>.AnyCharacter()</code></td>
+</tr>
+<tr>
+<td><code>[a-z]</code></td>
+<td><code>CharacterRange('a', 'z')</code></td>
+<td><code>.CharacterSet(&quot;a-z&quot;)</code></td>
+</tr>
+<tr>
+<td><code>[abc]</code></td>
+<td><code>CharacterSet(&quot;abc&quot;)</code></td>
+<td><code>.CharacterSet(&quot;abc&quot;)</code></td>
+</tr>
+<tr>
+<td><code>[^a-z]</code></td>
+<td><code>NegativeCharacterSet(&quot;a-z&quot;)</code></td>
+<td>N/A (use classic)</td>
+</tr>
+<tr>
+<td><code>(expr)</code></td>
+<td><code>Group(expr)</code></td>
+<td><code>.Group(g =&gt; g...)</code></td>
+</tr>
+<tr>
+<td><code>(?:expr)</code></td>
+<td><code>NonCapturingGroup(expr)</code></td>
+<td><code>.NonCapturingGroup(g =&gt; g...)</code></td>
+</tr>
+<tr>
+<td><code>(?&lt;name&gt;expr)</code></td>
+<td><code>Group(&quot;name&quot;, expr)</code></td>
+<td>N/A (use classic)</td>
+</tr>
+<tr>
+<td><code>\1</code></td>
+<td><code>GroupReference(1)</code></td>
+<td>N/A (use classic)</td>
+</tr>
+<tr>
+<td><code>\k&lt;name&gt;</code></td>
+<td><code>GroupReference(&quot;name&quot;)</code></td>
+<td>N/A (use classic)</td>
+</tr>
+<tr>
+<td><code>a\|b</code></td>
+<td><code>Alternate(Literal(&quot;a&quot;), Literal(&quot;b&quot;))</code></td>
+<td><code>.Literal(&quot;a&quot;).Or(o =&gt; o.Literal(&quot;b&quot;))</code></td>
+</tr>
+<tr>
+<td><code>(?=expr)</code></td>
+<td><code>PositiveLookAhead(expr)</code></td>
+<td>N/A (use classic)</td>
+</tr>
+<tr>
+<td><code>(?!expr)</code></td>
+<td><code>NegativeLookAhead(expr)</code></td>
+<td>N/A (use classic)</td>
+</tr>
+<tr>
+<td><code>(?&lt;=expr)</code></td>
+<td><code>PositiveLookBehind(expr)</code></td>
+<td>N/A (use classic)</td>
+</tr>
+<tr>
+<td><code>(?&lt;!expr)</code></td>
+<td><code>NegativeLookBehind(expr)</code></td>
+<td>N/A (use classic)</td>
+</tr>
+<tr>
+<td><code>(?i:expr)</code></td>
+<td><code>InlineOptionGrouping(RegexOptions.IgnoreCase, expr)</code></td>
+<td>N/A (use classic)</td>
+</tr>
+<tr>
+<td><code>\p{L}</code></td>
+<td><code>UnicodeCategory(&quot;L&quot;)</code></td>
+<td>N/A (use classic)</td>
+</tr>
+<tr>
+<td><code>\P{L}</code></td>
+<td><code>NegativeUnicodeCategory(&quot;L&quot;)</code></td>
+<td>N/A (use classic)</td>
+</tr>
+<tr>
+<td><code>literal\.text</code></td>
+<td><code>Literal(&quot;literal.text&quot;)</code></td>
+<td><code>.Literal(&quot;literal.text&quot;)</code></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="common-issues">Common Issues</h3>
+<h4 id="pattern-doesnt-match-expected-input">Pattern Doesn't Match Expected Input</h4>
+<p><strong>Solution</strong>:</p>
+<ol>
+<li>Test the generated pattern on <a href="https://regex101.com">regex101.com</a></li>
+<li>Check for proper escaping of special characters</li>
+<li>Verify quantifiers are applied correctly</li>
+<li>Add anchors (<code>Start()</code> / <code>End()</code>) if needed</li>
+</ol>
+<pre><code class="lang-csharp">// Debug: Print the generated pattern
+var pattern = builder.Build();
+var regex = RegexBuilder.Build(pattern);
+Console.WriteLine(regex.ToString());  // See the actual regex
+</code></pre>
+<h4 id="performance-is-slow">Performance is Slow</h4>
+<p><strong>Solution</strong>:</p>
+<ol>
+<li>Cache compiled Regex objects</li>
+<li>Use <code>RegexOptions.Compiled</code> for hot paths</li>
+<li>Test with pathological inputs to avoid catastrophic backtracking</li>
+</ol>
+<pre><code class="lang-csharp">// ✓ Good: Static, cached, compiled
+private static readonly Regex EmailRegex = RegexBuilder.Build(
+    RegexOptions.Compiled,
+    CommonPatterns.Email()
+);
+</code></pre>
+<h4 id="pattern-is-too-verbose">Pattern is Too Verbose</h4>
+<p><strong>Solution</strong>:</p>
+<ol>
+<li>Use Fluent API for simpler patterns</li>
+<li>Extract reusable components</li>
+<li>Consider if hand-written regex is better for very simple cases</li>
+</ol>
+<pre><code class="lang-csharp">// Extract reusable components
+public static class MyPatterns
+{
+    public static RegexNode Identifier() =&gt;
+        RegexBuilder.Pattern()
+            .Letters(1)
+            .WordCharacter(0, null)
+            .Build();
+}
+</code></pre>
+<h4 id="cant-figure-out-which-method-to-use">Can't Figure Out Which Method to Use</h4>
+<p><strong>Solution</strong>:</p>
+<ol>
+<li>Check the <a href="#syntax-mapping-reference">Syntax Mapping Reference</a></li>
+<li>Browse <a href="common-patterns.html">Common Patterns Library</a> for examples</li>
+<li>Use IDE IntelliSense for method discovery</li>
+</ol>
+<h3 id="getting-help">Getting Help</h3>
+<ul>
+<li><strong>GitHub Issues</strong>: <a href="https://github.com/somenoe/RegexBuilder.NET9/issues">Report bugs or request features</a></li>
+<li><strong>Example Code</strong>: Check <a href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/CustomRegexTests.cs">CustomRegexTests.cs</a></li>
+<li><strong>Common Patterns</strong>: See <a href="common-patterns.html">Common Patterns Library</a></li>
+<li><strong>Getting Started</strong>: Review <a href="getting-started.html">Getting Started Guide</a></li>
+</ul>
+<hr>
+<h2 id="next-steps">Next Steps</h2>
+<ul>
+<li><strong><a href="getting-started.html">Getting Started</a></strong> - Learn the basics</li>
+<li><strong><a href="common-patterns.html">Common Patterns</a></strong> - Copy-paste ready patterns</li>
+<li><strong><a href="https://github.com/somenoe/RegexBuilder.NET9">GitHub Examples</a></strong> - More examples</li>
+</ul>
+<p>Happy pattern building! 🚀</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/docs/docs/api-guide.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

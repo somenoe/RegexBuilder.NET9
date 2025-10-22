@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Common Patterns Library | RegexBuilder.NET9 - Fluent Regex Builder </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Common Patterns Library | RegexBuilder.NET9 - Fluent Regex Builder ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/somenoe/RegexBuilder.NET9/blob/master/docs/docs/common-patterns.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="RegexBuilder">
+            RegexBuilder
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="common-patterns-library">Common Patterns Library</h1>
+
+<p>This library provides ready-to-use regex patterns for the most common validation and extraction scenarios. Copy, paste, and customize as needed!</p>
+<h2 id="how-to-use-this-library">How to Use This Library</h2>
+<p>All patterns in this library are designed to be:</p>
+<ul>
+<li><strong>Copy-paste ready</strong>: Use them directly in your code</li>
+<li><strong>Production-tested</strong>: Validated with comprehensive test suites</li>
+<li><strong>Customizable</strong>: Easy to modify for your specific needs</li>
+<li><strong>Well-documented</strong>: Clear examples of what matches and what doesn't</li>
+</ul>
+<h3 id="basic-usage">Basic Usage</h3>
+<pre><code class="lang-csharp">using RegexBuilder;
+
+// Use a pre-built pattern
+var emailRegex = RegexBuilder.Build(CommonPatterns.Email());
+
+// Validate input
+bool isValid = emailRegex.IsMatch(&quot;user@example.com&quot;);
+
+// With regex options
+var regex = RegexBuilder.Build(
+    RegexOptions.Compiled | RegexOptions.IgnoreCase,
+    CommonPatterns.Email()
+);
+</code></pre>
+<h2 id="quick-reference">Quick Reference</h2>
+<table>
+<thead>
+<tr>
+<th>Pattern</th>
+<th>Usage</th>
+<th>Example Match</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#email-addresses">Email</a></td>
+<td><code>CommonPatterns.Email()</code></td>
+<td><code>user@example.com</code></td>
+</tr>
+<tr>
+<td><a href="#urls-and-web-addresses">URL</a></td>
+<td><code>CommonPatterns.Url()</code></td>
+<td><code>https://example.com/path</code></td>
+</tr>
+<tr>
+<td><a href="#phone-numbers">US Phone</a></td>
+<td>See examples below</td>
+<td><code>555-123-4567</code></td>
+</tr>
+<tr>
+<td><a href="#postal-codes">US ZIP Code</a></td>
+<td>See examples below</td>
+<td><code>12345</code> or <code>12345-6789</code></td>
+</tr>
+<tr>
+<td><a href="#ip-addresses">IPv4 Address</a></td>
+<td>See examples below</td>
+<td><code>192.168.1.1</code></td>
+</tr>
+<tr>
+<td><a href="#dates-and-time">Date (ISO)</a></td>
+<td>See examples below</td>
+<td><code>2025-10-22</code></td>
+</tr>
+<tr>
+<td><a href="#credit-cards">Credit Card</a></td>
+<td>See examples below</td>
+<td><code>4111-1111-1111-1111</code></td>
+</tr>
+<tr>
+<td><a href="#identifiers-and-codes">UUID/GUID</a></td>
+<td>See examples below</td>
+<td><code>550e8400-e29b-41d4-a716</code></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="email-addresses">Email Addresses</h2>
+<h3 id="what-it-matches">What It Matches</h3>
+<p>A basic email address with local part, @ symbol, domain, and TLD.</p>
+<ul>
+<li>Local part: alphanumeric, dots, hyphens, underscores, percent, plus</li>
+<li>Domain: alphanumeric and hyphens, separated by dots</li>
+<li>TLD: 2-6 alphabetic characters</li>
+</ul>
+<h3 id="pre-built-pattern">Pre-Built Pattern</h3>
+<pre><code class="lang-csharp">using RegexBuilder;
+
+// Use the built-in pattern
+var emailRegex = RegexBuilder.Build(CommonPatterns.Email());
+
+// Test it
+Console.WriteLine(emailRegex.IsMatch(&quot;user@example.com&quot;));       // ✓ True
+Console.WriteLine(emailRegex.IsMatch(&quot;test.user+tag@domain.co&quot;)); // ✓ True
+Console.WriteLine(emailRegex.IsMatch(&quot;invalid.email&quot;));          // ✗ False
+Console.WriteLine(emailRegex.IsMatch(&quot;@nodomain.com&quot;));          // ✗ False
+</code></pre>
+<h3 id="examples">Examples</h3>
+<p><strong>✓ Matches:</strong></p>
+<ul>
+<li><code>user@example.com</code></li>
+<li><code>first.last@company.co</code></li>
+<li><code>test+tag@domain.org</code></li>
+<li><code>user_name@sub-domain.com</code></li>
+</ul>
+<p><strong>✗ Doesn't Match:</strong></p>
+<ul>
+<li><code>invalid.email</code> (no @ symbol)</li>
+<li><code>@nodomain.com</code> (no local part)</li>
+<li><code>user@</code> (no domain)</li>
+<li><code>user @example.com</code> (space in email)</li>
+</ul>
+<h3 id="custom-email-pattern">Custom Email Pattern</h3>
+<p>Want more control? Build your own:</p>
+<pre><code class="lang-csharp">// Stricter email validation
+var strictEmail = RegexBuilder.Pattern()
+    .Start()
+    .CharacterSet(&quot;a-zA-Z0-9&quot;, 1, null)           // Must start with alphanumeric
+    .CharacterSet(&quot;a-zA-Z0-9._%+-&quot;, 0, null)      // Followed by allowed chars
+    .Literal(&quot;@&quot;)
+    .CharacterSet(&quot;a-zA-Z0-9&quot;, 1, null)           // Domain starts with alphanumeric
+    .CharacterSet(&quot;a-zA-Z0-9.-&quot;, 0, null)         // Followed by domain chars
+    .Literal(&quot;.&quot;)
+    .Letters(2, 6)                                 // TLD: 2-6 letters only
+    .End()
+    .Build();
+
+var regex = RegexBuilder.Build(strictEmail);
+</code></pre>
+<hr>
+<h2 id="urls-and-web-addresses">URLs and Web Addresses</h2>
+<h3 id="what-it-matches-1">What It Matches</h3>
+<p>URLs with optional protocol, domain, path, query string, and fragment.</p>
+<h3 id="pre-built-pattern-1">Pre-Built Pattern</h3>
+<pre><code class="lang-csharp">using RegexBuilder;
+
+// Use the built-in URL pattern
+var urlRegex = RegexBuilder.Build(CommonPatterns.Url());
+
+// Test it
+Console.WriteLine(urlRegex.IsMatch(&quot;https://github.com/example&quot;));     // ✓ True
+Console.WriteLine(urlRegex.IsMatch(&quot;http://example.com/path?q=1&quot;));    // ✓ True
+Console.WriteLine(urlRegex.IsMatch(&quot;ftp://files.example.com&quot;));        // ✓ True
+Console.WriteLine(urlRegex.IsMatch(&quot;not a url&quot;));                      // ✗ False
+</code></pre>
+<h3 id="examples-1">Examples</h3>
+<p><strong>✓ Matches:</strong></p>
+<ul>
+<li><code>https://example.com</code></li>
+<li><code>http://sub.domain.com/path</code></li>
+<li><code>https://example.com/path?query=value&amp;more=data</code></li>
+<li><code>ftp://files.example.com/file.txt</code></li>
+<li><code>https://example.com:8080/path</code></li>
+</ul>
+<p><strong>✗ Doesn't Match:</strong></p>
+<ul>
+<li><code>not a url</code></li>
+<li><code>htp://typo.com</code> (invalid protocol)</li>
+<li><code>example</code> (no protocol or domain structure)</li>
+</ul>
+<h3 id="custom-url-pattern-with-capturing-groups">Custom URL Pattern with Capturing Groups</h3>
+<pre><code class="lang-csharp">// Extract URL components
+var urlPattern = RegexBuilder.Build(
+    RegexBuilder.Group(&quot;protocol&quot;,
+        RegexBuilder.CharacterSet(&quot;a-z&quot;, RegexQuantifier.OneOrMore)
+    ),
+    RegexBuilder.Literal(&quot;://&quot;),
+    RegexBuilder.Group(&quot;domain&quot;,
+        RegexBuilder.CharacterSet(&quot;a-zA-Z0-9.-&quot;, RegexQuantifier.OneOrMore)
+    ),
+    RegexBuilder.Group(&quot;path&quot;,
+        RegexBuilder.CharacterSet(&quot;/a-zA-Z0-9._~:?#@!$&amp;'()*+,;=%-&quot;, RegexQuantifier.ZeroOrMore)
+    )
+);
+
+var match = urlPattern.Match(&quot;https://example.com/path?q=1&quot;);
+if (match.Success)
+{
+    Console.WriteLine($&quot;Protocol: {match.Groups[&quot;protocol&quot;].Value}&quot;);  // https
+    Console.WriteLine($&quot;Domain: {match.Groups[&quot;domain&quot;].Value}&quot;);      // example.com
+    Console.WriteLine($&quot;Path: {match.Groups[&quot;path&quot;].Value}&quot;);          // /path?q=1
+}
+</code></pre>
+<hr>
+<h2 id="phone-numbers">Phone Numbers</h2>
+<h3 id="us-phone-numbers">US Phone Numbers</h3>
+<p>Matches various US phone number formats with optional country code.</p>
+<pre><code class="lang-csharp">// Flexible US phone format
+var phonePattern = RegexBuilder.Pattern()
+    .Optional(o =&gt; o.Literal(&quot;+1&quot;).Optional(sep =&gt; sep.CharacterSet(&quot;- &quot;)))
+    .Group(g =&gt; g.Digits(3))               // Area code
+    .Optional(o =&gt; o.CharacterSet(&quot;- .&quot;))  // Separator
+    .Group(g =&gt; g.Digits(3))               // Prefix
+    .Optional(o =&gt; o.CharacterSet(&quot;- .&quot;))  // Separator
+    .Group(g =&gt; g.Digits(4))               // Line number
+    .Build();
+
+var phoneRegex = RegexBuilder.Build(phonePattern);
+
+// Test it
+Console.WriteLine(phoneRegex.IsMatch(&quot;555-123-4567&quot;));      // ✓ True
+Console.WriteLine(phoneRegex.IsMatch(&quot;+1-555-123-4567&quot;));   // ✓ True
+Console.WriteLine(phoneRegex.IsMatch(&quot;5551234567&quot;));        // ✓ True
+Console.WriteLine(phoneRegex.IsMatch(&quot;555.123.4567&quot;));      // ✓ True
+Console.WriteLine(phoneRegex.IsMatch(&quot;123-45-6789&quot;));       // ✗ False (not phone format)
+</code></pre>
+<p><strong>✓ Matches:</strong></p>
+<ul>
+<li><code>555-123-4567</code></li>
+<li><code>+1-555-123-4567</code></li>
+<li><code>5551234567</code></li>
+<li><code>555.123.4567</code></li>
+<li><code>(555) 123-4567</code> (with parentheses variant - needs adjustment)</li>
+</ul>
+<p><strong>✗ Doesn't Match:</strong></p>
+<ul>
+<li><code>12-345-6789</code> (invalid area code format)</li>
+<li><code>555-12-34567</code> (wrong digit grouping)</li>
+</ul>
+<h3 id="phone-with-parentheses">Phone with Parentheses</h3>
+<pre><code class="lang-csharp">// Format: (555) 123-4567
+var phoneWithParens = RegexBuilder.Build(
+    RegexBuilder.Optional(RegexBuilder.Literal(&quot;+1&quot;).Concatenate(
+        RegexBuilder.MetaCharacter(RegexMetaChars.WhiteSpace, RegexQuantifier.Optional)
+    )),
+    RegexBuilder.Literal(&quot;(&quot;),
+    RegexBuilder.Digit(RegexQuantifier.Exactly(3)),
+    RegexBuilder.Literal(&quot;)&quot;),
+    RegexBuilder.MetaCharacter(RegexMetaChars.WhiteSpace, RegexQuantifier.Optional),
+    RegexBuilder.Digit(RegexQuantifier.Exactly(3)),
+    RegexBuilder.CharacterSet(&quot;- .&quot;, RegexQuantifier.Optional),
+    RegexBuilder.Digit(RegexQuantifier.Exactly(4))
+);
+</code></pre>
+<hr>
+<h2 id="postal-codes">Postal Codes</h2>
+<h3 id="us-zip-codes">US ZIP Codes</h3>
+<pre><code class="lang-csharp">// Matches: 12345 or 12345-6789
+var zipPattern = RegexBuilder.Pattern()
+    .Start()
+    .Digits(5)
+    .Optional(o =&gt; o.Literal(&quot;-&quot;).Digits(4))
+    .End()
+    .Build();
+
+var zipRegex = RegexBuilder.Build(zipPattern);
+
+Console.WriteLine(zipRegex.IsMatch(&quot;12345&quot;));        // ✓ True
+Console.WriteLine(zipRegex.IsMatch(&quot;12345-6789&quot;));   // ✓ True
+Console.WriteLine(zipRegex.IsMatch(&quot;1234&quot;));         // ✗ False (too short)
+</code></pre>
+<h3 id="canadian-postal-codes">Canadian Postal Codes</h3>
+<pre><code class="lang-csharp">// Format: A1A 1A1
+var canadianPostal = RegexBuilder.Build(
+    RegexBuilder.LineStart(),
+    RegexBuilder.CharacterSet(&quot;A-Z&quot;, RegexQuantifier.Exactly(1)),
+    RegexBuilder.Digit(RegexQuantifier.Exactly(1)),
+    RegexBuilder.CharacterSet(&quot;A-Z&quot;, RegexQuantifier.Exactly(1)),
+    RegexBuilder.MetaCharacter(RegexMetaChars.WhiteSpace, RegexQuantifier.Optional),
+    RegexBuilder.Digit(RegexQuantifier.Exactly(1)),
+    RegexBuilder.CharacterSet(&quot;A-Z&quot;, RegexQuantifier.Exactly(1)),
+    RegexBuilder.Digit(RegexQuantifier.Exactly(1)),
+    RegexBuilder.LineEnd()
+);
+</code></pre>
+<p><strong>✓ Matches:</strong></p>
+<ul>
+<li><code>K1A 0B1</code></li>
+<li><code>M5V3A8</code> (without space)</li>
+</ul>
+<h3 id="uk-postcodes">UK Postcodes</h3>
+<pre><code class="lang-csharp">// Format: SW1A 1AA
+var ukPostcode = RegexBuilder.Build(
+    RegexBuilder.LineStart(),
+    RegexBuilder.CharacterSet(&quot;A-Z&quot;, new RegexQuantifier(1, 2)),
+    RegexBuilder.Digit(RegexQuantifier.Exactly(1)),
+    RegexBuilder.CharacterSet(&quot;A-Z0-9&quot;, RegexQuantifier.Optional),
+    RegexBuilder.MetaCharacter(RegexMetaChars.WhiteSpace, RegexQuantifier.Optional),
+    RegexBuilder.Digit(RegexQuantifier.Exactly(1)),
+    RegexBuilder.CharacterSet(&quot;A-Z&quot;, RegexQuantifier.Exactly(2)),
+    RegexBuilder.LineEnd()
+);
+</code></pre>
+<hr>
+<h2 id="credit-cards">Credit Cards</h2>
+<blockquote>
+<p><strong>⚠️ Security Warning</strong>: Never log, store, or transmit credit card numbers in plain text. Use these patterns for validation only, and always follow PCI DSS compliance standards.</p>
+</blockquote>
+<h3 id="visa">Visa</h3>
+<pre><code class="lang-csharp">// Visa: Starts with 4, 13-16 digits total
+var visaPattern = RegexBuilder.Build(
+    RegexBuilder.LineStart(),
+    RegexBuilder.Literal(&quot;4&quot;),
+    RegexBuilder.Digit(new RegexQuantifier(12, 15)),
+    RegexBuilder.LineEnd()
+);
+
+Console.WriteLine(visaPattern.IsMatch(&quot;4111111111111111&quot;));  // ✓ True (test card)
+</code></pre>
+<h3 id="mastercard">Mastercard</h3>
+<pre><code class="lang-csharp">// Mastercard: Starts with 51-55 or 2221-2720, 16 digits total
+var mastercardPattern = RegexBuilder.Build(
+    RegexBuilder.LineStart(),
+    RegexBuilder.Alternate(
+        RegexBuilder.Concatenate(
+            RegexBuilder.Literal(&quot;5&quot;),
+            RegexBuilder.CharacterSet(&quot;1-5&quot;, RegexQuantifier.Exactly(1))
+        ),
+        RegexBuilder.Concatenate(
+            RegexBuilder.Literal(&quot;22&quot;),
+            RegexBuilder.CharacterSet(&quot;2-9&quot;, RegexQuantifier.Exactly(1)),
+            RegexBuilder.Digit(RegexQuantifier.Exactly(1))
+        )
+    ),
+    RegexBuilder.Digit(RegexQuantifier.Exactly(12)),
+    RegexBuilder.LineEnd()
+);
+</code></pre>
+<h3 id="american-express">American Express</h3>
+<pre><code class="lang-csharp">// Amex: Starts with 34 or 37, 15 digits total
+var amexPattern = RegexBuilder.Build(
+    RegexBuilder.LineStart(),
+    RegexBuilder.Literal(&quot;3&quot;),
+    RegexBuilder.CharacterSet(&quot;47&quot;, RegexQuantifier.Exactly(1)),
+    RegexBuilder.Digit(RegexQuantifier.Exactly(13)),
+    RegexBuilder.LineEnd()
+);
+</code></pre>
+<h3 id="generic-card-with-separators">Generic Card with Separators</h3>
+<pre><code class="lang-csharp">// Matches: 4111-1111-1111-1111 or 4111 1111 1111 1111
+var cardWithSeparators = RegexBuilder.Build(
+    RegexBuilder.LineStart(),
+    RegexBuilder.Digit(RegexQuantifier.Exactly(4)),
+    RegexBuilder.CharacterSet(&quot;- &quot;, RegexQuantifier.Optional),
+    RegexBuilder.Digit(RegexQuantifier.Exactly(4)),
+    RegexBuilder.CharacterSet(&quot;- &quot;, RegexQuantifier.Optional),
+    RegexBuilder.Digit(RegexQuantifier.Exactly(4)),
+    RegexBuilder.CharacterSet(&quot;- &quot;, RegexQuantifier.Optional),
+    RegexBuilder.Digit(RegexQuantifier.Exactly(4)),
+    RegexBuilder.LineEnd()
+);
+</code></pre>
+<hr>
+<h2 id="ip-addresses">IP Addresses</h2>
+<h3 id="ipv4">IPv4</h3>
+<pre><code class="lang-csharp">// Basic IPv4 pattern (simplified, doesn't validate ranges)
+var ipv4Pattern = RegexBuilder.Build(
+    RegexBuilder.LineStart(),
+    RegexBuilder.Digit(new RegexQuantifier(1, 3)),
+    RegexBuilder.Literal(&quot;.&quot;),
+    RegexBuilder.Digit(new RegexQuantifier(1, 3)),
+    RegexBuilder.Literal(&quot;.&quot;),
+    RegexBuilder.Digit(new RegexQuantifier(1, 3)),
+    RegexBuilder.Literal(&quot;.&quot;),
+    RegexBuilder.Digit(new RegexQuantifier(1, 3)),
+    RegexBuilder.LineEnd()
+);
+
+Console.WriteLine(ipv4Pattern.IsMatch(&quot;192.168.1.1&quot;));    // ✓ True
+Console.WriteLine(ipv4Pattern.IsMatch(&quot;10.0.0.1&quot;));       // ✓ True
+Console.WriteLine(ipv4Pattern.IsMatch(&quot;999.999.999.999&quot;)); // ✓ True (pattern doesn't validate range)
+</code></pre>
+<p><strong>Note</strong>: This pattern validates the format but doesn't check if octets are in the valid range (0-255). For stricter validation, use additional logic.</p>
+<h3 id="ipv4-with-range-validation-classic-api">IPv4 with Range Validation (Classic API)</h3>
+<pre><code class="lang-csharp">// More accurate IPv4 validation
+var octet = RegexBuilder.Alternate(
+    RegexBuilder.Concatenate(
+        RegexBuilder.Literal(&quot;25&quot;),
+        RegexBuilder.CharacterSet(&quot;0-5&quot;, RegexQuantifier.Exactly(1))
+    ),
+    RegexBuilder.Concatenate(
+        RegexBuilder.Literal(&quot;2&quot;),
+        RegexBuilder.CharacterSet(&quot;0-4&quot;, RegexQuantifier.Exactly(1)),
+        RegexBuilder.Digit(RegexQuantifier.Exactly(1))
+    ),
+    RegexBuilder.Concatenate(
+        RegexBuilder.CharacterSet(&quot;01&quot;, RegexQuantifier.Optional),
+        RegexBuilder.Digit(new RegexQuantifier(1, 2))
+    )
+);
+
+var ipv4Strict = RegexBuilder.Build(
+    RegexBuilder.LineStart(),
+    octet,
+    RegexBuilder.Literal(&quot;.&quot;),
+    octet,
+    RegexBuilder.Literal(&quot;.&quot;),
+    octet,
+    RegexBuilder.Literal(&quot;.&quot;),
+    octet,
+    RegexBuilder.LineEnd()
+);
+
+Console.WriteLine(ipv4Strict.IsMatch(&quot;192.168.1.1&quot;));      // ✓ True
+Console.WriteLine(ipv4Strict.IsMatch(&quot;255.255.255.255&quot;));  // ✓ True
+Console.WriteLine(ipv4Strict.IsMatch(&quot;256.1.1.1&quot;));        // ✗ False
+</code></pre>
+<hr>
+<h2 id="dates-and-time">Dates and Time</h2>
+<h3 id="iso-8601-date-yyyy-mm-dd">ISO 8601 Date (YYYY-MM-DD)</h3>
+<pre><code class="lang-csharp">var isoDate = RegexBuilder.Pattern()
+    .Start()
+    .Digits(4)                              // Year
+    .Literal(&quot;-&quot;)
+    .Digits(2)                              // Month
+    .Literal(&quot;-&quot;)
+    .Digits(2)                              // Day
+    .End()
+    .Build();
+
+var dateRegex = RegexBuilder.Build(isoDate);
+
+Console.WriteLine(dateRegex.IsMatch(&quot;2025-10-22&quot;));  // ✓ True
+Console.WriteLine(dateRegex.IsMatch(&quot;2025-1-1&quot;));    // ✗ False (needs zero-padding)
+</code></pre>
+<h3 id="us-date-mmddyyyy">US Date (MM/DD/YYYY)</h3>
+<pre><code class="lang-csharp">var usDate = RegexBuilder.Build(
+    RegexBuilder.LineStart(),
+    RegexBuilder.Digit(new RegexQuantifier(1, 2)),
+    RegexBuilder.Literal(&quot;/&quot;),
+    RegexBuilder.Digit(new RegexQuantifier(1, 2)),
+    RegexBuilder.Literal(&quot;/&quot;),
+    RegexBuilder.Digit(RegexQuantifier.Exactly(4)),
+    RegexBuilder.LineEnd()
+);
+
+Console.WriteLine(usDate.IsMatch(&quot;10/22/2025&quot;));  // ✓ True
+Console.WriteLine(usDate.IsMatch(&quot;1/1/2025&quot;));    // ✓ True
+</code></pre>
+<h3 id="time-hhmm-or-hhmmss">Time (HH:MM or HH:MM:SS)</h3>
+<pre><code class="lang-csharp">var time24h = RegexBuilder.Build(
+    RegexBuilder.LineStart(),
+    RegexBuilder.Digit(RegexQuantifier.Exactly(2)),
+    RegexBuilder.Literal(&quot;:&quot;),
+    RegexBuilder.Digit(RegexQuantifier.Exactly(2)),
+    RegexBuilder.Optional(
+        RegexBuilder.Concatenate(
+            RegexBuilder.Literal(&quot;:&quot;),
+            RegexBuilder.Digit(RegexQuantifier.Exactly(2))
+        )
+    ),
+    RegexBuilder.LineEnd()
+);
+
+Console.WriteLine(time24h.IsMatch(&quot;14:30&quot;));     // ✓ True
+Console.WriteLine(time24h.IsMatch(&quot;14:30:45&quot;));  // ✓ True
+</code></pre>
+<hr>
+<h2 id="identifiers-and-codes">Identifiers and Codes</h2>
+<h3 id="uuidguid">UUID/GUID</h3>
+<pre><code class="lang-csharp">// Format: 550e8400-e29b-41d4-a716-446655440000
+var uuidPattern = RegexBuilder.Build(
+    RegexBuilder.LineStart(),
+    RegexBuilder.CharacterSet(&quot;a-fA-F0-9&quot;, RegexQuantifier.Exactly(8)),
+    RegexBuilder.Literal(&quot;-&quot;),
+    RegexBuilder.CharacterSet(&quot;a-fA-F0-9&quot;, RegexQuantifier.Exactly(4)),
+    RegexBuilder.Literal(&quot;-&quot;),
+    RegexBuilder.CharacterSet(&quot;a-fA-F0-9&quot;, RegexQuantifier.Exactly(4)),
+    RegexBuilder.Literal(&quot;-&quot;),
+    RegexBuilder.CharacterSet(&quot;a-fA-F0-9&quot;, RegexQuantifier.Exactly(4)),
+    RegexBuilder.Literal(&quot;-&quot;),
+    RegexBuilder.CharacterSet(&quot;a-fA-F0-9&quot;, RegexQuantifier.Exactly(12)),
+    RegexBuilder.LineEnd()
+);
+
+Console.WriteLine(uuidPattern.IsMatch(&quot;550e8400-e29b-41d4-a716-446655440000&quot;));  // ✓ True
+</code></pre>
+<h3 id="hexadecimal-string">Hexadecimal String</h3>
+<pre><code class="lang-csharp">// Matches hex strings with optional 0x prefix
+var hexPattern = RegexBuilder.Build(
+    RegexBuilder.LineStart(),
+    RegexBuilder.Optional(RegexBuilder.Literal(&quot;0x&quot;)),
+    RegexBuilder.CharacterSet(&quot;a-fA-F0-9&quot;, RegexQuantifier.OneOrMore),
+    RegexBuilder.LineEnd()
+);
+
+Console.WriteLine(hexPattern.IsMatch(&quot;0x1A2B3C&quot;));  // ✓ True
+Console.WriteLine(hexPattern.IsMatch(&quot;DEADBEEF&quot;));  // ✓ True
+</code></pre>
+<h3 id="social-security-number-us">Social Security Number (US)</h3>
+<blockquote>
+<p><strong>⚠️ Privacy Warning</strong>: SSNs are highly sensitive. Never log, display, or store them without proper encryption and compliance measures.</p>
+</blockquote>
+<pre><code class="lang-csharp">// Format: 123-45-6789
+var ssnPattern = RegexBuilder.Build(
+    RegexBuilder.LineStart(),
+    RegexBuilder.Digit(RegexQuantifier.Exactly(3)),
+    RegexBuilder.Literal(&quot;-&quot;),
+    RegexBuilder.Digit(RegexQuantifier.Exactly(2)),
+    RegexBuilder.Literal(&quot;-&quot;),
+    RegexBuilder.Digit(RegexQuantifier.Exactly(4)),
+    RegexBuilder.LineEnd()
+);
+</code></pre>
+<hr>
+<h2 id="file-paths-and-names">File Paths and Names</h2>
+<h3 id="windows-file-path">Windows File Path</h3>
+<pre><code class="lang-csharp">// Format: C:\Users\Name\file.txt
+var windowsPath = RegexBuilder.Build(
+    RegexBuilder.LineStart(),
+    RegexBuilder.CharacterSet(&quot;A-Z&quot;, RegexQuantifier.Exactly(1)),
+    RegexBuilder.Literal(&quot;:&quot;),
+    RegexBuilder.Concatenate(
+        RegexBuilder.NonEscapedLiteral(&quot;\\\\&quot;),
+        RegexBuilder.CharacterSet(@&quot;a-zA-Z0-9_\- .&quot;, RegexQuantifier.OneOrMore)
+    ),
+    RegexBuilder.LineEnd()
+);
+</code></pre>
+<h3 id="unix-file-path">Unix File Path</h3>
+<pre><code class="lang-csharp">// Format: /home/user/file.txt
+var unixPath = RegexBuilder.Build(
+    RegexBuilder.LineStart(),
+    RegexBuilder.Literal(&quot;/&quot;),
+    RegexBuilder.CharacterSet(&quot;a-zA-Z0-9_/.-&quot;, RegexQuantifier.OneOrMore),
+    RegexBuilder.LineEnd()
+);
+</code></pre>
+<h3 id="file-extension">File Extension</h3>
+<pre><code class="lang-csharp">// Extract file extension
+var fileExtPattern = RegexBuilder.Build(
+    RegexBuilder.MetaCharacter(RegexMetaChars.AnyCharacter, RegexQuantifier.ZeroOrMore),
+    RegexBuilder.Literal(&quot;.&quot;),
+    RegexBuilder.Group(&quot;extension&quot;,
+        RegexBuilder.CharacterSet(&quot;a-zA-Z0-9&quot;, RegexQuantifier.OneOrMore)
+    ),
+    RegexBuilder.LineEnd()
+);
+
+var match = fileExtPattern.Match(&quot;document.pdf&quot;);
+Console.WriteLine(match.Groups[&quot;extension&quot;].Value);  // pdf
+</code></pre>
+<hr>
+<h2 id="customization-tips">Customization Tips</h2>
+<h3 id="making-patterns-more-strict">Making Patterns More Strict</h3>
+<pre><code class="lang-csharp">// Original: Allows any separator
+.Optional(o =&gt; o.CharacterSet(&quot;- .&quot;))
+
+// Stricter: Only allows dash
+.Literal(&quot;-&quot;)
+</code></pre>
+<h3 id="making-patterns-more-lenient">Making Patterns More Lenient</h3>
+<pre><code class="lang-csharp">// Original: Requires exact format
+.Digits(3).Literal(&quot;-&quot;).Digits(3).Literal(&quot;-&quot;).Digits(4)
+
+// More lenient: Optional separators
+.Digits(3).Optional(o =&gt; o.CharacterSet(&quot;- .&quot;)).Digits(3).Optional(o =&gt; o.CharacterSet(&quot;- .&quot;)).Digits(4)
+</code></pre>
+<h3 id="adding-anchors">Adding Anchors</h3>
+<pre><code class="lang-csharp">// Without anchors: Matches anywhere in string
+var pattern = RegexBuilder.Pattern().Email().Build();
+
+// With anchors: Must match entire string
+var strictPattern = RegexBuilder.Pattern()
+    .Start()
+    .Email()
+    .End()
+    .Build();
+</code></pre>
+<hr>
+<h2 id="performance-considerations">Performance Considerations</h2>
+<h3 id="cache-compiled-patterns">Cache Compiled Patterns</h3>
+<pre><code class="lang-csharp">// ✓ Good: Static, compiled, reusable
+private static readonly Regex EmailRegex = RegexBuilder.Build(
+    RegexOptions.Compiled,
+    CommonPatterns.Email()
+);
+
+// ✗ Avoid: Rebuilding every time
+public bool Validate(string input)
+{
+    var regex = RegexBuilder.Build(CommonPatterns.Email());
+    return regex.IsMatch(input);
+}
+</code></pre>
+<h3 id="use-appropriate-options">Use Appropriate Options</h3>
+<pre><code class="lang-csharp">// For case-insensitive matching
+var regex = RegexBuilder.Build(
+    RegexOptions.Compiled | RegexOptions.IgnoreCase,
+    pattern
+);
+
+// For multiline text
+var regex = RegexBuilder.Build(
+    RegexOptions.Compiled | RegexOptions.Multiline,
+    pattern
+);
+</code></pre>
+<hr>
+<h2 id="next-steps">Next Steps</h2>
+<ul>
+<li><strong><a href="getting-started.html">Getting Started</a></strong> - Learn the basics of RegexBuilder</li>
+<li><strong><a href="api-guide.html">API Guide</a></strong> - Explore advanced features and complete API reference</li>
+<li><strong><a href="https://github.com/somenoe/RegexBuilder.NET9/tree/master/src/RegexBuilder.Tests">GitHub Examples</a></strong> - See more real-world examples</li>
+</ul>
+<p>Happy pattern matching! 🎯</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/docs/docs/common-patterns.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

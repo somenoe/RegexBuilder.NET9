@@ -87,6 +87,204 @@
         <article data-uid="">
 <h1 id="introduction">Introduction</h1>
 
+<h2 id="welcome-to-regexbuildernet9">Welcome to RegexBuilder.NET9</h2>
+<p>RegexBuilder.NET9 is a C# library that lets you build .NET regular expressions using human-readable, maintainable code instead of cryptic regex syntax.</p>
+<h2 id="the-problem">The Problem</h2>
+<p>Traditional regex patterns are powerful but notoriously difficult to read and maintain:</p>
+<p><code>^(?:https?://)?(?:[a-z0-9.-]+)(?::[0-9]+)?(?:/[^?\s]*)?(?:\?[^\s]*)?$</code></p>
+<p>Quick—can you tell what this pattern matches? How about explaining it to a colleague?</p>
+<h2 id="the-solution">The Solution</h2>
+<p>With RegexBuilder, write the same pattern as self-documenting C# code:</p>
+<pre><code class="lang-csharp">var urlPattern = RegexBuilder.Pattern()
+    .Start()
+    .Optional(o =&gt; o
+        .Literal(&quot;http&quot;)
+        .Optional(s =&gt; s.Literal(&quot;s&quot;))
+        .Literal(&quot;://&quot;)
+    )
+    .CharacterSet(&quot;a-z0-9.-&quot;, 1, null)
+    .Optional(o =&gt; o.Literal(&quot;:&quot;).Digits(1, null))
+    .Optional(o =&gt; o.Literal(&quot;/&quot;).CharacterSet(&quot;^?\\s&quot;, 0, null))
+    .Optional(o =&gt; o.Literal(&quot;?&quot;).CharacterSet(&quot;^\\s&quot;, 0, null))
+    .End()
+    .Build();
+
+var urlRegex = RegexBuilder.Build(urlPattern);
+</code></pre>
+<p>Now it's clear: this matches a URL with optional protocol, optional port, optional path, and optional query string.</p>
+<h2 id="when-to-use-regexbuilder">When to Use RegexBuilder</h2>
+<p>RegexBuilder is ideal when:</p>
+<ul>
+<li>✅ <strong>Complexity matters</strong>: Your regex patterns are complex enough that readability is important</li>
+<li>✅ <strong>Team maintenance</strong>: Multiple developers need to understand and modify patterns</li>
+<li>✅ <strong>Dynamic patterns</strong>: You're building patterns programmatically with conditional logic</li>
+<li>✅ <strong>Clarity over brevity</strong>: You value self-documenting code</li>
+</ul>
+<p>RegexBuilder may not be necessary when:</p>
+<ul>
+<li>❌ <strong>Simple patterns</strong>: Trivial patterns like <code>\d{3}</code> are fine as-is</li>
+<li>❌ <strong>One-time use</strong>: Quick throwaway scripts where you won't revisit the code</li>
+<li>❌ <strong>Performance-critical</strong>: Extreme performance requirements where construction overhead matters (though runtime is identical)</li>
+</ul>
+<h2 id="key-features">Key Features</h2>
+<h3 id="-two-apis-for-different-needs">🎯 Two APIs for Different Needs</h3>
+<p><strong>Fluent API (Modern)</strong>: Chainable, intuitive, perfect for common patterns</p>
+<pre><code class="lang-csharp">RegexBuilder.Pattern()
+    .Start()
+    .Email()
+    .End()
+    .Build();
+</code></pre>
+<p><strong>Classic API (Powerful)</strong>: Full access to advanced regex features</p>
+<pre><code class="lang-csharp">RegexBuilder.Build(
+    RegexBuilder.PositiveLookAhead(RegexBuilder.Digit()),
+    RegexBuilder.BalancingGroup(&quot;depth&quot;, &quot;depth&quot;, expr)
+);
+</code></pre>
+<h3 id="-common-patterns-library">📚 Common Patterns Library</h3>
+<p>Pre-built, production-ready patterns for instant productivity:</p>
+<pre><code class="lang-csharp">var emailRegex = RegexBuilder.Build(CommonPatterns.Email());
+var urlRegex = RegexBuilder.Build(CommonPatterns.Url());
+</code></pre>
+<h3 id="-advanced-features">🔧 Advanced Features</h3>
+<ul>
+<li><strong>Balancing Groups</strong>: Match nested structures (parentheses, XML tags)</li>
+<li><strong>Unicode Categories</strong>: Match international text by character category</li>
+<li><strong>Lookaround Assertions</strong>: Lookahead and lookbehind patterns</li>
+<li><strong>Substitution Patterns</strong>: Advanced <code>Regex.Replace()</code> operations</li>
+<li><strong>Inline Options</strong>: Apply options to specific sub-expressions</li>
+</ul>
+<h3 id="-developer-experience">✨ Developer Experience</h3>
+<ul>
+<li><strong>IntelliSense Support</strong>: Full code completion and documentation</li>
+<li><strong>Compile-Time Safety</strong>: Catch errors before runtime</li>
+<li><strong>Composable Patterns</strong>: Build complex patterns from reusable components</li>
+<li><strong>Automatic Escaping</strong>: No more forgetting to escape special characters</li>
+</ul>
+<h2 id="how-it-works">How It Works</h2>
+<p>RegexBuilder uses the <strong>Builder Pattern</strong> to construct regex patterns:</p>
+<ol>
+<li><strong>Build patterns</strong> using fluent methods or static factory methods</li>
+<li><strong>Compose patterns</strong> by combining smaller patterns into larger ones</li>
+<li><strong>Compile to Regex</strong> - Generate a standard .NET <code>Regex</code> object</li>
+<li><strong>Identical runtime performance</strong> - No overhead after construction</li>
+</ol>
+<pre><code class="lang-csharp">// 1. Build a pattern
+var phonePattern = RegexBuilder.Pattern()
+    .Digits(3)
+    .Literal(&quot;-&quot;)
+    .Digits(3)
+    .Literal(&quot;-&quot;)
+    .Digits(4)
+    .Build();
+
+// 2. Compile to Regex
+var phoneRegex = RegexBuilder.Build(
+    RegexOptions.Compiled,  // Optional: compile for performance
+    phonePattern
+);
+
+// 3. Use like any .NET Regex
+bool isValid = phoneRegex.IsMatch(&quot;555-123-4567&quot;);
+</code></pre>
+<h2 id="project-history">Project History</h2>
+<p>RegexBuilder.NET9 is a fork of the original <a href="https://github.com/YuriyGuts/regex-builder">regex-builder</a> by Yuriy Guts, updated and enhanced for .NET 9 with:</p>
+<ul>
+<li>✨ .NET 9 support</li>
+<li>✨ Fluent API (PatternBuilder)</li>
+<li>✨ Common Patterns Library</li>
+<li>✨ Unicode category matching</li>
+<li>✨ Balancing groups</li>
+<li>✨ Inline option grouping</li>
+<li>✨ Substitution patterns</li>
+<li>✨ Enhanced convenience methods</li>
+</ul>
+<h2 id="quick-start">Quick Start</h2>
+<p>Ready to get started? Jump right in:</p>
+<ol>
+<li><strong><a href="getting-started.html">Getting Started</a></strong> - Installation and first examples (5 minutes)</li>
+<li><strong><a href="common-patterns.html">Common Patterns</a></strong> - Copy-paste ready patterns for common needs</li>
+<li><strong><a href="api-guide.html">API Guide</a></strong> - Complete reference for all features</li>
+</ol>
+<h2 id="installation">Installation</h2>
+<p>Install via NuGet:</p>
+<pre><code class="lang-bash">dotnet add package RegexBuilder.NET9 --version 1.1.1
+</code></pre>
+<p>Or add to your <code>.csproj</code>:</p>
+<pre><code class="lang-xml">&lt;PackageReference Include=&quot;RegexBuilder.NET9&quot; Version=&quot;1.1.1&quot; /&gt;
+</code></pre>
+<h2 id="quick-example">Quick Example</h2>
+<p>Let's validate an email address:</p>
+<pre><code class="lang-csharp">using RegexBuilder;
+
+// Build the pattern
+var emailPattern = RegexBuilder.Pattern()
+    .Start()
+    .CharacterSet(&quot;a-zA-Z0-9._%+-&quot;, 1, null)
+    .Literal(&quot;@&quot;)
+    .CharacterSet(&quot;a-zA-Z0-9.-&quot;, 1, null)
+    .Literal(&quot;.&quot;)
+    .Letters(2, 6)
+    .End()
+    .Build();
+
+// Compile to Regex
+var emailRegex = RegexBuilder.Build(emailPattern);
+
+// Use it
+Console.WriteLine(emailRegex.IsMatch(&quot;user@example.com&quot;));  // True
+Console.WriteLine(emailRegex.IsMatch(&quot;invalid.email&quot;));     // False
+</code></pre>
+<h2 id="philosophy">Philosophy</h2>
+<p>RegexBuilder follows these principles:</p>
+<h3 id="readability-first">Readability First</h3>
+<p>Code is read far more often than it's written. RegexBuilder optimizes for clarity:</p>
+<pre><code class="lang-csharp">// Traditional: What does this do?
+new Regex(@&quot;(?&lt;=\$)\d+\.\d{2}&quot;)
+
+// RegexBuilder: Crystal clear
+RegexBuilder.Build(
+    RegexBuilder.PositiveLookBehind(RegexBuilder.Literal(&quot;$&quot;)),
+    RegexBuilder.Digit(RegexQuantifier.OneOrMore),
+    RegexBuilder.Literal(&quot;.&quot;),
+    RegexBuilder.Digit(RegexQuantifier.Exactly(2))
+)
+// Matches: Dollar amount after $ sign (e.g., &quot;5.99&quot; in &quot;$5.99&quot;)
+</code></pre>
+<h3 id="composability">Composability</h3>
+<p>Build complex patterns from simple, reusable components:</p>
+<pre><code class="lang-csharp">// Define reusable components
+var areaCode = RegexBuilder.Pattern().Digits(3).Build();
+var exchange = RegexBuilder.Pattern().Digits(3).Build();
+var lineNumber = RegexBuilder.Pattern().Digits(4).Build();
+
+// Compose them
+var phonePattern = RegexBuilder.Build(
+    areaCode,
+    RegexBuilder.Literal(&quot;-&quot;),
+    exchange,
+    RegexBuilder.Literal(&quot;-&quot;),
+    lineNumber
+);
+</code></pre>
+<h3 id="safety">Safety</h3>
+<p>Let the compiler catch errors before runtime:</p>
+<pre><code class="lang-csharp">// Compile-time error: Method doesn't exist
+.Dgits(3)  // Typo caught by IDE!
+
+// Automatic escaping prevents subtle bugs
+.Literal(&quot;price: $5.99&quot;)  // Correctly escapes special chars
+</code></pre>
+<h2 id="community-and-support">Community and Support</h2>
+<ul>
+<li><strong>GitHub</strong>: <a href="https://github.com/somenoe/RegexBuilder.NET9">somenoe/RegexBuilder.NET9</a></li>
+<li><strong>Issues</strong>: <a href="https://github.com/somenoe/RegexBuilder.NET9/issues">Report bugs or request features</a></li>
+<li><strong>Examples</strong>: <a href="https://github.com/somenoe/RegexBuilder.NET9/tree/master/src/RegexBuilder.Tests">See real-world examples</a></li>
+</ul>
+<h2 id="license">License</h2>
+<p>This project is licensed under the <strong>MIT License</strong>. See <a href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/LICENSE">LICENSE</a> for details.</p>
+<hr>
+<p>Ready to write better regex? <strong><a href="getting-started.html">Get Started →</a></strong></p>
 
 </article>
 

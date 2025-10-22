@@ -148,7 +148,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "RegexBuilder.RegexNodeBalancingGroup",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/RegexBuilder.RegexNodeBalancingGroup.yml\" sourcestartlinenumber=\"1\">Represents a balancing group construct in a regular expression.\nBalancing groups are used to match nested/balanced constructs such as parentheses, XML tags, or code blocks.\nSupports both two-name form (?&lt;name1-name2&gt;expr) and single-name form (?&lt;name&gt;-expr).</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -460,160 +460,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/RegexBuilder.Tests.CommonPatternsTests.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/RegexBuilder.Tests.CommonPatternsTests.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "RegexBuilder.Tests.CommonPatternsTests",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/RegexBuilder.Tests.CustomRegexTests.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/RegexBuilder.Tests.CustomRegexTests.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "RegexBuilder.Tests.CustomRegexTests",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/RegexBuilder.Tests.ExtensionMethodTests.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/RegexBuilder.Tests.ExtensionMethodTests.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "RegexBuilder.Tests.ExtensionMethodTests",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/RegexBuilder.Tests.PatternBuilderTests.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/RegexBuilder.Tests.PatternBuilderTests.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "RegexBuilder.Tests.PatternBuilderTests",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/RegexBuilder.Tests.RegexBuilderTests.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/RegexBuilder.Tests.RegexBuilderTests.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "RegexBuilder.Tests.RegexBuilderTests",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/RegexBuilder.Tests.RegexNodeRenderingTests.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/RegexBuilder.Tests.RegexNodeRenderingTests.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "RegexBuilder.Tests.RegexNodeRenderingTests",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/RegexBuilder.Tests.RegexNodeTests.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/RegexBuilder.Tests.RegexNodeTests.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "RegexBuilder.Tests.RegexNodeTests",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/RegexBuilder.Tests.RegexQuantifierRenderingTests.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/RegexBuilder.Tests.RegexQuantifierRenderingTests.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "RegexBuilder.Tests.RegexQuantifierRenderingTests",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/RegexBuilder.Tests.RegexQuantifierTests.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/RegexBuilder.Tests.RegexQuantifierTests.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "RegexBuilder.Tests.RegexQuantifierTests",
-      "Summary": "<p sourcefile=\"api/RegexBuilder.Tests.RegexQuantifierTests.yml\" sourcestartlinenumber=\"1\">Summary description for UnitTest1</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/RegexBuilder.Tests.SubstitutionBuilderTests.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/RegexBuilder.Tests.SubstitutionBuilderTests.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "RegexBuilder.Tests.SubstitutionBuilderTests",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/RegexBuilder.Tests.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/RegexBuilder.Tests.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "RegexBuilder.Tests",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/RegexBuilder.yml",
       "output": {
         ".html": {
@@ -635,6 +481,26 @@
         },
         ".json": {
           "relative_path": "api/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/api-guide.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/api-guide.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/common-patterns.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/common-patterns.html"
         }
       },
       "version": ""

@@ -87,6 +87,299 @@
         <article data-uid="">
 <h1 id="getting-started">Getting Started</h1>
 
+<p>Welcome to RegexBuilder.NET9! This guide will help you create your first human-readable regular expressions in just 5 minutes.</p>
+<h2 id="why-regexbuilder">Why RegexBuilder?</h2>
+<p>Traditional regex patterns like <code>(?:https?://)?(?:[a-z0-9.-]+)(?::[0-9]+)?</code> are powerful but cryptic. RegexBuilder lets you write the same pattern as readable, maintainable C# code:</p>
+<pre><code class="lang-csharp">var pattern = RegexBuilder.Pattern()
+    .Optional(o =&gt; o.Literal(&quot;http&quot;).Optional(s =&gt; s.Literal(&quot;s&quot;)).Literal(&quot;://&quot;))
+    .CharacterSet(&quot;a-z0-9.-&quot;, 1, null)
+    .Optional(o =&gt; o.Literal(&quot;:&quot;).Digits(1, null))
+    .Build();
+</code></pre>
+<h2 id="installation">Installation</h2>
+<p>Install RegexBuilder.NET9 from NuGet:</p>
+<h3 id="using-net-cli">Using .NET CLI</h3>
+<pre><code class="lang-bash">dotnet add package RegexBuilder.NET9 --version 1.1.1
+</code></pre>
+<h3 id="using-packagereference-in-csproj">Using PackageReference in .csproj</h3>
+<pre><code class="lang-xml">&lt;PackageReference Include=&quot;RegexBuilder.NET9&quot; Version=&quot;1.1.1&quot; /&gt;
+</code></pre>
+<h3 id="requirements">Requirements</h3>
+<ul>
+<li>.NET 9.0 or later</li>
+</ul>
+<h2 id="your-first-pattern-fluent-api">Your First Pattern (Fluent API)</h2>
+<p>Let's build a simple email validator using the modern <strong>Fluent API</strong> (recommended for most use cases):</p>
+<pre><code class="lang-csharp">using RegexBuilder;
+
+// Build an email validation pattern
+var emailPattern = RegexBuilder.Pattern()
+    .Start()                                    // ^ anchor
+    .CharacterSet(&quot;a-zA-Z0-9._%+-&quot;, 1, null)   // local part: one or more allowed chars
+    .Literal(&quot;@&quot;)                               // @ symbol
+    .CharacterSet(&quot;a-zA-Z0-9.-&quot;, 1, null)      // domain: one or more allowed chars
+    .Literal(&quot;.&quot;)                               // literal dot
+    .Letters(2, 6)                              // TLD: 2-6 letters
+    .End()                                      // $ anchor
+    .Build();
+
+// Convert to a compiled Regex
+var emailRegex = RegexBuilder.Build(emailPattern);
+
+// Test it
+Console.WriteLine(emailRegex.IsMatch(&quot;user@example.com&quot;));    // True
+Console.WriteLine(emailRegex.IsMatch(&quot;invalid.email&quot;));       // False
+Console.WriteLine(emailRegex.IsMatch(&quot;test@domain.co.uk&quot;));   // False (needs adjustment for multiple dots)
+</code></pre>
+<h3 id="how-it-works">How It Works</h3>
+<ol>
+<li><strong><code>RegexBuilder.Pattern()</code></strong> - Creates a new fluent pattern builder</li>
+<li><strong><code>.Start()</code></strong> - Adds the <code>^</code> anchor (start of line)</li>
+<li><strong><code>.CharacterSet(...)</code></strong> - Creates a character class <code>[...]</code></li>
+<li><strong><code>.Literal(...)</code></strong> - Adds literal text (auto-escaped)</li>
+<li><strong><code>.Letters(min, max)</code></strong> - Adds <code>[a-zA-Z]</code> with quantifiers</li>
+<li><strong><code>.End()</code></strong> - Adds the <code>$</code> anchor (end of line)</li>
+<li><strong><code>.Build()</code></strong> - Converts to a <code>RegexNode</code></li>
+<li><strong><code>RegexBuilder.Build(node)</code></strong> - Compiles to a .NET <code>Regex</code> object</li>
+</ol>
+<h3 id="generated-pattern">Generated Pattern</h3>
+<p>The code above generates this regex pattern:</p>
+<pre><code>^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$
+</code></pre>
+<p>Much more readable in code form!</p>
+<h2 id="your-first-pattern-classic-api">Your First Pattern (Classic API)</h2>
+<p>The same email pattern using the <strong>Classic API</strong> (more verbose but offers advanced features):</p>
+<pre><code class="lang-csharp">using RegexBuilder;
+
+var emailRegex = RegexBuilder.Build(
+    RegexBuilder.LineStart(),
+    RegexBuilder.CharacterSet(&quot;a-zA-Z0-9._%+-&quot;, RegexQuantifier.OneOrMore),
+    RegexBuilder.Literal(&quot;@&quot;),
+    RegexBuilder.CharacterSet(&quot;a-zA-Z0-9.-&quot;, RegexQuantifier.OneOrMore),
+    RegexBuilder.Literal(&quot;.&quot;),
+    RegexBuilder.CharacterSet(&quot;a-zA-Z&quot;, new RegexQuantifier(2, 6)),
+    RegexBuilder.LineEnd()
+);
+
+// Test it
+Console.WriteLine(emailRegex.IsMatch(&quot;user@example.com&quot;));    // True
+Console.WriteLine(emailRegex.IsMatch(&quot;invalid.email&quot;));       // False
+</code></pre>
+<h3 id="when-to-use-each-api">When to Use Each API</h3>
+<table>
+<thead>
+<tr>
+<th>Fluent API</th>
+<th>Classic API</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✓ Simpler, more intuitive</td>
+<td>✓ Full access to advanced features</td>
+</tr>
+<tr>
+<td>✓ Chainable methods</td>
+<td>✓ Backreferences and group references</td>
+</tr>
+<tr>
+<td>✓ Best for common patterns</td>
+<td>✓ Lookaround assertions</td>
+</tr>
+<tr>
+<td>✓ Less verbose</td>
+<td>✓ Conditional matching</td>
+</tr>
+<tr>
+<td></td>
+<td>✓ Unicode categories</td>
+</tr>
+<tr>
+<td></td>
+<td>✓ Inline option grouping</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Recommendation</strong>: Start with the Fluent API. Switch to Classic API when you need advanced features.</p>
+<h2 id="common-patterns-library">Common Patterns Library</h2>
+<p>Don't want to build patterns from scratch? Use the <strong>CommonPatterns</strong> library for instant productivity:</p>
+<pre><code class="lang-csharp">using RegexBuilder;
+
+// Email validation (pre-built)
+var emailRegex = RegexBuilder.Build(CommonPatterns.Email());
+
+// URL validation (pre-built)
+var urlRegex = RegexBuilder.Build(CommonPatterns.Url());
+
+// Test them
+Console.WriteLine(emailRegex.IsMatch(&quot;user@example.com&quot;));           // True
+Console.WriteLine(urlRegex.IsMatch(&quot;https://github.com/example&quot;));   // True
+</code></pre>
+<p>See the <a href="common-patterns.html">Common Patterns Library</a> for a complete list of pre-built patterns.</p>
+<h2 id="more-examples">More Examples</h2>
+<h3 id="phone-number-pattern">Phone Number Pattern</h3>
+<pre><code class="lang-csharp">// Matches: 555-123-4567, +1-555-123-4567, 5551234567
+var phonePattern = RegexBuilder.Pattern()
+    .Optional(o =&gt; o.Literal(&quot;+1&quot;).Optional(sep =&gt; sep.CharacterSet(&quot;- &quot;)))
+    .Digits(3, 3)                          // Area code
+    .Optional(o =&gt; o.CharacterSet(&quot;- &quot;))
+    .Digits(3, 3)                          // Prefix
+    .Optional(o =&gt; o.CharacterSet(&quot;- &quot;))
+    .Digits(4, 4)                          // Line number
+    .Build();
+
+var phoneRegex = RegexBuilder.Build(phonePattern);
+Console.WriteLine(phoneRegex.IsMatch(&quot;555-123-4567&quot;));      // True
+Console.WriteLine(phoneRegex.IsMatch(&quot;+1-555-123-4567&quot;));   // True
+Console.WriteLine(phoneRegex.IsMatch(&quot;5551234567&quot;));        // True
+</code></pre>
+<h3 id="id-pattern-with-alternation">ID Pattern with Alternation</h3>
+<pre><code class="lang-csharp">// Matches: ID-123 or CODE-AB
+var idPattern = RegexBuilder.Pattern()
+    .Start()
+    .Literal(&quot;ID-&quot;)
+    .Digits(3, 5)
+    .Or(o =&gt; o.Literal(&quot;CODE-&quot;).Letters(2, 4))
+    .End()
+    .Build();
+
+var idRegex = RegexBuilder.Build(idPattern);
+Console.WriteLine(idRegex.IsMatch(&quot;ID-123&quot;));       // True
+Console.WriteLine(idRegex.IsMatch(&quot;CODE-AB&quot;));      // True
+Console.WriteLine(idRegex.IsMatch(&quot;INVALID&quot;));      // False
+</code></pre>
+<h3 id="capturing-groups">Capturing Groups</h3>
+<pre><code class="lang-csharp">// Extract parts of a version string
+var versionPattern = RegexBuilder.Build(
+    RegexBuilder.Group(&quot;major&quot;, RegexBuilder.Digit(RegexQuantifier.OneOrMore)),
+    RegexBuilder.Literal(&quot;.&quot;),
+    RegexBuilder.Group(&quot;minor&quot;, RegexBuilder.Digit(RegexQuantifier.OneOrMore)),
+    RegexBuilder.Literal(&quot;.&quot;),
+    RegexBuilder.Group(&quot;patch&quot;, RegexBuilder.Digit(RegexQuantifier.OneOrMore))
+);
+
+var match = versionPattern.Match(&quot;1.2.3&quot;);
+if (match.Success)
+{
+    Console.WriteLine($&quot;Major: {match.Groups[&quot;major&quot;].Value}&quot;);    // Major: 1
+    Console.WriteLine($&quot;Minor: {match.Groups[&quot;minor&quot;].Value}&quot;);    // Minor: 2
+    Console.WriteLine($&quot;Patch: {match.Groups[&quot;patch&quot;].Value}&quot;);    // Patch: 3
+}
+</code></pre>
+<h2 id="basic-concepts">Basic Concepts</h2>
+<h3 id="pattern-composition">Pattern Composition</h3>
+<p>RegexBuilder treats patterns as composable building blocks. You can:</p>
+<ol>
+<li><strong>Build small patterns</strong> and combine them</li>
+<li><strong>Reuse patterns</strong> across multiple regex expressions</li>
+<li><strong>Test patterns independently</strong> before combining</li>
+</ol>
+<pre><code class="lang-csharp">// Build reusable components
+var digitPart = RegexBuilder.Pattern().Digits(3).Build();
+var separator = RegexBuilder.Literal(&quot;-&quot;);
+
+// Combine them
+var ssn = RegexBuilder.Build(
+    digitPart,
+    separator,
+    RegexBuilder.Pattern().Digits(2).Build(),
+    separator,
+    RegexBuilder.Pattern().Digits(4).Build()
+);
+// Matches: 123-45-6789
+</code></pre>
+<h3 id="quantifiers">Quantifiers</h3>
+<p>Control how many times a pattern repeats:</p>
+<pre><code class="lang-csharp">// Fluent API quantifiers
+.Digits(3, 3)        // Exactly 3 digits: \d{3}
+.Digits(1, null)     // One or more digits: \d+
+.Digits(0, null)     // Zero or more digits: \d*
+.Digits(2, 5)        // 2 to 5 digits: \d{2,5}
+
+// Classic API quantifiers
+RegexQuantifier.Exactly(3)        // {3}
+RegexQuantifier.OneOrMore         // +
+RegexQuantifier.ZeroOrMore        // *
+RegexQuantifier.Optional          // ?
+RegexQuantifier.Range(2, 5)       // {2,5}
+RegexQuantifier.AtLeast(2)        // {2,}
+</code></pre>
+<h3 id="anchors">Anchors</h3>
+<p>Ensure patterns match at specific positions:</p>
+<pre><code class="lang-csharp">// Fluent API
+.Start()             // ^ - Start of line
+.End()               // $ - End of line
+
+// Classic API
+RegexBuilder.LineStart()              // ^
+RegexBuilder.LineEnd()                // $
+RegexBuilder.StringStart()            // \A
+RegexBuilder.StringEnd()              // \Z
+RegexBuilder.WordBoundary()           // \b
+</code></pre>
+<h3 id="character-classes">Character Classes</h3>
+<p>Match specific types of characters:</p>
+<pre><code class="lang-csharp">// Fluent API
+.Digits()            // \d
+.Letters()           // [a-zA-Z]
+.Whitespace()        // \s
+.WordCharacter()     // \w
+.AnyCharacter()      // .
+.CharacterSet(&quot;abc&quot;) // [abc]
+
+// Classic API
+RegexBuilder.Digit()                    // \d
+RegexBuilder.Whitespace()               // \s
+RegexBuilder.WordCharacter()            // \w
+RegexBuilder.CharacterSet(&quot;a-z&quot;)        // [a-z]
+RegexBuilder.NegativeCharacterSet(&quot;a-z&quot;) // [^a-z]
+</code></pre>
+<h2 id="performance-tips">Performance Tips</h2>
+<h3 id="cache-compiled-regex-objects">Cache Compiled Regex Objects</h3>
+<pre><code class="lang-csharp">// ✓ Good: Cache and reuse
+private static readonly Regex EmailRegex = RegexBuilder.Build(
+    RegexOptions.Compiled,
+    CommonPatterns.Email()
+);
+
+public bool ValidateEmail(string input) =&gt; EmailRegex.IsMatch(input);
+
+// ✗ Avoid: Rebuilding on every call
+public bool ValidateEmail(string input)
+{
+    var regex = RegexBuilder.Build(CommonPatterns.Email());  // Overhead!
+    return regex.IsMatch(input);
+}
+</code></pre>
+<h3 id="use-regexoptionscompiled-for-hot-paths">Use RegexOptions.Compiled for Hot Paths</h3>
+<pre><code class="lang-csharp">// For frequently-used patterns, use Compiled option
+var regex = RegexBuilder.Build(
+    RegexOptions.Compiled | RegexOptions.IgnoreCase,
+    CommonPatterns.Email()
+);
+</code></pre>
+<h2 id="next-steps">Next Steps</h2>
+<p>Now that you understand the basics, explore more advanced features:</p>
+<ul>
+<li><strong><a href="common-patterns.html">Common Patterns Library</a></strong> - Pre-built patterns for email, URL, phone, and more</li>
+<li><strong><a href="api-guide.html">API Guide</a></strong> - Complete reference for all RegexBuilder capabilities</li>
+<li><strong><a href="https://github.com/somenoe/RegexBuilder.NET9/tree/master/src/RegexBuilder.Tests">GitHub Examples</a></strong> - Real-world examples and test cases</li>
+</ul>
+<h3 id="advanced-features-to-explore">Advanced Features to Explore</h3>
+<ul>
+<li><strong>Lookaround Assertions</strong> - Match patterns based on what comes before/after</li>
+<li><strong>Backreferences</strong> - Reference previously captured groups</li>
+<li><strong>Balancing Groups</strong> - Match nested structures (parentheses, XML tags)</li>
+<li><strong>Unicode Categories</strong> - Match international characters</li>
+<li><strong>Substitution Patterns</strong> - Advanced <code>Regex.Replace()</code> operations</li>
+</ul>
+<h2 id="getting-help">Getting Help</h2>
+<ul>
+<li><strong>GitHub Issues</strong>: <a href="https://github.com/somenoe/RegexBuilder.NET9/issues">Report bugs or request features</a></li>
+<li><strong>Example Code</strong>: Check out <a href="https://github.com/somenoe/RegexBuilder.NET9/blob/master/src/RegexBuilder.Tests/CustomRegexTests.cs">CustomRegexTests.cs</a></li>
+<li><strong>API Documentation</strong>: Explore the auto-generated API reference</li>
+</ul>
+<p>Happy pattern building! 🎉</p>
 
 </article>
 
