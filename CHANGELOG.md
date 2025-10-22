@@ -7,12 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.1.1.a] - 2025-10-22
 
-### Changed
-
 - Fix all code conventions diagnostics from Roslynator analyzers:
-
-### Added
-
 - Added generated docs (docfx/\_site output) under the repository docs output directory.
 
 ## [1.1.1] - 2025-10-21
