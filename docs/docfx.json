@@ -25,7 +25,7 @@
       }
     ],
     "output": "_site",
-    "template": ["default", "modern"],
+    "template": ["default", "modern", "templates/material"],
     "globalMetadata": {
       "_appName": "RegexBuilder",
       "_appTitle": "RegexBuilder.NET9 - Fluent Regex Builder",
