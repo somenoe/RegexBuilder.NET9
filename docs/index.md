@@ -12,6 +12,7 @@ Welcome to the official documentation site for **RegexBuilder.NET9** — a fluen
 - [Common Patterns](docs/common-patterns.md) — Copy-paste ready production patterns (email, URL, phone, etc.)
 - [API Guide](docs/api-guide.md) — Full reference for the Fluent and Classic APIs
 - [GitHub Repository](https://github.com/somenoe/RegexBuilder.NET9) — Source code, issues, and contribution guidelines
+- [NuGet Package](https://www.nuget.org/packages/RegexBuilder.NET9/) — Official NuGet package page for RegexBuilder.NET9
 
 ## Install
 

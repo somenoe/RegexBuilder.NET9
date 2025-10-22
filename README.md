@@ -4,6 +4,13 @@ C# library for building .NET regular expressions with human-readable code.
 
 > **Note:** This is a fork of the original [regex-builder](https://github.com/YuriyGuts/regex-builder) by Yuriy Guts, updated to support .NET 9.
 
+## Quick links
+
+- [Getting Started](https://somenoe.github.io/RegexBuilder.NET9/docs/getting-started) — Install and create your first pattern in 5 minutes
+- [Common Patterns](https://somenoe.github.io/RegexBuilder.NET9/docs/common-patterns) — Copy-paste ready production patterns (email, URL, phone, etc.)
+- [API Guide](https://somenoe.github.io/RegexBuilder.NET9/docs/api-guide) — Full reference for the Fluent and Classic APIs
+- [NuGet Package](https://www.nuget.org/packages/RegexBuilder.NET9/) — Official NuGet package page for RegexBuilder.NET9
+
 ## Table of Contents
 
 - [Installation](#installation)
@@ -246,17 +253,14 @@ Console.WriteLine(regex.IsMatch("5551234567"));       // True
 RegexBuilder has 4 main classes you'll work with:
 
 1. **`RegexBuilder`** - Factory class for building regex patterns
-
    - Static methods that produce and combine different parts of a regular expression
    - Entry points: `RegexBuilder.Build(...)` and `RegexBuilder.Pattern()`
 
 2. **`PatternBuilder`** - Fluent builder for composing patterns
-
    - Chainable methods for building complex patterns
    - Entry point: `RegexBuilder.Pattern()`
 
 3. **`RegexQuantifier`** - Produces quantifiers for regex parts
-
    - Properties like `ZeroOrMore`, `OneOrMore`, `Optional`, `ExactCount(n)`, `Range(min, max)`, etc.
 
 4. **`RegexMetaChars`** - Named constants for character classes
